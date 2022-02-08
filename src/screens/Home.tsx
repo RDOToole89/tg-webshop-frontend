@@ -4,10 +4,17 @@ import { FlatList } from 'react-native-gesture-handler';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loadProductsActionCreators } from '../state';
+import { fontSizes } from '../constants/sizes';
 
 export const Home: React.FC = () => {
   const dispatch = useDispatch();
   const { data, error, loading } = useSelector((state) => state.products);
+
+  const Item = ({ title }: any) => (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
 
   const renderItem = ({ item }: any) => <Text>{item.productName}</Text>;
 
@@ -34,5 +41,20 @@ export const Home: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: fontSizes.sm,
   },
 });

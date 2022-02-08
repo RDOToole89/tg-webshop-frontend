@@ -1,10 +1,12 @@
+import { Product } from '../reducers/productsReducer';
+
 export interface LoadProductsAction {
   type: 'load_products';
 }
 
 export interface LoadProductsSuccessAction {
   type: 'load_products_success';
-  payload: string[];
+  payload: Product[];
 }
 
 export interface LoadProductsErrorAction {

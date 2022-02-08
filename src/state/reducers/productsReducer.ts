@@ -1,10 +1,22 @@
 import { ActionType } from '../action-types';
-import { TLoadProductsAction } from '../actions/loadProductsInterfaces';
+import { TLoadProductsAction } from '../actionsInterfaces/loadProductsInterfaces';
+
+export interface Product {
+  id: number;
+  name: string;
+  desc: string;
+  imgUrl: string;
+  categoryId: number;
+  stock: number;
+  price: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 export interface ProductsState {
   loading: boolean;
   error: string | null;
-  data: string[];
+  data: Product[];
 }
 
 const initialState = {

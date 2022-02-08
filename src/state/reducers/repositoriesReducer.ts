@@ -1,5 +1,5 @@
 import { ActionType } from '../action-types';
-import { TSearchRepoAction } from '../actions/searchActionInterfaces';
+import { TSearchRepoAction } from '../actionsInterfaces/searchActionInterfaces';
 
 export interface RepositoriesState {
   loading: boolean;
