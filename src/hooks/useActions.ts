@@ -1,6 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { actionCreators } from '../state';
+import { loadProductsActionCreators, searchRepoActionCreators } from '../state';
+
+const actionCreators: any = {
+  loadProductsActionCreators,
+  searchRepoActionCreators,
+};
 
 // custom hook to neaten up the look of dispatching an action
 // with Redux
