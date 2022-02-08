@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export const Home: React.FC = () => {
+export const Signup: React.FC = () => {
   return <View style={styles.container}></View>;
 };
 
