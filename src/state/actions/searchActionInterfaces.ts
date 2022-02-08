@@ -1,5 +1,3 @@
-import { ActionType } from '../action-types';
-
 // Generic Action Inteface => no recommended
 export interface GenericAction {
   type: string;
@@ -20,7 +18,7 @@ export interface SearchRepositoriesErrorAction {
   payload: string;
 }
 
-export type Action =
+export type TSearchRepoAction =
   | SearchRepositoriesAction
   | SearchRepositoriesSuccessAction
   | SearchRepositoriesErrorAction;

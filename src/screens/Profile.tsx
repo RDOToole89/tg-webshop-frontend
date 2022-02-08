@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export const Profile: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Products</Text>
+      <Text>Profile</Text>
     </View>
   );
 };

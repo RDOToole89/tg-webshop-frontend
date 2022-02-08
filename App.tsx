@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Cart } from './src/screens/Cart';
 import { Colors } from './src/constants/colors';
 
-export type RootStackParams = {
+export type TabParams = {
   Home: undefined;
   Cart: undefined;
   Search: undefined;
@@ -21,7 +21,7 @@ export type RootStackParams = {
   Profile: undefined;
 };
 
-const RootStack = createBottomTabNavigator<RootStackParams>();
+const Tab = createBottomTabNavigator<TabParams>();
 
 export default function App() {
   const isLoaded = useCachedResources();
@@ -31,16 +31,15 @@ export default function App() {
     isLoaded && (
       <Provider store={store}>
         <NavigationContainer>
-          <RootStack.Navigator
+          <Tab.Navigator
             initialRouteName='Home'
-            // passing color options
             screenOptions={{
-              // Removes the topheader turn to true to test
               headerShown: false,
               tabBarActiveTintColor: Colors.primaryBlue,
               tabBarInactiveTintColor: 'grey',
+              tabBarShowLabel: false,
             }}>
-            <RootStack.Screen
+            <Tab.Screen
               name='Home'
               component={Home}
               options={{
@@ -51,10 +50,9 @@ export default function App() {
                     color={Colors.primaryBlue}
                   />
                 ),
-                tabBarLabel: 'Home',
               }}
             />
-            <RootStack.Screen
+            <Tab.Screen
               name='Search'
               component={Search}
               options={{
@@ -65,10 +63,9 @@ export default function App() {
                     color={Colors.primaryBlue}
                   />
                 ),
-                tabBarLabel: 'Search',
               }}
             />
-            <RootStack.Screen
+            <Tab.Screen
               name='Cart'
               component={Cart}
               options={{
@@ -79,25 +76,10 @@ export default function App() {
                     color={Colors.primaryBlue}
                   />
                 ),
-
-                tabBarLabel: 'Cart',
+                tabBarBadge: 3,
               }}
             />
-            <RootStack.Screen
-              name='Profile'
-              component={Profile}
-              options={{
-                tabBarIcon: () => (
-                  <Ionicons
-                    name='person-outline'
-                    size={32}
-                    color={Colors.primaryBlue}
-                  />
-                ),
-                tabBarLabel: 'Profile',
-              }}
-            />
-            <RootStack.Screen
+            <Tab.Screen
               name='Categories'
               component={Categories}
               options={{
@@ -108,10 +90,22 @@ export default function App() {
                     color={Colors.primaryBlue}
                   />
                 ),
-                tabBarLabel: 'Categories',
               }}
             />
-          </RootStack.Navigator>
+            <Tab.Screen
+              name='Profile'
+              component={Profile}
+              options={{
+                tabBarIcon: () => (
+                  <Ionicons
+                    name='person-outline'
+                    size={32}
+                    color={Colors.primaryBlue}
+                  />
+                ),
+              }}
+            />
+          </Tab.Navigator>
         </NavigationContainer>
       </Provider>
     )

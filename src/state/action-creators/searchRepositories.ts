@@ -1,6 +1,5 @@
-import { Action } from '../actions/actionInterfaces';
 import axios from 'axios';
-import { Dispatch } from 'redux';
+import { Action, Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 
 export const searchRepositories = (term: string) => {

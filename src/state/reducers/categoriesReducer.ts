@@ -1,7 +1,8 @@
-import { ActionType } from '../action-types';
-import { TSearchRepoAction } from '../actions/searchActionInterfaces';
+import { TLoadCategoryAction } from './../actions/loadCategoryInterfaces';
 
-export interface RepositoriesState {
+import { ActionType } from '../action-types';
+
+export interface CategoriesState {
   loading: boolean;
   error: string | null;
   data: string[];
@@ -14,17 +15,16 @@ const initialState = {
 };
 
 export const reducer = (
-  state: RepositoriesState = initialState,
-  action: TSearchRepoAction
-): RepositoriesState => {
+  state: CategoriesState = initialState,
+  action: TLoadCategoryAction
+): CategoriesState => {
   // Switch statements search as typeguards
   switch (action.type) {
-    case ActionType.SEARCH_REPOSITORIES:
+    case ActionType.LOAD_CATEGORIES:
       return { loading: true, error: null, data: [] };
-    case ActionType.SEARCH_REPOSITORIES_SUCCESS:
-      // 100% certain that 'action' is SearchRepositoriesSuccessAction
+    case ActionType.LOAD_CATEGORIES_SUCCESS:
       return { loading: false, error: null, data: action.payload };
-    case ActionType.SEARCH_REPOSITORIES_ERROR:
+    case ActionType.LOAD_CATEGORIES_ERROR:
       return { loading: false, error: action.payload, data: [] };
     default:
       return state;
