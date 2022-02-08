@@ -1,4 +1,4 @@
-const categories = [
+export const categories = [
   {
     categoryName: 'Games',
     description: 'The latest games for all platforms',
