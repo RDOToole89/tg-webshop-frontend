@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { useActions } from '../hooks/useActions';
 import { cartActionCreators } from '../state';
 
 export const Cart: React.FC = () => {
   const dispatch = useDispatch();
+  const { addToCart, removeFromCart } = useActions();
 
   const onPress = () => {
     dispatch(cartActionCreators.addToCart(1));

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './src/state/store';
 
 import useCachedResources from './src/hooks/useCachedResources';
+
 import { Home } from './src/screens/Home';
 import { Categories } from './src/screens/Categories';
 import { Search } from './src/screens/Search';

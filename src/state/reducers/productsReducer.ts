@@ -1,6 +1,6 @@
 import { Product } from '../../types/types';
 import { ActionType } from '../action-types';
-import { TLoadProductsAction } from '../actionsInterfaces/loadProductsInterfaces';
+import { TLoadProductsAction } from '../actionsInterfaces/ProductsInterfaces';
 
 export interface ProductsState {
   loading: boolean;

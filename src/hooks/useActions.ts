@@ -1,19 +1,22 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loadProductsActionCreators, searchRepoActionCreators } from '../state';
+import {
+  productsActionCreators,
+  cartActionCreators,
+  repositoryActionCreators,
+} from '../state';
 
 const actionCreators: any = {
-  loadProductsActionCreators,
-  searchRepoActionCreators,
+  ...productsActionCreators,
+  ...cartActionCreators,
+  ...repositoryActionCreators,
 };
 
-// custom hook to neaten up the look of dispatching an action
-// with Redux
+// custom hook to neaten up the look of dispatching an action with Redux
+// binds the dispatch function to the action creator
 
 export const useActions = () => {
   const dispatch = useDispatch();
 
   return bindActionCreators(actionCreators, dispatch);
-
-  // { searchRepositories: dispatch(searchrepositories)}
 };

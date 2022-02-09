@@ -1,4 +1,4 @@
-import { TLoadCategoryAction } from '../actionsInterfaces/loadCatergoryInterfaces';
+import { TLoadCategoryAction } from '../actionsInterfaces/CategoryInterfaces';
 import { ActionType } from '../action-types';
 
 export interface CategoriesState {

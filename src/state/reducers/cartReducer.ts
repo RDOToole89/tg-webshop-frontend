@@ -3,7 +3,7 @@ import {
   addQuantityToItemGen,
   subtractQuantityToItemGen,
   removeItemByIdGen,
-} from './cartHelper';
+} from './helperFunctions/cartHelpers';
 import { ActionType } from '../action-types';
 import { TCartActions } from '../actionsInterfaces/cartInterfaces';
 
