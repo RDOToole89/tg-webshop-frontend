@@ -32,7 +32,7 @@ N/A yet
 
 ## DB Diagram
 
-[Diagrams](https://dbdiagram.io/d/5f9bddd43a78976d7b79cfde)
+[Diagrams](https://dbdiagram.io/d/62025a9f85022f4ee5590df4)
 
 ## Backend Repo
 
