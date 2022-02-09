@@ -16,7 +16,31 @@ A simple gaming webshop for practicing my skills as a developer.
 
 ## User Stories
 
-TODO
+As a user I want to be able to create an account so I can login. 
+
+As a user I want my own account page where I can edit my details and shipping information. 
+
+As a user I want to have a search bar feature so I can quickly find the product I am looking for. 
+
+As a user I want an overview page of all the product categories available to me. 
+
+As a user I would like to see an overview page of all products in each category. 
+
+As a user I would like to be able to sort and filter products based on price or review score. 
+
+As a user I want to be able to see the details of a product so I can get to know more about it. 
+
+As a user I would like to be able to add products I like to a shopping cart overview screen. 
+
+As a user I would like to see reviews of a product, so I know I am making a good purchase. 
+
+As a user I want to be able to leave a review of a product to help other users make better decisions. 
+
+As a user I would like to be able to see history page of products I have purchased in the past. 
+
+As a shop owner I would like to have a special screen where I can manage my inventory. 
+
+As a shop owner I would like special admin privileges in order to add new products to my store. 
 
 ## Project Goals and Objectives
 
