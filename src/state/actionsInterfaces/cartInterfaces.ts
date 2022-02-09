@@ -20,6 +20,11 @@ export interface RemoveQuantityFromCartAction {
   payload: { productId: number; quantity: number };
 }
 
+export interface DeleteFromCartAction {
+  type: 'delete_from_cart';
+  payload: { productId: number };
+}
+
 export interface PushItemsToCheckoutAction {
   type: 'push_items_to_checkout';
 }
@@ -47,6 +52,7 @@ export type TCartActions =
   | RemoveFromCartAction
   | AddQuantityToCartAction
   | RemoveQuantityFromCartAction
+  | DeleteFromCartAction
   | PushItemsToCheckoutAction
   | EmptyCartAction
   | LoadCartAction
