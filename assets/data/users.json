@@ -1,0 +1,29 @@
+[
+  {
+    "first_name": "Roibin",
+    "last_name": "OToole",
+    "email": "test@test.com",
+    "password": "test",
+    "is_admin": true,
+    "createdAt": "2022-02-09T09:33:37.015Z",
+    "updatedAt": "2022-02-09T09:33:37.015Z"
+  },
+  {
+    "first_name": "Arjuna",
+    "last_name": "Munzer",
+    "email": "arjuna@gmail.com",
+    "password": "test",
+    "is_admin": false,
+    "createdAt": "2022-02-09T09:33:37.015Z",
+    "updatedAt": "2022-02-09T09:33:37.015Z"
+  },
+  {
+    "first_name": "Andre",
+    "last_name": "Wessels",
+    "email": "andre@gmail.com",
+    "password": "test",
+    "is_admin": false,
+    "createdAt": "2022-02-09T09:33:37.015Z",
+    "updatedAt": "2022-02-09T09:33:37.015Z"
+  }
+]

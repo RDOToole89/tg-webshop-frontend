@@ -9,4 +9,12 @@ export enum ActionType {
   LOAD_PRODUCTS = 'load_products',
   LOAD_PRODUCTS_SUCCESS = 'load_products_success',
   LOAD_PRODUCTS_ERROR = 'load_products_error',
+  LOAD_CART_SUCCESS = 'load_cart_success',
+  LOAD_CART_ERROR = 'load_cart_error',
+  ADD_TO_CART = 'add_to_cart',
+  REMOVE_FROM_CART = 'remove_from_cart',
+  ADD_QUANTITY_TO_CART = 'add_quantity_to_cart',
+  SUBTRACT_QUANTITY_FROM_CART = 'subtract_quantity_from_cart',
+  PUSH_ITEMS_TO_CHECKOUT = 'push_items_to_checkout',
+  EMPTY_CART = 'empty_cart',
 }

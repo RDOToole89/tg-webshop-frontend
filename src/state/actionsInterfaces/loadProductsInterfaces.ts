@@ -1,4 +1,4 @@
-import { Product } from '../reducers/productsReducer';
+import { Product } from '../../types/types';
 
 export interface LoadProductsAction {
   type: 'load_products';

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "categoryName": "Games",
+    "description": "The latest games for all platforms",
+    "createdAt": "2022-02-09T09:33:18.296Z",
+    "updatedAt": "2022-02-09T09:33:18.296Z"
+  },
+  {
+    "id": 2,
+    "categoryName": "PlayStation",
+    "description": "PS5 just released! Get ready for a new generation.",
+    "createdAt": "2022-02-09T09:33:18.296Z",
+    "updatedAt": "2022-02-09T09:33:18.296Z"
+  },
+  {
+    "id": 3,
+    "categoryName": "Xbox",
+    "description": "Xbox Series X is out now! Get ready for an even more immersive experience.",
+    "createdAt": "2022-02-09T09:33:18.296Z",
+    "updatedAt": "2022-02-09T09:33:18.296Z"
+  },
+  {
+    "id": 4,
+    "categoryName": "Nintendo",
+    "description": "Nintendo the most accesible gaming devices on the market. ",
+    "createdAt": "2022-02-09T09:33:18.296Z",
+    "updatedAt": "2022-02-09T09:33:18.296Z"
+  },
+  {
+    "id": 5,
+    "categoryName": "Gaming Gear",
+    "description": "Gear up with the latest in gaming gadgets and accessories",
+    "createdAt": "2022-02-09T09:33:18.296Z",
+    "updatedAt": "2022-02-09T09:33:18.296Z"
+  }
+]

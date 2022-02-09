@@ -17,7 +17,6 @@ export const reducer = (
   state: CategoriesState = initialState,
   action: TLoadCategoryAction
 ): CategoriesState => {
-  // Switch statements search as typeguards
   switch (action.type) {
     case ActionType.LOAD_CATEGORIES:
       return { loading: true, error: null, data: [] };

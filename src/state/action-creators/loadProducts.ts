@@ -1,5 +1,4 @@
 import { Action, Dispatch } from 'redux';
-import { products } from '../../data/products';
 import { ActionType } from '../action-types';
 
 export const loadProducts = () => {
@@ -9,12 +8,13 @@ export const loadProducts = () => {
     });
 
     try {
-      const loadedProducts = products;
-      console.log(loadProducts);
+      const response = await fetch('http://localhost:3000/products');
+      const products = await response.json();
+      console.log('PRODUCTS', products);
 
       dispatch({
         type: ActionType.LOAD_PRODUCTS_SUCCESS,
-        payload: loadedProducts,
+        payload: products,
       });
     } catch (error: any) {
       dispatch({

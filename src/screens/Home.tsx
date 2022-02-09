@@ -10,6 +10,8 @@ export const Home: React.FC = () => {
   const dispatch = useDispatch();
   const { data, error, loading } = useSelector((state) => state.products);
 
+  console.log(data);
+
   const Item = ({ title }: any) => (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
