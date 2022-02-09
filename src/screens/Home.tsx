@@ -10,10 +10,7 @@ import { useActions } from '../hooks/useActions';
 export const Home: React.FC = () => {
   const dispatch = useDispatch();
   const { loadProducts } = useActions();
-  console.log(loadProducts);
   const { data, error, loading } = useSelector((state) => state.products);
-
-  console.log(data);
 
   const Item = ({ title }: any) => (
     <View style={styles.item}>
@@ -24,7 +21,7 @@ export const Home: React.FC = () => {
   const renderItem = ({ item }: any) => <Text>{item.productName}</Text>;
 
   useEffect(() => {
-    dispatch(productsActionCreators.loadProducts());
+    loadProducts();
   }, []);
 
   return (
@@ -36,7 +33,7 @@ export const Home: React.FC = () => {
         <FlatList
           data={data}
           renderItem={renderItem}
-          keyExtractor={(item): any => item.id}
+          keyExtractor={(item): any => item.productId}
         />
       )}
     </View>

@@ -37,7 +37,7 @@ export interface LoadCartSuccessAction {
   payload: Product[];
 }
 
-export interface LoadProductsErrorAction {
+export interface LoadCartErrorAction {
   type: 'load_cart_error';
   payload: string;
 }
@@ -51,4 +51,4 @@ export type TCartActions =
   | EmptyCartAction
   | LoadCartAction
   | LoadCartSuccessAction
-  | LoadProductsErrorAction;
+  | LoadCartErrorAction;

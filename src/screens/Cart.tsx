@@ -6,13 +6,14 @@ import { cartActionCreators } from '../state';
 export const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const { addToCart, removeFromCart } = useActions();
+  console.log('ADD TO CART ACTION', addToCart);
 
   const onPress = () => {
-    dispatch(cartActionCreators.addToCart(1));
+    addToCart(1);
   };
 
   const onPress2 = () => {
-    dispatch(cartActionCreators.removeFromCart(1));
+    removeFromCart(1);
   };
 
   return (

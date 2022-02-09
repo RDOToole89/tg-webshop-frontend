@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './src/state/store';
 
 import useCachedResources from './src/hooks/useCachedResources';
-
+// import { Home } from './src/screens/FlatExample';
 import { Home } from './src/screens/Home';
 import { Categories } from './src/screens/Categories';
 import { Search } from './src/screens/Search';
@@ -26,7 +26,6 @@ const Tab = createBottomTabNavigator<TabParams>();
 
 export default function App() {
   const isLoaded = useCachedResources();
-  console.log(isLoaded);
 
   return (
     isLoaded && (

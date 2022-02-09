@@ -1,4 +1,5 @@
 import { Action, Dispatch } from 'redux';
+import { axios } from '../../constants/axios';
 import { ActionType } from '../action-types';
 
 export const loadProducts = () => {
@@ -8,9 +9,8 @@ export const loadProducts = () => {
     });
 
     try {
-      const response = await fetch('http://localhost:3000/products');
-      const products = await response.json();
-      console.log('PRODUCTS', products);
+      const response = await axios.get('/products');
+      const products = response.data;
 
       dispatch({
         type: ActionType.LOAD_PRODUCTS_SUCCESS,
