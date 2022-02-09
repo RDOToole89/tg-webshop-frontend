@@ -1,19 +1,24 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { useActions } from '../hooks/useActions';
-import { cartActionCreators } from '../state';
 
 export const Cart: React.FC = () => {
-  const dispatch = useDispatch();
-  const { addToCart, removeFromCart } = useActions();
+  const { addToCart, removeFromCart, deleteFromCart } = useActions();
   console.log('ADD TO CART ACTION', addToCart);
 
+  const randomNumber = (min: number, max: number) => {
+    return Math.floor(Math.random() * max) + min;
+  };
+
   const onPress = () => {
-    addToCart(1);
+    addToCart(randomNumber(1, 3));
   };
 
   const onPress2 = () => {
-    removeFromCart(1);
+    removeFromCart(randomNumber(1, 3));
+  };
+
+  const onPress3 = () => {
+    deleteFromCart(randomNumber(1, 3));
   };
 
   return (
@@ -25,6 +30,9 @@ export const Cart: React.FC = () => {
       <TouchableOpacity onPress={onPress2}>
         <Text>remove from cart</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={onPress3}>
+        <Text>delete from cart</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -32,5 +40,6 @@ export const Cart: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
   },
 });

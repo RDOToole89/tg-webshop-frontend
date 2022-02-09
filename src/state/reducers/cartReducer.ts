@@ -1,7 +1,8 @@
+import { Action } from 'redux';
 import {
   findItemByIdGen,
   addQuantityToItemGen,
-  subtractQuantityToItemGen,
+  subtractQuantityFromItemGen,
   removeItemByIdGen,
 } from './helperFunctions/cartHelpers';
 import { ActionType } from '../action-types';
@@ -54,7 +55,7 @@ export const reducer = (
       if (itemAlreadyInCart && itemAlreadyInCart.quantity) {
         return {
           ...state,
-          cartItems: subtractQuantityToItemGen(state.cartItems, productId, 1),
+          cartItems: subtractQuantityFromItemGen(state.cartItems, productId, 1),
         };
       }
       return {
@@ -64,11 +65,48 @@ export const reducer = (
     }
 
     case ActionType.ADD_QUANTITY_TO_CART: {
-      return { ...state };
+      const { productId, quantity } = action.payload;
+      const itemAlreadyInCart = findItemByIdGen(state.cartItems, productId);
+
+      if (itemAlreadyInCart && itemAlreadyInCart.quantity) {
+        return {
+          ...state,
+          cartItems: addQuantityToItemGen(state.cartItems, productId, quantity),
+        };
+      }
+      return {
+        ...state,
+        cartItems: removeItemByIdGen(state.cartItems, productId),
+      };
     }
 
     case ActionType.SUBTRACT_QUANTITY_FROM_CART: {
-      return { ...state };
+      const { productId, quantity } = action.payload;
+      const itemAlreadyInCart = findItemByIdGen(state.cartItems, productId);
+
+      if (itemAlreadyInCart && itemAlreadyInCart.quantity) {
+        return {
+          ...state,
+          cartItems: subtractQuantityFromItemGen(
+            state.cartItems,
+            productId,
+            quantity
+          ),
+        };
+      }
+      return {
+        ...state,
+        cartItems: removeItemByIdGen(state.cartItems, productId),
+      };
+    }
+
+    case ActionType.DELETE_FROM_CART: {
+      const { productId } = action.payload;
+
+      return {
+        ...state,
+        cartItems: removeItemByIdGen(state.cartItems, productId),
+      };
     }
 
     case ActionType.PUSH_ITEMS_TO_CHECKOUT: {

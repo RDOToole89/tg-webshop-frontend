@@ -19,7 +19,7 @@ export const addQuantityToItemGen = <
   );
 };
 
-export const subtractQuantityToItemGen = <
+export const subtractQuantityFromItemGen = <
   T extends { productId: number; quantity: number }
 >(
   arrayOfObjects: T[],
@@ -39,7 +39,7 @@ export const removeItemByIdGen = <
 ): T[] => {
   const filteredArr = arrayOfObjects.filter((T) => T.productId !== id);
 
-  if (!filteredArr.length) return [];
+  if (arrayOfObjects.length === 0) return [];
 
   return filteredArr;
 };

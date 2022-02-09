@@ -2,13 +2,10 @@ import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { useSelector } from '../hooks/useTypedSelector';
 import { FlatList } from 'react-native-gesture-handler';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { productsActionCreators } from '../state';
 import { fontSizes } from '../constants/sizes';
 import { useActions } from '../hooks/useActions';
 
 export const Home: React.FC = () => {
-  const dispatch = useDispatch();
   const { loadProducts } = useActions();
   const { data, error, loading } = useSelector((state) => state.products);
 
