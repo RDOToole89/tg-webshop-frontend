@@ -8,9 +8,9 @@ import {
   FlatList,
 } from 'react-native';
 import { useState } from 'react';
-import { useSelector } from '../hooks/useTypedSelector';
-import { useActions } from '../hooks/useActions';
-import { fontSizes, spacing } from '../constants/sizes';
+import { useSelector } from '../../hooks/useTypedSelector';
+import { useActions } from '../../hooks/useActions';
+import { FontSizes } from '../../constants/sizes';
 
 const Item = ({ title }: any) => (
   <View style={styles.item}>
@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: fontSizes.sm,
+    fontSize: FontSizes.sm,
   },
 });

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useActions } from '../hooks/useActions';
+import { useActions } from '../../hooks/useActions';
 
 export const Cart: React.FC = () => {
   const { addToCart, removeFromCart, deleteFromCart } = useActions();

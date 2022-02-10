@@ -1,9 +1,14 @@
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { useSelector } from '../hooks/useTypedSelector';
-import { FlatList } from 'react-native-gesture-handler';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  FlatList,
+} from 'react-native';
+import { useSelector } from '../../hooks/useTypedSelector';
 import { useEffect } from 'react';
-import { FontSizes } from '../constants/sizes';
-import { useActions } from '../hooks/useActions';
+import { FontSizes } from '../../constants/sizes';
+import { useActions } from '../../hooks/useActions';
 
 export const Home: React.FC = () => {
   const { loadProducts } = useActions();
