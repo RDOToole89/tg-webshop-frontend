@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { spacing } from '../constants/sizes';
+import { Spacing } from '../../constants/sizes';
 
 export const imgStyles = StyleSheet.create({
   tinyLogo: {
@@ -15,7 +15,7 @@ export const imgStyles = StyleSheet.create({
     width: 180,
     height: 180,
     resizeMode: 'contain',
-    marginBottom: spacing.lg,
+    marginBottom: Spacing.lg,
   },
   smallImage: {
     flex: 1,

@@ -1,9 +1,3 @@
-// Generic Action Inteface => no recommended
-export interface GenericAction {
-  type: string;
-  payload?: any;
-}
-
 export interface SearchRepositoriesAction {
   type: 'search_repositories';
 }

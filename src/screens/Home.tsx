@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { useSelector } from '../hooks/useTypedSelector';
 import { FlatList } from 'react-native-gesture-handler';
 import { useEffect } from 'react';
-import { fontSizes } from '../constants/sizes';
+import { FontSizes } from '../constants/sizes';
 import { useActions } from '../hooks/useActions';
 
 export const Home: React.FC = () => {
@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: fontSizes.sm,
+    fontSize: FontSizes.sm,
   },
 });

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { generateBoxShadowStyle } from '../utils/boxShadow';
+import { generateBoxShadowStyle } from '../../utils/boxShadow';
 
 export const boxShadowStyles = StyleSheet.create({
   boxShadow: generateBoxShadowStyle(

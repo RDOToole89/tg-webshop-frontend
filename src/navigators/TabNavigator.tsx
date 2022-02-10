@@ -2,7 +2,6 @@ import { Home } from '../screens/Home';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { Home } from './src/screens/FlatExample';
-// import { Home } from '/src/screens/Home';
 import { Categories } from '../screens/Categories';
 import { Search } from '../screens/Search';
 import { Profile } from '../screens/Profile';
