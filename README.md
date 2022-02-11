@@ -44,11 +44,12 @@ As a shop owner I would like special admin privileges in order to add new produc
 
 ## Project Goals and Objectives
 
-The main purpose of this project was to practice building a full-stack app from scratch and applying 
-the technologies I have learned.
+The main purpose of this project is to practice building a full-stack app from scratch and applying 
+the technologies I have learned over the past months.
 
 ## Project Board
-N/A yet
+
+[Project Board](https://roibinotoole.atlassian.net/jira/software/projects/TWDRO/boards/2)
 
 ## Wireframe
 
