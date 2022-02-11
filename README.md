@@ -1,4 +1,4 @@
-# TG Webshop
+# TG ****!?! Game Webshop
 
 ## Description
 A simple gaming webshop for practicing my skills as a developer.
