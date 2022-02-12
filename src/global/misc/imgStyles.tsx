@@ -1,21 +1,23 @@
 import { StyleSheet } from 'react-native';
-import { Spacing } from '../../constants/sizes';
+import { GLOBAL } from '../styles/global';
 
-export const imgStyles = StyleSheet.create({
+export const IMGSTYLES = StyleSheet.create({
   tinyLogo: {
-    width: 30,
-    height: 30,
+    width: 15,
+    height: 15,
+    resizeMode: 'contain',
   },
   smallLogo: {
     width: 100,
-    height: 100,
+    height: 30,
+    resizeMode: 'contain',
   },
   mainImage: {
     flex: 1,
     width: 180,
     height: 180,
     resizeMode: 'contain',
-    marginBottom: Spacing.lg,
+    marginBottom: GLOBAL.SPACING.sm,
   },
   smallImage: {
     flex: 1,

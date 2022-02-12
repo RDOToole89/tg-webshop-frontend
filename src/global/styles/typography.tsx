@@ -1,7 +1,7 @@
 const COLOR = {
   // CTA
   Primary: '#565656',
-  Secondary: '#399BE0',
+  Secondary: '#4c78e2',
   Default: '#FFFFFF',
   DefaultSelected: '#222222',
   Border: '#E7E7E8',
@@ -13,7 +13,7 @@ const COLOR = {
 };
 
 const FONT = {
-  Primary: 'Helvetica',
+  Primary: 'open-sans-bold',
   h1: {
     fontSize: 24,
     marginBottom: 10,

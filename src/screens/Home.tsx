@@ -1,18 +1,14 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  FlatList,
-} from 'react-native';
-import { useSelector } from '../hooks/useTypedSelector';
+import { View, Text, StyleSheet } from 'react-native';
+
 import { useEffect } from 'react';
-import { FontSizes } from '../constants/sizes';
+
 import { useActions } from '../hooks/useActions';
+import { TopBar } from '../components/TopBar';
+import { PromotionBanner } from '../components/PromotionBanner';
+import { GLOBAL } from '../global/styles/global';
 
 export const Home: React.FC = () => {
   const { loadProducts } = useActions();
-  const { data, error, loading } = useSelector((state) => state.products);
 
   const Item = ({ title }: any) => (
     <View style={styles.item}>
@@ -28,16 +24,11 @@ export const Home: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text>HOME SCREEEN</Text>
-      {error && <h3>{error}</h3>}
-      {loading && <ActivityIndicator size='small' color='000' />}
-      {!error && !loading && (
-        <FlatList
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item): any => item.productId}
-        />
-      )}
+      <TopBar />
+      <PromotionBanner
+        bannerText={'Special offfer: pay EXTRA on orders over 100$'}
+      />
+      <Text></Text>
     </View>
   );
 };
@@ -45,6 +36,7 @@ export const Home: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: GLOBAL.SPACING.xxxl,
   },
   input: {
     height: 40,
@@ -59,6 +51,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: FontSizes.sm,
+    fontSize: GLOBAL.FONT_SIZES.sm,
   },
 });

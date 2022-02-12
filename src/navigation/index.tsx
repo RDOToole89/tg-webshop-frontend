@@ -26,8 +26,8 @@ const Stack = createNativeStackNavigator();
 
 export const RootNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='Root' component={BottomTabNavigator} />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='root' component={BottomTabNavigator} />
     </Stack.Navigator>
   );
 };

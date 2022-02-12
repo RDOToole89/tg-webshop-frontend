@@ -9,15 +9,15 @@ import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
 import image from './assets/gamepad.png';
 
-export default function App() {
-  return (
-    <AnimatedAppLoader image={image}>
-      <MainScreen />
-    </AnimatedAppLoader>
-  );
-}
+// export default function App() {
+//   return (
+//     <AnimatedAppLoader image={image}>
+//       <MainScreen />
+//     </AnimatedAppLoader>
+//   );
+// }
 
-export const MainScreen = () => {
+export default function App() {
   const isLoaded = useCachedResources();
 
   if (isLoaded) {
@@ -27,6 +27,6 @@ export const MainScreen = () => {
       </Provider>
     );
   } else {
-    return <StartupScreen />;
+    return null;
   }
-};
+}
