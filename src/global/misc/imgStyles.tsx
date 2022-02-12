@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { GLOBAL } from '../styles/global';
 
 export const IMGSTYLES = StyleSheet.create({
@@ -21,7 +21,7 @@ export const IMGSTYLES = StyleSheet.create({
   },
   smallImage: {
     flex: 1,
-    width: 40,
+    width: Platform.OS === 'web' ? 300 : 50,
     height: 40,
     resizeMode: 'contain',
   },

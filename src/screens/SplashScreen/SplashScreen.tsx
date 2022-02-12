@@ -11,31 +11,34 @@ SplashScreen.preventAutoHideAsync().catch(() => {
   /* reloading the app might trigger some race conditions, ignore them */
 });
 
-export function AnimatedAppLoader({ children, image }: any) {
+export function AnimatedAppLoader({ children, images }: any) {
   const [isSplashReady, setSplashReady] = useState(false);
 
-  const startAsync = useCallback(
-    // If you use a local image with require(...), use `Asset.fromModule`
-    () => Asset.fromURI(image).downloadAsync(),
-    [image]
-  );
-
-  const onFinish = useCallback(() => setSplashReady(true), []);
+  useEffect(() => {
+    async function loadAssetsAsync(images: any) {
+      try {
+        return await Promise.all(
+          images.map((image: any) => Asset.fromModule(image).downloadAsync())
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    loadAssetsAsync(images).then(() => setSplashReady(true));
+  }, []);
 
   if (!isSplashReady) {
     return (
       <AppLoading
         // Instruct SplashScreen not to hide yet, we want to do this manually
         autoHideSplash={false}
-        //@ts-ignore
-        startAsync={startAsync}
-        onError={console.error}
-        onFinish={onFinish}
       />
     );
   }
 
-  return <AnimatedSplashScreen image={image}>{children}</AnimatedSplashScreen>;
+  return (
+    <AnimatedSplashScreen image={images[0]}>{children}</AnimatedSplashScreen>
+  );
 }
 
 export function AnimatedSplashScreen({ children, image }: any) {

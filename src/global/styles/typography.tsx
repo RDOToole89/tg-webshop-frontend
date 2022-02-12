@@ -1,9 +1,12 @@
 const COLOR = {
   // CTA
-  Primary: '#565656',
+  Primary: '#495056',
   Secondary: '#4c78e2',
   Default: '#FFFFFF',
   DefaultSelected: '#222222',
+  PrimaryGrey: '#f0f0f0',
+  BrandRed: '#ee2a28',
+  BrandBlack: '#212322',
   Border: '#E7E7E8',
   Success: '#2BC480',
   Warning: '#D91E5B',

@@ -133,6 +133,21 @@ const TEXT_INPUT = {
   }),
 };
 
+export const BRAND_HEADER = StyleSheet.create({
+  header: {
+    color: TYPOGRAPHY.COLOR.DefaultSelected,
+    fontSize: 42,
+    fontWeight: 'bold',
+    fontFamily: 'impact',
+    letterSpacing: 2,
+  },
+  textWithShadow: {
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: -0.5, height: 0.5 },
+    textShadowRadius: 5,
+  },
+});
+
 const FONT_SIZES = {
   xxxsm: 4,
   xxsm: 6,
