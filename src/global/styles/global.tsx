@@ -95,6 +95,12 @@ const TEXT = StyleSheet.create({
     fontSize: 14,
     color: TYPOGRAPHY.COLOR.Primary,
   },
+  Secondary: {
+    textAlign: 'left',
+    fontFamily: TYPOGRAPHY.FONT.Primary,
+    fontSize: 12,
+    color: TYPOGRAPHY.COLOR.Default,
+  },
   Bold: {
     textAlign: 'left',
     fontSize: 14,
@@ -127,6 +133,45 @@ const TEXT_INPUT = {
   }),
 };
 
+export const BRAND_HEADER = StyleSheet.create({
+  header: {
+    color: TYPOGRAPHY.COLOR.DefaultSelected,
+    fontSize: 42,
+    fontWeight: 'bold',
+    fontFamily: 'impact',
+    letterSpacing: 2,
+  },
+  textWithShadow: {
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: -0.5, height: 0.5 },
+    textShadowRadius: 5,
+  },
+});
+
+const FONT_SIZES = {
+  xxxsm: 4,
+  xxsm: 6,
+  xsm: 10,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 40,
+  xxxl: 80,
+};
+
+const SPACING = {
+  xxxsm: 2,
+  xxsm: 4,
+  xsm: 6,
+  sm: 8,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 38,
+  xxxl: 64,
+};
+
 const GLOBAL = {
   LAYOUT,
   ELEMENTS,
@@ -134,6 +179,8 @@ const GLOBAL = {
   FONTS,
   TEXT,
   TEXT_INPUT,
+  FONT_SIZES,
+  SPACING,
 };
 
 export { GLOBAL };

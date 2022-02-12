@@ -8,8 +8,9 @@ export default function useCachedResources() {
     const loadResourcesAndDataAsync = async () => {
       try {
         await Font.loadAsync({
-          ubuntu: require('../../assets/fonts/Ubuntu-Regular.ttf'),
-          'ubuntu-bold': require('../../assets/fonts/Ubuntu-Bold.ttf'),
+          'open-sans': require('../../assets/fonts/Open_Sans/OpenSans-Regular.ttf'),
+          'open-sans-medium': require('../../assets/fonts/Open_Sans/OpenSans-Medium.ttf'),
+          'open-sans-bold': require('../../assets/fonts/Open_Sans/OpenSans-Bold.ttf'),
           impact: require('../../assets/fonts/impact/impact.ttf'),
           impacted: require('../../assets/fonts/impact/Impacted.ttf'),
         });

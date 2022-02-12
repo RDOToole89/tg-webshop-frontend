@@ -1,9 +1,13 @@
 const COLOR = {
   // CTA
-  Primary: '#565656',
-  Secondary: '#399BE0',
+  Primary: '#495056',
+  Secondary: '#4c78e2',
   Default: '#FFFFFF',
   DefaultSelected: '#222222',
+  PrimaryGrey: '#f0f0f0',
+  SecondaryGrey: '#E5E7EB',
+  BrandRed: '#ee2a28',
+  BrandBlack: '#212322',
   Border: '#E7E7E8',
   Success: '#2BC480',
   Warning: '#D91E5B',
@@ -13,7 +17,7 @@ const COLOR = {
 };
 
 const FONT = {
-  Primary: 'Helvetica',
+  Primary: 'open-sans-bold',
   h1: {
     fontSize: 24,
     marginBottom: 10,
@@ -31,11 +35,11 @@ const BUTTON = {
   radius: 5,
   primary: {
     height: 48,
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingVertical: 8,
+    borderWidth: 0,
+    borderRadius: 0,
+    paddingVertical: 6,
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     text: {
       fontSize: 14,
     },
