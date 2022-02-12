@@ -8,7 +8,6 @@ import { StartupScreen } from './src/screens/StartupScreen';
 import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
 import image from './assets/gamepad.png';
-import { ImagePropTypes } from 'react-native';
 
 const images = [image];
 

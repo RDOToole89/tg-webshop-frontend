@@ -6,25 +6,37 @@ import { GLOBAL } from '../global/styles/global';
 import { useState } from 'react';
 
 export const SearchBar = () => {
-  const [textProperties, setTextproperties] = useState({
-    placeholder: 'Lame games and more...',
-  });
+  const [placeHolder, setPlaceholder] = useState('Lame games and more...');
+  const [boxShadow, setBoxShadow] = useState({});
+
+  const handleOnFocus = () => {
+    setPlaceholder('');
+    setBoxShadow({
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.3,
+      shadowRadius: 4.65,
+
+      elevation: 8,
+    });
+  };
+
+  const handleOnBlur = () => {
+    setPlaceholder('Lame game and more...');
+    setBoxShadow({});
+  };
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={[styles.inputContainer, shadowStyle(boxShadow).boxShadow]}>
       <TextInput
         onChangeText={() => console.log('change')}
         value={''}
-        placeholder={textProperties.placeholder}
-        onFocus={() =>
-          setTextproperties({ ...textProperties, placeholder: '' })
-        }
-        onBlur={() =>
-          setTextproperties({
-            ...textProperties,
-            placeholder: 'Lame game and more...',
-          })
-        }
+        placeholder={placeHolder}
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
         style={styles.searchInput}
       />
       <SubmitButton
@@ -42,7 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: GLOBAL.SPACING.sm,
-    paddingLeft: GLOBAL.SPACING.xxl,
+    paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
     marginVertical: GLOBAL.SPACING.md,
   },
@@ -55,3 +67,8 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
 });
+
+const shadowStyle = (boxShadow: any) =>
+  StyleSheet.create({
+    boxShadow,
+  });
