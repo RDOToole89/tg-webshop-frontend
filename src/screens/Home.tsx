@@ -5,10 +5,10 @@ import {
   ActivityIndicator,
   FlatList,
 } from 'react-native';
-import { useSelector } from '../../hooks/useTypedSelector';
+import { useSelector } from '../hooks/useTypedSelector';
 import { useEffect } from 'react';
-import { FontSizes } from '../../constants/sizes';
-import { useActions } from '../../hooks/useActions';
+import { FontSizes } from '../constants/sizes';
+import { useActions } from '../hooks/useActions';
 
 export const Home: React.FC = () => {
   const { loadProducts } = useActions();

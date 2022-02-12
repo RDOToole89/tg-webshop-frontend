@@ -1,4 +1,4 @@
-import { Product } from '../../types/types';
+import { Product } from '../../types/data.types';
 
 export interface AddToCartAction {
   type: 'add_to_cart';

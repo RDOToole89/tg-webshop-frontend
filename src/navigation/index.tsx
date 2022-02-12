@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 // import { Home } from './src/screens/FlatExample';
-import { Home } from '../screens/Home/Home';
-import { Categories } from '../screens/Catgegories/Categories';
-import { Search } from '../screens/Search/Search';
-import { Profile } from '../screens/Profile/Profile';
-import { Cart } from '../screens/Cart/Cart';
+import { Home } from '../screens/Home';
+import { Categories } from '../screens/Categories';
+import { Search } from '../screens/Search';
+import { Profile } from '../screens/Profile';
+import { Cart } from '../screens/Cart';
 
 import { Colors } from '../constants/colors';
 import { useSelector } from '../hooks/useTypedSelector';
