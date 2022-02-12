@@ -1,20 +1,20 @@
-import { NavigationContainer } from '@react-navigation/native';
-
 import { Provider } from 'react-redux';
 import { store } from './src/state/store';
+import { Navigation } from './src/navigation';
+
 import useCachedResources from './src/hooks/useCachedResources';
-import { TabNavigator } from './src/navigators/TabNavigator';
+import { StartupScreen } from './src/screens/StartupScreen';
 
 export default function App() {
   const isLoaded = useCachedResources();
 
-  return (
-    isLoaded && (
+  if (!isLoaded) {
+    return (
       <Provider store={store}>
-        <NavigationContainer>
-          <TabNavigator />
-        </NavigationContainer>
+        <Navigation />
       </Provider>
-    )
-  );
+    );
+  } else {
+    return <StartupScreen />;
+  }
 }

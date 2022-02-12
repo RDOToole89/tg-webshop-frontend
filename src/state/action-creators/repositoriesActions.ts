@@ -30,11 +30,3 @@ export const searchRepositories = (term: string) => {
     }
   };
 };
-
-// NOTE 1:
-// Take the dispatch Type and feed it our action type Alias
-//  return async (dispatch: Dispatch<ActionAlias>)
-// export type Action =
-//   | SearchRepositoriesAction
-//   | SearchRepositoriesSuccessAction
-//   | SearchRepositoriesErrorAction;

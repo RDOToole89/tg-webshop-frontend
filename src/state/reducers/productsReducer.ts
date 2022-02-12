@@ -1,4 +1,4 @@
-import { Product } from '../../types/types';
+import { Product } from '../../types/data.types';
 import { ActionType } from '../action-types';
 import { TLoadProductsAction } from '../actionsInterfaces/ProductsInterfaces';
 

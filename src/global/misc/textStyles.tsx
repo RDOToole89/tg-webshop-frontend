@@ -1,56 +1,56 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from '../constants/colors';
-import { fonts } from '../constants/fonts';
-import { fontSizes, spacing } from '../constants/sizes';
+import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
+import { FontSizes, Spacing } from '../../constants/sizes';
 
 export const textStyles = StyleSheet.create({
   headingPrimary: {
-    fontSize: fontSizes.lg,
+    fontSize: FontSizes.lg,
     fontWeight: 'bold',
-    marginTop: spacing.sm,
-    marginBottom: spacing.md,
+    marginTop: Spacing.sm,
+    marginBottom: Spacing.md,
     textTransform: 'uppercase',
     letterSpacing: 3,
   },
   headingSecondary: {
-    fontSize: fontSizes.md,
+    fontSize: FontSizes.md,
     fontWeight: 'bold',
     color: Colors.primaryWhite,
-    marginBottom: spacing.sm,
+    marginBottom: Spacing.sm,
     letterSpacing: 3,
   },
   headerMedium: {
-    fontFamily: fonts.primaryBold,
-    fontSize: fontSizes.md,
+    fontFamily: Fonts.primaryBold,
+    fontSize: FontSizes.md,
     fontWeight: '600',
     letterSpacing: 1.2,
     textTransform: 'uppercase',
-    paddingTop: spacing.xl,
-    marginBottom: spacing.sm,
+    paddingTop: Spacing.xl,
+    marginBottom: Spacing.sm,
   },
   textSmUppercase: {
-    fontSize: fontSizes.sm,
+    fontSize: FontSizes.sm,
     fontFamily: 'ubuntu',
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: Colors.primaryBlack,
   },
   textXsm: {
-    fontFamily: fonts.primary,
-    fontSize: fontSizes.sm,
+    fontFamily: Fonts.primary,
+    fontSize: FontSizes.sm,
     color: Colors.primaryWhite,
     fontWeight: '500',
     letterSpacing: 1.5,
   },
   textSm: {
-    fontFamily: fonts.primary,
-    fontSize: fontSizes.sm,
+    fontFamily: Fonts.primary,
+    fontSize: FontSizes.sm,
     color: Colors.primaryWhite,
     letterSpacing: 1.5,
   },
   textSmBlack: {
-    fontFamily: fonts.primary,
-    fontSize: fontSizes.xsm,
+    fontFamily: Fonts.primary,
+    fontSize: FontSizes.xsm,
     color: Colors.primaryBlack,
     letterSpacing: 1.5,
   },
@@ -60,17 +60,17 @@ export const textStyles = StyleSheet.create({
     height: 30,
   },
   linkText: {
-    fontSize: fontSizes.md,
+    fontSize: FontSizes.md,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     color: Colors.primaryWhite,
   },
   linkReturn: {
     textTransform: 'uppercase',
-    fontFamily: fonts.primary,
+    fontFamily: Fonts.primary,
     letterSpacing: 1.2,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xsm,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.xsm,
     backgroundColor: 'hsla(201, 94%, 88%, .4)',
     fontWeight: '500',
     color: Colors.primaryWhite,

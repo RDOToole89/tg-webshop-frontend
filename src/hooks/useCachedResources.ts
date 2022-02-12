@@ -10,6 +10,8 @@ export default function useCachedResources() {
         await Font.loadAsync({
           ubuntu: require('../../assets/fonts/Ubuntu-Regular.ttf'),
           'ubuntu-bold': require('../../assets/fonts/Ubuntu-Bold.ttf'),
+          impact: require('../../assets/fonts/impact/impact.ttf'),
+          impacted: require('../../assets/fonts/impact/Impacted.ttf'),
         });
       } catch (error) {
         console.warn(error);

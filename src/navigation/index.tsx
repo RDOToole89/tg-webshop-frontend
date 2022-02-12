@@ -1,31 +1,44 @@
-import { Home } from '../screens/Home';
-
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+
 // import { Home } from './src/screens/FlatExample';
-// import { Home } from '/src/screens/Home';
+import { Home } from '../screens/Home';
 import { Categories } from '../screens/Categories';
 import { Search } from '../screens/Search';
 import { Profile } from '../screens/Profile';
-import { Ionicons } from '@expo/vector-icons';
 import { Cart } from '../screens/Cart';
+
 import { Colors } from '../constants/colors';
 import { useSelector } from '../hooks/useTypedSelector';
+import { NavigationContainer } from '@react-navigation/native';
+import { BottomTabParams } from './navigation';
 
-export type TabParams = {
-  Home: undefined;
-  Cart: undefined;
-  Search: undefined;
-  Categories: undefined;
-  Profile: undefined;
+export const Navigation = () => {
+  return (
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
+  );
 };
 
-const Tab = createBottomTabNavigator<TabParams>();
+const Stack = createNativeStackNavigator();
 
-export const TabNavigator = () => {
+export const RootNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name='Root' component={BottomTabNavigator} />
+    </Stack.Navigator>
+  );
+};
+
+const BottomTab = createBottomTabNavigator<BottomTabParams>();
+
+export const BottomTabNavigator = () => {
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
-    <Tab.Navigator
+    <BottomTab.Navigator
       initialRouteName='Home'
       screenOptions={{
         headerShown: false,
@@ -33,7 +46,7 @@ export const TabNavigator = () => {
         tabBarInactiveTintColor: 'grey',
         tabBarShowLabel: false,
       }}>
-      <Tab.Screen
+      <BottomTab.Screen
         name='Home'
         component={Home}
         options={{
@@ -46,7 +59,7 @@ export const TabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name='Search'
         component={Search}
         options={{
@@ -59,7 +72,7 @@ export const TabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name='Cart'
         component={Cart}
         options={{
@@ -73,7 +86,7 @@ export const TabNavigator = () => {
           tabBarBadge: cartItems && cartItems.length,
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name='Categories'
         component={Categories}
         options={{
@@ -86,7 +99,7 @@ export const TabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name='Profile'
         component={Profile}
         options={{
@@ -99,6 +112,6 @@ export const TabNavigator = () => {
           ),
         }}
       />
-    </Tab.Navigator>
+    </BottomTab.Navigator>
   );
 };
