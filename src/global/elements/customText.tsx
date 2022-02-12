@@ -28,11 +28,13 @@ export interface TextInputProps {
   onSubmit?: onSubmitEvent;
 }
 
-const CTEXT: React.FC<TextProps> = (props: TextProps) => (
+export const CustomText: React.FC<TextProps> = (props: TextProps) => (
   <Text style={[GLOBAL.TEXT.Default, props.style]}>{props.children}</Text>
 );
 
-const CTEXTINPUT: React.FC<TextInputProps> = (props: TextInputProps) => {
+export const CustomTextInput: React.FC<TextInputProps> = (
+  props: TextInputProps
+) => {
   const {
     style,
     placeholderTextColor = TYPOGRAPHY.COLOR.Secondary,
@@ -56,5 +58,3 @@ const CTEXTINPUT: React.FC<TextInputProps> = (props: TextInputProps) => {
     />
   );
 };
-
-export { CTEXT, CTEXTINPUT };
