@@ -35,11 +35,11 @@ const BUTTON = {
   radius: 5,
   primary: {
     height: 48,
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingVertical: 8,
+    borderWidth: 0,
+    borderRadius: 0,
+    paddingVertical: 6,
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     text: {
       fontSize: 14,
     },

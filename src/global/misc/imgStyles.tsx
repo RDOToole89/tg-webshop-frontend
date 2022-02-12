@@ -8,8 +8,8 @@ export const IMGSTYLES = StyleSheet.create({
     resizeMode: 'contain',
   },
   smallLogo: {
-    width: 100,
-    height: 30,
+    width: 120,
+    height: 50,
     resizeMode: 'contain',
   },
   mainImage: {

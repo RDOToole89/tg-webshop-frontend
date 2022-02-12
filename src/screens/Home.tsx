@@ -1,4 +1,12 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Button,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 
 import { TopBar } from '../components/TopBar';
 import { PromotionBanner } from '../components/PromotionBanner';
@@ -7,10 +15,11 @@ import { SearchBar } from '../components/SearchBar';
 
 import image from '../../assets/crap-banner.png';
 import { IMGSTYLES } from '../global/misc/imgStyles';
+import { DefaultButton } from '../global/elements/buttons';
 
 export const Home: React.FC = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <TopBar />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
@@ -30,10 +39,36 @@ export const Home: React.FC = () => {
         />
       </View>
 
-      <View></View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          padding: GLOBAL.SPACING.md,
+        }}>
+        <DefaultButton
+          style={{ width: 120 }}
+          title='login'
+          onClick={() => console.log('click')}
+        />
+        <DefaultButton
+          style={{ width: 120 }}
+          title='categories'
+          onClick={() => console.log('click')}
+        />
+      </View>
+      <ScrollView style={styles.scrollContainer}>
+        <ScrollView horizontal>
+          <View style={styles.boxSmall} />
+          <View style={styles.boxSmall} />
+          <View style={styles.boxSmall} />
+          <View style={styles.boxSmall} />
+          <View style={styles.boxSmall} />
+          <View style={styles.boxSmall} />
+        </ScrollView>
+      </ScrollView>
 
       <Text></Text>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -41,5 +76,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: GLOBAL.SPACING.xxxl,
+  },
+  scrollContainer: {
+    padding: GLOBAL.SPACING.sm,
+  },
+  boxSmall: {
+    width: 130,
+    height: 130,
+    marginBottom: 10,
+    marginRight: 10,
+    backgroundColor: 'skyblue',
   },
 });
