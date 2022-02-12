@@ -5,9 +5,9 @@ import {
   View,
   ImageBackground,
 } from 'react-native';
+import { useCustomFonts } from '../hooks/useCustomFonts';
 
 import image from '../../assets/gamepad.png';
-import { useCustomFonts } from '../hooks/useCustomFonts';
 
 export const StartupScreen = () => {
   const fonts = useCustomFonts();
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     flexDirection: 'row',
   },
-
   image: {
     flex: 1,
     justifyContent: 'center',

@@ -5,10 +5,22 @@ import { Navigation } from './src/navigation';
 import useCachedResources from './src/hooks/useCachedResources';
 import { StartupScreen } from './src/screens/StartupScreen';
 
+import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
+
+import image from './assets/gamepad.png';
+
 export default function App() {
+  return (
+    <AnimatedAppLoader image={image}>
+      <MainScreen />
+    </AnimatedAppLoader>
+  );
+}
+
+export const MainScreen = () => {
   const isLoaded = useCachedResources();
 
-  if (!isLoaded) {
+  if (isLoaded) {
     return (
       <Provider store={store}>
         <Navigation />
@@ -17,4 +29,4 @@ export default function App() {
   } else {
     return <StartupScreen />;
   }
-}
+};
