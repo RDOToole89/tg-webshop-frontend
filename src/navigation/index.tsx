@@ -9,10 +9,10 @@ import { Search } from '../screens/Search';
 import { Profile } from '../screens/Profile';
 import { Cart } from '../screens/Cart';
 
-import { Colors } from '../constants/colors';
 import { useSelector } from '../hooks/useTypedSelector';
 import { NavigationContainer } from '@react-navigation/native';
 import { BottomTabParams } from './navigation';
+import { TYPOGRAPHY } from '../global/styles/typography';
 
 export const Navigation = () => {
   return (
@@ -42,7 +42,7 @@ export const BottomTabNavigator = () => {
       initialRouteName='Home'
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: Colors.primaryBlue,
+        tabBarActiveTintColor: TYPOGRAPHY.COLOR.Secondary,
         tabBarInactiveTintColor: 'grey',
         tabBarShowLabel: false,
       }}>
@@ -54,7 +54,7 @@ export const BottomTabNavigator = () => {
             <Ionicons
               name='md-home-outline'
               size={32}
-              color={Colors.primaryBlue}
+              color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
         }}
@@ -67,7 +67,7 @@ export const BottomTabNavigator = () => {
             <Ionicons
               name='search-outline'
               size={32}
-              color={Colors.primaryBlue}
+              color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
         }}
@@ -80,7 +80,7 @@ export const BottomTabNavigator = () => {
             <Ionicons
               name='cart-outline'
               size={32}
-              color={Colors.primaryBlue}
+              color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
           tabBarBadge: cartItems && cartItems.length,
@@ -94,7 +94,7 @@ export const BottomTabNavigator = () => {
             <Ionicons
               name='menu-outline'
               size={32}
-              color={Colors.primaryBlue}
+              color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
         }}
@@ -107,7 +107,7 @@ export const BottomTabNavigator = () => {
             <Ionicons
               name='person-outline'
               size={32}
-              color={Colors.primaryBlue}
+              color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
         }}

@@ -32,6 +32,7 @@ const styles = (
       backgroundColor: backgroundColor
         ? backgroundColor
         : TYPOGRAPHY.COLOR.Secondary,
-      fontSize: GLOBAL.FONT_SIZES.md,
+
+      letterSpacing: 0.7,
     },
   });

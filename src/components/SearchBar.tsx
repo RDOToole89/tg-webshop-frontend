@@ -57,11 +57,12 @@ const styles = StyleSheet.create({
     paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
     marginVertical: GLOBAL.SPACING.md,
+    marginHorizontal: GLOBAL.SPACING.sm,
   },
   searchInput: {
     width: '80%',
     fontFamily: TYPOGRAPHY.FONT.Primary,
-    padding: GLOBAL.SPACING.md,
+    padding: GLOBAL.SPACING.sm,
     color: TYPOGRAPHY.COLOR.Primary,
     fontWeight: '600',
     letterSpacing: 1,

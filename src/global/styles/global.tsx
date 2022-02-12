@@ -98,7 +98,7 @@ const TEXT = StyleSheet.create({
   Secondary: {
     textAlign: 'left',
     fontFamily: TYPOGRAPHY.FONT.Primary,
-    fontSize: 14,
+    fontSize: 12,
     color: TYPOGRAPHY.COLOR.Default,
   },
   Bold: {
