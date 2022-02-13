@@ -2,6 +2,7 @@ const COLOR = {
   // CTA
   Primary: '#495056',
   Secondary: '#4c78e2',
+  Tertiary: '#87ceeb',
   Default: '#FFFFFF',
   DefaultSelected: '#222222',
   PrimaryGrey: '#f0f0f0',

@@ -6,6 +6,7 @@ import {
   Button,
   TouchableOpacity,
   ScrollView,
+  Platform,
 } from 'react-native';
 
 import { TopBar } from '../components/TopBar';
@@ -16,6 +17,7 @@ import { SearchBar } from '../components/SearchBar';
 import image from '../../assets/crap-banner.png';
 import { IMGSTYLES } from '../global/misc/imgStyles';
 import { DefaultButton } from '../global/elements/buttons';
+import { CategoryCard } from './CatgeorieCard';
 
 export const Home: React.FC = () => {
   return (
@@ -44,6 +46,16 @@ export const Home: React.FC = () => {
           flexDirection: 'row',
           justifyContent: 'space-evenly',
           padding: GLOBAL.SPACING.md,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 2,
+            height: 2,
+          },
+          shadowOpacity: 0.3,
+          shadowRadius: 4.65,
+
+          elevation: Platform.OS === 'ios' ? 0 : 8,
+          marginBottom: GLOBAL.SPACING.md,
         }}>
         <DefaultButton
           style={{ width: 120 }}
@@ -58,7 +70,7 @@ export const Home: React.FC = () => {
       </View>
       <ScrollView style={styles.scrollContainer}>
         <ScrollView horizontal>
-          <View style={styles.boxSmall} />
+          <CategoryCard categoryName='classics' />
           <View style={styles.boxSmall} />
           <View style={styles.boxSmall} />
           <View style={styles.boxSmall} />
@@ -74,6 +86,7 @@ export const Home: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
+    color: '#fff',
     flex: 1,
     paddingTop: GLOBAL.SPACING.xxxl,
   },
