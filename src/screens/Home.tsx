@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, ScrollView, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Platform,
+  TextInput,
+} from 'react-native';
 
 import { TopBar } from '../components/TopBar';
 import { PromotionBanner } from '../components/PromotionBanner';
@@ -20,7 +27,6 @@ export const Home: React.FC = () => {
 
       <SearchBar />
       <DealBanner source={image} />
-
       <View
         style={{
           flexDirection: 'row',
