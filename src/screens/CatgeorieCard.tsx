@@ -6,6 +6,7 @@ type CatgoryCard = {
 };
 
 import image from '../../assets/oldschool-nes.png';
+import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
@@ -19,14 +20,8 @@ export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
         ]}>
         Classics
       </Text>
-      <Image
-        resizeMethod='resize'
-        resizeMode='cover'
-        style={{
-          flex: 1,
-        }}
-        source={image}
-      />
+
+      <ResponsiveImage src={image} srcWidth={130} srcHeight={130} />
     </View>
   );
 };

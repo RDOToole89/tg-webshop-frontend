@@ -1,13 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Button,
-  TouchableOpacity,
-  ScrollView,
-  Platform,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Platform } from 'react-native';
 
 import { TopBar } from '../components/TopBar';
 import { PromotionBanner } from '../components/PromotionBanner';
@@ -15,9 +6,9 @@ import { GLOBAL } from '../global/styles/global';
 import { SearchBar } from '../components/SearchBar';
 
 import image from '../../assets/crap-banner.png';
-import { IMGSTYLES } from '../global/misc/imgStyles';
 import { DefaultButton } from '../global/elements/buttons';
 import { CategoryCard } from './CatgeorieCard';
+import { DealBanner } from '../components/DealBanner';
 
 export const Home: React.FC = () => {
   return (
@@ -28,18 +19,7 @@ export const Home: React.FC = () => {
       />
 
       <SearchBar />
-      <View
-        style={{
-          paddingVertical: GLOBAL.SPACING.sm,
-          backgroundColor: '#e5e7eb',
-        }}>
-        <Image
-          source={image}
-          resizeMethod='resize'
-          resizeMode='stretch'
-          style={{ height: 160, width: '100%' }}
-        />
-      </View>
+      <DealBanner source={image} />
 
       <View
         style={{
@@ -71,11 +51,11 @@ export const Home: React.FC = () => {
       <ScrollView style={styles.scrollContainer}>
         <ScrollView horizontal>
           <CategoryCard categoryName='classics' />
-          <View style={styles.boxSmall} />
-          <View style={styles.boxSmall} />
-          <View style={styles.boxSmall} />
-          <View style={styles.boxSmall} />
-          <View style={styles.boxSmall} />
+          <CategoryCard categoryName='classics' />
+          <CategoryCard categoryName='classics' />
+          <CategoryCard categoryName='classics' />
+          <CategoryCard categoryName='classics' />
+          <CategoryCard categoryName='classics' />
         </ScrollView>
       </ScrollView>
 
@@ -91,13 +71,15 @@ const styles = StyleSheet.create({
     paddingTop: GLOBAL.SPACING.xxxl,
   },
   scrollContainer: {
-    padding: GLOBAL.SPACING.sm,
+    padding: GLOBAL.SPACING.md,
+    backgroundColor: '#e5e7eb',
   },
   boxSmall: {
     width: 130,
     height: 130,
     marginBottom: 10,
-    marginRight: 10,
+    marginRight: 30,
+    paddingVertical: 30,
     backgroundColor: 'skyblue',
   },
 });

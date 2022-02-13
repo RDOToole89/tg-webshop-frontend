@@ -21,20 +21,6 @@ export default function App() {
   );
 }
 
-// export default function App() {
-//   const isLoaded = useCachedResources();
-
-//   if (!isLoaded) {
-//     return (
-//       <Provider store={store}>
-//         <Navigation />
-//       </Provider>
-//     );
-//   } else {
-//     return <StartupScreen />;
-//   }
-// }
-
 const MainScreen = () => {
   const isLoaded = useCachedResources();
 
