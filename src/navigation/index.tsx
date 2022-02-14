@@ -11,8 +11,9 @@ import { Cart } from '../screens/Cart';
 
 import { useSelector } from '../hooks/useTypedSelector';
 import { NavigationContainer } from '@react-navigation/native';
-import { BottomTabParams } from './navigation';
+import { BottomTabParams, RootStackParams } from './navigation';
 import { TYPOGRAPHY } from '../global/styles/typography';
+import { Login } from '../screens/Login';
 
 export const Navigation = () => {
   return (
@@ -22,12 +23,14 @@ export const Navigation = () => {
   );
 };
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParams>();
 
 export const RootNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name='root' component={BottomTabNavigator} />
+      <Stack.Screen name='Categories' component={Categories} />
+      <Stack.Screen name='Login' component={Login} />
     </Stack.Navigator>
   );
 };

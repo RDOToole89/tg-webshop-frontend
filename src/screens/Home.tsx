@@ -7,6 +7,8 @@ import {
   TextInput,
 } from 'react-native';
 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 import { TopBar } from '../components/TopBar';
 import { PromotionBanner } from '../components/PromotionBanner';
 import { GLOBAL } from '../global/styles/global';
@@ -17,10 +19,16 @@ import { DefaultButton } from '../global/elements/buttons';
 import { CategoryCard } from './CatgeorieCard';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
+import { useNavigation } from '@react-navigation/native';
+import { Navigation } from '../navigation';
+import { RootStackParams } from '../navigation/navigation';
 
 const user = 'Roibin';
 
-export const Home: React.FC = ({}) => {
+export const Home = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
   return (
     <ScrollView style={styles.container}>
       <MessageBanner message={`welcome ${user}`} delay={4000} />
@@ -50,12 +58,12 @@ export const Home: React.FC = ({}) => {
         <DefaultButton
           style={{ width: 120 }}
           title='login'
-          onClick={() => console.log('click')}
+          onClick={() => navigation.navigate('Login')}
         />
         <DefaultButton
           style={{ width: 120 }}
           title='categories'
-          onClick={() => console.log('click')}
+          onClick={() => navigation.navigate('Categories')}
         />
       </View>
       <ScrollView style={styles.scrollContainer}>
