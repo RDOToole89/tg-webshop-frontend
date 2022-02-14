@@ -30,7 +30,11 @@ export const RootNavigator = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name='root' component={BottomTabNavigator} />
       <Stack.Screen name='Categories' component={Categories} />
-      <Stack.Screen name='Login' component={Login} />
+      <Stack.Screen
+        name='Login'
+        component={Login}
+        options={{ headerShown: true }}
+      />
     </Stack.Navigator>
   );
 };

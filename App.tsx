@@ -8,6 +8,7 @@ import { StartupScreen } from './src/screens/StartupScreen';
 import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
 import image from './assets/gamepad.png';
+import { Login } from './src/screens/Login';
 
 const images = [image];
 
@@ -15,9 +16,11 @@ export default function App() {
   console.log(images);
 
   return (
-    <AnimatedAppLoader images={images}>
-      <MainScreen />
-    </AnimatedAppLoader>
+    <Login />
+
+    // <AnimatedAppLoader images={images}>
+    //   <MainScreen />
+    // </AnimatedAppLoader>
   );
 }
 
