@@ -1,11 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Platform,
-  TextInput,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Platform } from 'react-native';
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -20,7 +13,6 @@ import { CategoryCard } from './CatgeorieCard';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
 import { useNavigation } from '@react-navigation/native';
-import { Navigation } from '../navigation';
 import { RootStackParams } from '../navigation/navigation';
 
 const user = 'Roibin';
@@ -32,7 +24,7 @@ export const Home = () => {
   return (
     <ScrollView style={styles.container}>
       <MessageBanner message={`welcome ${user}`} delay={4000} />
-      <TopBar />
+      <TopBar style={{ backgroundColor: '#fff' }} />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
       />
@@ -69,14 +61,8 @@ export const Home = () => {
       <ScrollView style={styles.scrollContainer}>
         <ScrollView horizontal>
           <CategoryCard categoryName='classics' />
-          <CategoryCard
-            categoryName='playtation
-          '
-          />
-          <CategoryCard
-            categoryName='xbox
-          '
-          />
+          <CategoryCard categoryName='playtation' />
+          <CategoryCard categoryName='xbox' />
           <CategoryCard categoryName='nintendo' />
           <CategoryCard categoryName='simulators' />
           <CategoryCard categoryName='crap consoles' />

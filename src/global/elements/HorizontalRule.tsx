@@ -16,13 +16,18 @@ export const HorizontalRule = ({ color, text, style }: HorizontalRule) => {
           style={{
             flex: 1,
             height: 1,
-            backgroundColor: color ? color : TYPOGRAPHY.COLOR.PrimaryGrey,
+            backgroundColor: color ? color : TYPOGRAPHY.COLOR.TeriaryGrey,
           }}
         />
 
         {text && (
           <View>
-            <Text style={{ width: 50, textAlign: 'center', color: '#606060' }}>
+            <Text
+              style={{
+                width: 50,
+                textAlign: 'center',
+                color: TYPOGRAPHY.COLOR.TeriaryGrey,
+              }}>
               {text}
             </Text>
           </View>
@@ -32,7 +37,7 @@ export const HorizontalRule = ({ color, text, style }: HorizontalRule) => {
           style={{
             flex: 1,
             height: 1,
-            backgroundColor: color ? color : TYPOGRAPHY.COLOR.PrimaryGrey,
+            backgroundColor: color ? color : TYPOGRAPHY.COLOR.TeriaryGrey,
           }}
         />
       </View>

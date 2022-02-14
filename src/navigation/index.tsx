@@ -10,14 +10,17 @@ import { Profile } from '../screens/Profile';
 import { Cart } from '../screens/Cart';
 
 import { useSelector } from '../hooks/useTypedSelector';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { BottomTabParams, RootStackParams } from './navigation';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { Login } from '../screens/Login';
 
+const navTheme = DefaultTheme;
+navTheme.colors.background = '#FFF';
+
 export const Navigation = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <RootNavigator />
     </NavigationContainer>
   );
@@ -27,7 +30,11 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 
 export const RootNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        headerStyle: { backgroundColor: '#FFF' },
+      }}>
       <Stack.Screen name='root' component={BottomTabNavigator} />
       <Stack.Screen name='Categories' component={Categories} />
       <Stack.Screen

@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ImageSourcePropType,
-} from 'react-native';
+import { View, Image, ImageSourcePropType } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 
 export const DealBanner = ({ source }: { source: ImageSourcePropType }) => {
