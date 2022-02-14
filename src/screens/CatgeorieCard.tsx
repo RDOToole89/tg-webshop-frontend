@@ -18,7 +18,7 @@ export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
           GLOBAL.TEXT_INPUT.Style.Bold,
           { textAlign: 'center', padding: 2, borderWidth: 0 },
         ]}>
-        Classics
+        {categoryName}
       </Text>
 
       <ResponsiveImage src={image} srcWidth={130} srcHeight={130} />

@@ -16,10 +16,14 @@ import image from '../../assets/crap-banner.png';
 import { DefaultButton } from '../global/elements/buttons';
 import { CategoryCard } from './CatgeorieCard';
 import { DealBanner } from '../components/DealBanner';
+import { MessageBanner } from '../components/MessageBanner';
 
-export const Home: React.FC = () => {
+const user = 'Roibin';
+
+export const Home: React.FC = ({}) => {
   return (
     <ScrollView style={styles.container}>
+      <MessageBanner message={`welcome ${user}`} delay={4000} />
       <TopBar />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
@@ -57,11 +61,18 @@ export const Home: React.FC = () => {
       <ScrollView style={styles.scrollContainer}>
         <ScrollView horizontal>
           <CategoryCard categoryName='classics' />
-          <CategoryCard categoryName='classics' />
-          <CategoryCard categoryName='classics' />
-          <CategoryCard categoryName='classics' />
-          <CategoryCard categoryName='classics' />
-          <CategoryCard categoryName='classics' />
+          <CategoryCard
+            categoryName='playtation
+          '
+          />
+          <CategoryCard
+            categoryName='xbox
+          '
+          />
+          <CategoryCard categoryName='nintendo' />
+          <CategoryCard categoryName='simulators' />
+          <CategoryCard categoryName='crap consoles' />
+          <CategoryCard categoryName='boring as ****' />
         </ScrollView>
       </ScrollView>
 
