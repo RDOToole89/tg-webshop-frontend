@@ -12,7 +12,6 @@ export default function useCachedResources() {
           'open-sans-medium': require('../../assets/fonts/Open_Sans/OpenSans-Medium.ttf'),
           'open-sans-bold': require('../../assets/fonts/Open_Sans/OpenSans-Bold.ttf'),
           impact: require('../../assets/fonts/impact/impact.ttf'),
-          impacted: require('../../assets/fonts/impact/Impacted.ttf'),
         });
       } catch (error) {
         console.warn(error);

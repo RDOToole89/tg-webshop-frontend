@@ -2,10 +2,12 @@ const COLOR = {
   // CTA
   Primary: '#495056',
   Secondary: '#4c78e2',
+  Tertiary: '#87ceeb',
   Default: '#FFFFFF',
   DefaultSelected: '#222222',
   PrimaryGrey: '#f0f0f0',
   SecondaryGrey: '#E5E7EB',
+  TeriaryGrey: '#060606',
   BrandRed: '#ee2a28',
   BrandBlack: '#212322',
   Border: '#E7E7E8',
@@ -17,7 +19,7 @@ const COLOR = {
 };
 
 const FONT = {
-  Primary: 'open-sans-bold',
+  Primary: 'open-sans',
   h1: {
     fontSize: 24,
     marginBottom: 10,

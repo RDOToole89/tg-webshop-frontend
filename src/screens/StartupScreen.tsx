@@ -11,7 +11,7 @@ import logo from '../../assets/lamestop-logo-transparent.png';
 import { IMGSTYLES } from '../global/misc/imgStyles';
 import { Image } from 'react-native';
 
-export const StartupScreen = () => {
+export const StartupScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode='contain' style={styles.image}>

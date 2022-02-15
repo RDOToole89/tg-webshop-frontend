@@ -1,4 +1,4 @@
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, Platform } from 'react-native';
 import { SubmitButton } from './SubmitButton';
 
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -8,7 +8,6 @@ import { useState } from 'react';
 export const SearchBar = () => {
   const [placeHolder, setPlaceholder] = useState('Lame games and more...');
   const [boxShadow, setBoxShadow] = useState({});
-
   const handleOnFocus = () => {
     setPlaceholder('');
     setBoxShadow({
@@ -28,7 +27,6 @@ export const SearchBar = () => {
     setPlaceholder('Lame game and more...');
     setBoxShadow({});
   };
-
   return (
     <View style={[styles.inputContainer, shadowStyle(boxShadow).boxShadow]}>
       <TextInput
@@ -39,6 +37,7 @@ export const SearchBar = () => {
         onBlur={handleOnBlur}
         style={styles.searchInput}
       />
+
       <SubmitButton
         handleOnClick={() => {
           console.log('click');
@@ -66,6 +65,8 @@ const styles = StyleSheet.create({
     color: TYPOGRAPHY.COLOR.Primary,
     fontWeight: '600',
     letterSpacing: 1,
+    outlineStyle:
+      Platform.OS === 'web' ? 'none' : TYPOGRAPHY.COLOR.DefaultSelected,
   },
 });
 
