@@ -6,16 +6,23 @@ import { useState } from 'react';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { TopBar } from '../components/TopBar';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParams } from '../navigation/navigation';
+import { PressableText } from '../global/elements/PressableText';
 
-export const Login: React.FC = () => {
+export const Login = () => {
+  // const navigation =
+  //   useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
 
   return (
     <>
+      <TopBar align='flex-start' style={{ marginBottom: 20 }} />
       <View style={styles.container}>
-        <TopBar align='flex-start' style={{ marginBottom: 20 }} />
         <View style={{ flexDirection: 'row', marginBottom: 4 }}>
           <Text style={{ fontFamily: 'impact', fontSize: 14 }}>
             Welcome to{' '}
@@ -62,9 +69,10 @@ export const Login: React.FC = () => {
           autoComplete=''
           style={styles.textInput}
         />
-        <Text style={{ textDecorationLine: 'underline' }}>
-          Forgot password?
-        </Text>
+        <PressableText
+          text='Forgot password?'
+          onPress={() => console.log('forgot password')}
+        />
         <View
           style={{
             flexDirection: 'row',
@@ -80,22 +88,25 @@ export const Login: React.FC = () => {
           <Text>Keep me signed in</Text>
         </View>
         <Button
-          style={{ borderRadius: 0 }}
+          style={{ borderRadius: 0, color: TYPOGRAPHY.COLOR.BrandRed }}
           color='#e7230d'
           mode='contained'
           onPress={() => console.log(email, password)}>
-          <Text>SIGN IN</Text>
+          <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
+            SIGN IN
+          </Text>
         </Button>
         <HorizontalRule
           text='or'
           style={{ marginVertical: GLOBAL.SPACING.md }}
         />
         <Button
-          style={{ borderRadius: 0, boderColor: '#121212', borderWidth: 1 }}
+          style={{ borderRadius: 0, borderWidth: 1, borderColor: '#000' }}
           color='#fff'
           mode='contained'
-          onPress={() => console.log('Sign')}>
-          <Text>CREATE ACCOUNT</Text>
+          // onPress={() => navigation.navigate('Signup')}
+        >
+          <Text style={GLOBAL.TEXT.Bold}>CREATE ACCOUNT</Text>
         </Button>
       </View>
     </>

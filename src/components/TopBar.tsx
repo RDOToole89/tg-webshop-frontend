@@ -14,17 +14,20 @@ type TopBar = {
 export const TopBar = ({ align, style }: TopBar) => {
   console.log(style);
   return (
-    <View style={[styles(align).topBar, style]}>
+    <View style={[styles(align).topBar, style, GLOBAL.SHADOWS.shadowLight]}>
       <Image style={IMGSTYLES.smallLogo} source={logo} />
     </View>
   );
 };
 
-const styles = (align: FlexAlignType = 'center') =>
+const styles = (align: FlexAlignType = 'flex-start') =>
   StyleSheet.create({
     topBar: {
+      paddingHorizontal: GLOBAL.SPACING.md,
       alignItems: align,
       justifyContent: 'center',
       paddingVertical: GLOBAL.SPACING.sm,
+      shadow: GLOBAL.SHADOWS.shadowLight,
+      marginBottom: GLOBAL.SPACING.md,
     },
   });

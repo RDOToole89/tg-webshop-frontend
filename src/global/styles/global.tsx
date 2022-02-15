@@ -148,6 +148,31 @@ export const BRAND_HEADER = StyleSheet.create({
   },
 });
 
+const SHADOWS = StyleSheet.create({
+  shadowLight: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+
+    elevation: Platform.OS === 'ios' ? 0 : 4,
+  },
+  shadowMedium: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+
+    elevation: Platform.OS === 'ios' ? 0 : 8,
+  },
+});
+
 const FONT_SIZES = {
   xxxsm: 4,
   xxsm: 6,
@@ -181,6 +206,7 @@ const GLOBAL = {
   TEXT_INPUT,
   FONT_SIZES,
   SPACING,
+  SHADOWS,
 };
 
 export { GLOBAL };

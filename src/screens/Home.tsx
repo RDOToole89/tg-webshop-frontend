@@ -23,7 +23,7 @@ export const Home = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <MessageBanner message={`welcome ${user}`} delay={4000} />
+      <MessageBanner message={`welcome ${user}`} delay={2000} />
       <TopBar style={{ backgroundColor: '#fff' }} />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}

@@ -3,9 +3,9 @@ import { GLOBAL } from '../styles/global';
 import { TYPOGRAPHY } from '../styles/typography';
 
 interface HorizontalRule {
-  color: string;
-  text: string;
-  style: StyleProp<ViewStyle>;
+  color?: string;
+  text?: string;
+  style?: StyleProp<ViewStyle>;
 }
 
 export const HorizontalRule = ({ color, text, style }: HorizontalRule) => {

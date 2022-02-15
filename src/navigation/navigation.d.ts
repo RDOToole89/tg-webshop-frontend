@@ -13,5 +13,6 @@ export type RootStackParams = {
   Categories: undefined;
   root: undefined;
   Profile: undefined;
+  Signup: undefined;
   Login: undefined;
 };

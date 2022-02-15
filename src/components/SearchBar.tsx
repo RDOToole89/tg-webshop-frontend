@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
     color: TYPOGRAPHY.COLOR.Primary,
     fontWeight: '600',
     letterSpacing: 1,
-    // outlineStyle:
-    //   Platform.OS === 'web' ? 'none' : TYPOGRAPHY.COLOR.DefaultSelected,
+    outlineStyle:
+      Platform.OS === 'web' ? 'none' : TYPOGRAPHY.COLOR.DefaultSelected,
   },
 });
 

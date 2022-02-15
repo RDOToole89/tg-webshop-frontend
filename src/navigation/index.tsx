@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 // import { Home } from './src/screens/FlatExample';
@@ -13,9 +14,13 @@ import { useSelector } from '../hooks/useTypedSelector';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { BottomTabParams, RootStackParams } from './navigation';
 import { TYPOGRAPHY } from '../global/styles/typography';
+import { Logo } from '../components/Logo';
 import { Login } from '../screens/Login';
+import { Signup } from '../screens/Signup';
+import BrandLogo from '../../assets/lamestop-logo.png';
 
 const navTheme = DefaultTheme;
+console.log(navTheme);
 navTheme.colors.background = '#FFF';
 
 export const Navigation = () => {
@@ -35,14 +40,35 @@ export const RootNavigator = () => {
         headerShown: false,
         headerStyle: { backgroundColor: '#FFF' },
       }}>
-      <Stack.Screen name='root' component={BottomTabNavigator} />
-      <Stack.Screen name='Categories' component={Categories} />
       <Stack.Screen
         name='Login'
-        component={Login}
-        options={{ headerShown: true }}
+        component={LoginStack}
+        options={{
+          headerTitle: (props) => (
+            <Logo source={BrandLogo} width={120} height={50} />
+          ),
+        }}
       />
+      <Stack.Screen name='Signup' component={Signup} />
+      <Stack.Screen name='root' component={BottomTabNavigator} />
+      <Stack.Screen name='Categories' component={Categories} />
     </Stack.Navigator>
+  );
+};
+
+const AuthStack = createStackNavigator();
+
+export const LoginStack = () => {
+  return (
+    <AuthStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        headerStyle: { backgroundColor: '#FFF' },
+      }}>
+      <AuthStack.Screen name='Home' component={Home} />
+      <AuthStack.Screen name='Login' component={Login} />
+      <AuthStack.Screen name='Signup' component={Signup} />
+    </AuthStack.Navigator>
   );
 };
 

@@ -16,11 +16,11 @@ export default function App() {
   console.log(images);
 
   return (
-    // <Login />
+    <Login />
 
-    <AnimatedAppLoader images={images}>
-      <MainScreen />
-    </AnimatedAppLoader>
+    // <AnimatedAppLoader images={images}>
+    //   <MainScreen />
+    // </AnimatedAppLoader>
   );
 }
 

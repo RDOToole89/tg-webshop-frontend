@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 
 interface ResponsiveImageProps {
-  src: ImageSourcePropType;
+  source: ImageSourcePropType;
   srcWidth: number;
   srcHeight: number;
 }
 
 const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
-  const [containerWidth, setContainerWidth] = useState<number>(0);
+  const [containerWidth, setContainerWidth] = useState(0);
   const _onViewLayoutChange = (event: LayoutChangeEvent) => {
     const { width } = event.nativeEvent.layout;
     setContainerWidth(width);
@@ -30,7 +30,7 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
 
   return (
     <View style={styles.container} onLayout={_onViewLayoutChange}>
-      <Image source={props.src} style={imageStyles} />
+      <Image source={props.source} style={imageStyles} />
     </View>
   );
 };
