@@ -8,6 +8,7 @@ import { TopBar } from '../components/TopBar';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
+import { PressableText } from '../global/elements/PressableText';
 
 export const Signup: React.FC = () => {
   const navigation =
@@ -44,13 +45,13 @@ export const Signup: React.FC = () => {
               letterSpacing: 0.2,
               marginBottom: 8,
             }}>
-            Sign in to your LameStop account
+            Create your LameStop account today!
           </Text>
         </View>
         <TextInput
-          // theme={{
-          //   colors: { primary: '#121212', underlineColor: 'transparent' },
-          // }}
+          theme={{
+            colors: { primary: '#121212' },
+          }}
           mode='outlined'
           label='Firstname'
           value={firstName}
@@ -113,20 +114,17 @@ export const Signup: React.FC = () => {
           color='#e7230d'
           mode='contained'
           onPress={() => console.log(email, password)}>
-          <Text>SIGN IN</Text>
+          <Text>SUBMIT</Text>
         </Button>
         <HorizontalRule
           text='or'
           style={{ marginVertical: GLOBAL.SPACING.md }}
         />
-        <Button
-          //@ts-ignore
-          style={{ borderRadius: 0, boderColor: '#121212', borderWidth: 1 }}
-          color='#fff'
-          mode='contained'
-          onPress={() => navigation.navigate('Signup')}>
-          <Text>CREATE ACCOUNT</Text>
-        </Button>
+
+        <PressableText
+          onPress={() => navigation.navigate('Login')}
+          text='Sign in'
+        />
       </View>
     </>
   );

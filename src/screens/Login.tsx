@@ -12,8 +12,8 @@ import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
 
 export const Login = () => {
-  // const navigation =
-  //   useNavigation<NativeStackNavigationProp<RootStackParams>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -104,8 +104,7 @@ export const Login = () => {
           style={{ borderRadius: 0, borderWidth: 1, borderColor: '#000' }}
           color='#fff'
           mode='contained'
-          // onPress={() => navigation.navigate('Signup')}
-        >
+          onPress={() => navigation.navigate('Signup')}>
           <Text style={GLOBAL.TEXT.Bold}>CREATE ACCOUNT</Text>
         </Button>
       </View>

@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-
+import { View, Text, Button, Image } from 'react-native';
 // import { Home } from './src/screens/FlatExample';
 import { Home } from '../screens/Home';
 import { Categories } from '../screens/Categories';
@@ -17,10 +17,10 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { Logo } from '../components/Logo';
 import { Login } from '../screens/Login';
 import { Signup } from '../screens/Signup';
-import BrandLogo from '../../assets/lamestop-logo.png';
+import BrandLogo from '../../assets/gamepad.png';
+// import BrandLogo from '../../assets/lamestop-logo.png';
 
 const navTheme = DefaultTheme;
-console.log(navTheme);
 navTheme.colors.background = '#FFF';
 
 export const Navigation = () => {
@@ -40,17 +40,9 @@ export const RootNavigator = () => {
         headerShown: false,
         headerStyle: { backgroundColor: '#FFF' },
       }}>
-      <Stack.Screen
-        name='Login'
-        component={LoginStack}
-        options={{
-          headerTitle: (props) => (
-            <Logo source={BrandLogo} width={120} height={50} />
-          ),
-        }}
-      />
-      <Stack.Screen name='Signup' component={Signup} />
       <Stack.Screen name='root' component={BottomTabNavigator} />
+      <Stack.Screen name='Login' component={LoginStack} />
+      <Stack.Screen name='Signup' component={Signup} />
       <Stack.Screen name='Categories' component={Categories} />
     </Stack.Navigator>
   );
@@ -61,12 +53,26 @@ const AuthStack = createStackNavigator();
 export const LoginStack = () => {
   return (
     <AuthStack.Navigator
+      initialRouteName='Home'
       screenOptions={{
-        headerShown: false,
-        headerStyle: { backgroundColor: '#FFF' },
+        headerShown: true,
+        headerStyle: { backgroundColor: '#fff' },
       }}>
+      <AuthStack.Screen
+        name='Login'
+        component={Login}
+        options={{
+          headerTitle: (props) => <Text>Hello</Text>,
+          headerRight: () => (
+            <Button
+              onPress={() => alert('This is a button!')}
+              title='Info'
+              color='#00cc00'
+            />
+          ),
+        }}
+      />
       <AuthStack.Screen name='Home' component={Home} />
-      <AuthStack.Screen name='Login' component={Login} />
       <AuthStack.Screen name='Signup' component={Signup} />
     </AuthStack.Navigator>
   );

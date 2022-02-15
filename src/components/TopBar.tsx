@@ -1,10 +1,19 @@
-import { View, Text, StyleSheet, StyleProp, ViewStyle } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+  Pressable,
+} from 'react-native';
 import logo from '../../assets/lamestop-logo-transparent.png';
 import { IMGSTYLES } from '../global/misc/imgStyles';
 import { Image } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
-
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParams } from '../navigation/navigation';
 import { FlexAlignType } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 type TopBar = {
   align?: FlexAlignType;
@@ -12,10 +21,13 @@ type TopBar = {
 };
 
 export const TopBar = ({ align, style }: TopBar) => {
-  console.log(style);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <View style={[styles(align).topBar, style, GLOBAL.SHADOWS.shadowLight]}>
-      <Image style={IMGSTYLES.smallLogo} source={logo} />
+      <Pressable onPress={() => navigation.navigate('Home')}>
+        <Image style={IMGSTYLES.smallLogo} source={logo} />
+      </Pressable>
     </View>
   );
 };

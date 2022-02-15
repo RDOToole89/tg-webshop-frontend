@@ -4,7 +4,9 @@ import { Text, Pressable, PressableProps } from 'react-native';
 export const PressableText = (props: PressableProps & { text: string }) => {
   return (
     <Pressable {...props}>
-      <Text style={{ textDecorationLine: 'underline' }}>{props.text}</Text>
+      <Text style={{ textDecorationLine: 'underline', textAlign: 'center' }}>
+        {props.text}
+      </Text>
     </Pressable>
   );
 };

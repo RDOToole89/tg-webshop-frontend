@@ -13,14 +13,10 @@ import { Login } from './src/screens/Login';
 const images = [image];
 
 export default function App() {
-  console.log(images);
-
   return (
-    <Login />
-
-    // <AnimatedAppLoader images={images}>
-    //   <MainScreen />
-    // </AnimatedAppLoader>
+    <AnimatedAppLoader images={images}>
+      <MainScreen />
+    </AnimatedAppLoader>
   );
 }
 

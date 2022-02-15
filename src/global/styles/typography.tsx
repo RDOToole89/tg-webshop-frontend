@@ -19,7 +19,7 @@ const COLOR = {
 };
 
 const FONT = {
-  Primary: 'open-sans-bold',
+  Primary: 'open-sans',
   h1: {
     fontSize: 24,
     marginBottom: 10,
