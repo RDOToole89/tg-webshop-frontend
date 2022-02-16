@@ -24,7 +24,11 @@ export const ReferenceBar = ({ iconName, routeString, barText }: any) => {
           borderBottomColor: TYPOGRAPHY.COLOR.PrimaryGrey,
           borderBottomWidth: 1,
         }}>
-        <MaterialIcon size='medium' name={iconName} color='#000' />
+        <MaterialIcon
+          size='large'
+          name={iconName}
+          color={TYPOGRAPHY.COLOR.Secondary}
+        />
         <CustomText
           style={{ marginLeft: 10, fontSize: GLOBAL.FONT_SIZES.md }}
           children={barText}

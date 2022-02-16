@@ -14,8 +14,11 @@ import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
+import { MaterialIcon } from '../global/elements/MaterialIcon';
+import { TYPOGRAPHY } from '../global/styles/typography';
 
 const user = 'Roibin';
+const loggedIn = true;
 
 export const HomeScreen = () => {
   const navigation =
@@ -23,7 +26,10 @@ export const HomeScreen = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <MessageBanner message={`welcome ${user}`} delay={2000} />
+      <MessageBanner
+        message={loggedIn ? `Welcome back ${user}` : `Welcome to LameStop`}
+        delay={2000}
+      />
       <TopBar style={{ backgroundColor: '#fff' }} />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
@@ -48,14 +54,36 @@ export const HomeScreen = () => {
           marginBottom: GLOBAL.SPACING.md,
         }}>
         <DefaultButton
-          style={{ width: 120 }}
+          style={{
+            width: 120,
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+          }}
           title='login'
           onClick={() => navigation.navigate('LoginStack')}
+          icon={
+            <MaterialIcon
+              size='large'
+              name='person'
+              color={TYPOGRAPHY.COLOR.BrandBlack}
+            />
+          }
         />
         <DefaultButton
-          style={{ width: 120 }}
+          style={{
+            width: 130,
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+          }}
           title='categories'
           onClick={() => navigation.navigate('Categories')}
+          icon={
+            <MaterialIcon
+              size='large'
+              name='menu'
+              color={TYPOGRAPHY.COLOR.BrandBlack}
+            />
+          }
         />
       </View>
       <ScrollView style={styles.scrollContainer}>

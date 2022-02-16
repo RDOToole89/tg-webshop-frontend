@@ -73,7 +73,7 @@ const CTA = {
 const FONTS = StyleSheet.create({
   h1: {
     ...TYPOGRAPHY.FONT.h1,
-    fontFamily: TYPOGRAPHY.FONT.Primary,
+    fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
     color: TYPOGRAPHY.COLOR.DefaultSelected,
   },
   body: {

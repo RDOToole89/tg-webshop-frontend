@@ -2,8 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-import { View, Text, Button, Image, Pressable } from 'react-native';
-// import { Home } from './src/screens/FlatExample';
+import logo from '../../assets/lamestop-logo-transparent.png';
+
+import { Image, Pressable } from 'react-native';
 import { HomeScreen } from '../screens/HomeScreen';
 import { CategoriesScreen } from '../screens/CategoriesScreen';
 import { SearchScreen } from '../screens/SearchScreen';
@@ -14,12 +15,10 @@ import { useSelector } from '../hooks/useTypedSelector';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { BottomTabParams, RootStackParams } from './navigation';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { Logo } from '../components/Logo';
 import { LoginScreen } from '../screens/LoginScreen';
 import { SignupScreen } from '../screens/SignupScreen';
-import BrandLogo from '../../assets/gamepad.png';
 import { GLOBAL } from '../global/styles/global';
-// import BrandLogo from '../../assets/lamestop-logo.png';
+import { IMGSTYLES } from '../global/misc/imgStyles';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -72,17 +71,6 @@ export const LoginStack = () => {
               />
             </Pressable>
           ),
-
-          headerRight: () => (
-            <Pressable onPress={() => console.log('go to home!')}>
-              <Ionicons
-                style={{ padding: GLOBAL.SPACING.md }}
-                name='md-home-outline'
-                size={24}
-                color={TYPOGRAPHY.COLOR.BrandBlack}
-              />
-            </Pressable>
-          ),
         })}
       />
       <AuthStack.Screen name='Signup' component={SignupScreen} />
@@ -99,10 +87,24 @@ export const BottomTabNavigator = () => {
     <BottomTab.Navigator
       initialRouteName='Home'
       screenOptions={({ navigation, route }) => ({
+        // tabBarStyle: {
+        //   justifyContent: 'center',
+        //   alignItems: 'space-evenly',
+        //   padding: GLOBAL.SPACING.md,
+        // },
+        headerRight: () => (
+          <Pressable onPress={() => navigation.navigate('Home')}>
+            <Image
+              style={[IMGSTYLES.headerLogo, { marginRight: GLOBAL.SPACING.md }]}
+              source={logo}
+            />
+          </Pressable>
+        ),
         headerShown: false,
-        tabBarActiveTintColor: TYPOGRAPHY.COLOR.Secondary,
-        tabBarInactiveTintColor: 'grey',
-        tabBarShowLabel: false,
+        tabBarActiveTintColor: TYPOGRAPHY.COLOR.BrandRed,
+        tabBarInactiveTintColor: TYPOGRAPHY.COLOR.BrandBlack,
+        tabBarShowLabel: true,
+        tabBarLabelStyle: { paddingBottom: 4 },
       })}>
       <BottomTab.Screen
         name='Home'
@@ -111,8 +113,8 @@ export const BottomTabNavigator = () => {
           tabBarIcon: () => (
             <Ionicons
               name='md-home-outline'
-              size={32}
-              color={TYPOGRAPHY.COLOR.Secondary}
+              size={24}
+              color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
         })}
@@ -134,8 +136,8 @@ export const BottomTabNavigator = () => {
           tabBarIcon: () => (
             <Ionicons
               name='search-outline'
-              size={32}
-              color={TYPOGRAPHY.COLOR.Secondary}
+              size={24}
+              color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
         })}
@@ -157,8 +159,8 @@ export const BottomTabNavigator = () => {
           tabBarIcon: () => (
             <Ionicons
               name='cart-outline'
-              size={32}
-              color={TYPOGRAPHY.COLOR.Secondary}
+              size={24}
+              color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
           tabBarBadge: cartItems && cartItems.length,
@@ -181,8 +183,8 @@ export const BottomTabNavigator = () => {
           tabBarIcon: () => (
             <Ionicons
               name='menu-outline'
-              size={32}
-              color={TYPOGRAPHY.COLOR.Secondary}
+              size={24}
+              color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
         })}
@@ -201,11 +203,12 @@ export const BottomTabNavigator = () => {
               />
             </Pressable>
           ),
+
           tabBarIcon: () => (
             <Ionicons
               name='person-outline'
-              size={32}
-              color={TYPOGRAPHY.COLOR.Secondary}
+              size={24}
+              color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
         })}

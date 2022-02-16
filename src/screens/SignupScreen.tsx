@@ -57,7 +57,7 @@ export const SignupScreen: React.FC = () => {
           value={firstName}
           onChangeText={(text) => setFirstName(text)}
           autoComplete=''
-          style={styles.textInput}
+          style={[styles.textInput, { backgroundColor: '#FFF' }]}
         />
         <TextInput
           theme={{
@@ -68,7 +68,7 @@ export const SignupScreen: React.FC = () => {
           value={lastName}
           onChangeText={(text) => setEmail(text)}
           autoComplete=''
-          style={styles.textInput}
+          style={[styles.textInput, { backgroundColor: '#FFF' }]}
         />
         <TextInput
           theme={{

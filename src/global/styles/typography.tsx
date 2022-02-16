@@ -20,9 +20,10 @@ const COLOR = {
 
 const FONT = {
   Primary: 'open-sans',
+  PrimaryBold: 'open-sans-bold',
   h1: {
     fontFamily: 'open-sans',
-    fontSize: 24,
+    fontSize: 26,
     marginBottom: 10,
   },
   subtitle: {

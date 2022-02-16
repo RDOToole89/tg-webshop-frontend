@@ -11,22 +11,43 @@ export const ProfileScreen: React.FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
+  const loggedIn = false;
+  const userName = 'Roibin';
+  const email = 'roibinotoole@gmail.com';
+
   return (
     <View style={styles.container}>
-      <Text style={TYPOGRAPHY.FONT.h1}>Hi There!</Text>
-      <Text
-        style={[TYPOGRAPHY.FONT.subtitle, { marginBottom: GLOBAL.SPACING.md }]}>
-        If you log in you will have access to all the crappy games your heart
-        desires, you will also be able to track your orders and buy even more
-        lousy games!
-      </Text>
-      <DefaultButton
-        style={{ width: 120 }}
-        title='login'
-        onClick={() => navigation.navigate('LoginStack')}
-      />
+      {loggedIn ? (
+        <>
+          <Text style={TYPOGRAPHY.FONT.h1}>{userName}</Text>
+          <Text style={TYPOGRAPHY.FONT.subtitle}>{email}</Text>
+        </>
+      ) : (
+        <Text style={TYPOGRAPHY.FONT.h1}>Hi There!</Text>
+      )}
+
+      {!loggedIn && (
+        <>
+          <Text
+            style={[
+              TYPOGRAPHY.FONT.subtitle,
+              { marginBottom: GLOBAL.SPACING.md },
+            ]}>
+            If you log in you will have access to all the crappy games your
+            heart desires, you will also be able to track your orders and buy
+            even more lousy games and consoles!
+          </Text>
+
+          <DefaultButton
+            style={{ width: 120 }}
+            title='login'
+            onClick={() => navigation.navigate('LoginStack')}
+          />
+        </>
+      )}
+
       <ReferenceBar iconName='person' barText='Account' routeString='Home' />
-      <ReferenceBar iconName='person' barText='Orders' routeString='Home' />
+      <ReferenceBar iconName='receipt' barText='Orders' routeString='Home' />
       <ReferenceBar
         iconName='pending-actions'
         barText='Invoices'
