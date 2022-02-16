@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
+import { GLOBAL } from '../global/styles/global';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useTypedSelector';
 
@@ -52,5 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    paddingTop: GLOBAL.SPACING.xxxl,
+    paddingHorizontal: GLOBAL.SPACING.md,
   },
 });

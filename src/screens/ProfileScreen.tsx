@@ -5,6 +5,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { DefaultButton } from '../global/elements/buttons';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
+import { ReferenceBar } from '../components/ReferenceBar';
 
 export const ProfileScreen: React.FC = () => {
   const navigation =
@@ -24,11 +25,27 @@ export const ProfileScreen: React.FC = () => {
         title='login'
         onClick={() => navigation.navigate('LoginStack')}
       />
+      <ReferenceBar iconName='person' barText='Account' routeString='Home' />
+      <ReferenceBar iconName='person' barText='Orders' routeString='Home' />
+      <ReferenceBar
+        iconName='pending-actions'
+        barText='Invoices'
+        routeString='Home'
+      />
+      <ReferenceBar
+        iconName='phone'
+        barText='Customer Service'
+        routeString='Home'
+      />
+      <ReferenceBar
+        iconName='feedback'
+        barText='Feedback about the app'
+        routeString='Home'
+      />
     </View>
   );
 };
 
-DefaultButton;
 const styles = StyleSheet.create({
   container: {
     color: '#fff',
