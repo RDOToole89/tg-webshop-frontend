@@ -37,13 +37,7 @@ export const LoginScreen: React.FC = () => {
           </Text>
         </View>
         <View>
-          <Text
-            style={{
-              fontFamily: 'open-sans',
-              fontSize: 10,
-              letterSpacing: 0.2,
-              marginBottom: 8,
-            }}>
+          <Text style={[TYPOGRAPHY.FONT.subtitle]}>
             Sign in to your LameStop account
           </Text>
         </View>
