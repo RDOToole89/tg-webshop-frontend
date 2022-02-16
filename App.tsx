@@ -8,7 +8,7 @@ import { StartupScreen } from './src/screens/StartupScreen';
 import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
 import image from './assets/gamepad.png';
-import { Login } from './src/screens/Login';
+import { LoginScreen } from './src/screens/LoginScreen';
 
 const images = [image];
 

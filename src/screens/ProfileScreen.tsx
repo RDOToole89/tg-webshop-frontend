@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export const Categories: React.FC = ({}) => {
+export const ProfileScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Classics</Text>
+      <Text>Profile</Text>
     </View>
   );
 };

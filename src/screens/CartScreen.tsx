@@ -8,7 +8,7 @@ import {
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useTypedSelector';
 
-export const Cart: React.FC = () => {
+export const CartScreen: React.FC = () => {
   const { addToCart, removeFromCart, deleteFromCart } = useActions();
   const cartItems = useSelector((state) => state.cart);
   console.log('ADD TO CART ACTION', addToCart);

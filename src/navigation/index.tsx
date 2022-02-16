@@ -2,22 +2,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, Pressable } from 'react-native';
 // import { Home } from './src/screens/FlatExample';
-import { Home } from '../screens/Home';
-import { Categories } from '../screens/Categories';
-import { Search } from '../screens/Search';
-import { Profile } from '../screens/Profile';
-import { Cart } from '../screens/Cart';
+import { HomeScreen } from '../screens/HomeScreen';
+import { CategoriesScreen } from '../screens/CategoriesScreen';
+import { SearchScreen } from '../screens/SearchScreen';
+import { ProfileScreen } from '../screens/ProfileScreen';
+import { CartScreen } from '../screens/CartScreen';
 
 import { useSelector } from '../hooks/useTypedSelector';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { BottomTabParams, RootStackParams } from './navigation';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { Logo } from '../components/Logo';
-import { Login } from '../screens/Login';
-import { Signup } from '../screens/Signup';
+import { LoginScreen } from '../screens/LoginScreen';
+import { SignupScreen } from '../screens/SignupScreen';
 import BrandLogo from '../../assets/gamepad.png';
+import { GLOBAL } from '../global/styles/global';
 // import BrandLogo from '../../assets/lamestop-logo.png';
 
 const navTheme = DefaultTheme;
@@ -36,14 +37,15 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 export const RootNavigator = () => {
   return (
     <Stack.Navigator
+      initialRouteName='Home'
       screenOptions={{
         headerShown: false,
         headerStyle: { backgroundColor: '#FFF' },
       }}>
-      <Stack.Screen name='root' component={BottomTabNavigator} />
-      <Stack.Screen name='Login' component={LoginStack} />
-      <Stack.Screen name='Signup' component={Signup} />
-      <Stack.Screen name='Categories' component={Categories} />
+      <Stack.Screen name='Root' component={BottomTabNavigator} />
+      <Stack.Screen name='LoginStack' component={LoginStack} />
+      <Stack.Screen name='Signup' component={SignupScreen} />
+      <Stack.Screen name='Categories' component={CategoriesScreen} />
     </Stack.Navigator>
   );
 };
@@ -53,27 +55,30 @@ const AuthStack = createStackNavigator();
 export const LoginStack = () => {
   return (
     <AuthStack.Navigator
-      initialRouteName='Home'
+      initialRouteName='Login'
       screenOptions={{
         headerShown: true,
         headerStyle: { backgroundColor: '#fff' },
       }}>
       <AuthStack.Screen
         name='Login'
-        component={Login}
+        component={LoginScreen}
         options={{
-          headerTitle: (props) => <Text>Hello</Text>,
+          headerShown: true,
+          // headerTitle: (props) => <Text>Hello</Text>,
           headerRight: () => (
-            <Button
-              onPress={() => alert('This is a button!')}
-              title='Info'
-              color='#00cc00'
-            />
+            <Pressable onPress={() => console.log('go to home!')}>
+              <Ionicons
+                style={{ padding: GLOBAL.SPACING.md }}
+                name='md-home-outline'
+                size={24}
+                color={TYPOGRAPHY.COLOR.BrandBlack}
+              />
+            </Pressable>
           ),
         }}
       />
-      <AuthStack.Screen name='Home' component={Home} />
-      <AuthStack.Screen name='Signup' component={Signup} />
+      <AuthStack.Screen name='Signup' component={SignupScreen} />
     </AuthStack.Navigator>
   );
 };
@@ -94,7 +99,7 @@ export const BottomTabNavigator = () => {
       }}>
       <BottomTab.Screen
         name='Home'
-        component={Home}
+        component={HomeScreen}
         options={{
           tabBarIcon: () => (
             <Ionicons
@@ -107,7 +112,7 @@ export const BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name='Search'
-        component={Search}
+        component={SearchScreen}
         options={{
           tabBarIcon: () => (
             <Ionicons
@@ -120,7 +125,7 @@ export const BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name='Cart'
-        component={Cart}
+        component={CartScreen}
         options={{
           tabBarIcon: () => (
             <Ionicons
@@ -134,7 +139,7 @@ export const BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name='Categories'
-        component={Categories}
+        component={CategoriesScreen}
         options={{
           tabBarIcon: () => (
             <Ionicons
@@ -147,7 +152,7 @@ export const BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name='Profile'
-        component={Profile}
+        component={ProfileScreen}
         options={{
           tabBarIcon: () => (
             <Ionicons

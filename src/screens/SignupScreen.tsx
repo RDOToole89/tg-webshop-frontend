@@ -1,8 +1,7 @@
-//@ts-nocheck
 import { View, Text, StyleSheet } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { TopBar } from '../components/TopBar';
@@ -11,10 +10,12 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
 
-export const Login = () => {
+export const SignupScreen: React.FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
@@ -44,12 +45,34 @@ export const Login = () => {
               letterSpacing: 0.2,
               marginBottom: 8,
             }}>
-            Sign in to your LameStop account
+            Create your LameStop account today!
           </Text>
         </View>
         <TextInput
           theme={{
-            colors: { primary: '#121212', underlineColor: 'transparent' },
+            colors: { primary: '#121212' },
+          }}
+          mode='outlined'
+          label='Firstname'
+          value={firstName}
+          onChangeText={(text) => setFirstName(text)}
+          autoComplete=''
+          style={styles.textInput}
+        />
+        <TextInput
+          theme={{
+            colors: { primary: '#121212' },
+          }}
+          mode='outlined'
+          label='Lastname'
+          value={lastName}
+          onChangeText={(text) => setEmail(text)}
+          autoComplete=''
+          style={styles.textInput}
+        />
+        <TextInput
+          theme={{
+            colors: { primary: '#121212' },
           }}
           mode='outlined'
           label='email'
@@ -60,7 +83,7 @@ export const Login = () => {
         />
         <TextInput
           theme={{
-            colors: { primary: '#121212', underlineColor: 'transparent' },
+            colors: { primary: '#121212' },
           }}
           mode='outlined'
           label='password'
@@ -69,10 +92,9 @@ export const Login = () => {
           autoComplete=''
           style={styles.textInput}
         />
-        <PressableText
-          text='Forgot password?'
-          onPress={() => console.log('forgot password')}
-        />
+        <Text style={{ textDecorationLine: 'underline' }}>
+          Forgot password?
+        </Text>
         <View
           style={{
             flexDirection: 'row',
@@ -88,25 +110,21 @@ export const Login = () => {
           <Text>Keep me signed in</Text>
         </View>
         <Button
-          style={{ borderRadius: 0, color: TYPOGRAPHY.COLOR.BrandRed }}
+          style={{ borderRadius: 0 }}
           color='#e7230d'
           mode='contained'
           onPress={() => console.log(email, password)}>
-          <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
-            SIGN IN
-          </Text>
+          <Text>SUBMIT</Text>
         </Button>
         <HorizontalRule
           text='or'
           style={{ marginVertical: GLOBAL.SPACING.md }}
         />
-        <Button
-          style={{ borderRadius: 0, borderWidth: 1, borderColor: '#000' }}
-          color='#fff'
-          mode='contained'
-          onPress={() => navigation.navigate('Signup')}>
-          <Text style={GLOBAL.TEXT.Bold}>CREATE ACCOUNT</Text>
-        </Button>
+
+        <PressableText
+          onPress={() => navigation.navigate('LoginStack')}
+          text='Sign in'
+        />
       </View>
     </>
   );

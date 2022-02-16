@@ -9,7 +9,7 @@ import { SearchBar } from '../components/SearchBar';
 
 import image from '../../assets/crap-banner.png';
 import { DefaultButton } from '../global/elements/buttons';
-import { CategoryCard } from './CatgeorieCard';
+import { CategoryCard } from '../components/CatgoryCard';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
 import { useNavigation } from '@react-navigation/native';
@@ -17,7 +17,7 @@ import { RootStackParams } from '../navigation/navigation';
 
 const user = 'Roibin';
 
-export const Home = () => {
+export const HomeScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -50,7 +50,7 @@ export const Home = () => {
         <DefaultButton
           style={{ width: 120 }}
           title='login'
-          onClick={() => navigation.navigate('Login')}
+          onClick={() => navigation.navigate('LoginStack')}
         />
         <DefaultButton
           style={{ width: 120 }}

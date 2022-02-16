@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export const Products: React.FC = () => {
+export const SearchScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Product Details</Text>
+      <Text>Search</Text>
     </View>
   );
 };
