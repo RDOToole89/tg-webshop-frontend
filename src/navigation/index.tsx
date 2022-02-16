@@ -44,8 +44,6 @@ export const RootNavigator = () => {
       }}>
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
-      <Stack.Screen name='Signup' component={SignupScreen} />
-      <Stack.Screen name='Categories' component={CategoriesScreen} />
     </Stack.Navigator>
   );
 };
@@ -63,9 +61,18 @@ export const LoginStack = () => {
       <AuthStack.Screen
         name='Login'
         component={LoginScreen}
-        options={{
+        options={({ navigation, route }) => ({
           headerShown: true,
-          // headerTitle: (props) => <Text>Hello</Text>,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons
+                name='chevron-back'
+                size={32}
+                color={TYPOGRAPHY.COLOR.Secondary}
+              />
+            </Pressable>
+          ),
+
           headerRight: () => (
             <Pressable onPress={() => console.log('go to home!')}>
               <Ionicons
@@ -76,7 +83,7 @@ export const LoginStack = () => {
               />
             </Pressable>
           ),
-        }}
+        })}
       />
       <AuthStack.Screen name='Signup' component={SignupScreen} />
     </AuthStack.Navigator>
@@ -91,16 +98,16 @@ export const BottomTabNavigator = () => {
   return (
     <BottomTab.Navigator
       initialRouteName='Home'
-      screenOptions={{
+      screenOptions={({ navigation, route }) => ({
         headerShown: false,
         tabBarActiveTintColor: TYPOGRAPHY.COLOR.Secondary,
         tabBarInactiveTintColor: 'grey',
         tabBarShowLabel: false,
-      }}>
+      })}>
       <BottomTab.Screen
         name='Home'
         component={HomeScreen}
-        options={{
+        options={({ navigation, route }) => ({
           tabBarIcon: () => (
             <Ionicons
               name='md-home-outline'
@@ -108,12 +115,22 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
-        }}
+        })}
       />
       <BottomTab.Screen
         name='Search'
         component={SearchScreen}
-        options={{
+        options={({ navigation, route }) => ({
+          headerShown: true,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons
+                name='chevron-back'
+                size={32}
+                color={TYPOGRAPHY.COLOR.Secondary}
+              />
+            </Pressable>
+          ),
           tabBarIcon: () => (
             <Ionicons
               name='search-outline'
@@ -121,12 +138,22 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
-        }}
+        })}
       />
       <BottomTab.Screen
         name='Cart'
         component={CartScreen}
-        options={{
+        options={({ navigation, route }) => ({
+          headerShown: true,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons
+                name='chevron-back'
+                size={32}
+                color={TYPOGRAPHY.COLOR.Secondary}
+              />
+            </Pressable>
+          ),
           tabBarIcon: () => (
             <Ionicons
               name='cart-outline'
@@ -135,12 +162,22 @@ export const BottomTabNavigator = () => {
             />
           ),
           tabBarBadge: cartItems && cartItems.length,
-        }}
+        })}
       />
       <BottomTab.Screen
         name='Categories'
         component={CategoriesScreen}
-        options={{
+        options={({ navigation, route }) => ({
+          headerShown: true,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons
+                name='chevron-back'
+                size={32}
+                color={TYPOGRAPHY.COLOR.Secondary}
+              />
+            </Pressable>
+          ),
           tabBarIcon: () => (
             <Ionicons
               name='menu-outline'
@@ -148,12 +185,22 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
-        }}
+        })}
       />
       <BottomTab.Screen
         name='Profile'
         component={ProfileScreen}
-        options={{
+        options={({ navigation, route }) => ({
+          headerShown: true,
+          headerLeft: () => (
+            <Pressable onPress={() => navigation.goBack()}>
+              <Ionicons
+                name='chevron-back'
+                size={32}
+                color={TYPOGRAPHY.COLOR.Secondary}
+              />
+            </Pressable>
+          ),
           tabBarIcon: () => (
             <Ionicons
               name='person-outline'
@@ -161,7 +208,7 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.Secondary}
             />
           ),
-        }}
+        })}
       />
     </BottomTab.Navigator>
   );
