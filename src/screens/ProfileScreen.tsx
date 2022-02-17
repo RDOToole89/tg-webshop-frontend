@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, Text, StyleSheet } from 'react-native';
 import { DefaultButton } from '../global/elements/buttons';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -16,7 +16,7 @@ export const ProfileScreen: React.FC = () => {
   const email = 'roibinotoole@gmail.com';
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {loggedIn ? (
         <>
           <Text style={TYPOGRAPHY.FONT.h1}>{userName}</Text>
@@ -63,7 +63,7 @@ export const ProfileScreen: React.FC = () => {
         barText='Feedback about the app'
         routeString='Home'
       />
-    </View>
+    </ScrollView>
   );
 };
 
