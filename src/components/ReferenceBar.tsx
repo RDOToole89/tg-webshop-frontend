@@ -15,7 +15,7 @@ export const ReferenceBar = ({ iconName, routeString, barText }: any) => {
     <Pressable onPress={() => navigation.navigate(routeString)}>
       <View
         style={{
-          padding: GLOBAL.SPACING.md,
+          padding: GLOBAL.SPACING.sm,
           marginVertical: GLOBAL.SPACING.md,
           // backgroundColor: TYPOGRAPHY.COLOR.,
           flexDirection: 'row',
@@ -30,7 +30,11 @@ export const ReferenceBar = ({ iconName, routeString, barText }: any) => {
           color={TYPOGRAPHY.COLOR.Secondary}
         />
         <CustomText
-          style={{ marginLeft: 10, fontSize: GLOBAL.FONT_SIZES.md }}
+          style={{
+            marginLeft: 10,
+            fontSize: GLOBAL.FONT_SIZES.sm,
+            letterSpacing: 1,
+          }}
           children={barText}
         />
       </View>

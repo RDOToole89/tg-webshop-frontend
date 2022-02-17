@@ -19,6 +19,7 @@ import { LoginScreen } from '../screens/LoginScreen';
 import { SignupScreen } from '../screens/SignupScreen';
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/misc/imgStyles';
+import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -81,7 +82,7 @@ export const LoginStack = () => {
 const BottomTab = createBottomTabNavigator<BottomTabParams>();
 
 export const BottomTabNavigator = () => {
-  const { cartItems } = useSelector((state) => state.cart);
+  const cartItems = useSelector(selectCartItemsQuantity);
 
   return (
     <BottomTab.Navigator
@@ -163,7 +164,7 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
-          tabBarBadge: cartItems && cartItems.length,
+          tabBarBadge: cartItems && cartItems,
         })}
       />
       <BottomTab.Screen

@@ -1,4 +1,3 @@
-import { Action } from 'redux';
 import {
   findItemByIdGen,
   addQuantityToItemGen,
@@ -8,12 +7,12 @@ import {
 import { ActionType } from '../action-types';
 import { TCartActions } from '../actionsInterfaces/cartInterfaces';
 
-interface cartItem {
+export interface cartItem {
   productId: number;
   quantity: number;
 }
 
-interface CartState {
+export interface CartState {
   loading: boolean;
   error: string | null;
   cartItems: cartItem[];

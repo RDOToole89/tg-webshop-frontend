@@ -45,7 +45,7 @@ export const SignupScreen: React.FC = () => {
               letterSpacing: 0.2,
               marginBottom: 8,
             }}>
-            Create your LameStop account today!
+            Create your LameStop account today for just 20$
           </Text>
         </View>
         <TextInput
