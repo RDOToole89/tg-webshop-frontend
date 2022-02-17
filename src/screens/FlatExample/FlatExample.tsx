@@ -10,7 +10,7 @@ import {
 import { useState } from 'react';
 import { useSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
-import { FontSizes } from '../../constants/sizes';
+import { GLOBAL } from '../../global/styles/global';
 
 const Item = ({ title }: any) => (
   <View style={styles.item}>
@@ -18,7 +18,7 @@ const Item = ({ title }: any) => (
   </View>
 );
 
-export const Home: React.FC = () => {
+export const Home = () => {
   const [term, setTerm] = useState('');
   const { searchRepositories } = useActions();
   const { data, error, loading } = useSelector((state) => state.repositories);
@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: FontSizes.sm,
+    fontSize: GLOBAL.FONT_SIZES.sm,
   },
 });
