@@ -39,7 +39,7 @@ const styles = (align: FlexAlignType = 'flex-start') =>
       alignItems: align,
       justifyContent: 'center',
       paddingVertical: GLOBAL.SPACING.sm,
-      shadow: GLOBAL.SHADOWS.shadowLight,
+      // shadow: GLOBAL.SHADOWS.shadowLight,
       marginBottom: GLOBAL.SPACING.md,
     },
   });

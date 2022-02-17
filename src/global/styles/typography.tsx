@@ -20,9 +20,18 @@ const COLOR = {
 
 const FONT = {
   Primary: 'open-sans',
+  PrimaryBold: 'open-sans-bold',
   h1: {
-    fontSize: 24,
+    fontFamily: 'open-sans',
+    fontSize: 26,
     marginBottom: 10,
+  },
+  subtitle: {
+    color: COLOR.DefaultSelected,
+    fontFamily: 'open-sans',
+    fontSize: 12,
+    letterSpacing: 0.2,
+    marginBottom: 8,
   },
   input: {
     height: 36,

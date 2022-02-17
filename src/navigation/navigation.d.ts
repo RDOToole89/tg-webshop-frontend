@@ -11,8 +11,8 @@ export type RootStackParams = {
   Cart: undefined;
   Search: undefined;
   Categories: undefined;
-  root: undefined;
+  Root: undefined;
   Profile: undefined;
   Signup: undefined;
-  Login: undefined;
+  LoginStack: undefined;
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { GLOBAL } from '../global/styles/global';
@@ -14,8 +14,6 @@ type Alert = {
 type dynamicProp = string | null;
 
 export const MessageBanner = ({ message, delay }: Alert) => {
-  const user = 'Roibin';
-  const messageHardcode = `Welcome ${user}`;
   const [messageActive, setMessageActive] = useState(true);
 
   setTimeout(() => {
@@ -24,7 +22,7 @@ export const MessageBanner = ({ message, delay }: Alert) => {
 
   return messageActive ? (
     <View style={styles().banner}>
-      <Text style={GLOBAL.TEXT.Secondary}>{messageHardcode}</Text>
+      <Text style={GLOBAL.TEXT.Secondary}>{message}</Text>
     </View>
   ) : null;
 };
