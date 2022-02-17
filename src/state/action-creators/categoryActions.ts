@@ -10,11 +10,12 @@ export const loadCategories = () => {
 
     try {
       const response = await axios.get('/categories');
+      console.log('RESPONSE ????', response.data.categories);
       const categories = response.data.categories;
 
       dispatch({
         type: ActionType.LOAD_CATEGORIES_SUCCESS,
-        payload: categories,
+        payload: response.data.categories,
       });
     } catch (error: any) {
       dispatch({
