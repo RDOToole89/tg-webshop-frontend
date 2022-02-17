@@ -6,6 +6,7 @@ import { DefaultButton } from '../global/elements/buttons';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { ReferenceBar } from '../components/ReferenceBar';
+import { MaterialIcon } from '../global/elements/MaterialIcon';
 
 export const ProfileScreen: React.FC = () => {
   const navigation =
@@ -39,9 +40,21 @@ export const ProfileScreen: React.FC = () => {
           </Text>
 
           <DefaultButton
-            style={{ width: 120 }}
+            style={{
+              width: 140,
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+              paddingHorizontal: 15,
+            }}
             title='login'
             onClick={() => navigation.navigate('LoginStack')}
+            icon={
+              <MaterialIcon
+                size='large'
+                name='person'
+                color={TYPOGRAPHY.COLOR.BrandBlack}
+              />
+            }
           />
         </>
       )}
