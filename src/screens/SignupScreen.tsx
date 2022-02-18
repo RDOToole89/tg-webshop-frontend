@@ -125,10 +125,7 @@ export const SignupScreen = () => {
           style={{ marginVertical: GLOBAL.SPACING.md }}
         />
 
-        <PressableText
-          onPress={() => navigation.navigate('LoginStack')}
-          text='Sign in'
-        />
+        <PressableText onPress={() => navigation.goBack()} text='Sign in' />
       </View>
     </>
   );

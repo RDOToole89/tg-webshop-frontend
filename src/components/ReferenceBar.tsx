@@ -27,7 +27,7 @@ export const ReferenceBar = ({
 
   return (
     <Pressable onPress={() => navigation.navigate(routeString)}>
-      <View style={{}}>
+      <View style={styles.refBarContainer}>
         <MaterialIcon
           size='large'
           name={iconName}

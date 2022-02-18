@@ -1,6 +1,6 @@
 import { View, StyleSheet, ViewStyle, Pressable } from 'react-native';
-import logo from '../../assets/lamestop-logo-tranparent.png';
-import { IMGSTYLES } from '../global/styles/imgStyles';
+import logo from '../../assets/lamestop-logo-transparent.png';
+
 import { Image } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -8,6 +8,7 @@ import { RootStackParams } from '../navigation/navigation';
 import { FlexAlignType } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
+import { IMGSTYLES } from '../global/styles/imgStyles';
 
 type TopBar = {
   align?: FlexAlignType;

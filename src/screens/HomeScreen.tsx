@@ -7,7 +7,7 @@ import { PromotionBanner } from '../components/PromotionBanner';
 import { GLOBAL } from '../global/styles/global';
 import { SearchBar } from '../components/SearchBar';
 
-import image from '../../assets/crap-banner.png';
+import image from '../../assets/lame-banner.png';
 import { DefaultButton } from '../global/elements/buttons';
 import { CategoryCard } from '../components/CatgoryCard';
 import { DealBanner } from '../components/DealBanner';
