@@ -30,7 +30,7 @@ export const HomeScreen = () => {
         message={loggedIn ? `Welcome back ${user}` : `Welcome to LameStop`}
         delay={2000}
       />
-      <TopBar style={{ backgroundColor: '#fff' }} />
+      <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
       />

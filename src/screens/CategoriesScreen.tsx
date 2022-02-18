@@ -12,16 +12,84 @@ import { useActions } from '../hooks/useActions';
 import { RootState } from '../state';
 import { GridList } from '../components/GridList';
 import { SearchBar } from '../components/SearchBar';
+import { TopBar } from '../components/TopBar';
+import { ScrollView } from 'react-native-gesture-handler';
 
-const Item = ({ title }: any) => (
-  <View>
-    <Text style={GLOBAL.FONTS.body}>{title}</Text>
-  </View>
-);
+import background from '../../assets/card-bg.png';
+import { PressableCard } from '../components/PressableCard';
+
+const testData = [
+  {
+    id: 1,
+    categoryName: 'Games',
+    description: 'The latest games for all platforms',
+  },
+  {
+    id: 2,
+    categoryName: 'PlayStation',
+    description: 'PS5 just released! Get ready for a new generation.',
+  },
+  {
+    id: 3,
+    categoryName: 'Xbox',
+    description:
+      'Xbox Series X is out now! Get ready for an even more immersive experience.',
+  },
+  {
+    id: 4,
+    categoryName: 'Nintendo',
+    description: 'Nintendo the most accesible gaming devices on the market. ',
+  },
+  {
+    id: 5,
+    categoryName: 'Gaming Gear',
+    description: 'Gear up with the latest in gaming gadgets and accessories',
+  },
+  {
+    id: 6,
+    categoryName: 'Gaming Gear',
+    description: 'Gear up with the latest in gaming gadgets and accessories',
+  },
+  {
+    id: 7,
+    categoryName: 'Gaming Gear',
+    description: 'Gear up with the latest in gaming gadgets and accessories',
+  },
+  {
+    id: 8,
+    categoryName: 'Gaming Gear',
+    description: 'Gear up with the latest in gaming gadgets and accessories',
+  },
+  {
+    id: 9,
+    categoryName: 'Gaming Gear',
+    description: 'Gear up with the latest in gaming gadgets and accessories',
+  },
+];
 
 export const CategoriesScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
+  type Category = {
+    id: number;
+    categoryName: string;
+    description: string;
+  };
+
+  type RenderItem = {
+    item: Category;
+  };
+
+  const renderItem = ({ item }: RenderItem) => {
+    return (
+      <PressableCard
+        background={background}
+        title={item.categoryName}
+        onClick={() => console.log('kick the can')}
+      />
+    );
+  };
 
   const { loadCategories } = useActions();
   const { data, error, loading } = useSelector(
@@ -33,19 +101,30 @@ export const CategoriesScreen = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      {/* <Text style={GLOBAL.FONTS.h1}>Categories</Text> */}
-      <SearchBar />
-      {data && (
-        <GridList data={data} onClick={() => navigation.navigate('Home')} />
-      )}
-    </View>
+    <ScrollView overScrollMode='auto'>
+      <TopBar iconsActive={true} />
+      <View style={styles.container}>
+        <SearchBar
+          style={{
+            marginBottom: GLOBAL.SPACING.md,
+            marginTop: GLOBAL.SPACING.sm,
+          }}
+        />
+        {testData && (
+          <GridList
+            data={testData}
+            onClick={() => console.log('click')}
+            renderItem={renderItem}
+          />
+        )}
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: GLOBAL.SPACING.sm,
+    padding: GLOBAL.SPACING.md,
   },
 });

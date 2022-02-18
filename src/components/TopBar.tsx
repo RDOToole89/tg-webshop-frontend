@@ -14,13 +14,15 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { FlexAlignType } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { MaterialIcon } from '../global/elements/MaterialIcon';
 
 type TopBar = {
   align?: FlexAlignType;
   style?: ViewStyle;
+  iconsActive: Boolean;
 };
 
-export const TopBar = ({ align, style }: TopBar) => {
+export const TopBar = ({ align, style, iconsActive = false }: TopBar) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
@@ -28,18 +30,34 @@ export const TopBar = ({ align, style }: TopBar) => {
       <Pressable onPress={() => navigation.navigate('Home')}>
         <Image style={IMGSTYLES.smallLogo} source={logo} />
       </Pressable>
+      {iconsActive && (
+        <View style={styles().iconsContainer}>
+          <Pressable onPress={() => navigation.navigate('Home')}>
+            <MaterialIcon name='home' size='large' color='#000' />
+          </Pressable>
+          <Pressable onPress={() => navigation.navigate('Home')}>
+            <MaterialIcon name='person' size='large' color='#000' />
+          </Pressable>
+        </View>
+      )}
     </View>
   );
 };
 
-const styles = (align: FlexAlignType = 'flex-start') =>
+const styles = (align: FlexAlignType = 'center') =>
   StyleSheet.create({
     topBar: {
+      flexDirection: 'row',
       paddingHorizontal: GLOBAL.SPACING.md,
       alignItems: align,
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       paddingVertical: GLOBAL.SPACING.sm,
-      // shadow: GLOBAL.SHADOWS.shadowLight,
       marginBottom: GLOBAL.SPACING.md,
+    },
+    iconsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
+      alignItems: 'center',
+      width: '30%',
     },
   });

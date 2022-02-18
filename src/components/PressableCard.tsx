@@ -40,11 +40,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: TYPOGRAPHY.COLOR.Default,
     margin: GLOBAL.SPACING.sm,
-    height: 150,
-    color: 'white',
+    height: 170,
     borderWidth: 1,
-    borderColor: TYPOGRAPHY.COLOR.BrandRed,
     borderRadius: 4,
+    borderColor: TYPOGRAPHY.COLOR.BrandRed,
   },
   image: {
     position: 'absolute',
