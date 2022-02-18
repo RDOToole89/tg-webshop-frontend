@@ -9,6 +9,7 @@ import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
 import image from './assets/gamepad.png';
 import { LoginScreen } from './src/screens/LoginScreen';
+import { CategoriesScreen } from './src/screens/CategoriesScreen';
 
 const images = [image];
 
@@ -26,6 +27,7 @@ const MainScreen = () => {
   if (isLoaded) {
     return (
       <Provider store={store}>
+        {/* <CategoriesScreen /> */}
         <Navigation />
       </Provider>
     );
