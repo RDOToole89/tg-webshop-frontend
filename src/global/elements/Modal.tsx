@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode, useState } from 'react';
-import { View, Text, StyleSheet, Modal as DefaultModal } from 'react-native';
+import { View, StyleSheet, Modal as DefaultModal } from 'react-native';
 import { PressableText } from './PressableText';
 
 type ModalProps = {

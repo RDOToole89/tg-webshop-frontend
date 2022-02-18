@@ -5,11 +5,11 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export interface ISubmitButton {
+export interface SubmitButton {
   handleOnClick(): void;
 }
 
-export const SubmitButton = ({ handleOnClick }: ISubmitButton) => {
+export const SubmitButton = ({ handleOnClick }: SubmitButton) => {
   return (
     <TouchableOpacity style={styles.submitBtn} onPress={handleOnClick}>
       <Icon name='search-outline' size={25} color={TYPOGRAPHY.COLOR.Primary} />

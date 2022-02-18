@@ -1,5 +1,4 @@
 import { View, Text, StyleProp, ViewStyle } from 'react-native';
-import { GLOBAL } from '../styles/global';
 import { TYPOGRAPHY } from '../styles/typography';
 
 interface HorizontalRule {

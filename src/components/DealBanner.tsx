@@ -1,7 +1,11 @@
 import { View, Image, ImageSourcePropType } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 
-export const DealBanner = ({ source }: { source: ImageSourcePropType }) => {
+type DealBanner = {
+  source: ImageSourcePropType;
+};
+
+export const DealBanner = ({ source }: DealBanner) => {
   return (
     <View
       style={{

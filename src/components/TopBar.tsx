@@ -1,13 +1,6 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  StyleProp,
-  ViewStyle,
-  Pressable,
-} from 'react-native';
-import logo from '../../assets/lamestop-logo-transparent.png';
-import { IMGSTYLES } from '../global/misc/imgStyles';
+import { View, StyleSheet, ViewStyle, Pressable } from 'react-native';
+import logo from '../../assets/lamestop-logo-tranparent.png';
+import { IMGSTYLES } from '../global/styles/imgStyles';
 import { Image } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';

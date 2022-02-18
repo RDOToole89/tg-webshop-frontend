@@ -8,7 +8,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { ReferenceBar } from '../components/ReferenceBar';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 
-export const ProfileScreen: React.FC = () => {
+export const ProfileScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 

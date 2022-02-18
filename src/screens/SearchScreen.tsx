@@ -3,7 +3,7 @@ import { SearchBar } from '../components/SearchBar';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-export const SearchScreen: React.FC = () => {
+export const SearchScreen = () => {
   return (
     <View style={styles.container}>
       <SearchBar />

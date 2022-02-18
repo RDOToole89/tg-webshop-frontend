@@ -18,54 +18,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import background from '../../assets/card-bg.png';
 import { PressableCard } from '../components/PressableCard';
 
-const testData = [
-  {
-    id: 1,
-    categoryName: 'Games',
-    description: 'The latest games for all platforms',
-  },
-  {
-    id: 2,
-    categoryName: 'PlayStation',
-    description: 'PS5 just released! Get ready for a new generation.',
-  },
-  {
-    id: 3,
-    categoryName: 'Xbox',
-    description:
-      'Xbox Series X is out now! Get ready for an even more immersive experience.',
-  },
-  {
-    id: 4,
-    categoryName: 'Nintendo',
-    description: 'Nintendo the most accesible gaming devices on the market. ',
-  },
-  {
-    id: 5,
-    categoryName: 'Gaming Gear',
-    description: 'Gear up with the latest in gaming gadgets and accessories',
-  },
-  {
-    id: 6,
-    categoryName: 'Gaming Gear',
-    description: 'Gear up with the latest in gaming gadgets and accessories',
-  },
-  {
-    id: 7,
-    categoryName: 'Gaming Gear',
-    description: 'Gear up with the latest in gaming gadgets and accessories',
-  },
-  {
-    id: 8,
-    categoryName: 'Gaming Gear',
-    description: 'Gear up with the latest in gaming gadgets and accessories',
-  },
-  {
-    id: 9,
-    categoryName: 'Gaming Gear',
-    description: 'Gear up with the latest in gaming gadgets and accessories',
-  },
-];
+import testData from '../../assets/data/categories.json';
 
 export const CategoriesScreen = () => {
   const navigation =

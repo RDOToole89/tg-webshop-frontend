@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { GLOBAL } from '../styles/global';
+import { GLOBAL } from './global';
 
 export const IMGSTYLES = StyleSheet.create({
   tinyLogo: {

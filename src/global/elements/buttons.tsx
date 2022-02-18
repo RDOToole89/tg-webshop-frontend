@@ -3,7 +3,6 @@ import { TouchableOpacity, ViewStyle } from 'react-native';
 
 import { CustomText } from './customText';
 import { GLOBAL } from '../styles/global';
-import { Icon } from 'react-native-vector-icons/Icon';
 
 type Callback = () => any;
 export interface Props {

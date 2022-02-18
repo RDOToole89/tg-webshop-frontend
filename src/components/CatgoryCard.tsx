@@ -1,23 +1,18 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
+import image from '../../assets/oldschool-nes.png';
+import ResponsiveImage from '../global/elements/responsiveImage';
+import { GLOBAL } from '../global/styles/global';
+import { TYPOGRAPHY } from '../global/styles/typography';
 
 type CatgoryCard = {
   categoryName: string;
   imageProp?: any;
 };
 
-import image from '../../assets/oldschool-nes.png';
-import ResponsiveImage from '../global/elements/responsiveImage';
-import { GLOBAL } from '../global/styles/global';
-import { TYPOGRAPHY } from '../global/styles/typography';
-
 export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
   return (
     <View style={styles.cardDimensions}>
-      <Text
-        style={[
-          GLOBAL.TEXT_INPUT.Style.Bold,
-          { textAlign: 'center', padding: 2, borderWidth: 0 },
-        ]}>
+      <Text style={[GLOBAL.TEXT_INPUT.Style.Bold, styles.cardText]}>
         {categoryName}
       </Text>
 
@@ -33,5 +28,10 @@ const styles = StyleSheet.create({
     height: 130,
     marginBottom: 10,
     marginRight: 10,
+  },
+  cardText: {
+    textAlign: 'center',
+    padding: 2,
+    borderWidth: 0,
   },
 });

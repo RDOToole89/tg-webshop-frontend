@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { TopBar } from '../components/TopBar';
@@ -10,7 +10,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
 
-export const SignupScreen: React.FC = () => {
+export const SignupScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -22,7 +22,11 @@ export const SignupScreen: React.FC = () => {
 
   return (
     <>
-      <TopBar align='flex-start' style={{ marginBottom: 20 }} />
+      <TopBar
+        align='flex-start'
+        style={{ marginBottom: 20 }}
+        iconsActive={false}
+      />
       <View style={styles.container}>
         <View style={{ flexDirection: 'row', marginBottom: 4 }}>
           <Text style={{ fontFamily: 'impact', fontSize: 14 }}>

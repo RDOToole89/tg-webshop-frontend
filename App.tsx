@@ -15,9 +15,9 @@ const images = [image];
 
 export default function App() {
   return (
-    // <AnimatedAppLoader images={images}>
-    <MainScreen />
-    // </AnimatedAppLoader>
+    <AnimatedAppLoader images={images}>
+      <MainScreen />
+    </AnimatedAppLoader>
   );
 }
 
