@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "articleType": "Games",
+    "articleQuantity": 3421
+  },
+  {
+    "id": 2,
+    "articleType": "Gaming Accessories",
+    "articleQuantity": 764
+  },
+  {
+    "id": 3,
+    "articleType": "Controllers",
+    "articleQuantity": 325
+  },
+  {
+    "id": 4,
+    "articleType": "Nintendo",
+    "articleQuantity": 458
+  },
+  {
+    "id": 5,
+    "articleType": "Simulators",
+    "articleQuantity": 132
+  },
+  {
+    "id": 6,
+    "articleType": "For Kids ",
+    "articleQuantity": 10
+  },
+  {
+    "id": 7,
+    "articleType": "PC Games",
+    "articleQuantity": 1034
+  },
+  {
+    "id": 8,
+    "articleType": "Consoles",
+    "articleQuantity": 19
+  },
+  {
+    "id": 9,
+    "articleType": "Gaming Gear",
+    "articleQuantity": 139
+  }
+]

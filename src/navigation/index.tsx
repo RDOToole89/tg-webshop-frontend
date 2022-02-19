@@ -38,14 +38,34 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 export const RootNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName='Home'
-      screenOptions={{
+      initialRouteName='Products'
+      screenOptions={({ navigation }) => ({
         headerShown: false,
-        headerStyle: { backgroundColor: '#FFF' },
-      }}>
+        navigatorStyle: {
+          justifyContent: 'center',
+          alignItems: 'space-evenly',
+          padding: GLOBAL.SPACING.md,
+        },
+        headerLeft: () => (
+          <Pressable onPress={() => navigation.goBack()}>
+            <Ionicons
+              name='chevron-back'
+              size={32}
+              color={TYPOGRAPHY.COLOR.BrandRed}
+            />
+          </Pressable>
+        ),
+      })}>
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
-      <Stack.Screen name='Products' component={ProductsScreen} />
+      <Stack.Screen
+        name='Products'
+        component={ProductsScreen}
+        options={({ route }) => ({
+          headerShown: true,
+          // title: route.params.categoryName,
+        })}
+      />
     </Stack.Navigator>
   );
 };
@@ -56,25 +76,22 @@ export const LoginStack = () => {
   return (
     <AuthStack.Navigator
       initialRouteName='Login'
-      screenOptions={{
+      screenOptions={({ navigation }) => ({
         headerShown: true,
-        headerStyle: { backgroundColor: '#fff' },
-      }}>
+        headerLeft: () => (
+          <Pressable onPress={() => navigation.goBack()}>
+            <Ionicons
+              name='chevron-back'
+              size={32}
+              color={TYPOGRAPHY.COLOR.BrandRed}
+            />
+          </Pressable>
+        ),
+      })}>
       <AuthStack.Screen
         name='Login'
         component={LoginScreen}
-        options={({ navigation, route }) => ({
-          headerShown: true,
-          headerLeft: () => (
-            <Pressable onPress={() => navigation.goBack()}>
-              <Ionicons
-                name='chevron-back'
-                size={32}
-                color={TYPOGRAPHY.COLOR.BrandRed}
-              />
-            </Pressable>
-          ),
-        })}
+        options={{ headerShown: false }}
       />
       <AuthStack.Screen name='Signup' component={SignupScreen} />
     </AuthStack.Navigator>
@@ -90,11 +107,6 @@ export const BottomTabNavigator = () => {
     <BottomTab.Navigator
       initialRouteName='Home'
       screenOptions={({ navigation, route }) => ({
-        // tabBarStyle: {
-        //   justifyContent: 'center',
-        //   alignItems: 'space-evenly',
-        //   padding: GLOBAL.SPACING.md,
-        // },
         headerRight: () => (
           <Pressable onPress={() => navigation.navigate('Home')}>
             <Image
