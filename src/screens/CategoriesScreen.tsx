@@ -58,7 +58,7 @@ export const CategoriesScreen = () => {
   }, []);
 
   return (
-    <ScrollView overScrollMode='auto'>
+    <View style={{ height: '100%' }}>
       <TopBar iconsActive={true} />
       <View style={styles.container}>
         <SearchBar
@@ -67,15 +67,9 @@ export const CategoriesScreen = () => {
             marginTop: GLOBAL.SPACING.sm,
           }}
         />
-        {testData && (
-          <GridList
-            data={testData}
-            onClick={() => console.log('click')}
-            renderItem={renderItem}
-          />
-        )}
+        {testData && <GridList data={testData} renderItem={renderItem} />}
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
