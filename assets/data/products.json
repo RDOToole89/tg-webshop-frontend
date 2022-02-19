@@ -18,5 +18,55 @@
     "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
     "stock": 46,
     "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+  },
+  {
+    "id": 2,
+    "title": "Ninja Golf",
+    "price": 29.99,
+    "rating": 4,
+    "ratingQuantity": 23,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "stock": 46,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+  },
+  {
+    "id": 2,
+    "title": "Ninja Golf",
+    "price": 29.99,
+    "rating": 4,
+    "ratingQuantity": 23,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "stock": 46,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+  },
+  {
+    "id": 2,
+    "title": "Ninja Golf",
+    "price": 29.99,
+    "rating": 4,
+    "ratingQuantity": 23,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "stock": 46,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+  },
+  {
+    "id": 2,
+    "title": "Ninja Golf",
+    "price": 29.99,
+    "rating": 4,
+    "ratingQuantity": 23,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "stock": 46,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+  },
+  {
+    "id": 2,
+    "title": "Ninja Golf",
+    "price": 29.99,
+    "rating": 4,
+    "ratingQuantity": 23,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "stock": 46,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
   }
 ]

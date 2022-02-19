@@ -4,6 +4,9 @@ export type BottomTabParams = {
   Search: undefined;
   Categories: undefined;
   Profile: undefined;
+  Products: {
+    categoryName: string;
+  };
 };
 
 export type RootStackParams = {
@@ -15,7 +18,4 @@ export type RootStackParams = {
   Profile: undefined;
   Signup: undefined;
   LoginStack: undefined;
-  Products: {
-    categoryName: string;
-  };
 };

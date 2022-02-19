@@ -5,6 +5,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import articleTypes from '../../assets/data/articleTypes.json';
 import { ProductCard } from '../components/ProductCard';
 import products from '../../assets/data/products.json';
+import uuid from 'react-native-uuid';
 
 type Article = {
   id: number;
@@ -31,7 +32,7 @@ export const ProductsScreen = () => {
         </ScrollView>
       </ScrollView>
       {products.map((product) => {
-        return <ProductCard {...product} />;
+        return <ProductCard key={uuid.v4().toString()} {...product} />;
       })}
     </ScrollView>
   );

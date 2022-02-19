@@ -38,7 +38,7 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 export const RootNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName='Products'
+      initialRouteName='Home'
       screenOptions={({ navigation }) => ({
         headerShown: false,
         navigatorStyle: {
@@ -58,14 +58,14 @@ export const RootNavigator = () => {
       })}>
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
-      <Stack.Screen
+      {/* <Stack.Screen
         name='Products'
         component={ProductsScreen}
         options={({ route }) => ({
           headerShown: true,
           // title: route.params.categoryName,
         })}
-      />
+      /> */}
     </Stack.Navigator>
   );
 };
@@ -227,6 +227,26 @@ export const BottomTabNavigator = () => {
             />
           ),
         })}
+      />
+      <BottomTab.Screen
+        name='Products'
+        component={ProductsScreen}
+        options={({ navigation, route }) => {
+          return {
+            headerShown: true,
+            tabBarButton: () => null,
+            title: route.params?.categoryName,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name='chevron-back'
+                  size={32}
+                  color={TYPOGRAPHY.COLOR.BrandRed}
+                />
+              </Pressable>
+            ),
+          };
+        }}
       />
     </BottomTab.Navigator>
   );
