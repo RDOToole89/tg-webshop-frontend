@@ -113,7 +113,7 @@ export const LoginScreen: React.FC = () => {
           <Text>Keep me signed in</Text>
         </View>
         <Button
-          style={{ borderRadius: 0, color: TYPOGRAPHY.COLOR.BrandRed }}
+          style={{ borderRadius: 0 }}
           color='#e7230d'
           mode='contained'
           onPress={signIn}>
