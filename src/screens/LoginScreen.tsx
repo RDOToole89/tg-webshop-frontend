@@ -19,6 +19,28 @@ export const LoginScreen: React.FC = () => {
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
 
+  const signIn = () => {
+    // dispatch email and password to server
+    // verify email and password match in the database
+    // if successful provide user with token and login
+
+    let loginSuccess = false;
+    const dbEmail = 'test@test.com';
+    const dbPassword = 'test';
+
+    if (dbEmail === email && dbPassword === password) {
+      loginSuccess = true;
+    }
+
+    if (loginSuccess) navigation.navigate('Home');
+
+    if (!email || !password & !loginSuccess)
+      alert('Please enter your credentials');
+
+    if (email && password && !loginSuccess)
+      alert('Please provide correct email and password');
+  };
+
   return (
     <>
       <TopBar align='flex-start' style={{ marginBottom: 20 }} />
@@ -83,7 +105,7 @@ export const LoginScreen: React.FC = () => {
           style={{ borderRadius: 0, color: TYPOGRAPHY.COLOR.BrandRed }}
           color='#e7230d'
           mode='contained'
-          onPress={() => console.log(email, password)}>
+          onPress={signIn}>
           <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
             SIGN IN
           </Text>

@@ -16,18 +16,32 @@ import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
-
-const user = 'Roibin';
-const loggedIn = true;
+import { useEffect } from 'react';
+import { useActions } from '../hooks/useActions';
+import { useSelector } from 'react-redux';
+import { RootState } from '../state';
 
 export const HomeScreen = () => {
+  const { fetchUser } = useActions();
+  const user = useSelector((state: RootState) => state.user);
+  const { isLoggedIn } = user;
+  console.log(user);
+
+  useEffect(() => {
+    // fetchUser();
+  }, []);
+
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   return (
     <ScrollView style={styles.container}>
       <MessageBanner
-        message={loggedIn ? `Welcome back ${user}` : `Welcome to LameStop`}
+        message={
+          isLoggedIn
+            ? `Welcome back ${user.user?.firstName}`
+            : `Welcome to LameStop`
+        }
         delay={2000}
       />
       <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
@@ -53,22 +67,42 @@ export const HomeScreen = () => {
           elevation: Platform.OS === 'ios' ? 0 : 8,
           marginBottom: GLOBAL.SPACING.md,
         }}>
-        <DefaultButton
-          style={{
-            width: 120,
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-          }}
-          title='login'
-          onClick={() => navigation.navigate('LoginStack')}
-          icon={
-            <MaterialIcon
-              size='large'
-              name='person'
-              color={TYPOGRAPHY.COLOR.BrandBlack}
-            />
-          }
-        />
+        {!isLoggedIn ? (
+          <DefaultButton
+            style={{
+              width: 120,
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+            }}
+            title='login'
+            onClick={() => navigation.navigate('LoginStack')}
+            icon={
+              <MaterialIcon
+                size='large'
+                name='person'
+                color={TYPOGRAPHY.COLOR.BrandBlack}
+              />
+            }
+          />
+        ) : (
+          <DefaultButton
+            style={{
+              width: 120,
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+            }}
+            title='orders'
+            onClick={() => navigation.navigate('Profile')}
+            icon={
+              <MaterialIcon
+                size='large'
+                name='pending-actions'
+                color={TYPOGRAPHY.COLOR.BrandBlack}
+              />
+            }
+          />
+        )}
+
         <DefaultButton
           style={{
             width: 130,
@@ -93,7 +127,7 @@ export const HomeScreen = () => {
           <CategoryCard categoryName='xbox' />
           <CategoryCard categoryName='nintendo' />
           <CategoryCard categoryName='simulators' />
-          <CategoryCard categoryName='crap consoles' />
+          <CategoryCard categoryName='lame consoles' />
           <CategoryCard categoryName='boring as ****' />
         </ScrollView>
       </ScrollView>

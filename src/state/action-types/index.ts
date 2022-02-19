@@ -18,4 +18,7 @@ export enum ActionType {
   DELETE_FROM_CART = 'delete_from_cart',
   PUSH_ITEMS_TO_CHECKOUT = 'push_items_to_checkout',
   EMPTY_CART = 'empty_cart',
+  FETCH_USER = 'fetch_user',
+  LOGIN_USER_SUCCESS = 'login_user_success',
+  LOGIN_USER_ERROR = 'login_user_error',
 }

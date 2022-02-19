@@ -20,6 +20,31 @@ export const SignupScreen = () => {
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
 
+  const signUp = () => {
+    if (!firstName || !lastName || !email || !password)
+      alert('Please fill in all fields to create and account');
+
+    // dispatch userDetails to the server
+    // if user does not exist
+    // create DB ENTRY server side for user
+    // if user successfully created login user and provide token
+
+    let accountCreationSuccess = false;
+
+    const newUser = {
+      firstName,
+      lastName,
+      email,
+      password,
+      checked,
+    };
+
+    if (firstName && lastName && email && password)
+      accountCreationSuccess = true;
+
+    if (accountCreationSuccess) navigation.navigate('Home');
+  };
+
   return (
     <>
       <TopBar
@@ -70,7 +95,7 @@ export const SignupScreen = () => {
           mode='outlined'
           label='Lastname'
           value={lastName}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setLastName(text)}
           autoComplete=''
           style={[styles.textInput, { backgroundColor: '#FFF' }]}
         />
@@ -117,7 +142,7 @@ export const SignupScreen = () => {
           style={{ borderRadius: 0 }}
           color='#e7230d'
           mode='contained'
-          onPress={() => console.log(email, password)}>
+          onPress={signUp}>
           <Text>SUBMIT</Text>
         </Button>
         <HorizontalRule

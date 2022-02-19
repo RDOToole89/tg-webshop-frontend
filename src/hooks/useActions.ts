@@ -5,6 +5,7 @@ import {
   cartActionCreators,
   repositoryActionCreators,
   categoryActionCreators,
+  userActionCreators,
 } from '../state';
 
 const actionCreators: any = {
@@ -12,6 +13,7 @@ const actionCreators: any = {
   ...cartActionCreators,
   ...repositoryActionCreators,
   ...categoryActionCreators,
+  ...userActionCreators,
 };
 
 // custom hook to neaten up the look of dispatching an action with Redux
