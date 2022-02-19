@@ -1,5 +1,16 @@
-import { FunctionComponent, ReactNode, useState } from 'react';
-import { View, StyleSheet, Modal as DefaultModal } from 'react-native';
+import { FunctionComponent, ReactNode, useEffect, useState } from 'react';
+import {
+  View,
+  StyleSheet,
+  Modal as DefaultModal,
+  StatusBar,
+  Text,
+  Pressable,
+} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { GLOBAL } from '../styles/global';
+import { TYPOGRAPHY } from '../styles/typography';
+
 import { PressableText } from './PressableText';
 
 type ModalProps = {
@@ -8,35 +19,44 @@ type ModalProps = {
 };
 
 export const Modal = ({ activator: Activator, children }: ModalProps) => {
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(true);
 
   return (
-    <View>
+    <Pressable onPress={() => setModalVisible(false)}>
       <DefaultModal
         visible={isModalVisible}
-        transparent={false}
+        transparent={true}
         animationType='fade'>
-        <View style={styles.centerView}>
-          <View style={styles.contentView}>{children}</View>
-          <PressableText onPress={() => setModalVisible(false)} text='close' />
-        </View>
+        <ScrollView
+          contentContainerStyle={styles.centerView}
+          style={styles.contentView}>
+          {children}
+          {/* <PressableText onPress={() => setModalVisible(false)} text='x' /> */}
+        </ScrollView>
       </DefaultModal>
       {Activator ? (
         <Activator handleOpen={() => setModalVisible(true)} />
       ) : (
         <PressableText onPress={() => setModalVisible(true)} text='Open' />
       )}
-    </View>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   centerView: {
+    position: 'relative',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   contentView: {
+    position: 'absolute',
+    top: 0,
+    backgroundColor: 'rgba(0,0,0, 0.2)',
+    height: '100%',
+    width: '100%',
+    padding: GLOBAL.SPACING.xl,
     marginBottom: 20,
   },
 });

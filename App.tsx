@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Provider } from 'react-redux';
 import { store } from './src/state/store';
 import { Navigation } from './src/navigation';
@@ -10,6 +11,7 @@ import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 import image from './assets/gamepad.png';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { CategoriesScreen } from './src/screens/CategoriesScreen';
+import { ProfileScreen } from './src/screens/ProfileScreen';
 
 const images = [image];
 
@@ -24,10 +26,9 @@ export default function App() {
 const MainScreen = () => {
   const isLoaded = useCachedResources();
 
-  if (isLoaded) {
+  if (true) {
     return (
       <Provider store={store}>
-        {/* <CategoriesScreen /> */}
         <Navigation />
       </Provider>
     );

@@ -191,9 +191,9 @@ const SPACING = {
   xsm: 6,
   sm: 8,
   md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 38,
+  lg: 20,
+  xl: 26,
+  xxl: 32,
   xxxl: 64,
 };
 

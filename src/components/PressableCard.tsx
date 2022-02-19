@@ -29,7 +29,13 @@ export const PressableCard = ({
         style={styles.image}
         source={background}></ImageBackground>
       <View style={{ zIndex: 1, padding: 15 }}>
-        <Text style={{ fontFamily: TYPOGRAPHY.FONT.PrimaryBold }}>{title}</Text>
+        <Text
+          style={{
+            fontSize: GLOBAL.FONT_SIZES.xsm,
+            fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
+          }}>
+          {title}
+        </Text>
       </View>
     </Pressable>
   );
