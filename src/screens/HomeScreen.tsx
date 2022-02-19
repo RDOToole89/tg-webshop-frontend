@@ -21,12 +21,10 @@ import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
-const user = 'Roibin';
-const loggedIn = true;
-
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
   const user = useSelector((state: RootState) => state.user);
+  const { isLoggedIn } = user;
   console.log(user);
 
   useEffect(() => {
@@ -40,7 +38,7 @@ export const HomeScreen = () => {
     <ScrollView style={styles.container}>
       <MessageBanner
         message={
-          loggedIn
+          isLoggedIn
             ? `Welcome back ${user.user?.firstName}`
             : `Welcome to LameStop`
         }
@@ -69,7 +67,7 @@ export const HomeScreen = () => {
           elevation: Platform.OS === 'ios' ? 0 : 8,
           marginBottom: GLOBAL.SPACING.md,
         }}>
-        {!loggedIn ? (
+        {!isLoggedIn ? (
           <DefaultButton
             style={{
               width: 120,
