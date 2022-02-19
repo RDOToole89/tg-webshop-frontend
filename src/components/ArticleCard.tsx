@@ -9,7 +9,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 
 type ArticleCard = {
   articleType: string;
-  articleQuantity: string;
+  articleQuantity: number;
 };
 
 export const ArticleCard = ({ articleType, articleQuantity }: ArticleCard) => {

@@ -24,7 +24,6 @@ export const ProductsScreen = () => {
               <ArticleCard
                 key={article.id}
                 articleType={article.articleType}
-                //@ts-ignore
                 articleQuantity={article.articleQuantity}
               />
             );

@@ -7,7 +7,7 @@
     "ratingQuantity": 63,
     "tags": ["Classic", "Ninja", "Atari", "Awesome"],
     "stock": 100,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645301543/tg-dev-coverart/ninja-golf-atari_lkm4gk.jpg"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
   },
   {
     "id": 2,
@@ -17,56 +17,56 @@
     "ratingQuantity": 23,
     "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
     "stock": 46,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-scootersim-com_zczyfg.png"
   },
   {
-    "id": 2,
-    "title": "Ninja Golf",
-    "price": 29.99,
-    "rating": 4,
+    "id": 3,
+    "title": "Ninja Gaiden",
+    "price": 39.99,
+    "rating": 3,
     "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
     "stock": 46,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png"
   },
   {
-    "id": 2,
-    "title": "Ninja Golf",
-    "price": 29.99,
-    "rating": 4,
+    "id": 3,
+    "title": "Ninja Gaiden",
+    "price": 39.99,
+    "rating": 3,
     "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
     "stock": 46,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png"
   },
   {
-    "id": 2,
-    "title": "Ninja Golf",
-    "price": 29.99,
-    "rating": 4,
+    "id": 3,
+    "title": "Ninja Gaiden",
+    "price": 39.99,
+    "rating": 3,
     "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
     "stock": 46,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png"
   },
   {
-    "id": 2,
-    "title": "Ninja Golf",
-    "price": 29.99,
-    "rating": 4,
+    "id": 3,
+    "title": "Ninja Gaiden",
+    "price": 39.99,
+    "rating": 3,
     "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
     "stock": 46,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png"
   },
   {
-    "id": 2,
-    "title": "Ninja Golf",
-    "price": 29.99,
-    "rating": 4,
+    "id": 3,
+    "title": "Ninja Gaiden",
+    "price": 39.99,
+    "rating": 3,
     "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
     "stock": 46,
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png"
   }
 ]

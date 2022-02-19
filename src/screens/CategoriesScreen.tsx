@@ -54,7 +54,7 @@ export const CategoriesScreen = () => {
   );
 
   useEffect(() => {
-    loadCategories();
+    // loadCategories();
   }, []);
 
   return (
