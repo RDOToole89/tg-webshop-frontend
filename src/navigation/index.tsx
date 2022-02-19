@@ -21,6 +21,7 @@ import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 import { ProductsScreen } from '../screens/ProductsScreen';
+import { ProductDetailScreen } from '../screens/ProductDetailScreen';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -236,6 +237,26 @@ export const BottomTabNavigator = () => {
             headerShown: true,
             tabBarButton: () => null,
             title: route.params?.categoryName,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name='chevron-back'
+                  size={32}
+                  color={TYPOGRAPHY.COLOR.BrandRed}
+                />
+              </Pressable>
+            ),
+          };
+        }}
+      />
+      <BottomTab.Screen
+        name='ProductDetails'
+        component={ProductDetailScreen}
+        options={({ navigation, route }) => {
+          return {
+            headerShown: true,
+            tabBarButton: () => null,
+            title: route.params?.title,
             headerLeft: () => (
               <Pressable onPress={() => navigation.goBack()}>
                 <Ionicons

@@ -6,18 +6,18 @@ import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-import { RootStackParams } from '../navigation/navigation';
+import { BottomTabParams } from '../navigation/navigation';
 import { NavigationScreen } from '../types/app.types';
 
 type CatgoryCard = {
   categoryName: string;
   imageProp?: any;
-  routeString: NavigationScreen<RootStackParams>;
+  routeString: NavigationScreen<BottomTabParams>;
 };
 
 export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+    useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
   return (
     <Pressable

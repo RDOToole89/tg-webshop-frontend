@@ -5,6 +5,10 @@ import uuid from 'react-native-uuid';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { BottomTabParams } from '../navigation/navigation';
+
 type ProductCard = {
   id: number;
   title: string;
@@ -26,8 +30,23 @@ export const ProductCard = ({
   stock,
   imageUrl,
 }: ProductCard) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<BottomTabParams>>();
+
   return (
     <Pressable
+      onPress={() =>
+        navigation.navigate('ProductDetails', {
+          id,
+          title,
+          price,
+          rating,
+          ratingQuantity,
+          tags,
+          stock,
+          imageUrl,
+        })
+      }
       style={{
         borderBottomWidth: 1,
         borderBottomColor: TYPOGRAPHY.COLOR.TertiaryGrey,
