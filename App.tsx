@@ -12,6 +12,8 @@ import image from './assets/gamepad.png';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { CategoriesScreen } from './src/screens/CategoriesScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
+import { useEffect } from 'react';
+import { useActions } from './src/hooks/useActions';
 
 const images = [image];
 
