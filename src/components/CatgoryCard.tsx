@@ -1,23 +1,38 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Text, StyleSheet, Pressable } from 'react-native';
 import image from '../../assets/oldschool-nes.png';
 import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
+import { RootStackParams } from '../navigation/navigation';
+import { NavigationScreen } from '../types/app.types';
+
 type CatgoryCard = {
   categoryName: string;
   imageProp?: any;
+  routeString: NavigationScreen<RootStackParams>;
 };
 
 export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
   return (
-    <View style={styles.cardDimensions}>
+    <Pressable
+      style={styles.cardDimensions}
+      onPress={() =>
+        navigation.navigate('Products', {
+          categoryName,
+        })
+      }>
       <Text style={[GLOBAL.TEXT_INPUT.Style.Bold, styles.cardText]}>
         {categoryName}
       </Text>
 
       <ResponsiveImage source={image} srcWidth={130} srcHeight={130} />
-    </View>
+    </Pressable>
   );
 };
 

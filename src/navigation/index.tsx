@@ -38,7 +38,7 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 export const RootNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName='Products'
+      initialRouteName='Home'
       screenOptions={({ navigation }) => ({
         headerShown: false,
         navigatorStyle: {
@@ -160,7 +160,7 @@ export const BottomTabNavigator = () => {
       <BottomTab.Screen
         name='Cart'
         component={CartScreen}
-        options={({ navigation, route }) => ({
+        options={({ navigation }) => ({
           headerShown: true,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>
@@ -184,7 +184,7 @@ export const BottomTabNavigator = () => {
       <BottomTab.Screen
         name='Categories'
         component={CategoriesScreen}
-        options={({ navigation, route }) => ({
+        options={({ navigation }) => ({
           headerShown: true,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>
@@ -207,7 +207,7 @@ export const BottomTabNavigator = () => {
       <BottomTab.Screen
         name='Profile'
         component={ProfileScreen}
-        options={({ navigation, route }) => ({
+        options={({ navigation }) => ({
           headerShown: true,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>
