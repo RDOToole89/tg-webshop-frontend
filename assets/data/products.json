@@ -1,190 +1,22 @@
 [
   {
     "id": 1,
-    "name": "Razer BlackShark V2 Gaming Headset",
-    "desc": "THX 7.1 Surround Sound Capable: Provides industry-leading audio realism for maximum in-game immersion",
-    "price": 99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/51jmB3ciUhL._AC_SL1500_.jpg",
-    "categoryId": 5,
-    "stock": 10
+    "title": "Ninja Golf",
+    "price": 12.99,
+    "rating": 5,
+    "ratingQuantity": 63,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome"],
+    "stock": 100,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645301543/tg-dev-coverart/ninja-golf-atari_lkm4gk.jpg"
   },
   {
     "id": 2,
-    "name": "PlayStation 5 Console",
-    "desc": "Stunning Games - Marvel at incredible graphics and experience new PS5 features. ",
-    "price": 599,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/619BkvKW35L._SL1500_.jpg",
-    "categoryId": 2,
-    "stock": 12
-  },
-  {
-    "id": 3,
-    "name": "Xbox Series X Console",
-    "desc": "Introducing Xbox Series X, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles-all games look and play best on Xbox Series X. ",
-    "price": 399,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/51A41nLe5IL._SL1200_.jpg",
-    "categoryId": 3,
-    "stock": 1
-  },
-  {
-    "id": 4,
-    "name": "Nintendo Switch Console",
-    "desc": "Includes a Switch console, Switch dock, Joy-Con (L) and Joy-Con (R), 2 Joy-Con strap accessories, 1 Joy-Con grip, AC adapter, HDMI cable.",
-    "price": 399,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/61445UADu9L._AC_SL1000_.jpg",
-    "categoryId": 4,
-    "stock": 22
-  },
-  {
-    "id": 5,
-    "name": "Assassin’s Creed Valhalla",
-    "desc": "Lead epic Viking raids against Saxon troops and fortresses.",
-    "price": 59.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81hN53GTfqL._SL1500_.jpg",
-    "categoryId": 1,
-    "stock": 10
-  },
-  {
-    "id": 6,
-    "name": "Call of Duty: Black Ops Cold War",
-    "desc": "As Elite operatives, you will Follow the trail of a shadowy Figure named perseus who is on a mission to destabilize the global balance of power and change the course of history.",
-    "price": 69.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81PRlnwbFoL._SL1378_.jpg",
-    "categoryId": 1,
-    "stock": 3
-  },
-  {
-    "id": 7,
-    "name": "Marvel's Spider-Man: Miles Morales",
-    "desc": "Miles Morales discovers explosive powers that set him apart from his mentor, Peter Parker. Master his unique, bio-electric venom blast attacks and covert camouflage power alongside spectacular web-slinging acrobatics, gadgets and skills.",
-    "price": 69.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71bqboqDUiL._SL1361_.jpg",
-    "categoryId": 1,
-    "stock": 18
-  },
-  {
-    "id": 9,
-    "name": "Demon’s Souls",
-    "desc": "Discover where the journey began - Experience the original brutal challenge, completely remade from the ground up. All presented in stunning visual quality with enhanced performance, this is the world of Boletaria as you have never seen it before. ",
-    "price": 69.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81QoNRp5%2BWL._SL1353_.jpg",
-    "categoryId": 1,
-    "stock": 10
-  },
-  {
-    "id": 10,
-    "name": "Ghost of Tsushima",
-    "desc": "Available Now - Ghost of Tsushima: Legends, a new cooperative multiplayer* experience inspired by Japanese folk tales and mythology.",
-    "price": 59.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81Bzm37TIaL._SL1500_.jpg",
-    "categoryId": 1,
-    "stock": 18
-  },
-  {
-    "id": 11,
-    "name": "FIFA 21",
-    "desc": "FIFA Ultimate Team Ambassador Player Pick – Choose 1 of 3 player items for 3 matches.",
-    "price": 59.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81EWBpGwbKL._SL1500_.jpg",
-    "categoryId": 1,
-    "stock": 18
-  },
-  {
-    "id": 12,
-    "name": "Crash 4: It's About Time",
-    "desc": "Crash is back and it's about time! New abilities, more playable character and alernate dimensions smothered in a thick layer of awesome sauce.",
-    "price": 59.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71NQi4XJzbL._SL1489_.jpg",
-    "categoryId": 1,
-    "stock": 26
-  },
-  {
-    "id": 8,
-    "name": "Watch Dogs Legion",
-    "desc": "Recruit and play as anyone from London. Everyone you see has a unique backstory, personality, and skill set for unique situations",
-    "price": 49.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81HSbjfj7iL._AC_SL1500_.jpg",
-    "categoryId": 1,
-    "stock": 1
-  },
-  {
-    "id": 21,
-    "name": "DualSense Wireless Controller PS5",
-    "desc": "Feel physically responsive feedback to your in-game actions with dual actuators which replace traditional rumble motors. In your hands, these dynamic vibrations can simulate the feeling of everything from environments to the recoil of different weapons.",
-    "price": 69.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71y%2BUGuJl5L._SL1500_.jpg",
-    "categoryId": 2,
-    "stock": 1
-  },
-  {
-    "id": 14,
-    "name": "CyberPunk 2077",
-    "desc": "Become a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build your legend on the streets of Night City.",
-    "price": 69.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81iR0aGNJ5L._SL1500_.jpg",
-    "categoryId": 1,
-    "stock": 1
-  },
-  {
-    "id": 16,
-    "name": "Nintendo Switch Pro Controller",
-    "desc": "Take your game sessions up a notch with the Nintendo Switch Pro Controller ",
-    "price": 69.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/7166--AaJIL._SL1500_.jpg",
-    "categoryId": 5,
-    "stock": 13
-  },
-  {
-    "id": 17,
-    "name": "Animal Crossing: New Horizons - Nintendo Switch ",
-    "desc": "Collect materials to construct everything from furniture to tools! Then, use what you create to give your island a personal touch ",
-    "price": 49.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/710JXdscVsL._SL1500_.jpg",
-    "categoryId": 1,
-    "stock": 12
-  },
-  {
-    "id": 18,
-    "price": 199.99,
-    "name": "Nintendo Switch Lite - Turquoise",
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71qmF0FHj7L._AC_SL1500_.jpg",
-    "categoryId": 4,
-    "stock": 18
-  },
-  {
-    "id": 19,
-    "name": "Logitech G920 Dual-Motor Feedback Driving Force Racing Wheel",
-    "desc": "Works on Xbox series X, Xbox one and PC - Driving force is designed for the latest racing game titles for your Xbox series X or Xbox one console ",
-    "price": 229.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/51KQqdl5azL._AC_SL1024_.jpg",
-    "categoryId": 5,
-    "stock": 11
-  },
-  {
-    "id": 20,
-    "name": "ASTRO Gaming - A40 Audio System",
-    "desc": "ASTRO MIXAMP ASTRO MixAmps lets you adjust your game-to-voice balancing, choose from up to 4 different EQ modes (2013 ed. only) made for gaming/media, and link multiple MixAmps together for a lag-free private voice network ",
-    "price": 89.99,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/610VNflVZmL._SL1142_.jpg",
-    "categoryId": 5,
-    "stock": 12
-  },
-  {
-    "id": 22,
-    "name": "Sony PlayStation Gold Black Bluetooth Wireless Over-Ear Headphones",
-    "desc": "A headset for gamers: experience everything from the big booms to whisper-quiet warnings in stunning 7.1 virtual surround sound and chat with friends through the hidden noise cancelling microphone. ",
-    "price": 101.95,
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/51pAMXOam0L._AC_SL1100_.jpg",
-    "categoryId": 2,
-    "stock": 18
-  },
-  {
-    "id": 25,
-    "name": "Xbox One S",
-    "desc": "Enjoy over 100 games right out of the box with a 1 month Xbox Game Pass trial",
-    "price": "399",
-    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/618mnBEJwNL._SL1500_.jpg",
-    "categoryId": 3,
-    "stock": 14
+    "title": "Ninja Golf",
+    "price": 29.99,
+    "rating": 4,
+    "ratingQuantity": 23,
+    "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
+    "stock": 46,
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645303996/tg-dev-coverart/ninja-scootersim-com_cg7c1g.png"
   }
 ]

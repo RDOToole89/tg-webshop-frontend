@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 interface ResponsiveImageProps {
-  source: ImageSourcePropType;
+  source: ImageSourcePropType | { uri: string };
   srcWidth: number;
   srcHeight: number;
 }
