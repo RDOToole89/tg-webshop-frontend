@@ -3,6 +3,7 @@ import { ArticleCard } from '../components/ArticleCard';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import articleTypes from '../../assets/data/articleTypes.json';
+import { ProductCard } from '../components/ProductCard';
 
 type Article = {
   id: number;
@@ -16,13 +17,12 @@ export const ProductsScreen = () => {
       <ScrollView style={styles.scrollContainer}>
         <Text style={TYPOGRAPHY.FONT.subtitle}>Refine your search:</Text>
         <ScrollView horizontal>
-          {articleTypes.map((article: Article) => {
-            console.log(article);
-
+          {articleTypes.map((article) => {
             return (
               <ArticleCard
                 key={article.id}
                 articleType={article.articleType}
+                //@ts-ignore
                 articleQuantity={article.articleQuantity}
               />
             );
@@ -30,9 +30,7 @@ export const ProductsScreen = () => {
         </ScrollView>
       </ScrollView>
 
-      <View style={styles.container}>
-        <Text>SOME PRODUCT HERE</Text>
-      </View>
+      <ProductCard />
     </ScrollView>
   );
 };
@@ -45,7 +43,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: GLOBAL.SPACING.md,
   },
   scrollContainer: {
-    padding: GLOBAL.SPACING.sm,
+    marginVertical: GLOBAL.SPACING.lg,
+    padding: GLOBAL.SPACING.md,
     backgroundColor: '#e5e7eb',
   },
 });

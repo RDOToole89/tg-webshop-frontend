@@ -38,7 +38,7 @@ const Stack = createNativeStackNavigator<RootStackParams>();
 export const RootNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName='Home'
+      initialRouteName='Products'
       screenOptions={({ navigation }) => ({
         headerShown: false,
         navigatorStyle: {
