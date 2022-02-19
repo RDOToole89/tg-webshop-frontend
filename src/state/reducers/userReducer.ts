@@ -5,6 +5,7 @@ export type User = {
   userName: string;
   firstName: string;
   lastName: string;
+  email: string;
   remainLoggedIn: boolean;
 };
 
@@ -23,6 +24,7 @@ const initialState = {
     userName: 'RDOToole89',
     firstName: 'Roibin',
     lastName: 'OToole',
+    email: 'roibinotoole@gmail.com',
     remainLoggedIn: true,
   },
   isLoggedIn: true,
@@ -52,6 +54,16 @@ export const reducer = (
 
     case ActionType.LOGIN_USER_ERROR:
       return { ...state, loading: false, error: action.payload };
+
+    case ActionType.LOGOUT_USER: {
+      return {
+        ...state,
+        loading: false,
+        user: null,
+        isLoggedIn: false,
+        error: '',
+      };
+    }
 
     default:
       return state;

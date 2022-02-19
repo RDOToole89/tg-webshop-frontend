@@ -24,3 +24,11 @@ export const fetchUser = (id: number) => {
     }
   };
 };
+
+export const logoutUser = () => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.LOGOUT_USER,
+    });
+  };
+};
