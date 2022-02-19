@@ -1,6 +1,10 @@
-import { FunctionComponent, ReactNode, useState } from 'react';
-import { View, Text, StyleSheet, Modal as DefaultModal } from 'react-native';
+import { FunctionComponent, ReactNode, useCallback, useState } from 'react';
+import { StyleSheet, Modal as DefaultModal, Pressable } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { GLOBAL } from '../styles/global';
+
 import { PressableText } from './PressableText';
+import { useFocusEffect } from '@react-navigation/native';
 
 type ModalProps = {
   activator?: FunctionComponent<{ handleOpen: () => void }>;
@@ -10,33 +14,52 @@ type ModalProps = {
 export const Modal = ({ activator: Activator, children }: ModalProps) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
+  // dismisses the modal when the screen changes
+  useFocusEffect(
+    useCallback(() => {
+      console.log('Modal in focus!');
+
+      return () => {
+        setModalVisible(false);
+      };
+    }, [])
+  );
+
   return (
-    <View>
+    <Pressable onPress={() => setModalVisible(false)}>
       <DefaultModal
         visible={isModalVisible}
-        transparent={false}
+        transparent={true}
         animationType='fade'>
-        <View style={styles.centerView}>
-          <View style={styles.contentView}>{children}</View>
-          <PressableText onPress={() => setModalVisible(false)} text='close' />
-        </View>
+        <ScrollView
+          contentContainerStyle={styles.centerView}
+          style={styles.contentView}>
+          {children}
+        </ScrollView>
       </DefaultModal>
       {Activator ? (
         <Activator handleOpen={() => setModalVisible(true)} />
       ) : (
         <PressableText onPress={() => setModalVisible(true)} text='Open' />
       )}
-    </View>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   centerView: {
+    position: 'relative',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   contentView: {
+    position: 'absolute',
+    top: 0,
+    backgroundColor: 'rgba(0,0,0, 0.2)',
+    height: '100%',
+    width: '100%',
+    padding: GLOBAL.SPACING.xl,
     marginBottom: 20,
   },
 });

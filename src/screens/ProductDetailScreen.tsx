@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export const ProductDetailScreen: React.FC = () => {
+export const ProductDetailScreen = () => {
   return (
     <View style={styles.container}>
       <Text>Product Details</Text>

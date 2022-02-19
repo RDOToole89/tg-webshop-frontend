@@ -2,36 +2,46 @@
   {
     "id": 1,
     "categoryName": "Games",
-    "description": "The latest games for all platforms",
-    "createdAt": "2022-02-09T09:33:18.296Z",
-    "updatedAt": "2022-02-09T09:33:18.296Z"
+    "description": "Only the best games at lamestop."
   },
   {
     "id": 2,
     "categoryName": "PlayStation",
-    "description": "PS5 just released! Get ready for a new generation.",
-    "createdAt": "2022-02-09T09:33:18.296Z",
-    "updatedAt": "2022-02-09T09:33:18.296Z"
+    "description": "PS5 just released! Get ready for a new generation."
   },
   {
     "id": 3,
     "categoryName": "Xbox",
-    "description": "Xbox Series X is out now! Get ready for an even more immersive experience.",
-    "createdAt": "2022-02-09T09:33:18.296Z",
-    "updatedAt": "2022-02-09T09:33:18.296Z"
+    "description": "Xbox Series X is out now! Get ready for an even more immersive experience."
   },
   {
     "id": 4,
     "categoryName": "Nintendo",
-    "description": "Nintendo the most accesible gaming devices on the market. ",
-    "createdAt": "2022-02-09T09:33:18.296Z",
-    "updatedAt": "2022-02-09T09:33:18.296Z"
+    "description": "Nintendo the most accesible gaming devices on the market. "
   },
   {
     "id": 5,
+    "categoryName": "Simulators",
+    "description": "Fall as sleep with these lameass simulators."
+  },
+  {
+    "id": 6,
+    "categoryName": "Lames(top) 10",
+    "description": "It doesn't get any lamer."
+  },
+  {
+    "id": 7,
+    "categoryName": "PC Games",
+    "description": "Are you part of the PC master race?!"
+  },
+  {
+    "id": 8,
+    "categoryName": "Consoles",
+    "description": "We have the worst among every generation."
+  },
+  {
+    "id": 9,
     "categoryName": "Gaming Gear",
-    "description": "Gear up with the latest in gaming gadgets and accessories",
-    "createdAt": "2022-02-09T09:33:18.296Z",
-    "updatedAt": "2022-02-09T09:33:18.296Z"
+    "description": "Gear up with the latest in gaming gadgets and accessories."
   }
 ]

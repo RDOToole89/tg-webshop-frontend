@@ -20,10 +20,13 @@ export const reducer = (
   switch (action.type) {
     case ActionType.LOAD_CATEGORIES:
       return { loading: true, error: null, data: [] };
+
     case ActionType.LOAD_CATEGORIES_SUCCESS:
       return { loading: false, error: null, data: action.payload };
+
     case ActionType.LOAD_CATEGORIES_ERROR:
       return { loading: false, error: action.payload, data: [] };
+
     default:
       return state;
   }

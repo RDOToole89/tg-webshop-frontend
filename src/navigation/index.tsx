@@ -18,7 +18,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { LoginScreen } from '../screens/LoginScreen';
 import { SignupScreen } from '../screens/SignupScreen';
 import { GLOBAL } from '../global/styles/global';
-import { IMGSTYLES } from '../global/misc/imgStyles';
+import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 
 const navTheme = DefaultTheme;
@@ -68,7 +68,7 @@ export const LoginStack = () => {
               <Ionicons
                 name='chevron-back'
                 size={32}
-                color={TYPOGRAPHY.COLOR.Secondary}
+                color={TYPOGRAPHY.COLOR.BrandRed}
               />
             </Pressable>
           ),
@@ -130,7 +130,7 @@ export const BottomTabNavigator = () => {
               <Ionicons
                 name='chevron-back'
                 size={32}
-                color={TYPOGRAPHY.COLOR.Secondary}
+                color={TYPOGRAPHY.COLOR.BrandRed}
               />
             </Pressable>
           ),
@@ -153,7 +153,7 @@ export const BottomTabNavigator = () => {
               <Ionicons
                 name='chevron-back'
                 size={32}
-                color={TYPOGRAPHY.COLOR.Secondary}
+                color={TYPOGRAPHY.COLOR.BrandRed}
               />
             </Pressable>
           ),
@@ -177,7 +177,7 @@ export const BottomTabNavigator = () => {
               <Ionicons
                 name='chevron-back'
                 size={32}
-                color={TYPOGRAPHY.COLOR.Secondary}
+                color={TYPOGRAPHY.COLOR.BrandRed}
               />
             </Pressable>
           ),
@@ -200,7 +200,7 @@ export const BottomTabNavigator = () => {
               <Ionicons
                 name='chevron-back'
                 size={32}
-                color={TYPOGRAPHY.COLOR.Secondary}
+                color={TYPOGRAPHY.COLOR.BrandRed}
               />
             </Pressable>
           ),

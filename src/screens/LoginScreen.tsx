@@ -24,9 +24,7 @@ export const LoginScreen: React.FC = () => {
       <TopBar align='flex-start' style={{ marginBottom: 20 }} />
       <View style={styles.container}>
         <View style={{ flexDirection: 'row', marginBottom: 4 }}>
-          <Text style={{ fontFamily: 'impact', fontSize: 14 }}>
-            Welcome to{' '}
-          </Text>
+          <Text style={{ fontFamily: 'impact', fontSize: 14 }}>Welcome to</Text>
           <Text
             style={{
               fontFamily: 'impact',
@@ -65,7 +63,7 @@ export const LoginScreen: React.FC = () => {
         />
         <PressableText
           text='Forgot password?'
-          onPress={() => console.log('forgot password')}
+          onPress={() => navigation.navigate('Home')}
         />
         <View
           style={{

@@ -1,11 +1,22 @@
-import { View, TextInput, StyleSheet, Platform } from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Platform,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import { SubmitButton } from './SubmitButton';
 
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { GLOBAL } from '../global/styles/global';
 import { useState } from 'react';
 
-export const SearchBar = () => {
+interface SearchBar {
+  style?: StyleProp<ViewStyle>;
+}
+
+export const SearchBar = ({ style }: SearchBar) => {
   const [placeHolder, setPlaceholder] = useState('Lame games and more...');
   const [boxShadow, setBoxShadow] = useState({});
   const handleOnFocus = () => {
@@ -24,11 +35,12 @@ export const SearchBar = () => {
   };
 
   const handleOnBlur = () => {
-    setPlaceholder('Lame game and more...');
+    setPlaceholder('Lame games and more...');
     setBoxShadow({});
   };
   return (
-    <View style={[styles.inputContainer, shadowStyle(boxShadow).boxShadow]}>
+    <View
+      style={[styles.inputContainer, shadowStyle(boxShadow).boxShadow, style]}>
       <TextInput
         onChangeText={() => console.log('change')}
         value={''}
@@ -55,7 +67,7 @@ const styles = StyleSheet.create({
     padding: GLOBAL.SPACING.sm,
     paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
-    marginVertical: GLOBAL.SPACING.md,
+    margin: GLOBAL.SPACING.md,
     marginHorizontal: GLOBAL.SPACING.sm,
   },
   searchInput: {

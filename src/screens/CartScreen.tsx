@@ -9,11 +9,9 @@ import { GLOBAL } from '../global/styles/global';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useTypedSelector';
 
-export const CartScreen: React.FC = () => {
+export const CartScreen = () => {
   const { addToCart, removeFromCart, deleteFromCart } = useActions();
   const cartItems = useSelector((state) => state.cart);
-  console.log('ADD TO CART ACTION', addToCart);
-  console.log('CARTITEMS', cartItems);
 
   const randomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * max) + min;
@@ -43,8 +41,6 @@ export const CartScreen: React.FC = () => {
       <TouchableOpacity onPress={onPress3}>
         <Text>delete from cart</Text>
       </TouchableOpacity>
-
-      {/* <FlatList /> */}
     </View>
   );
 };

@@ -8,10 +8,10 @@ import {
 import image from '../../assets/gamepad.png';
 
 import logo from '../../assets/lamestop-logo-transparent.png';
-import { IMGSTYLES } from '../global/misc/imgStyles';
+import { IMGSTYLES } from '../global/styles/imgStyles';
 import { Image } from 'react-native';
 
-export const StartupScreen: React.FC = () => {
+export const StartupScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode='contain' style={styles.image}>

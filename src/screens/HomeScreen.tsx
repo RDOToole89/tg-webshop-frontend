@@ -7,7 +7,7 @@ import { PromotionBanner } from '../components/PromotionBanner';
 import { GLOBAL } from '../global/styles/global';
 import { SearchBar } from '../components/SearchBar';
 
-import image from '../../assets/crap-banner.png';
+import image from '../../assets/lame-banner.png';
 import { DefaultButton } from '../global/elements/buttons';
 import { CategoryCard } from '../components/CatgoryCard';
 import { DealBanner } from '../components/DealBanner';
@@ -30,7 +30,7 @@ export const HomeScreen = () => {
         message={loggedIn ? `Welcome back ${user}` : `Welcome to LameStop`}
         delay={2000}
       />
-      <TopBar style={{ backgroundColor: '#fff' }} />
+      <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
       <PromotionBanner
         bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
       />
