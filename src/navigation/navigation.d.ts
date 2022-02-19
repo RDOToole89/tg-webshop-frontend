@@ -4,6 +4,19 @@ export type BottomTabParams = {
   Search: undefined;
   Categories: undefined;
   Profile: undefined;
+  Products: {
+    categoryName: string;
+  };
+  ProductDetails: {
+    id: number;
+    title: string;
+    price: number;
+    rating: number;
+    ratingQuantity: number;
+    tags: string[];
+    stock: number;
+    imageUrl: string;
+  };
 };
 
 export type RootStackParams = {

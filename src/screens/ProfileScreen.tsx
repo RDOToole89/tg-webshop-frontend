@@ -9,27 +9,28 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { ReferenceBar } from '../components/ReferenceBar';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Modal } from '../global/elements/Modal';
+import { useSelector } from 'react-redux';
+import { useActions } from '../hooks/useActions';
 
 export const ProfileScreen = () => {
+  const { logoutUser } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
-
-  const loggedIn = false;
-  const userName = 'Roibin';
-  const email = 'roibinotoole@gmail.com';
+  const user = useSelector((state: RootState) => state.user);
+  const { isLoggedIn } = user;
 
   return (
     <ScrollView style={styles.container}>
-      {loggedIn ? (
+      {isLoggedIn ? (
         <>
-          <Text style={TYPOGRAPHY.FONT.h1}>{userName}</Text>
-          <Text style={TYPOGRAPHY.FONT.subtitle}>{email}</Text>
+          <Text style={TYPOGRAPHY.FONT.h1}>{user.user.firstName}</Text>
+          <Text style={TYPOGRAPHY.FONT.subtitle}>{user.user.email}</Text>
         </>
       ) : (
         <Text style={TYPOGRAPHY.FONT.h1}>Hi There!</Text>
       )}
 
-      {!loggedIn && (
+      {!isLoggedIn && (
         <>
           <Text
             style={[
@@ -144,6 +145,30 @@ export const ProfileScreen = () => {
           />
         </View>
       </Modal>
+
+      {isLoggedIn && (
+        <DefaultButton
+          style={{
+            width: 140,
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            paddingHorizontal: 15,
+            marginTop: GLOBAL.SPACING.lg,
+          }}
+          title='signout'
+          onClick={() => {
+            logoutUser();
+            navigation.navigate('Home');
+          }}
+          icon={
+            <MaterialIcon
+              size='large'
+              name='person'
+              color={TYPOGRAPHY.COLOR.BrandBlack}
+            />
+          }
+        />
+      )}
     </ScrollView>
   );
 };

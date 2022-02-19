@@ -21,11 +21,12 @@ import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
+import categories from '../../assets/data/categories.json';
+
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
   const user = useSelector((state: RootState) => state.user);
   const { isLoggedIn } = user;
-  console.log(user);
 
   useEffect(() => {
     // fetchUser();
@@ -35,7 +36,7 @@ export const HomeScreen = () => {
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={GLOBAL.LAYOUT.defaultContainer}>
       <MessageBanner
         message={
           isLoggedIn
@@ -122,13 +123,12 @@ export const HomeScreen = () => {
       </View>
       <ScrollView style={styles.scrollContainer}>
         <ScrollView horizontal>
-          <CategoryCard categoryName='classics' />
-          <CategoryCard categoryName='playtation' />
-          <CategoryCard categoryName='xbox' />
-          <CategoryCard categoryName='nintendo' />
-          <CategoryCard categoryName='simulators' />
-          <CategoryCard categoryName='lame consoles' />
-          <CategoryCard categoryName='boring as ****' />
+          {categories.map((category) => (
+            <CategoryCard
+              key={category.id}
+              categoryName={category.categoryName}
+            />
+          ))}
         </ScrollView>
       </ScrollView>
 
@@ -138,21 +138,8 @@ export const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    color: '#fff',
-    flex: 1,
-    paddingTop: GLOBAL.SPACING.xxxl,
-  },
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
     backgroundColor: '#e5e7eb',
-  },
-  boxSmall: {
-    width: 130,
-    height: 130,
-    marginBottom: 10,
-    marginRight: 30,
-    paddingVertical: 30,
-    backgroundColor: 'skyblue',
   },
 });

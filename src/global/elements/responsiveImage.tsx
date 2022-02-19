@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import {
   Image,
+  ImageResizeMode,
   ImageSourcePropType,
   LayoutChangeEvent,
   StyleSheet,
@@ -8,9 +9,10 @@ import {
 } from 'react-native';
 
 interface ResponsiveImageProps {
-  source: ImageSourcePropType;
+  source: ImageSourcePropType | { uri: string };
   srcWidth: number;
   srcHeight: number;
+  resizeMode?: ImageResizeMode;
 }
 
 const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
@@ -30,7 +32,11 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
 
   return (
     <View style={styles.container} onLayout={_onViewLayoutChange}>
-      <Image source={props.source} style={imageStyles} />
+      <Image
+        resizeMode={props.resizeMode}
+        source={props.source}
+        style={imageStyles}
+      />
     </View>
   );
 };

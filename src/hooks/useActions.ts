@@ -14,6 +14,7 @@ const actionCreators: any = {
   ...repositoryActionCreators,
   ...categoryActionCreators,
   ...userActionCreators,
+  
 };
 
 // custom hook to neaten up the look of dispatching an action with Redux

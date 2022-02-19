@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParams } from '../navigation/navigation';
+import { BottomTabParams } from '../navigation/navigation';
 
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -22,7 +22,7 @@ import testData from '../../assets/data/categories.json';
 
 export const CategoriesScreen = () => {
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+    useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
   type Category = {
     id: number;
@@ -39,7 +39,11 @@ export const CategoriesScreen = () => {
       <PressableCard
         background={background}
         title={item.categoryName}
-        onClick={() => console.log('kick the can')}
+        onClick={() =>
+          navigation.navigate('Products', {
+            categoryName: item.categoryName,
+          })
+        }
       />
     );
   };
@@ -50,7 +54,7 @@ export const CategoriesScreen = () => {
   );
 
   useEffect(() => {
-    loadCategories();
+    // loadCategories();
   }, []);
 
   return (

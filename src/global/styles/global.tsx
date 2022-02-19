@@ -4,6 +4,30 @@ import { TYPOGRAPHY } from './typography';
 
 export const widgetPaddingValue = 16;
 
+const FONT_SIZES = {
+  xxxsm: 4,
+  xxsm: 6,
+  xsm: 10,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 40,
+  xxxl: 80,
+};
+
+const SPACING = {
+  xxxsm: 2,
+  xxsm: 4,
+  xsm: 6,
+  sm: 8,
+  md: 16,
+  lg: 20,
+  xl: 26,
+  xxl: 32,
+  xxxl: 64,
+};
+
 const LAYOUT = StyleSheet.create({
   SafeArea: {
     flex: 1,
@@ -11,6 +35,11 @@ const LAYOUT = StyleSheet.create({
   },
   container: {
     flex: 1,
+  },
+  defaultContainer: {
+    color: '#fff',
+    flex: 1,
+    paddingTop: SPACING.xxxl,
   },
   pageContainer: {
     padding: 16,
@@ -172,30 +201,6 @@ const SHADOWS = StyleSheet.create({
     elevation: Platform.OS === 'ios' ? 0 : 8,
   },
 });
-
-const FONT_SIZES = {
-  xxxsm: 4,
-  xxsm: 6,
-  xsm: 10,
-  sm: 12,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 40,
-  xxxl: 80,
-};
-
-const SPACING = {
-  xxxsm: 2,
-  xxsm: 4,
-  xsm: 6,
-  sm: 8,
-  md: 16,
-  lg: 20,
-  xl: 26,
-  xxl: 32,
-  xxxl: 64,
-};
 
 const GLOBAL = {
   LAYOUT,

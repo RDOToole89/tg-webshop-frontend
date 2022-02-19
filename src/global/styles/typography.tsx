@@ -7,7 +7,7 @@ const COLOR = {
   DefaultSelected: '#222222',
   PrimaryGrey: '#f0f0f0',
   SecondaryGrey: '#E5E7EB',
-  TeriaryGrey: '#060606',
+  TertiaryGrey: '#f2f2f2',
   BrandRed: '#ee2a28',
   BrandBlack: '#212322',
   Border: '#E7E7E8',

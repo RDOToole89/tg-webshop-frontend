@@ -17,8 +17,6 @@ export const Modal = ({ activator: Activator, children }: ModalProps) => {
   // dismisses the modal when the screen changes
   useFocusEffect(
     useCallback(() => {
-      console.log('Modal in focus!');
-
       return () => {
         setModalVisible(false);
       };

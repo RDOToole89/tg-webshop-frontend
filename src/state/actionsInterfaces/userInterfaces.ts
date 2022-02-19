@@ -14,7 +14,12 @@ export interface LoginUserErrorAction {
   payload: string;
 }
 
+export interface LogoutUserAction {
+  type: 'logout_user';
+}
+
 export type TLoginUserAction =
   | fetchUserAction
   | LoginUserSucessAction
-  | LoginUserErrorAction;
+  | LoginUserErrorAction
+  | LogoutUserAction;
