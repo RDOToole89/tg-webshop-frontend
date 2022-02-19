@@ -1,17 +1,23 @@
-import { FunctionComponent, ReactNode, useEffect, useState } from 'react';
 import {
-  View,
-  StyleSheet,
-  Modal as DefaultModal,
-  StatusBar,
-  Text,
-  Pressable,
-} from 'react-native';
+  FunctionComponent,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
+import { StyleSheet, Modal as DefaultModal, Pressable } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { GLOBAL } from '../styles/global';
-import { TYPOGRAPHY } from '../styles/typography';
+
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParams } from '../../navigation/navigation';
 
 import { PressableText } from './PressableText';
+import {
+  useFocusEffect,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 
 type ModalProps = {
   activator?: FunctionComponent<{ handleOpen: () => void }>;
@@ -19,7 +25,18 @@ type ModalProps = {
 };
 
 export const Modal = ({ activator: Activator, children }: ModalProps) => {
-  const [isModalVisible, setModalVisible] = useState(true);
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  // dismisses the modal when the screen changes
+  useFocusEffect(
+    useCallback(() => {
+      console.log('Modal in focus!');
+
+      return () => {
+        setModalVisible(false);
+      };
+    }, [])
+  );
 
   return (
     <Pressable onPress={() => setModalVisible(false)}>
@@ -31,7 +48,6 @@ export const Modal = ({ activator: Activator, children }: ModalProps) => {
           contentContainerStyle={styles.centerView}
           style={styles.contentView}>
           {children}
-          {/* <PressableText onPress={() => setModalVisible(false)} text='x' /> */}
         </ScrollView>
       </DefaultModal>
       {Activator ? (

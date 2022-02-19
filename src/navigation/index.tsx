@@ -86,7 +86,7 @@ export const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName='Profile'
+      initialRouteName='Home'
       screenOptions={({ navigation, route }) => ({
         // tabBarStyle: {
         //   justifyContent: 'center',

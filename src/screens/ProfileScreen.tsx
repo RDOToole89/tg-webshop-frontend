@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { ScrollView, Text, StyleSheet, View } from 'react-native';
@@ -8,9 +8,7 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { ReferenceBar } from '../components/ReferenceBar';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
-import { Button } from 'react-native-paper';
 import { Modal } from '../global/elements/Modal';
-import { PressableText } from '../global/elements/PressableText';
 
 export const ProfileScreen = () => {
   const navigation =
