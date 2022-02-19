@@ -153,6 +153,7 @@ export const ProfileScreen = () => {
             flexDirection: 'row',
             justifyContent: 'space-evenly',
             paddingHorizontal: 15,
+            marginTop: GLOBAL.SPACING.lg,
           }}
           title='signout'
           onClick={() => {

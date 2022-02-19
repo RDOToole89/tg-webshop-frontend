@@ -10,8 +10,10 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
+import { useActions } from '../hooks/useActions';
 
 export const LoginScreen: React.FC = () => {
+  const { loginUser } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -25,14 +27,23 @@ export const LoginScreen: React.FC = () => {
     // if successful provide user with token and login
 
     let loginSuccess = false;
-    const dbEmail = 'test@test.com';
+    const dbEmail = 'roibinotoole@gmail.com';
     const dbPassword = 'test';
 
     if (dbEmail === email && dbPassword === password) {
       loginSuccess = true;
     }
 
-    if (loginSuccess) navigation.navigate('Home');
+    if (loginSuccess) {
+      navigation.navigate('Home');
+      loginUser({
+        userName: 'RDOToole89',
+        firstName: 'Roibin',
+        lastName: 'OToole',
+        email: 'roibinotoole@gmail.com',
+        remainLoggedIn: true,
+      });
+    }
 
     if (!email || !password & !loginSuccess)
       alert('Please enter your credentials');

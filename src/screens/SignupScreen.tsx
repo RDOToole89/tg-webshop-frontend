@@ -9,8 +9,10 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
+import { useActions } from '../hooks/useActions';
 
 export const SignupScreen = () => {
+  const { loginUser } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -42,7 +44,16 @@ export const SignupScreen = () => {
     if (firstName && lastName && email && password)
       accountCreationSuccess = true;
 
-    if (accountCreationSuccess) navigation.navigate('Home');
+    if (accountCreationSuccess) {
+      loginUser({
+        userName: 'RDOToole89',
+        firstName: 'Roibin',
+        lastName: 'OToole',
+        email: 'roibinotoole@gmail.com',
+        remainLoggedIn: true,
+      });
+      navigation.navigate('Home');
+    }
   };
 
   return (

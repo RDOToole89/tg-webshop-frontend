@@ -1,6 +1,7 @@
 import { Action, Dispatch } from 'redux';
 import { axios } from '../../constants/axios';
 import { ActionType } from '../action-types';
+import { User } from '../reducers/userReducer';
 
 export const fetchUser = (id: number) => {
   return async (dispatch: Dispatch<Action>) => {
@@ -15,6 +16,26 @@ export const fetchUser = (id: number) => {
       dispatch({
         type: ActionType.LOGIN_USER_SUCCESS,
         payload: user,
+      });
+    } catch (error: any) {
+      dispatch({
+        type: ActionType.LOGIN_USER_ERROR,
+        payload: error.message,
+      });
+    }
+  };
+};
+
+export const loginUser = (
+  userTestObject?: User,
+  email?: string,
+  password?: string
+) => {
+  return async (dispatch: Dispatch<Action>) => {
+    try {
+      dispatch({
+        type: ActionType.LOGIN_USER_SUCCESS,
+        payload: userTestObject,
       });
     } catch (error: any) {
       dispatch({

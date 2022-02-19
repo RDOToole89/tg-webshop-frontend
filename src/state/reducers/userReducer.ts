@@ -49,6 +49,7 @@ export const reducer = (
         ...state,
         loading: false,
         user: action.payload,
+        isLoggedIn: true,
         message: `${state?.user?.userName} logged in sucessfully!`,
       };
 

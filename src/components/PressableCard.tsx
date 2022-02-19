@@ -47,9 +47,8 @@ const styles = StyleSheet.create({
     backgroundColor: TYPOGRAPHY.COLOR.Default,
     margin: GLOBAL.SPACING.sm,
     height: 170,
-    borderWidth: 1,
+
     borderRadius: 4,
-    borderColor: TYPOGRAPHY.COLOR.BrandRed,
   },
   image: {
     position: 'absolute',
