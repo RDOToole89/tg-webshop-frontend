@@ -15,4 +15,7 @@ export type RootStackParams = {
   Profile: undefined;
   Signup: undefined;
   LoginStack: undefined;
+  Products: {
+    categoryName: string;
+  };
 };

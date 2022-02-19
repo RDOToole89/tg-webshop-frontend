@@ -20,6 +20,7 @@ import { SignupScreen } from '../screens/SignupScreen';
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
+import { ProductsScreen } from '../screens/ProductsScreen';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -44,6 +45,7 @@ export const RootNavigator = () => {
       }}>
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
+      <Stack.Screen name='Products' component={ProductsScreen} />
     </Stack.Navigator>
   );
 };

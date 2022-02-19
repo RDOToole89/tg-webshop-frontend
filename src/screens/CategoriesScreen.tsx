@@ -39,7 +39,11 @@ export const CategoriesScreen = () => {
       <PressableCard
         background={background}
         title={item.categoryName}
-        onClick={() => console.log('kick the can')}
+        onClick={() =>
+          navigation.navigate('Products', {
+            categoryName: item.categoryName,
+          })
+        }
       />
     );
   };
