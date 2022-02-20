@@ -9,6 +9,7 @@ export type BottomTabParams = {
   };
   ProductDetails: {
     id: number;
+    brand: string;
     title: string;
     price: number;
     rating: number;
@@ -16,6 +17,7 @@ export type BottomTabParams = {
     tags: string[];
     platforms: string[];
     stock: number;
+    desc: string;
     imageUrl: string;
     extraImages: string[];
   };

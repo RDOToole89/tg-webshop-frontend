@@ -8,6 +8,10 @@ import { StarRatings } from '../components/StarRatings';
 import { TagMapper } from '../components/TagMapper';
 import { PickerGenerator } from '../global/elements/PickerGenerator';
 import { SliderBox } from 'react-native-image-slider-box';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import reviews from '../../assets/data/reviews.json';
 
 export const ProductDetailScreen = ({ route }: any) => {
   const { addToCart } = useActions();
@@ -15,8 +19,10 @@ export const ProductDetailScreen = ({ route }: any) => {
   const {
     id,
     imageUrl,
+    brand,
     price,
     rating,
+    desc,
     ratingQuantity,
     stock,
     tags,
@@ -25,9 +31,6 @@ export const ProductDetailScreen = ({ route }: any) => {
     extraImages,
   } = route.params;
 
-  console.log(route.params);
-
-  console.log('EXTRIMAGES', extraImages);
   return (
     <ScrollView style={styles.container}>
       <View
@@ -35,17 +38,28 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        <SliderBox
-          images={extraImages}
-          resizeMethod={'resize'}
-          resizeMode={'contain'}
-          sliderBoxHeight={300}
-          onCurrentImagePressed={(index: any) =>
-            console.warn(`image ${index} pressed`)
-          }
-          dotColor={TYPOGRAPHY.COLOR.BrandRed}
-          inactiveDotColor={TYPOGRAPHY.COLOR.BrandBlack}
-        />
+        {extraImages.length > 1 ? (
+          <SliderBox
+            images={extraImages}
+            resizeMethod={'resize'}
+            resizeMode={'contain'}
+            sliderBoxHeight={300}
+            onCurrentImagePressed={(index: any) =>
+              console.warn(`image ${index} pressed`)
+            }
+            dotColor={TYPOGRAPHY.COLOR.BrandRed}
+            inactiveDotColor={TYPOGRAPHY.COLOR.BrandBlack}
+          />
+        ) : (
+          <ResponsiveImage
+            source={{
+              uri: imageUrl,
+            }}
+            srcHeight={150}
+            srcWidth={200}
+            resizeMode='contain'
+          />
+        )}
       </View>
       <View style={{ padding: GLOBAL.SPACING.md }}>
         <Text
@@ -63,12 +77,15 @@ export const ProductDetailScreen = ({ route }: any) => {
           Only {stock} left in stock
         </Text>
 
-        <Text style={GLOBAL.FONTS.h1}>{title}</Text>
+        <Text style={GLOBAL.FONTS.h1}>
+          {title} - {brand}
+        </Text>
         <TagMapper tags={tags} />
         <StarRatings
           rating={rating}
           ratingQuantity={ratingQuantity}
           size={'extraLarge'}
+          style={{ marginBottom: GLOBAL.SPACING.md }}
         />
 
         {platforms && platforms.length > 1 ? (
@@ -78,12 +95,51 @@ export const ProductDetailScreen = ({ route }: any) => {
         )}
 
         <Button
+          style={{ marginBottom: GLOBAL.SPACING.md }}
           color='#e7230d'
           icon='cart'
           mode='contained'
           onPress={() => addToCart(id)}>
           <Text>Add to cart</Text>
         </Button>
+        <Text
+          style={[
+            TYPOGRAPHY.FONT.h3,
+            { fontFamily: TYPOGRAPHY.FONT.PrimaryBold },
+          ]}>
+          Product description
+        </Text>
+        <Text
+          style={[TYPOGRAPHY.FONT.subtitle, { lineHeight: GLOBAL.SPACING.lg }]}>
+          {desc}
+        </Text>
+        <HorizontalRule
+          style={{
+            marginVertical: GLOBAL.SPACING.md,
+          }}
+        />
+        <Text
+          style={[
+            TYPOGRAPHY.FONT.h3,
+            {
+              fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
+            },
+          ]}>
+          Reviews
+        </Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <Text
+            style={[
+              TYPOGRAPHY.FONT.h1,
+              {
+                fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
+              },
+            ]}>
+            {rating.toFixed(1)}
+          </Text>
+          <StarRatings rating={rating} size={'extraLarge'} />
+        </View>
+        <Text style={{ textAlign: 'right' }}>{ratingQuantity} reviews</Text>
       </View>
     </ScrollView>
   );

@@ -21,6 +21,12 @@ const COLOR = {
 const FONT = {
   Primary: 'open-sans',
   PrimaryBold: 'open-sans-bold',
+  body: {
+    fontFamily: 'open-sans',
+    fontSize: 14,
+    lineHeight: 18,
+    marginBottom: 8,
+  },
   h1: {
     fontFamily: 'open-sans',
     fontSize: 26,
