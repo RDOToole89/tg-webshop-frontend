@@ -5,8 +5,8 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { StarRatings } from './StarRatings';
 
-type ReviewCard = {
-  userName: string;
+export type ReviewCard = {
+  userNameTest: string;
   reviewScore: number;
   title: string;
   content: string;
@@ -14,20 +14,20 @@ type ReviewCard = {
 };
 
 export const ReviewCard = ({
-  userName,
+  userNameTest,
   reviewScore,
   title,
   likes,
 }: ReviewCard) => {
   return (
-    <View>
+    <View style={{ marginBottom: GLOBAL.SPACING.lg }}>
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
         }}>
-        <Ionicons name='ios-person-circle' size={24} color='black' />
-        <Text style={{ marginLeft: GLOBAL.SPACING.sm }}>{userName}</Text>
+        <Ionicons name='ios-person-circle' size={30} color='black' />
+        <Text style={{ marginLeft: GLOBAL.SPACING.sm }}>{userNameTest}</Text>
       </View>
       <View
         style={{
@@ -61,7 +61,7 @@ export const ReviewCard = ({
         {`${likes} people found this helpful`}
       </Text>
       <View style={{ flexDirection: 'row' }}>
-        <AntDesign name='like1' size={24} color='black' />
+        <AntDesign name='like1' size={18} color='black' />
       </View>
     </View>
   );

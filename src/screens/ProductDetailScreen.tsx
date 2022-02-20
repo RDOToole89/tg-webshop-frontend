@@ -9,9 +9,9 @@ import { TagMapper } from '../components/TagMapper';
 import { PickerGenerator } from '../global/elements/PickerGenerator';
 import { SliderBox } from 'react-native-image-slider-box';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
-import { Ionicons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
 import reviews from '../../assets/data/reviews.json';
+import { ReviewCard } from '../components/ReviewCard';
+import uuid from 'react-native-uuid';
 
 export const ProductDetailScreen = ({ route }: any) => {
   const { addToCart } = useActions();
@@ -140,6 +140,18 @@ export const ProductDetailScreen = ({ route }: any) => {
           <StarRatings rating={rating} size={'extraLarge'} />
         </View>
         <Text style={{ textAlign: 'right' }}>{ratingQuantity} reviews</Text>
+        {reviews.map(({ userNameTest, title, content, reviewScore, likes }) => {
+          return (
+            <ReviewCard
+              key={uuid.v4().toString()}
+              userNameTest={userNameTest}
+              title={title}
+              content={content}
+              reviewScore={reviewScore}
+              likes={likes}
+            />
+          );
+        })}
       </View>
     </ScrollView>
   );
