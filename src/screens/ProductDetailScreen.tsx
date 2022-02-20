@@ -1,16 +1,13 @@
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { HorizontalRule } from '../global/elements/HorizontalRule';
-import { MaterialIcon } from '../global/elements/MaterialIcon';
 import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { useActions } from '../hooks/useActions';
-import { StartupScreen } from './StartupScreen';
 import { StarRatings } from '../components/StarRatings';
 import { TagMapper } from '../components/TagMapper';
 import { PickerGenerator } from '../global/elements/PickerGenerator';
+import { SliderBox } from 'react-native-image-slider-box';
 
 export const ProductDetailScreen = ({ route }: any) => {
   const { addToCart } = useActions();
@@ -25,8 +22,12 @@ export const ProductDetailScreen = ({ route }: any) => {
     tags,
     title,
     platforms,
+    extraImages,
   } = route.params;
 
+  console.log(route.params);
+
+  console.log('EXTRIMAGES', extraImages);
   return (
     <ScrollView style={styles.container}>
       <View
@@ -34,23 +35,16 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        <View
-          style={{
-            position: 'absolute',
-            top: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0,0,0,0.18)',
-            zIndex: 10,
-          }}
-        />
-        <ResponsiveImage
-          source={{
-            uri: imageUrl,
-          }}
-          srcHeight={150}
-          srcWidth={200}
-          resizeMode='contain'
+        <SliderBox
+          images={extraImages}
+          resizeMethod={'resize'}
+          resizeMode={'contain'}
+          sliderBoxHeight={300}
+          onCurrentImagePressed={(index: any) =>
+            console.warn(`image ${index} pressed`)
+          }
+          dotColor={TYPOGRAPHY.COLOR.BrandRed}
+          inactiveDotColor={TYPOGRAPHY.COLOR.BrandBlack}
         />
       </View>
       <View style={{ padding: GLOBAL.SPACING.md }}>
@@ -77,7 +71,11 @@ export const ProductDetailScreen = ({ route }: any) => {
           size={'extraLarge'}
         />
 
-        <PickerGenerator data={platforms} defaultValue='Select a platform' />
+        {platforms && platforms.length > 1 ? (
+          <PickerGenerator data={platforms} defaultValue='Select a platform' />
+        ) : (
+          <Text style={TYPOGRAPHY.FONT.h2}>{platforms[0]}</Text>
+        )}
 
         <Button
           color='#e7230d'

@@ -26,6 +26,21 @@ const FONT = {
     fontSize: 26,
     marginBottom: 10,
   },
+  h2: {
+    fontFamily: 'open-sans',
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  h3: {
+    fontFamily: 'open-sans',
+    fontSize: 14,
+    marginBottom: 10,
+  },
+  h4: {
+    fontFamily: 'open-sans',
+    fontSize: 12,
+    marginBottom: 10,
+  },
   subtitle: {
     color: COLOR.DefaultSelected,
     fontFamily: 'open-sans',

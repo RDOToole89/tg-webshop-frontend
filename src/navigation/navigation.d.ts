@@ -17,6 +17,7 @@ export type BottomTabParams = {
     platforms: string[];
     stock: number;
     imageUrl: string;
+    extraImages: string[];
   };
 };
 

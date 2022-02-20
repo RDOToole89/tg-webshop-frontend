@@ -21,6 +21,7 @@ type ProductCard = {
   platforms: string[];
   stock: number;
   imageUrl: string;
+  extraImages: string[];
 };
 
 export const ProductCard = ({
@@ -33,6 +34,7 @@ export const ProductCard = ({
   platforms,
   stock,
   imageUrl,
+  extraImages,
 }: ProductCard) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
@@ -50,6 +52,7 @@ export const ProductCard = ({
           platforms,
           stock,
           imageUrl,
+          extraImages,
         })
       }
       style={{
