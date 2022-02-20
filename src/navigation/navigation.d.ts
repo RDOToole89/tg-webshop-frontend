@@ -14,6 +14,7 @@ export type BottomTabParams = {
     rating: number;
     ratingQuantity: number;
     tags: string[];
+    platforms: string[];
     stock: number;
     imageUrl: string;
   };

@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
+import { TagMapper } from './TagMapper';
 
 type ProductCard = {
   id: number;
@@ -17,6 +18,7 @@ type ProductCard = {
   rating: number;
   ratingQuantity: number;
   tags: string[];
+  platforms: string[];
   stock: number;
   imageUrl: string;
 };
@@ -28,6 +30,7 @@ export const ProductCard = ({
   rating,
   ratingQuantity,
   tags,
+  platforms,
   stock,
   imageUrl,
 }: ProductCard) => {
@@ -44,6 +47,7 @@ export const ProductCard = ({
           rating,
           ratingQuantity,
           tags,
+          platforms,
           stock,
           imageUrl,
         })
@@ -67,22 +71,7 @@ export const ProductCard = ({
           <Text style={{ fontSize: GLOBAL.FONT_SIZES.md, fontWeight: 'bold' }}>
             {title}
           </Text>
-          <View style={{ flexDirection: 'row' }}>
-            {tags.map((tag, i) => {
-              if (i === tags.length - 1) {
-                return (
-                  <Text style={TYPOGRAPHY.FONT.subtitle} key={tag}>
-                    {tag}
-                  </Text>
-                );
-              }
-              return (
-                <Text style={TYPOGRAPHY.FONT.subtitle} key={tag}>
-                  {tag} |
-                </Text>
-              );
-            })}
-          </View>
+          <TagMapper tags={tags} />
           <StarRatings rating={rating} ratingQuantity={ratingQuantity} />
           <View>
             <Text

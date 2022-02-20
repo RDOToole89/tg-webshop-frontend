@@ -8,14 +8,21 @@ type StarRatings = {
   rating: number;
   icon?: ReactNode;
   ratingQuantity?: number;
+  size?: 'small' | 'medium' | 'large' | 'extraLarge';
 };
 
-export const StarRatings = ({ rating, icon, ratingQuantity }: StarRatings) => {
+export const StarRatings = ({
+  rating,
+  icon,
+  ratingQuantity,
+  size,
+}: StarRatings) => {
   return (
     <View
       style={{
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: GLOBAL.SPACING.md,
       }}>
       {new Array(rating)
         .fill('x')
@@ -26,7 +33,7 @@ export const StarRatings = ({ rating, icon, ratingQuantity }: StarRatings) => {
             <MaterialIcon
               key={uuid.v4().toString()}
               name='star'
-              size='small'
+              size={size ? size : 'small'}
               color={'gold'}
             />
           )
