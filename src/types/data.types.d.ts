@@ -6,6 +6,7 @@ export interface Product {
   tags: string[];
   platforms: string[];
   imgUrl: string;
+  extraImages: string[];
   categoryId: number;
   stock: number;
   price: number;

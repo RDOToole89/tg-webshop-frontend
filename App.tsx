@@ -10,6 +10,7 @@ import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 import image from './assets/gamepad.png';
 import { useEffect } from 'react';
 import { LogBox } from 'react-native';
+export const ViewPropTypes = { style: null };
 
 const images = [image];
 

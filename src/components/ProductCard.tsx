@@ -14,25 +14,31 @@ import { TagMapper } from './TagMapper';
 type ProductCard = {
   id: number;
   title: string;
+  brand: string;
   price: number;
   rating: number;
   ratingQuantity: number;
   tags: string[];
   platforms: string[];
+  desc: string;
   stock: number;
   imageUrl: string;
+  extraImages: string[];
 };
 
 export const ProductCard = ({
   id,
   title,
+  brand,
   price,
   rating,
   ratingQuantity,
   tags,
+  desc,
   platforms,
   stock,
   imageUrl,
+  extraImages,
 }: ProductCard) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
@@ -43,13 +49,16 @@ export const ProductCard = ({
         navigation.navigate('ProductDetails', {
           id,
           title,
+          brand,
           price,
           rating,
+          desc,
           ratingQuantity,
           tags,
           platforms,
           stock,
           imageUrl,
+          extraImages,
         })
       }
       style={{

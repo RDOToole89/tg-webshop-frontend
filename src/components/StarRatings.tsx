@@ -1,14 +1,18 @@
 import { ReactNode } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleProp, ViewProps } from 'react-native';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import uuid from 'react-native-uuid';
 import { GLOBAL } from '../global/styles/global';
+import { ViewStyle } from '../../assets/fixes/react-native-web-0.12.0/packages/react-native-web/src/exports/View/types';
+import { Style } from '../../assets/fixes/react-native-web-0.12.0/packages/react-native-web/src/exports/Image/types';
+import { GenericStyleProp } from '../../assets/fixes/react-native-web-0.12.0/packages/react-native-web/src/types';
 
 type StarRatings = {
   rating: number;
   icon?: ReactNode;
   ratingQuantity?: number;
   size?: 'small' | 'medium' | 'large' | 'extraLarge';
+  style?: GenericStyleProp;
 };
 
 export const StarRatings = ({
@@ -16,14 +20,14 @@ export const StarRatings = ({
   icon,
   ratingQuantity,
   size,
+  style,
 }: StarRatings) => {
+  const appliedStyle = style
+    ? [GLOBAL.LAYOUT.rowCenter, style]
+    : [GLOBAL.LAYOUT.rowCenter];
+
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: GLOBAL.SPACING.md,
-      }}>
+    <View style={appliedStyle}>
       {new Array(rating)
         .fill('x')
         .map((x) =>

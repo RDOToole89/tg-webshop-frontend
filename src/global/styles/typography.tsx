@@ -21,9 +21,30 @@ const COLOR = {
 const FONT = {
   Primary: 'open-sans',
   PrimaryBold: 'open-sans-bold',
+  body: {
+    fontFamily: 'open-sans',
+    fontSize: 14,
+    lineHeight: 18,
+    marginBottom: 8,
+  },
   h1: {
     fontFamily: 'open-sans',
     fontSize: 26,
+    marginBottom: 10,
+  },
+  h2: {
+    fontFamily: 'open-sans',
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  h3: {
+    fontFamily: 'open-sans',
+    fontSize: 14,
+    marginBottom: 10,
+  },
+  h4: {
+    fontFamily: 'open-sans',
+    fontSize: 12,
     marginBottom: 10,
   },
   subtitle: {
