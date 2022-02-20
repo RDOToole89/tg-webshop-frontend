@@ -43,7 +43,7 @@ const LAYOUT = StyleSheet.create({
   },
   rowCenter: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems: 'center',
   },
   pageContainer: {
     padding: 16,
