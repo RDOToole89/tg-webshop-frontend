@@ -1,7 +1,7 @@
-# TG ****!?! Game Webshop
+# TG LAMESTOP Game Webshop
 
 ## Description
-A simple gaming webshop for practicing my skills as a developer.
+A simple gaming webshop created for practicing my skills as a developer. Please excuse my whacky sense of humor. It's called LameStop and exclusively sells the worst games, console and game accessories known to man. ;-p
 
 ### Technologies used in this project
 
