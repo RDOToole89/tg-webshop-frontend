@@ -8,6 +8,8 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
+import { StarRatings } from './StarRatings';
+import { TagMapper } from './TagMapper';
 
 type ProductCard = {
   id: number;
@@ -16,6 +18,7 @@ type ProductCard = {
   rating: number;
   ratingQuantity: number;
   tags: string[];
+  platforms: string[];
   stock: number;
   imageUrl: string;
 };
@@ -27,6 +30,7 @@ export const ProductCard = ({
   rating,
   ratingQuantity,
   tags,
+  platforms,
   stock,
   imageUrl,
 }: ProductCard) => {
@@ -43,6 +47,7 @@ export const ProductCard = ({
           rating,
           ratingQuantity,
           tags,
+          platforms,
           stock,
           imageUrl,
         })
@@ -66,43 +71,8 @@ export const ProductCard = ({
           <Text style={{ fontSize: GLOBAL.FONT_SIZES.md, fontWeight: 'bold' }}>
             {title}
           </Text>
-          <View style={{ flexDirection: 'row' }}>
-            {tags.map((tag, i) => {
-              if (i === tags.length - 1) {
-                return (
-                  <Text style={TYPOGRAPHY.FONT.subtitle} key={tag}>
-                    {tag}
-                  </Text>
-                );
-              }
-              return (
-                <Text style={TYPOGRAPHY.FONT.subtitle} key={tag}>
-                  {tag} |
-                </Text>
-              );
-            })}
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            {new Array(rating).fill('x').map((x) => (
-              <MaterialIcon
-                key={uuid.v4().toString()}
-                name='star'
-                size='small'
-                color={'gold'}
-              />
-            ))}
-            <Text
-              style={{
-                fontSize: GLOBAL.FONT_SIZES.xsm,
-                marginLeft: GLOBAL.SPACING.sm,
-              }}>
-              ({ratingQuantity})
-            </Text>
-          </View>
+          <TagMapper tags={tags} />
+          <StarRatings rating={rating} ratingQuantity={ratingQuantity} />
           <View>
             <Text
               style={{

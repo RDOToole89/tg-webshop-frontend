@@ -4,13 +4,14 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { BottomTabParams } from '../navigation/navigation';
 
+import uuid from 'react-native-uuid';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { useSelector } from 'react-redux';
 import { GLOBAL } from '../global/styles/global';
 import { useActions } from '../hooks/useActions';
 import { RootState } from '../state';
-import { GridList } from '../components/GridList';
+
 import { SearchBar } from '../components/SearchBar';
 import { TopBar } from '../components/TopBar';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -30,24 +31,6 @@ export const CategoriesScreen = () => {
     description: string;
   };
 
-  type RenderItem = {
-    item: Category;
-  };
-
-  const renderItem = ({ item }: RenderItem) => {
-    return (
-      <PressableCard
-        background={background}
-        title={item.categoryName}
-        onClick={() =>
-          navigation.navigate('Products', {
-            categoryName: item.categoryName,
-          })
-        }
-      />
-    );
-  };
-
   const { loadCategories } = useActions();
   const { data, error, loading } = useSelector(
     (state: RootState) => state.categories
@@ -58,24 +41,44 @@ export const CategoriesScreen = () => {
   }, []);
 
   return (
-    <View style={{ height: '100%' }}>
+    <ScrollView style={styles.container}>
       <TopBar iconsActive={true} />
-      <View style={styles.container}>
+      <View>
         <SearchBar
           style={{
             marginBottom: GLOBAL.SPACING.md,
             marginTop: GLOBAL.SPACING.sm,
           }}
         />
-        {testData && <GridList data={testData} renderItem={renderItem} />}
       </View>
-    </View>
+      <ScrollView
+        contentContainerStyle={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          flexWrap: 'wrap',
+        }}>
+        {testData &&
+          testData.map((item) => {
+            return (
+              <PressableCard
+                key={uuid.v4().toString()}
+                background={background}
+                title={item.categoryName}
+                onClick={() =>
+                  navigation.navigate('Products', {
+                    categoryName: item.categoryName,
+                  })
+                }
+              />
+            );
+          })}
+      </ScrollView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: GLOBAL.SPACING.md,
   },
 });
