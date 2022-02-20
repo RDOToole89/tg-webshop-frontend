@@ -59,14 +59,6 @@ export const RootNavigator = () => {
       })}>
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
-      {/* <Stack.Screen
-        name='Products'
-        component={ProductsScreen}
-        options={({ route }) => ({
-          headerShown: true,
-          // title: route.params.categoryName,
-        })}
-      /> */}
     </Stack.Navigator>
   );
 };
@@ -107,7 +99,7 @@ export const BottomTabNavigator = () => {
   return (
     <BottomTab.Navigator
       initialRouteName='Home'
-      screenOptions={({ navigation, route }) => ({
+      screenOptions={({ navigation }) => ({
         headerRight: () => (
           <Pressable onPress={() => navigation.navigate('Home')}>
             <Image
@@ -138,7 +130,7 @@ export const BottomTabNavigator = () => {
       <BottomTab.Screen
         name='Search'
         component={SearchScreen}
-        options={({ navigation, route }) => ({
+        options={({ navigation }) => ({
           headerShown: true,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>

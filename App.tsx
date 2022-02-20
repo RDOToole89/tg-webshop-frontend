@@ -8,10 +8,20 @@ import { StartupScreen } from './src/screens/StartupScreen';
 import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
 import image from './assets/gamepad.png';
+import { useEffect } from 'react';
+import { LogBox } from 'react-native';
 
 const images = [image];
 
 export default function App() {
+  useEffect(() => {
+    LogBox.ignoreLogs([
+      "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+    ]);
+
+    LogBox.ignoreLogs(['Remote Debugger']);
+  });
+
   return (
     <AnimatedAppLoader images={images}>
       <MainScreen />

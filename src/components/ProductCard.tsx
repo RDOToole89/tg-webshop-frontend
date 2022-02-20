@@ -8,6 +8,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
+import { StarRatings } from './StarRatings';
 
 type ProductCard = {
   id: number;
@@ -82,27 +83,7 @@ export const ProductCard = ({
               );
             })}
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            {new Array(rating).fill('x').map((x) => (
-              <MaterialIcon
-                key={uuid.v4().toString()}
-                name='star'
-                size='small'
-                color={'gold'}
-              />
-            ))}
-            <Text
-              style={{
-                fontSize: GLOBAL.FONT_SIZES.xsm,
-                marginLeft: GLOBAL.SPACING.sm,
-              }}>
-              ({ratingQuantity})
-            </Text>
-          </View>
+          <StarRatings rating={rating} ratingQuantity={ratingQuantity} />
           <View>
             <Text
               style={{

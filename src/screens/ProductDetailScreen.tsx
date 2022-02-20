@@ -1,6 +1,8 @@
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { MaterialIcon } from '../global/elements/MaterialIcon';
 import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -9,6 +11,9 @@ import { useActions } from '../hooks/useActions';
 export const ProductDetailScreen = ({ route }: any) => {
   const { addToCart } = useActions();
   console.log('PARAMS', route.params);
+
+  const { id, imageUrl, price, rating, ratingQuantity, stock, tags, title } =
+    route.params;
 
   return (
     <ScrollView style={styles.container}>
@@ -29,7 +34,7 @@ export const ProductDetailScreen = ({ route }: any) => {
         />
         <ResponsiveImage
           source={{
-            uri: route.params.imageUrl,
+            uri: imageUrl,
           }}
           srcHeight={150}
           srcWidth={200}
@@ -42,17 +47,17 @@ export const ProductDetailScreen = ({ route }: any) => {
             fontSize: GLOBAL.FONT_SIZES.lg,
             color: TYPOGRAPHY.COLOR.BrandRed,
           }}>
-          {route.params.price}
+          {price}
         </Text>
 
-        <Text style={GLOBAL.FONTS.h1}>{route.params.title}</Text>
+        <Text style={GLOBAL.FONTS.h1}>{title}</Text>
 
         <Button
-          style={{ borderRadius: 0 }}
           color='#e7230d'
+          icon='cart'
           mode='contained'
-          onPress={() => addToCart(route.params.id)}>
-          <Text>Add to Cart</Text>
+          onPress={() => addToCart(id)}>
+          <Text>Add to cart</Text>
         </Button>
       </View>
     </ScrollView>
