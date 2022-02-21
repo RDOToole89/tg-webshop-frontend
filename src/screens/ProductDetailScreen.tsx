@@ -74,9 +74,6 @@ export const ProductDetailScreen = ({ route }: any) => {
             resizeMethod='resize'
             resizeMode='contain'
             sliderBoxHeight={300}
-            onCurrentImagePressed={(index: any) =>
-              console.warn(`image ${index} pressed`)
-            }
             dotColor='red'
             inactiveDotColor='white'
           />
@@ -205,7 +202,6 @@ export const ProductDetailScreen = ({ route }: any) => {
                         routeString='Home'
                         iconName='keyboard-arrow-right'
                         onClick={() => {
-                          console.log('SHOW REVIEW', showAllReviews);
                           setShowAllReviews(true);
                         }}
                         barText='See all reviews'
