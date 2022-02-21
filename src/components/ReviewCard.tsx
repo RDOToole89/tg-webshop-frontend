@@ -16,9 +16,12 @@ export type ReviewCard = {
 export const ReviewCard = ({
   userNameTest,
   reviewScore,
+  content,
   title,
   likes,
 }: ReviewCard) => {
+  console.log('REVIEWCARD', title, content);
+
   return (
     <View style={{ marginBottom: GLOBAL.SPACING.lg }}>
       <View
@@ -51,11 +54,7 @@ export const ReviewCard = ({
           TYPOGRAPHY.FONT.subtitle,
           { marginBottom: GLOBAL.SPACING.sm },
         ]}>{`Reviewed in The Netherlands on March 11, 2021`}</Text>
-      <Text style={TYPOGRAPHY.FONT.body}>
-        this is one of the last few games made for the 7800, sadly they stared
-        making really fun games towards the end of the 7800 life. but still a
-        super fun game!
-      </Text>
+      <Text style={TYPOGRAPHY.FONT.body}>{content}</Text>
       <Text
         style={[TYPOGRAPHY.FONT.subtitle, { marginBottom: GLOBAL.SPACING.sm }]}>
         {`${likes} people found this helpful`}

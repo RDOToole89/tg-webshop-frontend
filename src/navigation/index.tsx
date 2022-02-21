@@ -100,6 +100,7 @@ export const BottomTabNavigator = () => {
     <BottomTab.Navigator
       initialRouteName='Home'
       screenOptions={({ navigation }) => ({
+        headerStyle: { borderBottomWidth: 0 },
         headerRight: () => (
           <Pressable onPress={() => navigation.navigate('Home')}>
             <Image
@@ -227,6 +228,7 @@ export const BottomTabNavigator = () => {
         options={({ navigation, route }) => {
           return {
             headerShown: true,
+
             tabBarButton: () => null,
             title: route.params?.categoryName,
             headerLeft: () => (
