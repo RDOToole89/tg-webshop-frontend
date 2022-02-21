@@ -27,8 +27,19 @@ export const ReviewCard = ({
           flexDirection: 'row',
           alignItems: 'center',
         }}>
-        <Ionicons name='ios-person-circle' size={30} color='black' />
-        <Text style={{ marginLeft: GLOBAL.SPACING.sm }}>{userNameTest}</Text>
+        <Ionicons
+          name='ios-person-circle'
+          size={30}
+          color={TYPOGRAPHY.COLOR.BrandBlack}
+        />
+        <Text
+          style={{
+            marginLeft: GLOBAL.SPACING.sm,
+            color: TYPOGRAPHY.COLOR.BrandRed,
+            fontFamily: TYPOGRAPHY.FONT.PrimaryMedium,
+          }}>
+          {userNameTest}
+        </Text>
       </View>
       <View
         style={{

@@ -31,8 +31,6 @@ export const ProductsScreen = () => {
         </ScrollView>
       </ScrollView>
       {products.map((product) => {
-        console.log(product);
-
         return <ProductCard key={uuid.v4().toString()} {...product} />;
       })}
     </ScrollView>
