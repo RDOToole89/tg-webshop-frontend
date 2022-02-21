@@ -9,8 +9,15 @@ import image from '../../assets/oldschool-nes.png';
 import { StarRatings } from '../components/StarRatings';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { Modal } from '../global/elements/Modal';
+import { Navigation } from '../navigation';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParams } from '../navigation/navigation';
 
 export const ReviewSrcreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
   const userNameTest = 'Roibin OToole';
 
   return (
@@ -73,9 +80,7 @@ export const ReviewSrcreen = () => {
       <HorizontalRule ruleWidth={3} />
       <View style={{ padding: GLOBAL.SPACING.xxl }}>
         <Text style={TYPOGRAPHY.FONT.h2}>Add a written review</Text>
-        <Text style={TYPOGRAPHY.FONT.subtitle}>
-          Sum up your review in one line
-        </Text>
+        <Text style={TYPOGRAPHY.FONT.subtitle}>How was your experience?</Text>
         <TextInput
           multiline
           numberOfLines={8}
@@ -98,7 +103,12 @@ export const ReviewSrcreen = () => {
                   <MaterialIcons name='gamepad' size={16} color='black' />
                 )}
                 mode='contained'
-                onPress={handleOpen}>
+                onPress={() => {
+                  handleOpen();
+                  setTimeout(() => {
+                    navigation.goBack();
+                  }, 2000);
+                }}>
                 submit
               </Button>
             </>
