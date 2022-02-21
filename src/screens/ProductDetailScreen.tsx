@@ -1,5 +1,5 @@
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
-import { TextInput, Checkbox, Button } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
