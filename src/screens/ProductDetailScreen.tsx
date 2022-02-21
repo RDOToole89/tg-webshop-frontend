@@ -68,7 +68,7 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        {extraImages.length > 1 ? (
+        {extraImages.length < 0 ? (
           <SliderBox
             images={extraImages}
             resizeMethod='resize'
