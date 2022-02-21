@@ -1,5 +1,5 @@
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-paper';
+import { TextInput, Checkbox, Button } from 'react-native-paper';
 import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -14,8 +14,14 @@ import { ReviewCard } from '../components/ReviewCard';
 import uuid from 'react-native-uuid';
 import { ReferenceBar } from '../components/ReferenceBar';
 import { useState } from 'react';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParams } from '../navigation/navigation';
+import { useNavigation } from '@react-navigation/native';
 
 export const ProductDetailScreen = ({ route }: any) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
   const [showAllReviews, setShowAllReviews] = useState(false);
 
   const { addToCart } = useActions();
@@ -182,15 +188,30 @@ export const ProductDetailScreen = ({ route }: any) => {
 
                 if (i === 5) {
                   return (
-                    <ReferenceBar
-                      routeString='Home'
-                      iconName='keyboard-arrow-right'
-                      onClick={() => {
-                        setShowAllReviews(true);
-                      }}
-                      barText='See all reviews'
-                      modalBar={true}
-                    />
+                    <>
+                      <Button
+                        style={{
+                          borderRadius: 0,
+                          borderWidth: 1,
+                          borderColor: '#000',
+                          width: '50%',
+                        }}
+                        color='#fff'
+                        mode='contained'
+                        onPress={() => navigation.navigate('Review')}>
+                        <Text style={GLOBAL.TEXT.Default}>Write a review</Text>
+                      </Button>
+                      <ReferenceBar
+                        routeString='Home'
+                        iconName='keyboard-arrow-right'
+                        onClick={() => {
+                          console.log('SHOW REVIEW', showAllReviews);
+                          setShowAllReviews(true);
+                        }}
+                        barText='See all reviews'
+                        modalBar={true}
+                      />
+                    </>
                   );
                 }
 
@@ -213,15 +234,29 @@ export const ProductDetailScreen = ({ route }: any) => {
 
                 if (i === reviews.length - 1) {
                   return (
-                    <ReferenceBar
-                      routeString='Home'
-                      iconName='keyboard-arrow-right'
-                      onClick={() => {
-                        setShowAllReviews(false);
-                      }}
-                      barText='Show less reviews'
-                      modalBar={true}
-                    />
+                    <>
+                      <Button
+                        style={{
+                          borderRadius: 0,
+                          borderWidth: 1,
+                          borderColor: '#000',
+                          width: '50%',
+                        }}
+                        color='#fff'
+                        mode='contained'
+                        onPress={() => navigation.navigate('Review')}>
+                        <Text style={GLOBAL.TEXT.Default}>Write a review</Text>
+                      </Button>
+                      <ReferenceBar
+                        routeString='Home'
+                        iconName='keyboard-arrow-right'
+                        onClick={() => {
+                          setShowAllReviews(false);
+                        }}
+                        barText='Show less reviews'
+                        modalBar={true}
+                      />
+                    </>
                   );
                 }
                 return;

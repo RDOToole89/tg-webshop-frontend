@@ -22,6 +22,7 @@ import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 import { ProductsScreen } from '../screens/ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
+import { ReviewSrcreen } from '../screens/ReviewScreen';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -59,6 +60,13 @@ export const RootNavigator = () => {
       })}>
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
+      <Stack.Screen
+        options={({ navigation }) => ({
+          headerShown: true,
+        })}
+        name='Review'
+        component={ReviewSrcreen}
+      />
     </Stack.Navigator>
   );
 };

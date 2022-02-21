@@ -32,4 +32,5 @@ export type RootStackParams = {
   Profile: undefined;
   Signup: undefined;
   LoginStack: undefined;
+  Review: undefined;
 };

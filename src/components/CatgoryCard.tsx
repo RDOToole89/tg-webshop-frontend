@@ -7,12 +7,12 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
 import { BottomTabParams } from '../navigation/navigation';
-import { NavigationScreen } from '../types/app.types';
+import { NavigationScreenBottom } from '../types/app.types';
 
 type CatgoryCard = {
   categoryName: string;
   imageProp?: any;
-  routeString: NavigationScreen<BottomTabParams>;
+  routeString: NavigationScreenBottom<BottomTabParams>;
 };
 
 export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
