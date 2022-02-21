@@ -20,7 +20,12 @@ const COLOR = {
 
 const FONT = {
   Primary: 'open-sans',
+  PrimaryMedium: 'open-sans-medium',
   PrimaryBold: 'open-sans-bold',
+  default: {
+    fontFamily: 'open-sans',
+    fontSize: 14,
+  },
   body: {
     fontFamily: 'open-sans',
     fontSize: 14,
@@ -57,6 +62,7 @@ const FONT = {
   input: {
     height: 36,
     fontSize: 14,
+    borderColor: '#b7c5c6',
     borderWidth: 0.5,
     borderRadius: 5,
     paddingHorizontal: 12,

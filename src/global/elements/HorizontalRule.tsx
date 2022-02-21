@@ -5,16 +5,22 @@ interface HorizontalRule {
   color?: string;
   text?: string;
   style?: StyleProp<ViewStyle>;
+  ruleWidth?: number;
 }
 
-export const HorizontalRule = ({ color, text, style }: HorizontalRule) => {
+export const HorizontalRule = ({
+  color,
+  text,
+  style,
+  ruleWidth,
+}: HorizontalRule) => {
   return (
     <View style={style}>
       <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
         <View
           style={{
             flex: 1,
-            height: 1,
+            height: ruleWidth ? ruleWidth : 1,
             backgroundColor: color ? color : TYPOGRAPHY.COLOR.TertiaryGrey,
           }}
         />
@@ -35,7 +41,7 @@ export const HorizontalRule = ({ color, text, style }: HorizontalRule) => {
         <View
           style={{
             flex: 1,
-            height: 1,
+            height: ruleWidth ? ruleWidth : 1,
             backgroundColor: color ? color : TYPOGRAPHY.COLOR.TertiaryGrey,
           }}
         />
