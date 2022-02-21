@@ -20,8 +20,6 @@ export const ReviewCard = ({
   title,
   likes,
 }: ReviewCard) => {
-  console.log('REVIEWCARD', title, content);
-
   return (
     <View style={{ marginBottom: GLOBAL.SPACING.lg }}>
       <View

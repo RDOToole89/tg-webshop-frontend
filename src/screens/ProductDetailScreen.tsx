@@ -56,7 +56,7 @@ export const ProductDetailScreen = ({ route }: any) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={GLOBAL.LAYOUT.container}>
       <View
         style={{
           position: 'relative',
