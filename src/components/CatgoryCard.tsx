@@ -12,7 +12,7 @@ import { NavigationScreenBottom } from '../types/app.types';
 type CatgoryCard = {
   categoryName: string;
   imageProp?: any;
-  routeString: NavigationScreenBottom<BottomTabParams>;
+  routeString?: NavigationScreenBottom<BottomTabParams>;
 };
 
 export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
