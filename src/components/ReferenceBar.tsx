@@ -10,6 +10,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { CustomText } from '../global/elements/customText';
 import { NavigationScreen } from '../types/app.types';
+import { Ref } from 'react';
 
 type ReferenceBar = {
   iconName: string;

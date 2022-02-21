@@ -12,8 +12,12 @@ import { HorizontalRule } from '../global/elements/HorizontalRule';
 import reviews from '../../assets/data/reviews.json';
 import { ReviewCard } from '../components/ReviewCard';
 import uuid from 'react-native-uuid';
+import { ReferenceBar } from '../components/ReferenceBar';
+import { useRef, useState } from 'react';
 
 export const ProductDetailScreen = ({ route }: any) => {
+  const [showAllReviews, setShowAllReviews] = useState(false);
+
   const { addToCart } = useActions();
 
   const {
@@ -30,6 +34,26 @@ export const ProductDetailScreen = ({ route }: any) => {
     platforms,
     extraImages,
   } = route.params;
+
+  const renderItem = (
+    userNameTest: string,
+    content: string,
+    title: string,
+    reviewScore: number,
+    likes: number,
+    key: string
+  ) => {
+    return (
+      <ReviewCard
+        key={key}
+        userNameTest={userNameTest}
+        title={title}
+        content={content}
+        reviewScore={reviewScore}
+        likes={likes}
+      />
+    );
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -140,18 +164,69 @@ export const ProductDetailScreen = ({ route }: any) => {
           <StarRatings rating={rating} size={'extraLarge'} />
         </View>
         <Text style={{ textAlign: 'right' }}>{ratingQuantity} reviews</Text>
-        {reviews.map(({ userNameTest, title, content, reviewScore, likes }) => {
-          return (
-            <ReviewCard
-              key={uuid.v4().toString()}
-              userNameTest={userNameTest}
-              title={title}
-              content={content}
-              reviewScore={reviewScore}
-              likes={likes}
-            />
-          );
-        })}
+        {!showAllReviews
+          ? reviews.map(
+              ({ userNameTest, title, content, reviewScore, likes }, i) => {
+                let key = uuid.v4().toString();
+
+                if (i < 4) {
+                  return renderItem(
+                    userNameTest,
+                    title,
+                    content,
+                    reviewScore,
+                    likes,
+                    key
+                  );
+                }
+
+                if (i === 5) {
+                  return (
+                    <ReferenceBar
+                      routeString='Home'
+                      iconName='keyboard-arrow-right'
+                      onClick={() => {
+                        setShowAllReviews(true);
+                      }}
+                      barText='See all reviews'
+                      modalBar={true}
+                    />
+                  );
+                }
+
+                return;
+              }
+            )
+          : reviews.map(
+              ({ userNameTest, title, content, reviewScore, likes }, i) => {
+                if (reviews.length && i < reviews.length - 1) {
+                  let key = uuid.v4().toString();
+                  return renderItem(
+                    userNameTest,
+                    title,
+                    content,
+                    reviewScore,
+                    likes,
+                    key
+                  );
+                }
+
+                if (i === reviews.length - 1) {
+                  return (
+                    <ReferenceBar
+                      routeString='Home'
+                      iconName='keyboard-arrow-right'
+                      onClick={() => {
+                        setShowAllReviews(false);
+                      }}
+                      barText='Show less reviews'
+                      modalBar={true}
+                    />
+                  );
+                }
+                return;
+              }
+            )}
       </View>
     </ScrollView>
   );
