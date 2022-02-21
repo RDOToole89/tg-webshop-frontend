@@ -13,7 +13,7 @@ import reviews from '../../assets/data/reviews.json';
 import { ReviewCard } from '../components/ReviewCard';
 import uuid from 'react-native-uuid';
 import { ReferenceBar } from '../components/ReferenceBar';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 export const ProductDetailScreen = ({ route }: any) => {
   const [showAllReviews, setShowAllReviews] = useState(false);
@@ -172,8 +172,8 @@ export const ProductDetailScreen = ({ route }: any) => {
                 if (i < 4) {
                   return renderItem(
                     userNameTest,
-                    title,
                     content,
+                    title,
                     reviewScore,
                     likes,
                     key

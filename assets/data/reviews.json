@@ -27,6 +27,30 @@
     "id": 3,
     "productId": 1,
     "userId": 3,
+    "userNameTest": "Kim Sing Il",
+    "title": "My people will love this game.",
+    "content": "Excellent way to train the people's army in the ways of Ninja Golf warfare.",
+    "reviewScore": 5,
+    "likes": 7,
+    "createdAt": "2022-02-09T09:33:37.015Z",
+    "updatedAt": "2022-02-09T09:33:37.015Z"
+  },
+  {
+    "id": 4,
+    "productId": 1,
+    "userId": 4,
+    "userNameTest": "Ruben Niewenhuis",
+    "title": "Next week I have a 10 hour seminar on what I like about this game.",
+    "content": "More information and presentations on this game will follow... stay tuned.",
+    "reviewScore": 5,
+    "likes": 7,
+    "createdAt": "2022-02-09T09:33:37.015Z",
+    "updatedAt": "2022-02-09T09:33:37.015Z"
+  },
+  {
+    "id": 5,
+    "productId": 1,
+    "userId": 5,
     "userNameTest": "ZickBastard",
     "title": "Meh Expected more from this...",
     "content": "Ok game but I am more in to Ninja Scooter Simulator.",
@@ -36,9 +60,9 @@
     "updatedAt": "2022-02-09T09:33:37.015Z"
   },
   {
-    "id": 4,
+    "id": 6,
     "productId": 1,
-    "userId": 4,
+    "userId": 6,
     "userNameTest": "MikeAltijdAlGedacht10",
     "title": "Ninja Boredom would have been better title...",
     "content": "If I could give less than 1, I would.",
@@ -48,9 +72,9 @@
     "updatedAt": "2022-02-09T09:33:37.015Z"
   },
   {
-    "id": 5,
+    "id": 7,
     "productId": 1,
-    "userId": 5,
+    "userId": 7,
     "userNameTest": "Fa2oes",
     "title": "Stayed up all week.",
     "content": "This game had me at Ninja and Golf. Pure Ninja Golfing GOLD! A++",
@@ -60,38 +84,14 @@
     "updatedAt": "2022-02-09T09:33:37.015Z"
   },
   {
-    "id": 6,
-    "productId": 1,
-    "userId": 6,
-    "userNameTest": "Carolientje",
-    "title": "I love a Ninja's and golf!",
-    "content": "Being a love of both gold and the ancient Ninja art this game was just perfect for me",
-    "reviewScore": 5,
-    "likes": 10,
-    "createdAt": "2022-02-09T09:33:37.015Z",
-    "updatedAt": "2022-02-09T09:33:37.015Z"
-  },
-  {
-    "id": 7,
-    "productId": 1,
-    "userId": 7,
-    "userNameTest": "Janouk",
-    "title": "Very very average",
-    "content": "... I wish I had bought accountant simulator 2013 instead.",
-    "reviewScore": 3,
-    "likes": 7,
-    "createdAt": "2022-02-09T09:33:37.015Z",
-    "updatedAt": "2022-02-09T09:33:37.015Z"
-  },
-  {
     "id": 8,
     "productId": 1,
     "userId": 8,
-    "userNameTest": "Kim Sing Il",
-    "title": "My people will love this game",
-    "content": "Excellent way to train the people's army in the ways of Ninja Golf warfare.",
+    "userNameTest": "Carolynvasie",
+    "title": "I love a Ninja's and golf!",
+    "content": "Being a lover of both golf and the ancient Ninja art this game was just perfect for me.",
     "reviewScore": 5,
-    "likes": 7,
+    "likes": 10,
     "createdAt": "2022-02-09T09:33:37.015Z",
     "updatedAt": "2022-02-09T09:33:37.015Z"
   },
@@ -99,14 +99,15 @@
     "id": 9,
     "productId": 1,
     "userId": 9,
-    "userNameTest": "Ruben Niewenhuis",
-    "title": "Next week I have a seminar on what I like about this game.",
-    "content": "More information and presentations on this game will follow... stay tuned.",
-    "reviewScore": 5,
+    "userNameTest": "Jamour",
+    "title": "Very very average",
+    "content": "... I wish I had bought accountant simulator 2013 instead.",
+    "reviewScore": 3,
     "likes": 7,
     "createdAt": "2022-02-09T09:33:37.015Z",
     "updatedAt": "2022-02-09T09:33:37.015Z"
   },
+
   {
     "id": 10,
     "productId": 1,
