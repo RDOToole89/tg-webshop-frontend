@@ -25,21 +25,27 @@ import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
 import categories from '../../assets/data/categories.json';
+import { countDownTimer } from '../utils/computeTime';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
   const user = useSelector((state: RootState) => state.user);
   const { isLoggedIn } = user;
+  const [time, setTime] = useState(countDownTimer());
 
   useEffect(() => {
-    // fetchUser();
-  }, []);
+    let timer = setInterval(() => {
+      setTime(countDownTimer());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  });
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
@@ -120,7 +126,10 @@ export const HomeScreen = () => {
         <Text style={[TYPOGRAPHY.FONT.subtitle, styles.dealTitle]}>
           Lamedeal
         </Text>
-        <Text style={TYPOGRAPHY.FONT.h2}>06 : 42 : 55</Text>
+        <Text
+          style={
+            TYPOGRAPHY.FONT.h2
+          }>{`${time.hoursLeft} : ${time.minutesLeft} : ${time.secondsLeft}`}</Text>
       </View>
       <View style={{ height: 200 }}>
         <ImageBackground
@@ -145,6 +154,9 @@ export const HomeScreen = () => {
           ))}
         </ScrollView>
       </ScrollView>
+      <View style={{ height: 200 }}>
+        <Text></Text>
+      </View>
     </ScrollView>
   );
 };

@@ -68,17 +68,14 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        {extraImages.length > 1 ? (
+        {extraImages.length < 0 ? (
           <SliderBox
             images={extraImages}
-            resizeMethod={'resize'}
-            resizeMode={'contain'}
+            resizeMethod='resize'
+            resizeMode='contain'
             sliderBoxHeight={300}
-            onCurrentImagePressed={(index: any) =>
-              console.warn(`image ${index} pressed`)
-            }
-            dotColor={TYPOGRAPHY.COLOR.BrandRed}
-            inactiveDotColor={TYPOGRAPHY.COLOR.BrandBlack}
+            dotColor='red'
+            inactiveDotColor='white'
           />
         ) : (
           <ResponsiveImage
@@ -188,7 +185,7 @@ export const ProductDetailScreen = ({ route }: any) => {
 
                 if (i === 5) {
                   return (
-                    <>
+                    <View key={key}>
                       <Button
                         style={{
                           borderRadius: 0,
@@ -205,13 +202,12 @@ export const ProductDetailScreen = ({ route }: any) => {
                         routeString='Home'
                         iconName='keyboard-arrow-right'
                         onClick={() => {
-                          console.log('SHOW REVIEW', showAllReviews);
                           setShowAllReviews(true);
                         }}
                         barText='See all reviews'
                         modalBar={true}
                       />
-                    </>
+                    </View>
                   );
                 }
 
@@ -220,8 +216,8 @@ export const ProductDetailScreen = ({ route }: any) => {
             )
           : reviews.map(
               ({ userNameTest, title, content, reviewScore, likes }, i) => {
+                let key = uuid.v4().toString();
                 if (reviews.length && i < reviews.length - 1) {
-                  let key = uuid.v4().toString();
                   return renderItem(
                     userNameTest,
                     title,
@@ -234,7 +230,7 @@ export const ProductDetailScreen = ({ route }: any) => {
 
                 if (i === reviews.length - 1) {
                   return (
-                    <>
+                    <View key={key}>
                       <Button
                         style={{
                           borderRadius: 0,
@@ -256,7 +252,7 @@ export const ProductDetailScreen = ({ route }: any) => {
                         barText='Show less reviews'
                         modalBar={true}
                       />
-                    </>
+                    </View>
                   );
                 }
                 return;
