@@ -145,6 +145,9 @@ export const HomeScreen = () => {
           ))}
         </ScrollView>
       </ScrollView>
+      <View style={{ height: 400 }}>
+        <Text>NEXT SECTION</Text>
+      </View>
     </ScrollView>
   );
 };
