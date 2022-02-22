@@ -3,6 +3,7 @@ import { StyleSheet, View, Pressable, Image } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import uuid from 'react-native-uuid';
+import { GLOBAL } from '../global/styles/global';
 
 type ImageCarousel = {
   images: string[];
@@ -22,11 +23,12 @@ export const ImageCarousel = ({
 
   return (
     <>
-      <View style={{ marginBottom: 30 }}>
+      <View style={{ marginBottom: GLOBAL.SPACING.xxxl }}>
         <PagerView ref={page} style={styles.viewPager} initialPage={0}>
           {images.map((image: string, i: number) => {
             return (
               <Image
+                key={uuid.v4().toString()}
                 source={{ uri: image }}
                 style={{
                   flex: 1,
@@ -58,23 +60,24 @@ export const ImageCarousel = ({
 const styles = StyleSheet.create({
   viewPager: {
     position: 'relative',
-    height: 300,
-    backgroundColor: 'transparent',
+    height: 280,
+    backgroundColor: '#fafafa',
+    padding: GLOBAL.SPACING.xxl,
   },
   dotNavigation: {
     position: 'absolute',
     flexDirection: 'row',
     top: '100%',
-    left: '10%',
     height: 50,
-    width: '80%',
-    justifyContent: 'space-evenly',
+    width: '70%',
+    alignSelf: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: '#fafafa',
   },
 });
 
-const dotStyle = (dotColor = 'rgba(0,0,0,0.75)') =>
+const dotStyle = (dotColor = 'rgba(0,0,0,0.65)') =>
   StyleSheet.create({
     outerDot: {
       position: 'relative',

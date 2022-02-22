@@ -257,6 +257,9 @@ export const BottomTabNavigator = () => {
         options={({ navigation, route }) => {
           return {
             headerShown: true,
+            headerStyle: {
+              backgroundColor: '#fafafa',
+            },
             tabBarButton: () => null,
             title: route.params?.title,
             headerLeft: () => (
