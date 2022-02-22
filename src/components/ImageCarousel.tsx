@@ -1,65 +1,73 @@
 import React, { useRef } from 'react';
-import { StyleSheet, View, Pressable } from 'react-native';
+import { StyleSheet, View, Pressable, Image } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
+import uuid from 'react-native-uuid';
 
 type ImageCarousel = {
   images: string[];
-  dotColor: any;
+  dotColor?: string;
+  height: number;
+  width: number;
 };
 
-export const ImageCarousel = ({ images, dotColor }: ImageCarousel) => {
+export const ImageCarousel = ({
+  images,
+  dotColor,
+  height,
+  width,
+}: ImageCarousel) => {
   // How to type this???!
   const page = useRef<any>(PagerView);
 
   return (
-    <View style={{ flex: 1, paddingTop: 50 }}>
-      <PagerView ref={page} style={styles.viewPager} initialPage={0}>
-        {images.map((image: string, i: number) => {
-          return (
-            <ResponsiveImage
-              key={i}
-              srcWidth={400}
-              srcHeight={400}
-              resizeMode={'contain'}
-              source={{ uri: image }}
-            />
-          );
-        })}
-      </PagerView>
-      <View style={styles.dotNavigation}>
-        {images.map((x, i) => {
-          return (
-            <Pressable
-              key={x}
-              style={dotStyle().outerDot}
-              onPress={() => page.current.setPage(i)}>
-              <View style={dotStyle(dotColor).innerDot} />
-            </Pressable>
-          );
-        })}
+    <>
+      <View style={{ marginBottom: 30 }}>
+        <PagerView ref={page} style={styles.viewPager} initialPage={0}>
+          {images.map((image: string, i: number) => {
+            return (
+              <Image
+                source={{ uri: image }}
+                style={{
+                  flex: 1,
+                  width: '100%',
+                  height: '100%',
+                  resizeMode: 'contain',
+                }}
+              />
+            );
+          })}
+        </PagerView>
+        <View style={styles.dotNavigation}>
+          {images.map((x, i) => {
+            return (
+              <Pressable
+                key={uuid.v4().toString()}
+                style={dotStyle().outerDot}
+                onPress={() => page.current.setPage(i)}>
+                <View style={dotStyle(dotColor).innerDot} />
+              </Pressable>
+            );
+          })}
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   viewPager: {
     position: 'relative',
+    height: 300,
     backgroundColor: 'transparent',
-    height: '55%',
-  },
-  page: {
-    height: 150,
-    width: 150,
   },
   dotNavigation: {
     position: 'absolute',
     flexDirection: 'row',
-    top: '50%',
-    left: '15%',
+    top: '100%',
+    left: '10%',
     height: 50,
-    width: '70%',
+    width: '80%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -76,11 +84,10 @@ const dotStyle = (dotColor = 'rgba(0,0,0,0.75)') =>
       backgroundColor: 'transparent',
       zIndex: 1,
     },
-
     innerDot: {
       position: 'absolute',
-      width: 20,
-      height: 20,
+      width: 15,
+      height: 15,
       alignSelf: 'center',
       margin: 'auto',
       top: '30%',

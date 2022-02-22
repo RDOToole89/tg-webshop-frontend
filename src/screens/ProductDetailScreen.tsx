@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { useNavigation } from '@react-navigation/native';
+import { ImageCarousel } from '../components/ImageCarousel';
 
 export const ProductDetailScreen = ({ route }: any) => {
   const navigation =
@@ -67,14 +68,18 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        <ResponsiveImage
-          source={{
-            uri: imageUrl,
-          }}
-          srcHeight={150}
-          srcWidth={200}
-          resizeMode='contain'
-        />
+        {extraImages.length > 1 ? (
+          <ImageCarousel height={100} width={100} images={extraImages} />
+        ) : (
+          <ResponsiveImage
+            source={{
+              uri: imageUrl,
+            }}
+            srcHeight={200}
+            srcWidth={200}
+            resizeMode='contain'
+          />
+        )}
       </View>
       <View style={{ padding: GLOBAL.SPACING.md }}>
         <Text

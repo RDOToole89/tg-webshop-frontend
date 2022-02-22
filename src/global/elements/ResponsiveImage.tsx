@@ -33,6 +33,7 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
   return (
     <View style={styles.container} onLayout={_onViewLayoutChange}>
       <Image
+        // resizeMethod='resize'
         resizeMode={props.resizeMode}
         source={props.source}
         style={imageStyles}
