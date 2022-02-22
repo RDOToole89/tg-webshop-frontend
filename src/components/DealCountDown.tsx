@@ -4,9 +4,13 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { countDownTimer } from '../utils/computeTime';
 
-export const DealCountDown = () => {
+type DealCountDown = {
+  title: string;
+};
+
+export const DealCountDown = ({ title }: DealCountDown) => {
   const [time, setTime] = useState(countDownTimer());
-  const timeRef = useRef(countDownTimer());
+  // const timeRef = useRef(countDownTimer());
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -14,14 +18,12 @@ export const DealCountDown = () => {
       setTime(countDownTimer());
     }, 1000);
 
-    console.log(timeRef);
-
     return () => clearInterval(timer);
   }, []);
 
   return (
     <View style={styles.dealCard}>
-      <Text style={[TYPOGRAPHY.FONT.subtitle, styles.dealTitle]}>Lamedeal</Text>
+      <Text style={[TYPOGRAPHY.FONT.subtitle, styles.dealTitle]}>{title}</Text>
       <Text
         style={
           TYPOGRAPHY.FONT.h2

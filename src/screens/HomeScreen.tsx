@@ -20,13 +20,12 @@ import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { useEffect, useRef, useState } from 'react';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
 import categories from '../../assets/data/categories.json';
-import { countDownTimer } from '../utils/computeTime';
+
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { DealCountDown } from '../components/DealCountDown';
 
@@ -49,9 +48,7 @@ export const HomeScreen = () => {
         delay={2000}
       />
       <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
-      <PromotionBanner
-        bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
-      />
+      <PromotionBanner bannerText='SPECIAL OFFER: pay EXTRA on orders over 100$' />
 
       <SearchBar />
       <DealBanner source={image} />
@@ -110,7 +107,7 @@ export const HomeScreen = () => {
         />
       </View>
 
-      <DealCountDown />
+      <DealCountDown title='lamedeal' />
       <View style={{ height: 200 }}>
         <ImageBackground
           source={imageDeal}

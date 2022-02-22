@@ -24,7 +24,7 @@ export const HorizontalScrollView = ({
       )}
       <ScrollView horizontal>
         {dataArray.map((item: any) => {
-          console.log(`ITEM: INSIDE DATA ARRAY`, item);
+          // console.log(`ITEM: INSIDE DATA ARRAY`, item);
 
           return (
             <HorizontalScrollViewCard
