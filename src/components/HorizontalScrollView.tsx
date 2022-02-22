@@ -44,6 +44,5 @@ const styles = StyleSheet.create({
     padding: GLOBAL.SPACING.md,
     maxHeight: 220,
     backgroundColor: '#e5e7eb',
-    zIndex: 9,
   },
 });

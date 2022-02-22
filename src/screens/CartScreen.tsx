@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SearchBar } from '../components/SearchBar';
 import { TopBar } from '../components/TopBar';
 import { Button } from 'react-native-paper';
@@ -27,12 +27,12 @@ export const CartScreen = () => {
   const cartItems = useSelector((state) => state.cart);
 
   return (
-    <View>
+    <ScrollView style={{ flex: 1 }}>
       <TopBar iconsActive={true} />
       <SearchBar placeHolderText='Search LameStop' />
       <View style={styles.container}>
         <View style={styles.cartEmptyWrapper}>
-          <View style={{ height: 100, width: 100 }}>
+          <View style={{ height: 120, width: 120 }}>
             <ResponsiveImage
               source={image}
               resizeMode={'contain'}
@@ -65,33 +65,35 @@ export const CartScreen = () => {
         routeString={'Products'}
       />
 
-      <Modal
-        activator={({ handleOpen }) => (
-          <>
-            <Button
-              style={{
-                marginBottom: GLOBAL.SPACING.md,
-                alignSelf: 'center',
-                marginTop: GLOBAL.SPACING.xxl,
-              }}
-              color='#e7230d'
-              icon={() => (
-                <MaterialIcons name='attach-money' size={16} color='black' />
-              )}
-              mode='contained'
-              onPress={() => {
-                handleOpen();
-                setTimeout(() => {
-                  navigation.goBack();
-                }, 2000);
-              }}>
-              Continue shopping... please?
-            </Button>
-          </>
-        )}>
-        <NotificationBox notificationText="It's always better to spend it right?" />
-      </Modal>
-    </View>
+      <View style={{ padding: GLOBAL.SPACING.md }}>
+        <Modal
+          activator={({ handleOpen }) => (
+            <>
+              <Button
+                style={{
+                  marginBottom: GLOBAL.SPACING.md,
+                  alignSelf: 'center',
+                  marginTop: GLOBAL.SPACING.md,
+                }}
+                color='#e7230d'
+                icon={() => (
+                  <MaterialIcons name='attach-money' size={16} color='black' />
+                )}
+                mode='contained'
+                onPress={() => {
+                  handleOpen();
+                  setTimeout(() => {
+                    navigation.goBack();
+                  }, 2000);
+                }}>
+                Continue shopping... please?
+              </Button>
+            </>
+          )}>
+          <NotificationBox notificationText="It's always better to spend it right?" />
+        </Modal>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
   cartEmptyWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: 200,
-    marginBottom: GLOBAL.SPACING.lg,
+    height: 175,
+    marginBottom: GLOBAL.SPACING.sm,
   },
 });

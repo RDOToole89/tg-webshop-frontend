@@ -38,7 +38,7 @@ export const HorizontalScrollViewCard = ({
   let cardHeader = title ? title : categoryName;
 
   if (imageUrl) {
-    source = imageUrl;
+    source = { uri: imageUrl };
   }
 
   if (imageProp) {
