@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SearchBar } from '../components/SearchBar';
 import { TopBar } from '../components/TopBar';
 import { Button } from 'react-native-paper';
-import ResponsiveImage from '../global/elements/responsiveImage';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useTypedSelector';

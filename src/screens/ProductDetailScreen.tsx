@@ -1,6 +1,6 @@
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
-import ResponsiveImage from '../global/elements/responsiveImage';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { useActions } from '../hooks/useActions';

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import ResponsiveImage from '../global/elements/responsiveImage';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import uuid from 'react-native-uuid';
 import { GLOBAL } from '../global/styles/global';

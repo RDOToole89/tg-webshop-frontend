@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   container: {
     color: '#fff',
     flex: 1,
-    paddingTop: GLOBAL.SPACING.xxxl,
+    paddingTop: GLOBAL.SPACING.lg,
     paddingHorizontal: GLOBAL.SPACING.md,
   },
   notificationBox: {

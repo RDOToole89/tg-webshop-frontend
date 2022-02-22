@@ -1,5 +1,5 @@
 import { ImageSourcePropType } from 'react-native';
-import ResponsiveImage from '../global/elements/responsiveImage';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 
 import logo from '../../assets/lamestop-logo-transparent.png';
 

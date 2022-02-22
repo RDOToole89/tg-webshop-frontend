@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Text, StyleSheet, Pressable } from 'react-native';
 import image from '../../assets/oldschool-nes.png';
-import ResponsiveImage from '../global/elements/responsiveImage';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 

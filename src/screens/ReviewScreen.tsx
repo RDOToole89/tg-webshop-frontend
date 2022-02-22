@@ -4,7 +4,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Button } from 'react-native-paper';
-import ResponsiveImage from '../global/elements/responsiveImage';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import image from '../../assets/oldschool-nes.png';
 import { StarRatings } from '../components/StarRatings';
 import { HorizontalRule } from '../global/elements/HorizontalRule';

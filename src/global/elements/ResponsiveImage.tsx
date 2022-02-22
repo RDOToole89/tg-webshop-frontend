@@ -15,7 +15,7 @@ interface ResponsiveImageProps {
   resizeMode?: ImageResizeMode;
 }
 
-const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
+export const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const _onViewLayoutChange = (event: LayoutChangeEvent) => {
     const { width } = event.nativeEvent.layout;
@@ -44,5 +44,3 @@ const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
 const styles = StyleSheet.create({
   container: { width: '100%' },
 });
-
-export default ResponsiveImage;
