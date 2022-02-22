@@ -24,7 +24,7 @@ export const HorizontalScrollView = ({
       )}
       <ScrollView horizontal>
         {dataArray.map((item: any) => {
-          console.log(`ITEM: INSIDE DATAARR`, item);
+          console.log(`ITEM: INSIDE DATA ARRAY`, item);
 
           return (
             <HorizontalScrollViewCard
@@ -42,6 +42,7 @@ export const HorizontalScrollView = ({
 const styles = StyleSheet.create({
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
+    maxHeight: 220,
     backgroundColor: '#e5e7eb',
     zIndex: 9,
   },

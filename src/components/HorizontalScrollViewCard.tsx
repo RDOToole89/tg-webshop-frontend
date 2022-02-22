@@ -35,6 +35,7 @@ export const HorizontalScrollViewCard = ({
   const params = title ? { title } : { categoryName };
 
   let source;
+  let cardHeader = title ? title : categoryName;
 
   if (imageUrl) {
     source = imageUrl;
@@ -53,7 +54,7 @@ export const HorizontalScrollViewCard = ({
       style={styles.cardDimensions}
       onPress={() => navigation.navigate(routeString, params)}>
       <Text style={[GLOBAL.TEXT_INPUT.Style.Bold, styles.cardText]}>
-        {title}
+        {cardHeader}
       </Text>
       <ResponsiveImage source={source} srcWidth={130} srcHeight={130} />
     </Pressable>

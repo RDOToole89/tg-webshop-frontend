@@ -13,7 +13,13 @@ import { CategoryCard } from '../components/CatgoryCard';
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import products from '../../assets/data/products.json';
 
+import { BottomTabParams, RootStackParams } from '../navigation/navigation';
+import { useNavigation } from '@react-navigation/native';
+
 export const CartScreen = () => {
+  // const navigation =
+  //   useNavigation<NativeStackNavigationProp<BottomTabParams>>();
+
   const { addToCart, removeFromCart, deleteFromCart } = useActions();
   const cartItems = useSelector((state) => state.cart);
 
@@ -51,12 +57,12 @@ export const CartScreen = () => {
             />
           </View>
         </View>
-        <HorizontalScrollView
-          dataArray={products}
-          title='Recently viewed articles'
-          routeString={'Products'}
-        />
       </View>
+      <HorizontalScrollView
+        dataArray={products}
+        title='Recently viewed articles'
+        routeString={'Products'}
+      />
     </View>
   );
 };

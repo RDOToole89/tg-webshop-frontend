@@ -28,24 +28,12 @@ import { RootState } from '../state';
 import categories from '../../assets/data/categories.json';
 import { countDownTimer } from '../utils/computeTime';
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
+import { DealCountDown } from '../components/DealCountDown';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
   const user = useSelector((state: RootState) => state.user);
   const { isLoggedIn } = user;
-  const [time, setTime] = useState(countDownTimer());
-  const timeRef = useRef(countDownTimer());
-
-  useEffect(() => {
-    let timer = setInterval(() => {
-      timeRef.current = countDownTimer();
-      // setTime(countDownTimer());
-    }, 1000);
-
-    console.log(timeRef);
-
-    return () => clearInterval(timer);
-  }, []);
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
@@ -122,15 +110,7 @@ export const HomeScreen = () => {
         />
       </View>
 
-      <View style={styles.dealCard}>
-        <Text style={[TYPOGRAPHY.FONT.subtitle, styles.dealTitle]}>
-          Lamedeal
-        </Text>
-        <Text
-          style={
-            TYPOGRAPHY.FONT.h2
-          }>{`${time.hoursLeft} : ${time.minutesLeft} : ${time.secondsLeft}`}</Text>
-      </View>
+      <DealCountDown />
       <View style={{ height: 200 }}>
         <ImageBackground
           source={imageDeal}
@@ -177,28 +157,5 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === 'ios' ? 0 : 8,
     paddingBottom: GLOBAL.SPACING.xxl,
     marginBottom: GLOBAL.SPACING.sm,
-  },
-  dealCard: {
-    top: -26,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 160,
-    backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-
-    elevation: Platform.OS === 'ios' ? 0 : 8,
-  },
-  dealTitle: {
-    color: TYPOGRAPHY.COLOR.BrandRed,
-    paddingTop: GLOBAL.SPACING.md,
-    fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
-    textTransform: 'uppercase',
   },
 });
