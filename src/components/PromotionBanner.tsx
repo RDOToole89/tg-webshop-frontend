@@ -34,5 +34,6 @@ const styles = (
         : TYPOGRAPHY.COLOR.Secondary,
 
       letterSpacing: 0.7,
+      marginBottom: GLOBAL.SPACING.sm,
     },
   });

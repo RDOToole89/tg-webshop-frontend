@@ -10,6 +10,8 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { PressableText } from '../global/elements/PressableText';
 import categories from '../../assets/data/categories.json';
 import { CategoryCard } from '../components/CatgoryCard';
+import { HorizontalScrollView } from '../components/HorizontalScrollView';
+import products from '../../assets/data/products.json';
 
 export const CartScreen = () => {
   const { addToCart, removeFromCart, deleteFromCart } = useActions();
@@ -22,7 +24,7 @@ export const CartScreen = () => {
       <TopBar iconsActive={true} />
       <SearchBar placeHolderText='Search LameStop' />
       <View style={styles.container}>
-        <View style={[GLOBAL.LAYOUT.rowCenter]}>
+        <View style={[{ flexDirection: 'row', height: 300 }]}>
           <View style={{ height: 100, width: 100 }}>
             <ResponsiveImage
               source={image}
@@ -49,19 +51,11 @@ export const CartScreen = () => {
             />
           </View>
         </View>
-        <ScrollView style={styles.scrollContainer}>
-          <Text style={[TYPOGRAPHY.FONT.h3, { fontFamily: 'open-sans-bold' }]}>
-            Recently viewed products
-          </Text>
-          <ScrollView horizontal>
-            {categories.map((category) => (
-              <CategoryCard
-                key={category.id}
-                categoryName={category.categoryName}
-              />
-            ))}
-          </ScrollView>
-        </ScrollView>
+        <HorizontalScrollView
+          dataArray={products}
+          title='Recently viewed articles'
+          routeString={'Products'}
+        />
       </View>
     </View>
   );
@@ -72,10 +66,5 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: GLOBAL.SPACING.xl,
     paddingHorizontal: GLOBAL.SPACING.md,
-  },
-  scrollContainer: {
-    padding: GLOBAL.SPACING.md,
-    backgroundColor: '#e5e7eb',
-    zIndex: 9,
   },
 });

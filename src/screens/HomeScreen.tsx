@@ -6,46 +6,46 @@ import {
   Platform,
   ImageBackground,
 } from 'react-native';
-
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
 import { TopBar } from '../components/TopBar';
 import { PromotionBanner } from '../components/PromotionBanner';
 import { GLOBAL } from '../global/styles/global';
 import { SearchBar } from '../components/SearchBar';
-
 import image from '../../assets/lame-banner.png';
 import imageDeal from '../../assets/fake-add.png';
-
 import { DefaultButton } from '../global/elements/buttons';
-import { CategoryCard } from '../components/CatgoryCard';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
 import categories from '../../assets/data/categories.json';
 import { countDownTimer } from '../utils/computeTime';
+import { HorizontalScrollView } from '../components/HorizontalScrollView';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
   const user = useSelector((state: RootState) => state.user);
   const { isLoggedIn } = user;
   const [time, setTime] = useState(countDownTimer());
+  const timeRef = useRef(countDownTimer());
 
   useEffect(() => {
     let timer = setInterval(() => {
-      setTime(countDownTimer());
+      timeRef.current = countDownTimer();
+      // setTime(countDownTimer());
     }, 1000);
 
+    console.log(timeRef);
+
     return () => clearInterval(timer);
-  });
+  }, []);
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
@@ -143,17 +143,12 @@ export const HomeScreen = () => {
           }}
         />
       </View>
+      <HorizontalScrollView
+        dataArray={categories}
+        title='Categories'
+        routeString={'Categories'}
+      />
 
-      <ScrollView style={styles.scrollContainer}>
-        <ScrollView horizontal>
-          {categories.map((category) => (
-            <CategoryCard
-              key={category.id}
-              categoryName={category.categoryName}
-            />
-          ))}
-        </ScrollView>
-      </ScrollView>
       <View style={{ height: 200 }}>
         <Text></Text>
       </View>
