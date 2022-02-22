@@ -7,7 +7,6 @@ import { useActions } from '../hooks/useActions';
 import { StarRatings } from '../components/StarRatings';
 import { TagMapper } from '../components/TagMapper';
 import { PickerGenerator } from '../global/elements/PickerGenerator';
-import { SliderBox } from 'react-native-image-slider-box';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import reviews from '../../assets/data/reviews.json';
 import { ReviewCard } from '../components/ReviewCard';
@@ -68,25 +67,14 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        {extraImages.length < -1 ? (
-          <SliderBox
-            images={extraImages}
-            resizeMethod='resize'
-            resizeMode='contain'
-            sliderBoxHeight={300}
-            dotColor='red'
-            inactiveDotColor='white'
-          />
-        ) : (
-          <ResponsiveImage
-            source={{
-              uri: imageUrl,
-            }}
-            srcHeight={150}
-            srcWidth={200}
-            resizeMode='contain'
-          />
-        )}
+        <ResponsiveImage
+          source={{
+            uri: imageUrl,
+          }}
+          srcHeight={150}
+          srcWidth={200}
+          resizeMode='contain'
+        />
       </View>
       <View style={{ padding: GLOBAL.SPACING.md }}>
         <Text
