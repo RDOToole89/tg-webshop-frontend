@@ -9,10 +9,11 @@ import image from '../../assets/oldschool-nes.png';
 import { StarRatings } from '../components/StarRatings';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { Modal } from '../global/elements/Modal';
-import { Navigation } from '../navigation';
+
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
+import { NotificationBox } from '../components/NotificationBox';
 
 export const ReviewSrcreen = () => {
   const navigation =
@@ -113,36 +114,9 @@ export const ReviewSrcreen = () => {
               </Button>
             </>
           )}>
-          <View style={[styles.notificationBox, GLOBAL.SHADOWS.shadowLight]}>
-            <View style={GLOBAL.LAYOUT.rowCenter}>
-              <Ionicons
-                name='checkmark'
-                size={24}
-                color={TYPOGRAPHY.COLOR.Success}
-              />
-              <Text
-                style={[
-                  TYPOGRAPHY.FONT.subtitle,
-                  { marginBottom: 0, color: TYPOGRAPHY.COLOR.Success },
-                ]}>
-                Review submitted - Thank you!
-              </Text>
-            </View>
-          </View>
+          <NotificationBox notificationText=' Review submitted - Thank you!' />
         </Modal>
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  notificationBox: {
-    position: 'relative',
-    width: '90%',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    padding: GLOBAL.SPACING.lg,
-    backgroundColor: 'white',
-    borderRadius: 4,
-  },
-});

@@ -6,46 +6,33 @@ import {
   Platform,
   ImageBackground,
 } from 'react-native';
-
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
 import { TopBar } from '../components/TopBar';
 import { PromotionBanner } from '../components/PromotionBanner';
 import { GLOBAL } from '../global/styles/global';
 import { SearchBar } from '../components/SearchBar';
-
 import image from '../../assets/lame-banner.png';
 import imageDeal from '../../assets/fake-add.png';
-
 import { DefaultButton } from '../global/elements/buttons';
-import { CategoryCard } from '../components/CatgoryCard';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { useEffect, useState } from 'react';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
 import categories from '../../assets/data/categories.json';
-import { countDownTimer } from '../utils/computeTime';
+
+import { HorizontalScrollView } from '../components/HorizontalScrollView';
+import { DealCountDown } from '../components/DealCountDown';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
   const user = useSelector((state: RootState) => state.user);
   const { isLoggedIn } = user;
-  const [time, setTime] = useState(countDownTimer());
-
-  useEffect(() => {
-    let timer = setInterval(() => {
-      setTime(countDownTimer());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  });
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
@@ -61,9 +48,7 @@ export const HomeScreen = () => {
         delay={2000}
       />
       <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
-      <PromotionBanner
-        bannerText={'SPECIAL OFFER: pay EXTRA on orders over 100$'}
-      />
+      <PromotionBanner bannerText='SPECIAL OFFER: pay EXTRA on orders over 100$' />
 
       <SearchBar />
       <DealBanner source={image} />
@@ -122,15 +107,7 @@ export const HomeScreen = () => {
         />
       </View>
 
-      <View style={styles.dealCard}>
-        <Text style={[TYPOGRAPHY.FONT.subtitle, styles.dealTitle]}>
-          Lamedeal
-        </Text>
-        <Text
-          style={
-            TYPOGRAPHY.FONT.h2
-          }>{`${time.hoursLeft} : ${time.minutesLeft} : ${time.secondsLeft}`}</Text>
-      </View>
+      <DealCountDown title='lamedeal' />
       <View style={{ height: 200 }}>
         <ImageBackground
           source={imageDeal}
@@ -143,17 +120,12 @@ export const HomeScreen = () => {
           }}
         />
       </View>
+      <HorizontalScrollView
+        dataArray={categories}
+        title='Categories'
+        routeString={'Categories'}
+      />
 
-      <ScrollView style={styles.scrollContainer}>
-        <ScrollView horizontal>
-          {categories.map((category) => (
-            <CategoryCard
-              key={category.id}
-              categoryName={category.categoryName}
-            />
-          ))}
-        </ScrollView>
-      </ScrollView>
       <View style={{ height: 200 }}>
         <Text></Text>
       </View>
@@ -182,28 +154,5 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === 'ios' ? 0 : 8,
     paddingBottom: GLOBAL.SPACING.xxl,
     marginBottom: GLOBAL.SPACING.sm,
-  },
-  dealCard: {
-    top: -26,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 160,
-    backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-
-    elevation: Platform.OS === 'ios' ? 0 : 8,
-  },
-  dealTitle: {
-    color: TYPOGRAPHY.COLOR.BrandRed,
-    paddingTop: GLOBAL.SPACING.md,
-    fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
-    textTransform: 'uppercase',
   },
 });

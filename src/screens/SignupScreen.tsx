@@ -149,19 +149,25 @@ export const SignupScreen = () => {
           />
           <Text>Keep me signed in</Text>
         </View>
-        <Button
-          style={{ borderRadius: 0 }}
-          color='#e7230d'
-          mode='contained'
-          onPress={signUp}>
-          <Text>SUBMIT</Text>
-        </Button>
-        <HorizontalRule
-          text='or'
-          style={{ marginVertical: GLOBAL.SPACING.md }}
-        />
+        <View style={{ alignItems: 'center' }}>
+          <Button
+            style={{ borderRadius: 0, width: '100%' }}
+            color='#e7230d'
+            mode='contained'
+            onPress={signUp}>
+            <Text>SUBMIT</Text>
+          </Button>
+          <HorizontalRule
+            text='or'
+            style={{ marginVertical: GLOBAL.SPACING.md, width: '100%' }}
+          />
 
-        <PressableText onPress={() => navigation.goBack()} text='Sign in' />
+          <PressableText
+            onPress={() => navigation.goBack()}
+            text='Sign in'
+            textStyle={{ alignSelf: 'center' }}
+          />
+        </View>
       </View>
     </>
   );
