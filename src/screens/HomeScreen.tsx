@@ -163,7 +163,6 @@ export const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   scrollContainer: {
-    paddingTop: GLOBAL.SPACING.xl,
     padding: GLOBAL.SPACING.md,
     backgroundColor: '#e5e7eb',
     zIndex: 9,

@@ -14,10 +14,14 @@ import { useState } from 'react';
 
 interface SearchBar {
   style?: StyleProp<ViewStyle>;
+  placeHolderText?: string;
 }
 
-export const SearchBar = ({ style }: SearchBar) => {
-  const [placeHolder, setPlaceholder] = useState('Lame games and more...');
+export const SearchBar = ({
+  style,
+  placeHolderText = 'Lame games and more...',
+}: SearchBar) => {
+  const [placeHolder, setPlaceholder] = useState(placeHolderText);
   const [boxShadow, setBoxShadow] = useState({});
   const handleOnFocus = () => {
     setPlaceholder('');
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
     padding: GLOBAL.SPACING.sm,
     paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
-    margin: GLOBAL.SPACING.md,
+    marginBottom: GLOBAL.SPACING.md,
     marginHorizontal: GLOBAL.SPACING.sm,
   },
   searchInput: {

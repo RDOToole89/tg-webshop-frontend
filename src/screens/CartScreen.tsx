@@ -1,46 +1,68 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { SearchBar } from '../components/SearchBar';
+import { TopBar } from '../components/TopBar';
+import ResponsiveImage from '../global/elements/responsiveImage';
 import { GLOBAL } from '../global/styles/global';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useTypedSelector';
+import image from '../../assets/shopping-cart-curved.png';
+import { TYPOGRAPHY } from '../global/styles/typography';
+import { PressableText } from '../global/elements/PressableText';
+import categories from '../../assets/data/categories.json';
+import { CategoryCard } from '../components/CatgoryCard';
 
 export const CartScreen = () => {
   const { addToCart, removeFromCart, deleteFromCart } = useActions();
   const cartItems = useSelector((state) => state.cart);
 
-  const randomNumber = (min: number, max: number) => {
-    return Math.floor(Math.random() * max) + min;
-  };
-
-  const onPress = () => {
-    addToCart(randomNumber(1, 3));
-  };
-
-  const onPress2 = () => {
-    removeFromCart(randomNumber(1, 3));
-  };
-
-  const onPress3 = () => {
-    deleteFromCart(randomNumber(1, 3));
-  };
+  console.log(image);
 
   return (
-    <View style={styles.container}>
-      <Text>Cart</Text>
-      <TouchableOpacity onPress={onPress}>
-        <Text>add to cart</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onPress2}>
-        <Text>remove from cart</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onPress3}>
-        <Text>delete from cart</Text>
-      </TouchableOpacity>
+    <View>
+      <TopBar iconsActive={true} />
+      <SearchBar placeHolderText='Search LameStop' />
+      <View style={styles.container}>
+        <View style={[GLOBAL.LAYOUT.rowCenter]}>
+          <View style={{ height: 100, width: 100 }}>
+            <ResponsiveImage
+              source={image}
+              resizeMode={'contain'}
+              srcHeight={200}
+              srcWidth={200}
+            />
+          </View>
+          <View style={{ alignItems: 'center' }}>
+            <Text
+              style={[
+                TYPOGRAPHY.FONT.default,
+                { padding: GLOBAL.SPACING.sm, fontFamily: 'open-sans-bold' },
+              ]}>
+              Your LameStop cart is empty :(
+            </Text>
+            <Text style={TYPOGRAPHY.FONT.subtitle}>
+              We're pretty broke help us out here!
+            </Text>
+            <PressableText
+              textStyle={{ textDecorationLine: 'underline' }}
+              text='continue shopping'
+              onPress={() => console.log('home')}
+            />
+          </View>
+        </View>
+        <ScrollView style={styles.scrollContainer}>
+          <Text style={[TYPOGRAPHY.FONT.h3, { fontFamily: 'open-sans-bold' }]}>
+            Recently viewed products
+          </Text>
+          <ScrollView horizontal>
+            {categories.map((category) => (
+              <CategoryCard
+                key={category.id}
+                categoryName={category.categoryName}
+              />
+            ))}
+          </ScrollView>
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -48,8 +70,12 @@ export const CartScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    paddingTop: GLOBAL.SPACING.xxxl,
+    paddingTop: GLOBAL.SPACING.xl,
     paddingHorizontal: GLOBAL.SPACING.md,
+  },
+  scrollContainer: {
+    padding: GLOBAL.SPACING.md,
+    backgroundColor: '#e5e7eb',
+    zIndex: 9,
   },
 });
