@@ -4,6 +4,7 @@ const COLOR = {
   Secondary: '#4c78e2',
   Tertiary: '#87ceeb',
   Default: '#FFFFFF',
+  Neutral: '#fafafa',
   DefaultSelected: '#222222',
   PrimaryGrey: '#f0f0f0',
   SecondaryGrey: '#E5E7EB',

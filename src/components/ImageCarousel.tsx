@@ -24,7 +24,7 @@ export const ImageCarousel = ({
 
   return (
     <>
-      <View style={{ marginBottom: GLOBAL.SPACING.xxxl }}>
+      <View style={{ marginBottom: GLOBAL.SPACING.sm }}>
         <PagerView ref={page} style={styles.viewPager} initialPage={0}>
           {images.map((image: string, i: number) => {
             return (
@@ -37,16 +37,21 @@ export const ImageCarousel = ({
           })}
         </PagerView>
         <View style={styles.dotNavigation}>
-          {images.map((x, i) => {
-            return (
-              <Pressable
-                key={uuid.v4().toString()}
-                style={dotStyle().outerDot}
-                onPress={() => page.current.setPage(i)}>
-                <View style={dotStyle(dotColor).innerDot} />
-              </Pressable>
-            );
-          })}
+          <View
+            style={{
+              flexDirection: 'row',
+            }}>
+            {images.map((x, i) => {
+              return (
+                <Pressable
+                  key={uuid.v4().toString()}
+                  style={dotStyle().outerDot}
+                  onPress={() => page.current.setPage(i)}>
+                  <View style={dotStyle(dotColor).innerDot} />
+                </Pressable>
+              );
+            })}
+          </View>
         </View>
       </View>
     </>
@@ -55,41 +60,30 @@ export const ImageCarousel = ({
 
 const styles = StyleSheet.create({
   viewPager: {
-    position: 'relative',
-    height: 280,
-    backgroundColor: '#fafafa',
-    padding: GLOBAL.SPACING.xxl,
+    minHeight: 280,
+    backgroundColor: TYPOGRAPHY.COLOR.Neutral,
   },
   dotNavigation: {
-    position: 'absolute',
-    flexDirection: 'row',
-    top: '100%',
-    height: 50,
-    width: '70%',
-    alignSelf: 'center',
-    justifyContent: 'space-around',
+    height: 40,
     alignItems: 'center',
-    backgroundColor: '#fafafa',
+    backgroundColor: TYPOGRAPHY.COLOR.Neutral,
   },
 });
 
-const dotStyle = (dotColor = 'rgba(0,0,0,0.65)') =>
+const dotStyle = (dotColor = 'rgba(0,0,0,0.60)') =>
   StyleSheet.create({
     outerDot: {
-      position: 'relative',
-      width: 50,
-      height: 50,
+      width: 40,
+      height: 40,
+      marginHorizontal: 10,
       borderRadius: 200,
       backgroundColor: 'transparent',
-      zIndex: 1,
     },
     innerDot: {
-      position: 'absolute',
       width: 15,
       height: 15,
       alignSelf: 'center',
-      margin: 'auto',
-      top: '30%',
+      top: 13,
       borderRadius: 50,
       backgroundColor: dotColor,
     },
