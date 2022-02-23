@@ -107,7 +107,7 @@ export const HomeScreen = () => {
           }
         />
       </View>
-      <HorizontalRule ruleWidth={1.5} color='rgba(0,0,0,0.2)' />
+      <HorizontalRule shadow={true} ruleWidth={1} />
       <DealCountDown title='lamedeal' />
       <View style={{ height: 200 }}>
         <ImageBackground
@@ -144,16 +144,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     padding: GLOBAL.SPACING.md,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-
-    elevation: Platform.OS === 'ios' ? 0 : 8,
-    paddingBottom: GLOBAL.SPACING.xxl,
-    marginBottom: GLOBAL.SPACING.sm,
   },
 });

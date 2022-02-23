@@ -1,4 +1,4 @@
-import { View, Text, StyleProp, ViewStyle } from 'react-native';
+import { View, Text, StyleSheet, StyleProp, ViewStyle } from 'react-native';
 import { GLOBAL } from '../styles/global';
 import { TYPOGRAPHY } from '../styles/typography';
 
@@ -7,6 +7,7 @@ interface HorizontalRule {
   text?: string;
   style?: StyleProp<ViewStyle>;
   ruleWidth?: number;
+  shadow?: boolean;
 }
 
 export const HorizontalRule = ({
@@ -14,17 +15,23 @@ export const HorizontalRule = ({
   text,
   style,
   ruleWidth,
+  shadow,
 }: HorizontalRule) => {
+  const ruleStyle = {
+    flex: 1,
+    height: ruleWidth ? ruleWidth : 1,
+    backgroundColor: color ? color : TYPOGRAPHY.COLOR.TertiaryGrey,
+  };
+
+  const shadowStyles = [
+    { ...ruleStyle, backgroundColor: 'transparent' },
+    GLOBAL.SHADOWS.shadowLight,
+  ];
+
   return (
-    <View style={[style]}>
-      <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
-        <View
-          style={{
-            flex: 1,
-            height: ruleWidth ? ruleWidth : 1,
-            backgroundColor: color ? color : TYPOGRAPHY.COLOR.TertiaryGrey,
-          }}
-        />
+    <View style={style}>
+      <View style={GLOBAL.LAYOUT.rowCenter}>
+        <View style={shadow ? shadowStyles : ruleStyle} />
 
         {text && (
           <View>
@@ -39,13 +46,7 @@ export const HorizontalRule = ({
           </View>
         )}
 
-        <View
-          style={{
-            flex: 1,
-            height: ruleWidth ? ruleWidth : 1,
-            backgroundColor: color ? color : TYPOGRAPHY.COLOR.TertiaryGrey,
-          }}
-        />
+        <View style={shadow ? shadowStyles : ruleStyle} />
       </View>
     </View>
   );

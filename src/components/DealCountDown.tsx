@@ -10,11 +10,9 @@ type DealCountDown = {
 
 export const DealCountDown = ({ title }: DealCountDown) => {
   const [time, setTime] = useState(countDownTimer());
-  // const timeRef = useRef(countDownTimer());
 
   useEffect(() => {
     let timer = setInterval(() => {
-      // timeRef.current = countDownTimer();
       setTime(countDownTimer());
     }, 1000);
 
@@ -22,7 +20,7 @@ export const DealCountDown = ({ title }: DealCountDown) => {
   }, []);
 
   return (
-    <View style={styles.dealCard}>
+    <View style={[styles.dealCard, GLOBAL.SHADOWS.shadowMedium]}>
       <Text style={[TYPOGRAPHY.FONT.subtitle, styles.dealTitle]}>{title}</Text>
       <Text
         style={
@@ -40,15 +38,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 160,
     backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
-
-    elevation: Platform.OS === 'ios' ? 0 : 8,
   },
   dealTitle: {
     color: TYPOGRAPHY.COLOR.BrandRed,
