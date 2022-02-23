@@ -43,6 +43,6 @@ const styles = StyleSheet.create({
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
     maxHeight: 220,
-    backgroundColor: '#e5e7eb',
+    backgroundColor: TYPOGRAPHY.COLOR.Neutral,
   },
 });

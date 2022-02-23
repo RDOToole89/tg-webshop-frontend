@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useState } from 'react';
@@ -57,13 +63,13 @@ export const SignupScreen = () => {
   };
 
   return (
-    <>
-      <TopBar
-        align='flex-start'
-        style={{ marginBottom: 20 }}
-        iconsActive={false}
-      />
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
+        <TopBar
+          align='flex-start'
+          style={{ marginBottom: 20 }}
+          iconsActive={false}
+        />
         <View style={{ flexDirection: 'row', marginBottom: 4 }}>
           <Text style={{ fontFamily: 'impact', fontSize: 14 }}>
             Welcome to{' '}
@@ -169,7 +175,7 @@ export const SignupScreen = () => {
           />
         </View>
       </View>
-    </>
+    </TouchableWithoutFeedback>
   );
 };
 

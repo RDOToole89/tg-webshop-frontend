@@ -97,7 +97,7 @@ export const HomeScreen = () => {
       </View>
       <HorizontalRule shadow={false} ruleWidth={1} color='rgba(0,0,0,0.1)' />
       <DealCountDown title='lamedeal' />
-      <View style={{ height: 200 }}>
+      <View style={{ height: 200, marginBottom: GLOBAL.SPACING.lg }}>
         <ImageBackground
           source={imageDeal}
           resizeMode='contain'
