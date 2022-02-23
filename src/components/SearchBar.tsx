@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     padding: GLOBAL.SPACING.sm,
     paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
-    marginBottom: GLOBAL.SPACING.md,
-    marginHorizontal: GLOBAL.SPACING.sm,
+    marginVertical: GLOBAL.SPACING.sm,
+    marginHorizontal: GLOBAL.SPACING.md,
   },
   searchInput: {
     width: '80%',

@@ -45,8 +45,7 @@ const styles = (align: FlexAlignType = 'center') =>
       paddingHorizontal: GLOBAL.SPACING.md,
       alignItems: align,
       justifyContent: 'space-between',
-      paddingVertical: GLOBAL.SPACING.sm,
-      marginBottom: GLOBAL.SPACING.md,
+      marginBottom: GLOBAL.SPACING.sm,
     },
     iconsContainer: {
       flexDirection: 'row',

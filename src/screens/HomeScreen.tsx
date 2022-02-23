@@ -49,10 +49,14 @@ export const HomeScreen = () => {
         delay={2000}
       />
       <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
-      <PromotionBanner bannerText='SPECIAL OFFER: pay EXTRA on orders over 100$' />
+      <View style={{ paddingVertical: GLOBAL.SPACING.md }}>
+        <PromotionBanner bannerText='SPECIAL OFFER: pay EXTRA on orders over 100$' />
+      </View>
 
       <SearchBar />
-      <DealBanner source={image} />
+      <View style={{ paddingVertical: GLOBAL.SPACING.lg }}>
+        <DealBanner source={image} />
+      </View>
       <View style={styles.buttonWrapper}>
         {!isLoggedIn ? (
           <DefaultButton

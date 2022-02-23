@@ -27,13 +27,12 @@ const styles = (
     banner: {
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: GLOBAL.FONT_SIZES.md,
+      paddingVertical: GLOBAL.SPACING.md,
       fontFamily: 'montserrat',
       backgroundColor: backgroundColor
         ? backgroundColor
         : TYPOGRAPHY.COLOR.Secondary,
 
       letterSpacing: 0.7,
-      marginBottom: GLOBAL.SPACING.sm,
     },
   });
