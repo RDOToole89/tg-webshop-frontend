@@ -15,7 +15,7 @@ export const HorizontalRule = ({
   text,
   style,
   ruleWidth,
-  shadow,
+  shadow = false,
 }: HorizontalRule) => {
   const ruleStyle = {
     flex: 1,
@@ -23,10 +23,11 @@ export const HorizontalRule = ({
     backgroundColor: color ? color : TYPOGRAPHY.COLOR.TertiaryGrey,
   };
 
-  const shadowStyles = [
-    { ...ruleStyle, backgroundColor: 'transparent' },
-    GLOBAL.SHADOWS.shadowLight,
-  ];
+  const shadowStyles = {
+    ...GLOBAL.SHADOWS.shadowLight,
+    ...ruleStyle,
+    backgroundColor: 'transparent',
+  };
 
   return (
     <View style={style}>

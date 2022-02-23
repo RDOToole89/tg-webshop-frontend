@@ -56,11 +56,7 @@ export const HomeScreen = () => {
       <View style={styles.buttonWrapper}>
         {!isLoggedIn ? (
           <DefaultButton
-            style={{
-              width: 120,
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-            }}
+            style={styles.homeButton}
             title='login'
             onClick={() => navigation.navigate('LoginStack')}
             icon={
@@ -73,11 +69,7 @@ export const HomeScreen = () => {
           />
         ) : (
           <DefaultButton
-            style={{
-              width: 120,
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-            }}
+            style={styles.homeButton}
             title='orders'
             onClick={() => navigation.navigate('Profile')}
             icon={
@@ -91,11 +83,7 @@ export const HomeScreen = () => {
         )}
 
         <DefaultButton
-          style={{
-            width: 130,
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-          }}
+          style={styles.homeButton}
           title='categories'
           onClick={() => navigation.navigate('Categories')}
           icon={
@@ -107,7 +95,7 @@ export const HomeScreen = () => {
           }
         />
       </View>
-      <HorizontalRule shadow={true} ruleWidth={1} />
+      <HorizontalRule shadow={true} ruleWidth={1} color='rgba(0,0,0,0.1)' />
       <DealCountDown title='lamedeal' />
       <View style={{ height: 200 }}>
         <ImageBackground
@@ -115,7 +103,7 @@ export const HomeScreen = () => {
           resizeMode='contain'
           style={{
             position: 'relative',
-            top: -20,
+            top: 0,
             height: 200,
             width: '100%',
           }}
@@ -124,7 +112,7 @@ export const HomeScreen = () => {
       <HorizontalScrollView
         dataArray={categories}
         title='Categories'
-        routeString={'Categories'}
+        routeString='Categories'
       />
 
       <View style={{ height: 200 }}>
@@ -138,11 +126,17 @@ const styles = StyleSheet.create({
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
     backgroundColor: '#e5e7eb',
-    zIndex: 9,
+    zIndex: 10,
   },
   buttonWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     padding: GLOBAL.SPACING.md,
+    paddingBottom: GLOBAL.SPACING.xxxl,
+  },
+  homeButton: {
+    width: 120,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
 });

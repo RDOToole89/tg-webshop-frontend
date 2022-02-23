@@ -24,8 +24,9 @@ const SPACING = {
   md: 16,
   lg: 20,
   xl: 26,
-  xxl: 32,
-  xxxl: 64,
+  xxl: 30,
+  xxxl: 38,
+  xxxxl: 64,
 };
 
 const LAYOUT = StyleSheet.create({
