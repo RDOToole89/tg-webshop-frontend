@@ -4,8 +4,8 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Keyboard,
   TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
