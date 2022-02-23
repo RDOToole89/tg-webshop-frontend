@@ -6,24 +6,23 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export interface SubmitButton {
-  handleOnClick(): void;
+  handlePress(): void;
+  ionIconName?: string;
+  iconSize?: number;
 }
 
-export const SubmitButton = ({ handleOnClick }: SubmitButton) => {
+export const SubmitButton = ({
+  handlePress,
+  ionIconName,
+  iconSize,
+}: SubmitButton) => {
   return (
-    <TouchableOpacity style={styles.submitBtn} onPress={handleOnClick}>
-      <Icon name='search-outline' size={25} color={TYPOGRAPHY.COLOR.Primary} />
+    <TouchableOpacity onPress={handlePress}>
+      <Icon
+        name={!ionIconName ? 'search-outline' : ionIconName}
+        size={!iconSize ? 25 : iconSize}
+        color={TYPOGRAPHY.COLOR.Primary}
+      />
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  submitBtn: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: GLOBAL.SPACING.sm,
-  },
-  submitText: {
-    color: TYPOGRAPHY.COLOR.Primary,
-  },
-});

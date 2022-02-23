@@ -18,7 +18,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Modal } from '../global/elements/Modal';
 import { MaterialIcons } from '@expo/vector-icons';
 import { NotificationBox } from '../components/NotificationBox';
-import { ProductCardCheckout } from '../components/ProductCardCheckout';
+import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
 import { Dimensions } from 'react-native';
 import uuid from 'react-native-uuid';
 
@@ -116,8 +116,8 @@ export const CartScreen = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
-  console.log('WindowWidth', windowWidth);
-  console.log('WindowHeight', windowHeight);
+  // console.log('WindowWidth', windowWidth);
+  // console.log('WindowHeight', windowHeight);
 
   return (
     <View style={styles.container}>
@@ -128,9 +128,15 @@ export const CartScreen = () => {
           width: windowWidth,
         }}>
         <Button
-          style={{ position: 'relative', borderRadius: 0 }}
+          style={{ position: 'relative', borderRadius: 0, zIndex: 10 }}
           color='#e7230d'
-          icon='cart'
+          icon={() => (
+            <MaterialIcons
+              name='attach-money'
+              size={24}
+              color={TYPOGRAPHY.COLOR.Default}
+            />
+          )}
           mode='contained'
           onPress={() => console.log('ORDER')}>
           <Text>Complete Order</Text>
@@ -264,7 +270,7 @@ export const CartScreen = () => {
                 platforms,
               }) => {
                 return (
-                  <ProductCardCheckout
+                  <ProductCheckoutCard
                     key={uuid.v4().toString()}
                     id={id}
                     title={title}

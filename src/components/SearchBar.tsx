@@ -55,7 +55,7 @@ export const SearchBar = ({
       />
 
       <SubmitButton
-        handleOnClick={() => {
+        handlePress={() => {
           console.log('click');
         }}
       />
