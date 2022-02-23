@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
+import { SubmitButton } from './SubmitButton';
 
 type ProductCardCheckout = {
   id: number;
@@ -21,7 +22,7 @@ type ProductCardCheckout = {
   imageUrl: string;
 };
 
-export const ProductCardCheckout = ({
+export const ProductCheckoutCard = ({
   id,
   title,
   brand,
@@ -69,6 +70,29 @@ export const ProductCardCheckout = ({
             <Text style={[TYPOGRAPHY.FONT.subtitle, styles.textGreen]}>
               Order before 23:59, next day delivery
             </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-evenly',
+                backgroundColor: 'transparent',
+              }}>
+              <SubmitButton
+                iconSize={30}
+                ionIconName='remove-circle-outline'
+                handlePress={() => console.log('click')}
+              />
+              <Text>1</Text>
+              <SubmitButton
+                iconSize={30}
+                ionIconName='add-circle-outline'
+                handlePress={() => console.log('click')}
+              />
+              <SubmitButton
+                ionIconName='trash-outline'
+                handlePress={() => console.log('click')}
+              />
+            </View>
           </View>
         </View>
       </View>
