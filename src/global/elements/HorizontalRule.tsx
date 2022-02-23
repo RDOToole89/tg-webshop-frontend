@@ -1,4 +1,5 @@
 import { View, Text, StyleProp, ViewStyle } from 'react-native';
+import { GLOBAL } from '../styles/global';
 import { TYPOGRAPHY } from '../styles/typography';
 
 interface HorizontalRule {
@@ -15,7 +16,7 @@ export const HorizontalRule = ({
   ruleWidth,
 }: HorizontalRule) => {
   return (
-    <View style={style}>
+    <View style={[style]}>
       <View style={[{ flexDirection: 'row', alignItems: 'center' }]}>
         <View
           style={{

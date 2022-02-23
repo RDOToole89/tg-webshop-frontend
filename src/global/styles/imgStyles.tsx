@@ -30,4 +30,10 @@ export const IMGSTYLES = StyleSheet.create({
     height: 40,
     resizeMode: 'contain',
   },
+  responsive: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+  },
 });

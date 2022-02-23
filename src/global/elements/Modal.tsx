@@ -24,7 +24,11 @@ export const Modal = ({ activator: Activator, children }: ModalProps) => {
   );
 
   return (
-    <Pressable onPress={() => setModalVisible(false)}>
+    <Pressable
+      style={{}}
+      onPress={(event) =>
+        event.target == event.currentTarget && setModalVisible(false)
+      }>
       <DefaultModal
         visible={isModalVisible}
         transparent={true}

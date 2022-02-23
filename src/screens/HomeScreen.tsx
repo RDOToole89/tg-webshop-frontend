@@ -28,6 +28,7 @@ import categories from '../../assets/data/categories.json';
 
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { DealCountDown } from '../components/DealCountDown';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
@@ -106,7 +107,7 @@ export const HomeScreen = () => {
           }
         />
       </View>
-
+      <HorizontalRule ruleWidth={1.5} color='rgba(0,0,0,0.2)' />
       <DealCountDown title='lamedeal' />
       <View style={{ height: 200 }}>
         <ImageBackground

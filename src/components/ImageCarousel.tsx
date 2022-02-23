@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { StyleSheet, View, Pressable, Image } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import uuid from 'react-native-uuid';
 import { GLOBAL } from '../global/styles/global';
+import { IMGSTYLES } from '../global/styles/imgStyles';
+import { TYPOGRAPHY } from '../global/styles/typography';
 
 type ImageCarousel = {
   images: string[];
@@ -30,12 +31,7 @@ export const ImageCarousel = ({
               <Image
                 key={uuid.v4().toString()}
                 source={{ uri: image }}
-                style={{
-                  flex: 1,
-                  width: '100%',
-                  height: '100%',
-                  resizeMode: 'contain',
-                }}
+                style={IMGSTYLES.responsive}
               />
             );
           })}
