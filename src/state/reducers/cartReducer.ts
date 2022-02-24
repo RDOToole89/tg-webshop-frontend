@@ -1,5 +1,6 @@
 import {
   findItemByIdGen,
+  findItemByIdandPlatformGen,
   addQuantityToItemGen,
   subtractQuantityFromItemGen,
   removeItemByIdGen,
@@ -10,6 +11,7 @@ import { TCartActions } from '../actionsInterfaces/cartInterfaces';
 export interface cartItem {
   productId: number;
   quantity: number;
+  platform: string;
 }
 
 export interface CartState {
@@ -32,19 +34,71 @@ export const reducer = (
 ): CartState => {
   switch (action.type) {
     case ActionType.ADD_TO_CART: {
-      const { productId } = action.payload;
-      const itemAlreadyInCart = findItemByIdGen(state.cartItems, productId);
+      // destruture productId and platform from the payload
+      const { productId, platform } = action.payload;
 
-      if (itemAlreadyInCart) {
+      // this was where the error was: it was looking for id but not the
+      // platform type. This function searches the cart and grabs the item
+      // which has the payload id and platform type
+      const itemAlreadyInCart = findItemByIdandPlatformGen(
+        state.cartItems,
+        platform,
+        productId
+      );
+
+      // console.log(`ITEMINCART => iteration: ${i}`, itemAlreadyInCart);
+
+      // creates a new item and initializes quantity to 1 because we're adding and item
+      // to the cart
+      const newCartItem = { productId, platform, quantity: 1 };
+
+      // if no platform is selected just return the state
+      if (!platform) return { ...state };
+
+      // if there is no item in the cart add the item
+      if (!itemAlreadyInCart) {
         return {
           ...state,
-          cartItems: addQuantityToItemGen(state.cartItems, productId, 1),
+          cartItems: [...state.cartItems, newCartItem],
         };
       }
-      return {
-        ...state,
-        cartItems: [...state.cartItems, { productId: productId, quantity: 1 }],
-      };
+
+      // if item is is already in the cart e.g: SAME ID, but the platform is different
+      // add a new item to the cart!
+      if (itemAlreadyInCart && itemAlreadyInCart.platform !== platform) {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, newCartItem],
+        };
+      }
+
+      // if item is in the cart and the platform is the same as payload thad add
+      // 1 to the quantity of that item in the cart
+      if (itemAlreadyInCart && itemAlreadyInCart.platform === platform) {
+        console.log(
+          `ITEM IN CART with id: ${itemAlreadyInCart.productId} with Platform: ${itemAlreadyInCart.platform} `
+        );
+
+        // let newItems = state.cartItems.map((x: any) => {
+        //   if (x.productId === productId && x.platform === platform) {
+        //     return { ...x, quantity: x.quantity + 1 };
+        //   } else {
+        //     return { ...x };
+        //   }
+        // });
+
+        // console.log('NEW ITEMS', newItems);
+
+        return {
+          ...state,
+          cartItems: addQuantityToItemGen(
+            state.cartItems,
+            productId,
+            platform,
+            1
+          ),
+        };
+      }
     }
 
     case ActionType.REMOVE_FROM_CART: {
@@ -64,13 +118,22 @@ export const reducer = (
     }
 
     case ActionType.ADD_QUANTITY_TO_CART: {
-      const { productId, quantity } = action.payload;
-      const itemAlreadyInCart = findItemByIdGen(state.cartItems, productId);
+      const { productId, quantity, platform } = action.payload;
+      const itemAlreadyInCart = findItemByIdandPlatformGen(
+        state.cartItems,
+        platform,
+        productId
+      );
 
       if (itemAlreadyInCart && itemAlreadyInCart.quantity) {
         return {
           ...state,
-          cartItems: addQuantityToItemGen(state.cartItems, productId, quantity),
+          cartItems: addQuantityToItemGen(
+            state.cartItems,
+            productId,
+            platform,
+            quantity
+          ),
         };
       }
       return {
@@ -80,7 +143,7 @@ export const reducer = (
     }
 
     case ActionType.SUBTRACT_QUANTITY_FROM_CART: {
-      const { productId, quantity } = action.payload;
+      const { productId, quantity, platform } = action.payload;
       const itemAlreadyInCart = findItemByIdGen(state.cartItems, productId);
 
       if (itemAlreadyInCart && itemAlreadyInCart.quantity) {

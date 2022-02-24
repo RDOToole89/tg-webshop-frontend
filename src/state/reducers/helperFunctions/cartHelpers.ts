@@ -7,15 +7,34 @@ export const findItemByIdGen = <
   return arrayOfObjects.find((T) => T.productId === id);
 };
 
+export const findItemByIdandPlatformGen = <
+  T extends { productId: number; platform: string; quantity: number }
+>(
+  arrayOfObjects: T[],
+  platform: string,
+  id: number
+): T | undefined => {
+  return arrayOfObjects.find(
+    (T) => T.productId === id && T.platform === platform
+  );
+};
+
 export const addQuantityToItemGen = <
-  T extends { productId: number; quantity: number }
+  T extends { productId: number; quantity: number; platform: string }
 >(
   arrayOfObjects: T[],
   id: number,
+  platform: string,
   quantity: number
 ): T[] => {
+  console.log(
+    `INSIDE ADD QUANTITY HELPER: ID: ${id} QTY: ${quantity} PLATFORM: ${platform}`
+  );
+
   return arrayOfObjects.map((T) =>
-    T.productId === id ? { ...T, quantity: T.quantity + quantity } : T
+    T.productId === id && T.platform === platform
+      ? { ...T, quantity: T.quantity + quantity }
+      : T
   );
 };
 

@@ -1,11 +1,11 @@
 import { Action, Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 
-export const addToCart = (productId: number) => {
+export const addToCart = (productId: number, platform: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.ADD_TO_CART,
-      payload: { productId },
+      payload: { productId, platform },
     });
   };
 };

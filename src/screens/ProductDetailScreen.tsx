@@ -19,6 +19,8 @@ import { useNavigation } from '@react-navigation/native';
 import { ImageCarousel } from '../components/ImageCarousel';
 
 export const ProductDetailScreen = ({ route }: any) => {
+  const [selectedPlatform, setSelectedPlatform] = useState('');
+
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -26,8 +28,29 @@ export const ProductDetailScreen = ({ route }: any) => {
 
   const { addToCart } = useActions();
 
+  let Product = {
+    id: 1,
+    title: 'Ninja Golf',
+    brand: 'Atari',
+    price: 12.99,
+    rating: 5,
+    ratingQuantity: 63,
+    tags: ['Classic', 'Ninja', 'Atari', 'Awesome'],
+    platforms: ['Atari', 'Comodore', 'Amiga'],
+    stock: 100,
+    desc: "It's the ultimate Ninja and sporting challenge, a game of golf and fierce Ninja battle. Swing and kick away at Ninjas, duck whipping stars, pick up treasures, and shoot for birdies, it's all part of a day's fun. In Ninja Golf, Par for the course is leaving a trail of fallen enemies. But you're not done yet. The Master Ninja awaits your completion of the ninth hole. Do you have what it takes to ace this course? Can you become the Ninja golf master? Text (C) 1990, 2007 Atari",
+    imageUrl:
+      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
+    extraImages: [
+      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
+      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
+      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
+      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
+    ],
+  };
+
   const {
-    id,
+    id = 1,
     imageUrl,
     brand,
     price,
@@ -39,7 +62,7 @@ export const ProductDetailScreen = ({ route }: any) => {
     title,
     platforms,
     extraImages,
-  } = route.params;
+  } = Product;
 
   const renderItem = (
     userNameTest: string,
@@ -68,8 +91,9 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        {extraImages.length > 1 ? (
-          <ImageCarousel height={100} width={100} images={extraImages} />
+        {extraImages.length > 100 ? (
+          // <ImageCarousel height={100} width={100} images={extraImages} />
+          <Text>TEMPORARY</Text>
         ) : (
           <ResponsiveImage
             source={{
@@ -109,7 +133,12 @@ export const ProductDetailScreen = ({ route }: any) => {
         />
 
         {platforms && platforms.length > 1 ? (
-          <PickerGenerator data={platforms} defaultValue='Select a platform' />
+          <PickerGenerator
+            selectedPlatform={selectedPlatform}
+            setSelectedPlatform={setSelectedPlatform}
+            data={platforms}
+            defaultValue='Select a platform'
+          />
         ) : (
           <Text style={TYPOGRAPHY.FONT.h2}>{platforms[0]}</Text>
         )}
@@ -119,7 +148,7 @@ export const ProductDetailScreen = ({ route }: any) => {
           color='#e7230d'
           icon='cart'
           mode='contained'
-          onPress={() => addToCart(id)}>
+          onPress={() => addToCart(id, selectedPlatform)}>
           <Text>Add to cart</Text>
         </Button>
         <Text
