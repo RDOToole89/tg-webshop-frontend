@@ -64,8 +64,8 @@ export const HorizontalScrollViewCard = ({
 const styles = StyleSheet.create({
   cardDimensions: {
     backgroundColor: TYPOGRAPHY.COLOR.Tertiary,
-    width: 130,
-    height: 130,
+    width: 150,
+    height: 300,
     marginBottom: 10,
     marginRight: 10,
   },

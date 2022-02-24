@@ -1,5 +1,6 @@
 import {
   ScrollView,
+  View,
   Text,
   StyleSheet,
   ViewStyle,
@@ -24,7 +25,7 @@ export const HorizontalScrollView = ({
   style,
 }: HorizontalScrollView) => {
   return (
-    <ScrollView style={[styles.scrollContainer, style]}>
+    <View style={[styles.scrollContainer, style]}>
       {title && (
         <Text style={[TYPOGRAPHY.FONT.h3, { fontFamily: 'open-sans-bold' }]}>
           {title}
@@ -43,14 +44,15 @@ export const HorizontalScrollView = ({
           );
         })}
       </ScrollView>
-    </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
-    maxHeight: 220,
+    // maxHeight: 220,
+    flex: 1,
     backgroundColor: TYPOGRAPHY.COLOR.Neutral,
   },
 });
