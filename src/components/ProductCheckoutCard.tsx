@@ -11,7 +11,7 @@ import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
 import { SubmitButton } from './SubmitButton';
 
-type ProductCardCheckout = {
+export type ProductCardCheckout = {
   id: number;
   title: string;
   brand: string;

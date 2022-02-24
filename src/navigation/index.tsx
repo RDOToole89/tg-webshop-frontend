@@ -180,6 +180,13 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
+          tabBarBadgeStyle: {
+            width: 25,
+            Height: 25,
+            fontSize: 8,
+            justifyContent: 'center',
+            alignSelf: 'center',
+          },
           tabBarBadge: cartItems && cartItems,
         })}
       />

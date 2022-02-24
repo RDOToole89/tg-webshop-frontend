@@ -24,7 +24,7 @@ export interface CartState {
 const initialState = {
   loading: false,
   error: null,
-  cartItems: [],
+  cartItems: [{ productId: 1, quantity: 2, platform: 'Amiga' }],
   checkoutItems: [],
 };
 
@@ -75,20 +75,6 @@ export const reducer = (
       // if item is in the cart and the platform is the same as payload thad add
       // 1 to the quantity of that item in the cart
       if (itemAlreadyInCart && itemAlreadyInCart.platform === platform) {
-        console.log(
-          `ITEM IN CART with id: ${itemAlreadyInCart.productId} with Platform: ${itemAlreadyInCart.platform} `
-        );
-
-        // let newItems = state.cartItems.map((x: any) => {
-        //   if (x.productId === productId && x.platform === platform) {
-        //     return { ...x, quantity: x.quantity + 1 };
-        //   } else {
-        //     return { ...x };
-        //   }
-        // });
-
-        // console.log('NEW ITEMS', newItems);
-
         return {
           ...state,
           cartItems: addQuantityToItemGen(

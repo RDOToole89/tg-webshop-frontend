@@ -23,95 +23,44 @@ import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Dimensions } from 'react-native';
 import uuid from 'react-native-uuid';
 
-const productsTest = [
-  {
-    id: 1,
-    title: 'Ninja Golf',
-    brand: 'Atari',
-    price: 12.99,
-    rating: 5,
-    ratingQuantity: 63,
-    tags: ['Classic', 'Ninja', 'Atari', 'Awesome'],
-    platforms: ['Atari', 'Comodore', 'Amiga'],
-    stock: 100,
-    desc: "It's the ultimate Ninja and sporting challenge, a game of golf and fierce Ninja battle. Swing and kick away at Ninjas, duck whipping stars, pick up treasures, and shoot for birdies, it's all part of a day's fun. In Ninja Golf, Par for the course is leaving a trail of fallen enemies. But you're not done yet. The Master Ninja awaits your completion of the ninth hole. Do you have what it takes to ace this course? Can you become the Ninja golf master? Text (C) 1990, 2007 Atari",
-    imageUrl:
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-    extraImages: [
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Ninja Golf',
-    brand: 'Atari',
-    price: 29.99,
-    rating: 4,
-    ratingQuantity: 23,
-    tags: ['Classic', 'Ninja', 'Atari', 'Awesome', 'Simulator'],
-    platforms: ['Atari'],
-    stock: 46,
-    desc: "It's",
-    imageUrl:
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-scootersim-com_zczyfg.png',
-    extraImages: [
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Ninja Golf',
-    brand: 'Atari',
-    price: 29.99,
-    rating: 4,
-    ratingQuantity: 23,
-    tags: ['Classic', 'Ninja', 'Atari', 'Awesome', 'Simulator'],
-    platforms: ['Atari'],
-    stock: 46,
-    desc: "It's",
-    imageUrl:
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-scootersim-com_zczyfg.png',
-    extraImages: [
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Ninja Golf',
-    brand: 'Atari',
-    price: 29.99,
-    rating: 4,
-    ratingQuantity: 23,
-    tags: ['Classic', 'Ninja', 'Atari', 'Awesome', 'Simulator'],
-    platforms: ['Atari'],
-    stock: 46,
-    desc: "It's",
-    imageUrl:
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-scootersim-com_zczyfg.png',
-    extraImages: [
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-      'https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg',
-    ],
-  },
-];
-
 export const CartScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
   const { addToCart, removeFromCart, deleteFromCart } = useActions();
-  const cartItems = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);
+
+  type cartItem = {
+    id: number;
+    title: string;
+    brand: string;
+    price: number;
+    rating: number;
+    ratingQuantity: number;
+    platform: string;
+    imageUrl: string;
+  };
+
+  const cartItemsToRender = cart.cartItems.map((item) => {
+    const product = products.find((product) => product.id === item.productId);
+
+    const cartItem = {
+      id: Number(product?.id),
+      title: product?.title,
+      brand: product?.brand,
+      price: Number(product?.price),
+      rating: Number(product?.rating),
+      ratingQuantity: Number(product?.ratingQuantity),
+      platform: item.platform,
+      imageUrl: product?.imageUrl,
+      quantity: item.quantity,
+    };
+
+    return cartItem;
+  });
+
+  console.log('CARITEMS', cartItemsToRender);
+
   const empty = false;
 
   const windowWidth = Dimensions.get('window').width;
@@ -128,20 +77,22 @@ export const CartScreen = () => {
           bottom: 0,
           width: windowWidth,
         }}>
-        <Button
-          style={{ position: 'relative', borderRadius: 0, zIndex: 10 }}
-          color='#e7230d'
-          icon={() => (
-            <MaterialIcons
-              name='attach-money'
-              size={24}
-              color={TYPOGRAPHY.COLOR.Default}
-            />
-          )}
-          mode='contained'
-          onPress={() => console.log('ORDER')}>
-          <Text>Complete Order</Text>
-        </Button>
+        {!empty && (
+          <Button
+            style={{ position: 'relative', borderRadius: 0, zIndex: 100 }}
+            color='#e7230d'
+            icon={() => (
+              <MaterialIcons
+                name='attach-money'
+                size={24}
+                color={TYPOGRAPHY.COLOR.Default}
+              />
+            )}
+            mode='contained'
+            onPress={() => console.log('ORDER')}>
+            <Text>Complete Order</Text>
+          </Button>
+        )}
       </View>
 
       <TopBar iconsActive={true} />
@@ -259,7 +210,7 @@ export const CartScreen = () => {
             </Button>
           </View>
           <View>
-            {productsTest.map(
+            {cartItemsToRender.map(
               ({
                 id,
                 title,
@@ -268,7 +219,7 @@ export const CartScreen = () => {
                 rating,
                 ratingQuantity,
                 imageUrl,
-                platforms,
+                platform,
               }) => {
                 return (
                   <ProductCheckoutCard
@@ -280,7 +231,7 @@ export const CartScreen = () => {
                     rating={rating}
                     ratingQuantity={ratingQuantity}
                     imageUrl={imageUrl}
-                    platform={platforms[0]}
+                    platform={platform}
                   />
                 );
               }

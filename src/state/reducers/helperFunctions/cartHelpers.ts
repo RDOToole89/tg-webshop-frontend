@@ -27,10 +27,6 @@ export const addQuantityToItemGen = <
   platform: string,
   quantity: number
 ): T[] => {
-  console.log(
-    `INSIDE ADD QUANTITY HELPER: ID: ${id} QTY: ${quantity} PLATFORM: ${platform}`
-  );
-
   return arrayOfObjects.map((T) =>
     T.productId === id && T.platform === platform
       ? { ...T, quantity: T.quantity + quantity }
