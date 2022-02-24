@@ -7,7 +7,7 @@ export interface AddToCartAction {
 
 export interface RemoveFromCartAction {
   type: 'remove_from_cart';
-  payload: { productId: number };
+  payload: { productId: number; platform: string };
 }
 
 export interface AddQuantityToCartAction {

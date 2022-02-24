@@ -11,6 +11,8 @@ import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
 import { SubmitButton } from './SubmitButton';
 
+import { useActions } from '../hooks/useActions';
+
 export type ProductCardCheckout = {
   id: number;
   title: string;
@@ -20,6 +22,7 @@ export type ProductCardCheckout = {
   ratingQuantity: number;
   platform: string;
   imageUrl: string;
+  quantity: number;
 };
 
 export const ProductCheckoutCard = ({
@@ -29,11 +32,13 @@ export const ProductCheckoutCard = ({
   price,
   rating,
   ratingQuantity,
-
+  platform,
+  quantity,
   imageUrl,
 }: ProductCardCheckout) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
+  const { addToCart, removeFromCart, deleteFromCart } = useActions();
 
   return (
     <Pressable
@@ -55,8 +60,9 @@ export const ProductCheckoutCard = ({
         </View>
         <View style={{ justifyContent: 'space-evenly' }}>
           <Text style={{ fontSize: GLOBAL.FONT_SIZES.md, fontWeight: 'bold' }}>
-            {title}
+            {title} - {brand}
           </Text>
+          <Text style={TYPOGRAPHY.FONT.subtitle}>Platform: {platform}</Text>
 
           <StarRatings rating={rating} ratingQuantity={ratingQuantity} />
           <View>
@@ -80,17 +86,17 @@ export const ProductCheckoutCard = ({
               <SubmitButton
                 iconSize={30}
                 ionIconName='remove-circle-outline'
-                handlePress={() => console.log('click')}
+                handlePress={() => removeFromCart(id, platform)}
               />
-              <Text>1</Text>
+              <Text>{quantity}</Text>
               <SubmitButton
                 iconSize={30}
                 ionIconName='add-circle-outline'
-                handlePress={() => console.log('click')}
+                handlePress={() => addToCart(id, platform)}
               />
               <SubmitButton
                 ionIconName='trash-outline'
-                handlePress={() => console.log('click')}
+                handlePress={() => deleteFromCart(id)}
               />
             </View>
           </View>

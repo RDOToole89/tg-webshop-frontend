@@ -35,14 +35,17 @@ export const addQuantityToItemGen = <
 };
 
 export const subtractQuantityFromItemGen = <
-  T extends { productId: number; quantity: number }
+  T extends { productId: number; quantity: number; platform: string }
 >(
   arrayOfObjects: T[],
   id: number,
+  platform: string,
   quantity: number
 ): T[] => {
   return arrayOfObjects.map((T) =>
-    T.productId === id ? { ...T, quantity: T.quantity - quantity } : T
+    T.productId === id && T.platform === platform
+      ? { ...T, quantity: T.quantity - quantity }
+      : T
   );
 };
 

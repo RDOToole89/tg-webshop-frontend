@@ -88,13 +88,22 @@ export const reducer = (
     }
 
     case ActionType.REMOVE_FROM_CART: {
-      const { productId } = action.payload;
-      const itemAlreadyInCart = findItemByIdGen(state.cartItems, productId);
+      const { productId, platform } = action.payload;
+      const itemAlreadyInCart = findItemByIdandPlatformGen(
+        state.cartItems,
+        platform,
+        productId
+      );
 
-      if (itemAlreadyInCart && itemAlreadyInCart.quantity) {
+      if (itemAlreadyInCart && itemAlreadyInCart.platform === platform) {
         return {
           ...state,
-          cartItems: subtractQuantityFromItemGen(state.cartItems, productId, 1),
+          cartItems: subtractQuantityFromItemGen(
+            state.cartItems,
+            productId,
+            platform,
+            1
+          ),
         };
       }
       return {
@@ -138,6 +147,7 @@ export const reducer = (
           cartItems: subtractQuantityFromItemGen(
             state.cartItems,
             productId,
+            platform,
             quantity
           ),
         };

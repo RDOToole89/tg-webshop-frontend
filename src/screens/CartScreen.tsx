@@ -22,15 +22,16 @@ import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Dimensions } from 'react-native';
 import uuid from 'react-native-uuid';
+import { Product } from '../types/data.types';
 
 export const CartScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
-  const { addToCart, removeFromCart, deleteFromCart } = useActions();
   const cart = useSelector((state) => state.cart);
+  const empty = cart.cartItems.length;
 
-  type cartItem = {
+  type CartItemCard = {
     id: number;
     title: string;
     brand: string;
@@ -41,27 +42,32 @@ export const CartScreen = () => {
     imageUrl: string;
   };
 
-  const cartItemsToRender = cart.cartItems.map((item) => {
-    const product = products.find((product) => product.id === item.productId);
+  const cartItemsToRender = cart.cartItems.map(
+    ({ productId, quantity, platform }) => {
+      const product = products.find((product) => product.id === productId)!;
 
-    const cartItem = {
-      id: Number(product?.id),
-      title: product?.title,
-      brand: product?.brand,
-      price: Number(product?.price),
-      rating: Number(product?.rating),
-      ratingQuantity: Number(product?.ratingQuantity),
-      platform: item.platform,
-      imageUrl: product?.imageUrl,
-      quantity: item.quantity,
-    };
+      const cartItem = {
+        id: productId,
+        title: product.title,
+        brand: product.brand,
+        price: Number(product.price),
+        rating: Number(product.rating),
+        ratingQuantity: Number(product.ratingQuantity),
+        platform: platform,
+        imageUrl: product.imageUrl,
+        quantity,
+      };
 
-    return cartItem;
-  });
+      return cartItem;
+    }
+  );
+
+  const priceTotal = cartItemsToRender.reduce(
+    (acc, curr) => acc + curr.quantity * curr.price,
+    0
+  );
 
   console.log('CARITEMS', cartItemsToRender);
-
-  const empty = false;
 
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
@@ -75,11 +81,16 @@ export const CartScreen = () => {
         style={{
           position: 'absolute',
           bottom: 0,
-          width: windowWidth,
+          width: '100%',
         }}>
-        {!empty && (
+        {/* {empty && (
           <Button
-            style={{ position: 'relative', borderRadius: 0, zIndex: 100 }}
+            style={{
+              position: 'relative',
+              borderRadius: 0,
+              zIndex: 10,
+              width: windowWidth,
+            }}
             color='#e7230d'
             icon={() => (
               <MaterialIcons
@@ -92,12 +103,11 @@ export const CartScreen = () => {
             onPress={() => console.log('ORDER')}>
             <Text>Complete Order</Text>
           </Button>
-        )}
+        )} */}
       </View>
-
       <TopBar iconsActive={true} />
       <SearchBar placeHolderText='Search LameStop' />
-      {empty ? (
+      {!empty ? (
         <>
           <View style={styles.container}>
             <View style={styles.cartEmptyWrapper}>
@@ -196,7 +206,7 @@ export const CartScreen = () => {
                   TYPOGRAPHY.FONT.h1,
                   { color: TYPOGRAPHY.COLOR.BrandRed },
                 ]}>
-                299,99
+                {priceTotal}
               </Text>
             </View>
 
@@ -220,6 +230,7 @@ export const CartScreen = () => {
                 ratingQuantity,
                 imageUrl,
                 platform,
+                quantity,
               }) => {
                 return (
                   <ProductCheckoutCard
@@ -232,6 +243,7 @@ export const CartScreen = () => {
                     ratingQuantity={ratingQuantity}
                     imageUrl={imageUrl}
                     platform={platform}
+                    quantity={quantity}
                   />
                 );
               }

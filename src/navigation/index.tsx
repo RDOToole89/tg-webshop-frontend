@@ -106,7 +106,7 @@ export const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName='ProductDetails'
+      initialRouteName='Cart'
       screenOptions={({ navigation }) => ({
         headerStyle: { borderBottomWidth: 0 },
         headerRight: () => (
