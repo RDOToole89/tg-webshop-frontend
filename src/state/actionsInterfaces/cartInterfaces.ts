@@ -2,22 +2,22 @@ import { Product } from '../../types/data.types';
 
 export interface AddToCartAction {
   type: 'add_to_cart';
-  payload: { productId: number };
+  payload: { productId: number; platform: string };
 }
 
 export interface RemoveFromCartAction {
   type: 'remove_from_cart';
-  payload: { productId: number };
+  payload: { productId: number; platform: string };
 }
 
 export interface AddQuantityToCartAction {
   type: 'add_quantity_to_cart';
-  payload: { productId: number; quantity: number };
+  payload: { productId: number; platform: string; quantity: number };
 }
 
 export interface RemoveQuantityFromCartAction {
   type: 'subtract_quantity_from_cart';
-  payload: { productId: number; quantity: number };
+  payload: { productId: number; platform: string; quantity: number };
 }
 
 export interface DeleteFromCartAction {

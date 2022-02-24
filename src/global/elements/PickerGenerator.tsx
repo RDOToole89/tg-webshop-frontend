@@ -1,28 +1,32 @@
 import { Picker } from '@react-native-picker/picker';
-import { useState } from 'react';
 import { GLOBAL } from '../styles/global';
 import uuid from 'react-native-uuid';
 
 export const PickerGenerator = ({
   data,
   defaultValue,
+  selectedPlatform,
+  setSelectedPlatform,
 }: {
   data: string[];
   defaultValue?: string;
+  selectedPlatform: any;
+  setSelectedPlatform: (platform: string) => void;
 }) => {
-  const [selectedValue, setSelectedValue] = useState();
-
   return (
     <Picker
       style={{ marginBottom: GLOBAL.SPACING.md }}
-      selectedValue={selectedValue}
-      onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
+      selectedValue={selectedPlatform}
+      onValueChange={(itemValue: string, itemIndex: number) => {
+        console.log(itemValue);
+        setSelectedPlatform(itemValue);
+      }}>
       {data?.map((x: any, i) =>
         defaultValue && !i ? (
           <Picker.Item
             key={uuid.v4().toString()}
-            label={defaultValue}
             value={''}
+            label={defaultValue}
           />
         ) : (
           <Picker.Item key={uuid.v4().toString()} label={x} value={x} />

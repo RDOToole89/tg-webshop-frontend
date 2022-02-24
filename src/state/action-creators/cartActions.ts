@@ -1,20 +1,22 @@
 import { Action, Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 
-export const addToCart = (productId: number) => {
+export const addToCart = (productId: number, platform: string) => {
+  console.log('INSIDE ADD TO CART');
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.ADD_TO_CART,
-      payload: { productId },
+      payload: { productId, platform },
     });
   };
 };
 
-export const removeFromCart = (productId: number) => {
+export const removeFromCart = (productId: number, platform: string) => {
+  console.log('INSIDE REMOVE FROM CART');
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.REMOVE_FROM_CART,
-      payload: { productId },
+      payload: { productId, platform },
     });
   };
 };
@@ -37,11 +39,11 @@ export const removeQuantityFromCart = (productId: number, quantity: number) => {
   };
 };
 
-export const deleteFromCart = (productId: number) => {
+export const deleteFromCart = (productId: number, platform: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.DELETE_FROM_CART,
-      payload: { productId },
+      payload: { productId, platform },
     });
   };
 };

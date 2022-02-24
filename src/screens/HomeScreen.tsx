@@ -118,7 +118,10 @@ export const HomeScreen = () => {
         dataArray={categories}
         title='Categories'
         routeString='Categories'
-        style={{ marginVertical: GLOBAL.SPACING.xxxl }}
+        style={{
+          marginVertical: GLOBAL.SPACING.xxxl,
+          paddingVertical: GLOBAL.SPACING.xl,
+        }}
       />
 
       <ImageBackground
@@ -133,7 +136,10 @@ export const HomeScreen = () => {
         dataArray={categories}
         title='Recently viewed'
         routeString='Categories'
-        style={{ marginVertical: GLOBAL.SPACING.xxxl }}
+        style={{
+          marginVertical: GLOBAL.SPACING.xxxl,
+          paddingVertical: GLOBAL.SPACING.xl,
+        }}
       />
       <ImageBackground
         source={trending}
@@ -146,7 +152,7 @@ export const HomeScreen = () => {
 
       <View
         style={{
-          height: 200,
+          flex: 1,
           justifyContent: 'space-evenly',
           backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
           paddingVertical: GLOBAL.SPACING.lg,
@@ -176,9 +182,9 @@ export const HomeScreen = () => {
       </View>
       <View
         style={{
-          height: 150,
+          flex: 1,
           justifyContent: 'space-evenly',
-          paddingVertical: GLOBAL.SPACING.xl,
+          paddingVertical: GLOBAL.SPACING.sm,
           marginVertical: GLOBAL.SPACING.xl,
         }}>
         <Text

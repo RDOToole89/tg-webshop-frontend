@@ -106,7 +106,7 @@ export const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName='Home'
+      initialRouteName='Cart'
       screenOptions={({ navigation }) => ({
         headerStyle: { borderBottomWidth: 0 },
         headerRight: () => (
@@ -180,6 +180,13 @@ export const BottomTabNavigator = () => {
               color={TYPOGRAPHY.COLOR.BrandBlack}
             />
           ),
+          tabBarBadgeStyle: {
+            width: 25,
+            Height: 25,
+            fontSize: 8,
+            justifyContent: 'center',
+            alignSelf: 'center',
+          },
           tabBarBadge: cartItems && cartItems,
         })}
       />
