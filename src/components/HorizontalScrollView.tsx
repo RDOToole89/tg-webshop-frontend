@@ -1,4 +1,10 @@
-import { ScrollView, Text, StyleSheet } from 'react-native';
+import {
+  ScrollView,
+  Text,
+  StyleSheet,
+  ViewStyle,
+  StyleProp,
+} from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { HorizontalScrollViewCard } from './HorizontalScrollViewCard';
@@ -8,15 +14,17 @@ interface HorizontalScrollView {
   dataArray: any[];
   title?: string;
   routeString: any;
+  style?: StyleProp<ViewStyle>;
 }
 
 export const HorizontalScrollView = ({
   dataArray,
   title,
   routeString,
+  style,
 }: HorizontalScrollView) => {
   return (
-    <ScrollView style={styles.scrollContainer}>
+    <ScrollView style={[styles.scrollContainer, style]}>
       {title && (
         <Text style={[TYPOGRAPHY.FONT.h3, { fontFamily: 'open-sans-bold' }]}>
           {title}

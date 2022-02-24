@@ -66,7 +66,7 @@ export const ReferenceBar = ({
 
 const styles = StyleSheet.create({
   refBarContainer: {
-    paddingVertical: GLOBAL.SPACING.sm,
+    paddingVertical: GLOBAL.SPACING.md,
     marginVertical: GLOBAL.SPACING.md,
     flexDirection: 'row',
     justifyContent: 'flex-start',

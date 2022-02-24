@@ -13,6 +13,9 @@ import { GLOBAL } from '../global/styles/global';
 import { SearchBar } from '../components/SearchBar';
 import image from '../../assets/lame-banner.png';
 import imageDeal from '../../assets/fake-add.png';
+import weekDeal from '../../assets/week-deal-dark.png';
+import trending from '../../assets/trending.png';
+
 import { DefaultButton } from '../global/elements/buttons';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
@@ -29,6 +32,7 @@ import categories from '../../assets/data/categories.json';
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { DealCountDown } from '../components/DealCountDown';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { Ionicons } from '@expo/vector-icons';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
@@ -101,26 +105,97 @@ export const HomeScreen = () => {
       </View>
       <HorizontalRule shadow={false} ruleWidth={1} color='rgba(0,0,0,0.1)' />
       <DealCountDown title='lamedeal' />
-      <View style={{ height: 200, marginBottom: GLOBAL.SPACING.lg }}>
-        <ImageBackground
-          source={imageDeal}
-          resizeMode='contain'
-          style={{
-            position: 'relative',
-            top: 0,
-            height: 200,
-            width: '100%',
-          }}
-        />
-      </View>
+
+      <ImageBackground
+        source={imageDeal}
+        resizeMode='contain'
+        style={{
+          height: 200,
+        }}
+      />
+
       <HorizontalScrollView
         dataArray={categories}
         title='Categories'
         routeString='Categories'
+        style={{ marginVertical: GLOBAL.SPACING.xxxl }}
       />
 
-      <View style={{ height: 200 }}>
-        <Text></Text>
+      <ImageBackground
+        source={weekDeal}
+        resizeMode='contain'
+        style={{
+          height: 200,
+        }}
+      />
+
+      <HorizontalScrollView
+        dataArray={categories}
+        title='Recently viewed'
+        routeString='Categories'
+        style={{ marginVertical: GLOBAL.SPACING.xxxl }}
+      />
+      <ImageBackground
+        source={trending}
+        resizeMode='contain'
+        style={{
+          height: 200,
+          marginBottom: GLOBAL.SPACING.xxxxl,
+        }}
+      />
+
+      <View
+        style={{
+          height: 200,
+          justifyContent: 'space-evenly',
+          backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
+          paddingVertical: GLOBAL.SPACING.lg,
+          paddingHorizontal: GLOBAL.SPACING.lg,
+        }}>
+        <Text style={[TYPOGRAPHY.FONT.h1, { color: TYPOGRAPHY.COLOR.Default }]}>
+          Service & contact
+        </Text>
+        <View style={GLOBAL.LAYOUT.rowCenter}>
+          <MaterialIcon
+            size='extraLarge'
+            name='phone'
+            color={TYPOGRAPHY.COLOR.BrandBlack}
+          />
+
+          <Text
+            style={[
+              TYPOGRAPHY.FONT.subtitle,
+              {
+                color: TYPOGRAPHY.COLOR.Default,
+                marginLeft: GLOBAL.SPACING.sm,
+              },
+            ]}>
+            Call us between: 04.34 - 05.15 / 7 days a week
+          </Text>
+        </View>
+      </View>
+      <View
+        style={{
+          height: 150,
+          justifyContent: 'space-evenly',
+          paddingVertical: GLOBAL.SPACING.xl,
+          marginVertical: GLOBAL.SPACING.xl,
+        }}>
+        <Text
+          style={{
+            textAlign: 'center',
+            letterSpacing: 1,
+            fontFamily: TYPOGRAPHY.FONT.PrimaryMedium,
+          }}>
+          Want to follow us?
+        </Text>
+        <View
+          style={[GLOBAL.LAYOUT.rowCenter, { justifyContent: 'space-evenly' }]}>
+          <Ionicons name='logo-facebook' size={24} color='black' />
+          <Ionicons name='logo-instagram' size={24} color='black' />
+          <Ionicons name='logo-twitter' size={24} color='black' />
+          <Ionicons name='logo-linkedin' size={24} color='black' />
+        </View>
       </View>
     </ScrollView>
   );
@@ -139,7 +214,7 @@ const styles = StyleSheet.create({
     paddingBottom: GLOBAL.SPACING.xxxl,
   },
   homeButton: {
-    width: 120,
+    width: 160,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
   },
