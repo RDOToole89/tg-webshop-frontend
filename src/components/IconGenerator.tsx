@@ -1,14 +1,9 @@
 import { Pressable, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { GLOBAL } from '../global/styles/global';
+import uuid from 'react-native-uuid';
 
-const icons = [
-  { name: 'logo-facebook', size: 24, color: 'black' },
-  { name: 'logo-instgram', size: 24, color: 'black' },
-  { name: 'logo-twitter', size: 24, color: 'black' },
-  { name: 'logo-linkedin', size: 24, color: 'black' },
-];
-
+// How to type THIS?!
 type Icon = {
   name: string;
   size: number;
@@ -33,7 +28,7 @@ export const IconGenerator = ({
       ]}>
       {iconDescArray.map((icon: any) => {
         return (
-          <Pressable onPress={onClick}>
+          <Pressable key={uuid.v4().toString()} onPress={onClick}>
             <Ionicons name={icon.name} size={icon.size} color={icon.color} />
           </Pressable>
         );

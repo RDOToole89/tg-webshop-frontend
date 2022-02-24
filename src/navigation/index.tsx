@@ -23,6 +23,7 @@ import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 import { ProductsScreen } from '../screens/ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
 import { ReviewSrcreen } from '../screens/ReviewScreen';
+import { AccountScreen } from '../screens/AccountScreen';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -106,7 +107,7 @@ export const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName='Cart'
+      initialRouteName='Home'
       screenOptions={({ navigation }) => ({
         headerStyle: { borderBottomWidth: 0 },
         headerRight: () => (
@@ -181,8 +182,6 @@ export const BottomTabNavigator = () => {
             />
           ),
           tabBarBadgeStyle: {
-            width: 25,
-            Height: 25,
             fontSize: 8,
             justifyContent: 'center',
             alignSelf: 'center',
@@ -269,6 +268,29 @@ export const BottomTabNavigator = () => {
             },
             tabBarButton: () => null,
             title: route.params?.title,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name='chevron-back'
+                  size={32}
+                  color={TYPOGRAPHY.COLOR.BrandRed}
+                />
+              </Pressable>
+            ),
+          };
+        }}
+      />
+      <BottomTab.Screen
+        name='AccountDetails'
+        component={AccountScreen}
+        options={({ navigation, route }) => {
+          return {
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#fafafa',
+            },
+            tabBarButton: () => null,
+            // title: route.params?.title,
             headerLeft: () => (
               <Pressable onPress={() => navigation.goBack()}>
                 <Ionicons

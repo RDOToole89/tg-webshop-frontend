@@ -62,7 +62,11 @@ export const ProfileScreen = () => {
         </>
       )}
 
-      <ReferenceBar iconName='person' barText='Account' routeString='Home' />
+      <ReferenceBar
+        iconName='person'
+        barText='Account'
+        routeString='AccountDetails'
+      />
       <Modal
         activator={({ handleOpen }) => (
           <ReferenceBar

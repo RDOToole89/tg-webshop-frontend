@@ -20,9 +20,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { NotificationBox } from '../components/NotificationBox';
 import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
-import { Dimensions } from 'react-native';
 import uuid from 'react-native-uuid';
-import { Product } from '../types/data.types';
 
 export const CartScreen = () => {
   const navigation =
@@ -31,7 +29,7 @@ export const CartScreen = () => {
   const cart = useSelector((state) => state.cart);
   const empty = cart.cartItems.length;
 
-  type CartItemCard = {
+  type CartItem = {
     id: number;
     title: string;
     brand: string;
@@ -66,14 +64,6 @@ export const CartScreen = () => {
     (acc, curr) => acc + curr.quantity * curr.price,
     0
   );
-
-  console.log('CARITEMS', cartItemsToRender);
-
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
-
-  // console.log('WindowWidth', windowWidth);
-  // console.log('WindowHeight', windowHeight);
 
   return (
     <View style={styles.container}>
@@ -196,7 +186,6 @@ export const CartScreen = () => {
               {
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                // backgroundColor: 'grey',
               },
             ]}>
             <View>
@@ -206,7 +195,7 @@ export const CartScreen = () => {
                   TYPOGRAPHY.FONT.h1,
                   { color: TYPOGRAPHY.COLOR.BrandRed },
                 ]}>
-                {priceTotal}
+                {priceTotal.toFixed(2)}
               </Text>
             </View>
 
