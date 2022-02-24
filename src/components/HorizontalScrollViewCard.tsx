@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
   cardDimensions: {
     backgroundColor: TYPOGRAPHY.COLOR.Tertiary,
     width: 150,
-    height: 300,
     marginBottom: 10,
     marginRight: 10,
   },
