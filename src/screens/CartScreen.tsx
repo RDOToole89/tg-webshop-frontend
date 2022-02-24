@@ -11,7 +11,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { PressableText } from '../global/elements/PressableText';
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import products from '../../assets/data/products.json';
-
+import { DefaultButton } from '../global/elements/buttons';
 import { BottomTabParams } from '../navigation/navigation';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -19,6 +19,7 @@ import { Modal } from '../global/elements/Modal';
 import { MaterialIcons } from '@expo/vector-icons';
 import { NotificationBox } from '../components/NotificationBox';
 import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
+import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Dimensions } from 'react-native';
 import uuid from 'react-native-uuid';
 
@@ -285,7 +286,28 @@ export const CartScreen = () => {
               }
             )}
           </View>
-          <View style={{ height: 200 }} />
+          <View
+            style={{
+              justifyContent: 'center',
+              height: 150,
+              marginBottom: GLOBAL.SPACING.xxl,
+            }}>
+            <DefaultButton
+              style={{
+                flexDirection: 'row',
+                backgroundColor: TYPOGRAPHY.COLOR.Secondary,
+              }}
+              title='Continue Shopping'
+              onClick={() => navigation.navigate('Categories')}
+              icon={
+                <MaterialIcon
+                  size='large'
+                  name='person'
+                  color={TYPOGRAPHY.COLOR.BrandBlack}
+                />
+              }
+            />
+          </View>
         </ScrollView>
       )}
     </View>
@@ -295,11 +317,11 @@ export const CartScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: GLOBAL.SPACING.md,
+    paddingHorizontal: GLOBAL.SPACING.sm,
   },
   scrollContainer: {
     flex: 1,
-    paddingHorizontal: GLOBAL.SPACING.md,
+    paddingHorizontal: GLOBAL.SPACING.sm,
   },
   cartEmptyWrapper: {
     flexDirection: 'row',

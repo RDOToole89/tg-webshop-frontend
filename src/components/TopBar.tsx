@@ -42,7 +42,7 @@ const styles = (align: FlexAlignType = 'center') =>
   StyleSheet.create({
     topBar: {
       flexDirection: 'row',
-      paddingHorizontal: GLOBAL.SPACING.md,
+      paddingHorizontal: GLOBAL.SPACING.sm,
       alignItems: align,
       justifyContent: 'space-between',
       marginBottom: GLOBAL.SPACING.sm,

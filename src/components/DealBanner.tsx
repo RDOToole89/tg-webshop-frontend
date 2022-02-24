@@ -14,7 +14,6 @@ export const DealBanner = ({ source }: DealBanner) => {
       }}>
       <Image
         source={source}
-        resizeMethod='resize'
         resizeMode='contain'
         style={{ height: 160, width: '100%' }}
       />

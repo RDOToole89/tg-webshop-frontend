@@ -21,7 +21,7 @@ const COLOR = {
 
 const FONT = {
   Primary: 'open-sans',
-  PrimaryMedium: 'open-sans-bold',
+  PrimaryMedium: 'open-sans-medium',
   PrimaryBold: 'open-sans-bold',
   default: {
     fontFamily: 'open-sans',

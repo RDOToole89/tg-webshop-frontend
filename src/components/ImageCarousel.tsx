@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { StyleSheet, View, Pressable, Image } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import uuid from 'react-native-uuid';
@@ -19,13 +19,14 @@ export const ImageCarousel = ({
   height,
   width,
 }: ImageCarousel) => {
-  // How to type this???!
-  const page = useRef<any>(PagerView);
+  const ref = useRef<PagerView>(null);
+
+  let color = 'red';
 
   return (
     <>
       <View style={{ marginBottom: GLOBAL.SPACING.sm }}>
-        <PagerView ref={page} style={styles.viewPager} initialPage={0}>
+        <PagerView ref={ref} style={styles.viewPager} initialPage={0}>
           {images.map((image: string, i: number) => {
             return (
               <Image
@@ -46,7 +47,10 @@ export const ImageCarousel = ({
                 <Pressable
                   key={uuid.v4().toString()}
                   style={dotStyle().outerDot}
-                  onPress={() => page.current.setPage(i)}>
+                  onPress={() => {
+                    ref.current?.setPage(i);
+                    console.log(dotColor);
+                  }}>
                   <View style={dotStyle(dotColor).innerDot} />
                 </Pressable>
               );
