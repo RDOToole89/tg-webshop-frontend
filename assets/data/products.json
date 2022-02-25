@@ -3,9 +3,9 @@
     "id": 1,
     "title": "Ninja Golf",
     "brand": "Atari",
-    "price": 12.99,
+    "price": 62.99,
     "rating": 5,
-    "ratingQuantity": 63,
+    "ratingQuantity": 23,
     "tags": ["Classic", "Ninja", "Atari", "Awesome"],
     "platforms": ["Atari", "Comodore", "Amiga"],
     "stock": 100,
@@ -13,123 +13,180 @@
     "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
     "extraImages": [
       "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
+      "https://www.mobygames.com/images/shots/l/59647-ninja-golf-atari-7800-screenshot-title-screen.gif",
+      "https://www.mobygames.com/images/shots/l/59649-ninja-golf-atari-7800-screenshot-teeing-off.gif",
+      "https://www.mobygames.com/images/shots/l/59650-ninja-golf-atari-7800-screenshot-running-through-the-fairway.gif"
     ]
   },
   {
     "id": 2,
-    "title": "Ninja Golf",
-    "brand": "Atari",
-    "price": 29.99,
+    "title": "Ninja Scooter Simulator",
+    "brand": "Comodore",
+    "price": 69.99,
     "rating": 4,
     "ratingQuantity": 23,
     "tags": ["Classic", "Ninja", "Atari", "Awesome", "Simulator"],
-    "platforms": ["Atari"],
-    "stock": 46,
-    "desc": "It's",
+    "platforms": ["Comodore"],
+    "stock": 5,
+    "desc": "Use your scooter to roar through these mean streets within a tough time limit, in a side-scrolling Metrocross-style game. Barriers, rough ground and ramps are in the way, as are other scooter riders from level 3 onwards. You will have to swerve or jump around them. Using jumps requires positioning and timing your landing successfully so as not to fall.The action is side-scrolling, with 5 different positions on the screen featuring a variety of clear spaces and hazards. Time bonuses and speed boosts are available.",
     "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-scootersim-com_zczyfg.png",
     "extraImages": [
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-scootersim-com_zczyfg.png",
+      "https://www.mobygames.com/images/shots/l/197559-ninja-scooter-simulator-amstrad-cpc-screenshot-the-main-menu.png",
+      "https://www.mobygames.com/images/shots/l/197560-ninja-scooter-simulator-amstrad-cpc-screenshot-beginning-on.png",
+      "https://www.mobygames.com/images/shots/l/197562-ninja-scooter-simulator-amstrad-cpc-screenshot-slam-what-did.png"
     ]
   },
   {
     "id": 3,
-    "title": "Ninja Gaiden",
+    "title": "Plumbers Don't Wear Ties",
+    "brand": "3DO",
+    "price": 79.99,
+    "rating": 5,
+    "ratingQuantity": 35,
+    "tags": ["Epic", "3D0", "Pc", "Plubmers"],
+    "platforms": ["PC", "3DO", "Playstation"],
+    "stock": 2,
+    "desc": "John is a plumber who is looking for love. He's looking in the house of the blonde Jane who has daddy issues. He's always been pretty successful before. And this situation looks to be one where John will be able to lay some pipe and unclog some stuffed passages.",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787201/tg-web-shop/tg-webshop-coverart/plumbers-dont-wear-ties-3do_cc9jdv.png",
+    "extraImages": [
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787201/tg-web-shop/tg-webshop-coverart/plumbers-dont-wear-ties-3do_cc9jdv.png",
+      "https://www.mobygames.com/images/shots/l/501982-plumbers-don-t-wear-ties-3do-screenshot-the-actual-title-screen.jpg",
+      "https://www.mobygames.com/images/shots/l/160877-ninja-gaiden-game-gear-screenshot-these-guys-will-jump-and.png",
+      "https://www.mobygames.com/images/shots/l/501986-plumbers-don-t-wear-ties-3do-screenshot-if-you-don-t-input.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Street Cleaning Simulator",
+    "brand": "Epic",
+    "price": 39.99,
+    "rating": 5,
+    "ratingQuantity": 46,
+    "tags": ["PC", "Cleaning", "Simulator", "Awesome"],
+    "platforms": ["PC", "Playstation", "Xbox"],
+    "stock": 76,
+    "desc": "Literally sweep the streets in Street Cleaning Simulator. You are the owner of a company specialized in cleaning cities. With a variety of different vehicles to help you clean up the city, you'll be the ultimate street sweeper!",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785151/tg-web-shop/tg-webshop-coverart/cleaning-sim_tzxsoe.jpg",
+    "extraImages": [
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785151/tg-web-shop/tg-webshop-coverart/cleaning-sim_tzxsoe.jpg",
+      "https://media.s-bol.com/mBAX3n6R5n3/1200x733.jpg",
+      "https://media.s-bol.com/NQGvm5mJ4RL/1200x733.jpg",
+      "https://media.s-bol.com/JLJXm0O4nr9/1200x733.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Wash Dogs",
+    "brand": "Playstation",
+    "price": 39.99,
+    "rating": 3,
+    "ratingQuantity": 23,
+    "tags": ["Dogs", "Washing", "18+", "Extreme Violence"],
+    "platforms": ["Playstation", "Xbox", "Ninentdo"],
+    "stock": 46,
+    "desc": "Wash dogs like there is no tomorrow. Go deeply undercover in this action packed game",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785221/tg-web-shop/tg-webshop-coverart/wash-dogs-ps3_phlil7.jpg",
+    "extraImages": [
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785221/tg-web-shop/tg-webshop-coverart/wash-dogs-ps3_phlil7.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785221/tg-web-shop/tg-webshop-coverart/wash-dogs-ps3_phlil7.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785221/tg-web-shop/tg-webshop-coverart/wash-dogs-ps3_phlil7.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785221/tg-web-shop/tg-webshop-coverart/wash-dogs-ps3_phlil7.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Woodcutter Simulator 2011",
+    "brand": "Atari",
+    "price": 59.99,
+    "rating": 4,
+    "ratingQuantity": 13,
+    "tags": ["Woodcutting", "Simulator", "PC", "2011"],
+    "platforms": ["PC", "Playstation", "Xbox"],
+    "stock": 46,
+    "desc": "It's",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785248/tg-web-shop/tg-webshop-coverart/woodcutter-simulator_kfiigq.jpg",
+    "extraImages": [
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785248/tg-web-shop/tg-webshop-coverart/woodcutter-simulator_kfiigq.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785248/tg-web-shop/tg-webshop-coverart/woodcutter-simulator_kfiigq.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785248/tg-web-shop/tg-webshop-coverart/woodcutter-simulator_kfiigq.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785248/tg-web-shop/tg-webshop-coverart/woodcutter-simulator_kfiigq.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Wrestlemania Japan Edition",
+    "brand": "PSX",
+    "price": 39.99,
+    "rating": 3,
+    "ratingQuantity": 23,
+    "tags": ["Wrestling", "Playstation", "Kinda gay", "Xbox"],
+    "platforms": ["Xbox", "Playstation", "PC"],
+    "stock": 16,
+    "desc": "Showdown: Legends of Wrestling features more than 70 wrestlers including such favorites as Ultimate Warrior, Jake 'the Snake' Roberts, and 'the American Dream' Dusty Rhodes. Plus Bret 'the Hitman' Hart offers a wrestling tutorial. Like earlier releases, Showdown: Legends of Wrestling offers an exaggerated, larger-than-life art style. B",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785235/tg-web-shop/tg-webshop-coverart/wrestle-mania-jap-ps2_k4flrx.jpg",
+    "extraImages": [
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785235/tg-web-shop/tg-webshop-coverart/wrestle-mania-jap-ps2_k4flrx.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785235/tg-web-shop/tg-webshop-coverart/wrestle-mania-jap-ps2_k4flrx.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785235/tg-web-shop/tg-webshop-coverart/wrestle-mania-jap-ps2_k4flrx.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645785235/tg-web-shop/tg-webshop-coverart/wrestle-mania-jap-ps2_k4flrx.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Metro Cross Skating",
     "brand": "Nintendo",
-    "price": 39.99,
-    "rating": 3,
-    "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
-    "platforms": ["Atari", "Comodore", "Amiga"],
-    "stock": 46,
-    "desc": "It's",
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png",
+    "price": 349.99,
+    "rating": 200,
+    "ratingQuantity": 13,
+    "tags": ["Skating", "Ninja", "Nintendo", "Awesome"],
+    "platforms": ["Nintendo", "Ngage", "Playstation"],
+    "stock": 26,
+    "desc": "You can skate up or down in the screen, or even jump, to be safe from the pipes you encounter on the way. As the game progresses, obstacles are more frequent and more challenging, but the essence is the same. Timing is everything in this game.",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787106/tg-web-shop/tg-webshop-coverart/metro-skating-dude-classic_hvxiky.jpg",
     "extraImages": [
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787106/tg-web-shop/tg-webshop-coverart/metro-skating-dude-classic_hvxiky.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787106/tg-web-shop/tg-webshop-coverart/metro-skating-dude-classic_hvxiky.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787106/tg-web-shop/tg-webshop-coverart/metro-skating-dude-classic_hvxiky.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787106/tg-web-shop/tg-webshop-coverart/metro-skating-dude-classic_hvxiky.jpg"
     ]
   },
   {
-    "id": 3,
-    "title": "Ninja Gaiden",
-    "brand": "Atari",
+    "id": 9,
+    "title": "Call of Jury Duty",
+    "brand": "Xbox",
     "price": 39.99,
-    "rating": 3,
-    "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
-    "platforms": ["Atari", "Comodore", "Amiga"],
-    "stock": 46,
-    "desc": "It's",
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png",
+    "rating": 5,
+    "ratingQuantity": 56,
+    "tags": ["JuryDuty", "Action", "Awesome", "PC"],
+    "platforms": ["Xbox", "PlayStation", "Nintendo", "PC"],
+    "stock": 463,
+    "desc": "Your job is to decide the fate of criminals. Every your choice has a different outcome.",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645789373/tg-web-shop/tg-webshop-coverart/call-of-jury-duty_jfnje5.jpg",
     "extraImages": [
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645789373/tg-web-shop/tg-webshop-coverart/call-of-jury-duty_jfnje5.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645789373/tg-web-shop/tg-webshop-coverart/call-of-jury-duty_jfnje5.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645789373/tg-web-shop/tg-webshop-coverart/call-of-jury-duty_jfnje5.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645789373/tg-web-shop/tg-webshop-coverart/call-of-jury-duty_jfnje5.jpg"
     ]
   },
   {
-    "id": 3,
-    "title": "Ninja Gaiden",
-    "brand": "Atari",
-    "price": 39.99,
+    "id": 10,
+    "title": "Justin Bieber The Game",
+    "brand": "PS4",
+    "price": 89.99,
     "rating": 3,
     "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
-    "platforms": ["Atari", "Comodore", "Amiga"],
+    "tags": ["Bieber", "Awesome", "Baby baby ooh", "GOTY"],
+    "platforms": ["Playstation", "Xbox", "Nintendo"],
     "stock": 46,
-    "desc": "It's",
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png",
+    "desc": "Baby, baby, baby... oh! Hang out with Biebs in Justin Bieber games! ·",
+    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787900/tg-web-shop/tg-webshop-coverart/justin-bieber-the-game-cover.jpg_qaiyaw.jpg",
     "extraImages": [
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Ninja Gaiden",
-    "brand": "Atari",
-    "price": 39.99,
-    "rating": 3,
-    "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
-    "platforms": ["Atari", "Comodore", "Amiga"],
-    "stock": 46,
-    "desc": "It's",
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png",
-    "extraImages": [
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Ninja Gaiden",
-    "brand": "Atari",
-    "price": 39.99,
-    "rating": 3,
-    "ratingQuantity": 23,
-    "tags": ["Classic", "Ninja", "Nintendo", "Amazeballs"],
-    "platforms": ["Atari", "Comodore", "Amiga"],
-    "stock": 46,
-    "desc": "It's",
-    "imageUrl": "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-gaiden-nintendo_vvwrnf.png",
-    "extraImages": [
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg",
-      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645309870/tg-web-shop/tg-webshop-coverart/ninja-golf-atari_pnbgnv.jpg"
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787900/tg-web-shop/tg-webshop-coverart/justin-bieber-the-game-cover.jpg_qaiyaw.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787900/tg-web-shop/tg-webshop-coverart/justin-bieber-the-game-cover.jpg_qaiyaw.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787900/tg-web-shop/tg-webshop-coverart/justin-bieber-the-game-cover.jpg_qaiyaw.jpg",
+      "https://res.cloudinary.com/dqrgx8g71/image/upload/v1645787900/tg-web-shop/tg-webshop-coverart/justin-bieber-the-game-cover.jpg_qaiyaw.jpg"
     ]
   }
 ]

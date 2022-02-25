@@ -74,7 +74,7 @@ export const CartScreen = () => {
             position: 'absolute',
             bottom: 0,
             width: '100%',
-
+            borderRadius: 0,
             backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
           }}>
           <Text style={{ color: TYPOGRAPHY.COLOR.Default }}>
