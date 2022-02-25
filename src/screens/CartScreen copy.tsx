@@ -20,6 +20,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { NotificationBox } from '../components/NotificationBox';
 import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
+import uuid from 'react-native-uuid';
 
 export const CartScreen = () => {
   const navigation =
@@ -65,26 +66,18 @@ export const CartScreen = () => {
   );
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+        }}></View>
       <TopBar iconsActive={true} />
       <SearchBar placeHolderText='Search LameStop' />
-      {empty ? (
-        <Button
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
-
-            backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
-          }}>
-          <Text style={{ color: TYPOGRAPHY.COLOR.Default }}>
-            Complete Order
-          </Text>
-        </Button>
-      ) : null}
       {!empty ? (
         <>
-          <View>
+          <View style={styles.container}>
             <View style={styles.cartEmptyWrapper}>
               <View style={{ height: 120, width: 120 }}>
                 <ResponsiveImage
@@ -252,6 +245,10 @@ export const CartScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: GLOBAL.SPACING.sm,
+  },
   scrollContainer: {
     flex: 1,
     paddingHorizontal: GLOBAL.SPACING.sm,
