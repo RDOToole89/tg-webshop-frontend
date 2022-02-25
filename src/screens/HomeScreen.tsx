@@ -32,7 +32,7 @@ import categories from '../../assets/data/categories.json';
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { DealCountDown } from '../components/DealCountDown';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
-import { Ionicons } from '@expo/vector-icons';
+import { IconGenerator } from '../components/IconGenerator';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
@@ -195,13 +195,16 @@ export const HomeScreen = () => {
           }}>
           Want to follow us?
         </Text>
-        <View
-          style={[GLOBAL.LAYOUT.rowCenter, { justifyContent: 'space-evenly' }]}>
-          <Ionicons name='logo-facebook' size={24} color='black' />
-          <Ionicons name='logo-instagram' size={24} color='black' />
-          <Ionicons name='logo-twitter' size={24} color='black' />
-          <Ionicons name='logo-linkedin' size={24} color='black' />
-        </View>
+
+        <IconGenerator
+          onClick={() => console.log('click')}
+          iconDescArray={[
+            { name: 'logo-facebook', size: 24, color: 'black' },
+            { name: 'logo-instagram', size: 24, color: 'black' },
+            { name: 'logo-twitter', size: 24, color: 'black' },
+            { name: 'logo-linkedin', size: 24, color: 'black' },
+          ]}
+        />
       </View>
     </ScrollView>
   );

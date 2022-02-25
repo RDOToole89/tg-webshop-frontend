@@ -44,7 +44,7 @@ export const subtractQuantityFromItemGen = <
 ): T[] => {
   return arrayOfObjects.map((T) =>
     T.productId === id && T.platform === platform
-      ? { ...T, quantity: T.quantity - quantity }
+      ? { ...T, quantity: T.quantity > 1 ? T.quantity - quantity : 0 }
       : T
   );
 };

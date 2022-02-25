@@ -20,12 +20,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { NotificationBox } from '../components/NotificationBox';
 import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
-
-import idealLogo from '../../assets/ideal-logo.png';
-import masterCardLogo from '../../assets/mastercard-logo.png';
-import visaLogo from '../../assets/visa-logo.png';
-import americanExpressLogo from '../../assets/american-express-logo.png';
-import { IMGSTYLES } from '../global/styles/imgStyles';
+import uuid from 'react-native-uuid';
 
 export const CartScreen = () => {
   const navigation =
@@ -71,27 +66,18 @@ export const CartScreen = () => {
   );
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+        }}></View>
       <TopBar iconsActive={true} />
       <SearchBar placeHolderText='Search LameStop' />
-      {empty ? (
-        <Button
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
-            borderRadius: 0,
-            backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
-            zIndex: 100,
-          }}>
-          <Text style={{ color: TYPOGRAPHY.COLOR.Default }}>
-            Complete Order
-          </Text>
-        </Button>
-      ) : null}
       {!empty ? (
         <>
-          <View>
+          <View style={styles.container}>
             <View style={styles.cartEmptyWrapper}>
               <View style={{ height: 120, width: 120 }}>
                 <ResponsiveImage
@@ -233,14 +219,13 @@ export const CartScreen = () => {
           <View
             style={{
               justifyContent: 'center',
-
-              marginVertical: GLOBAL.SPACING.xxl,
+              height: 150,
+              marginBottom: GLOBAL.SPACING.xxl,
             }}>
             <DefaultButton
               style={{
                 flexDirection: 'row',
                 backgroundColor: TYPOGRAPHY.COLOR.Secondary,
-                margin: GLOBAL.SPACING.lg,
               }}
               title='Continue Shopping'
               onClick={() => navigation.navigate('Categories')}
@@ -252,47 +237,6 @@ export const CartScreen = () => {
                 />
               }
             />
-            <Text style={{ textAlign: 'center' }}>Pay with confidence</Text>
-            <View
-              style={[
-                GLOBAL.LAYOUT.rowCenter,
-                {
-                  width: '100%',
-                  height: 50,
-                  justifyContent: 'center',
-                  marginBottom: GLOBAL.SPACING.md,
-                },
-              ]}>
-              <View style={IMGSTYLES.tinyLogo}>
-                <ResponsiveImage
-                  resizeMode='contain'
-                  source={idealLogo}
-                  srcHeight={10}
-                  srcWidth={10}
-                />
-              </View>
-              <View style={IMGSTYLES.tinyLogo}>
-                <ResponsiveImage
-                  source={masterCardLogo}
-                  srcHeight={10}
-                  srcWidth={10}
-                />
-              </View>
-              <View style={IMGSTYLES.tinyLogo}>
-                <ResponsiveImage
-                  source={visaLogo}
-                  srcHeight={10}
-                  srcWidth={10}
-                />
-              </View>
-              <View style={IMGSTYLES.tinyLogo}>
-                <ResponsiveImage
-                  source={americanExpressLogo}
-                  srcHeight={10}
-                  srcWidth={10}
-                />
-              </View>
-            </View>
           </View>
         </ScrollView>
       )}
@@ -301,6 +245,10 @@ export const CartScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: GLOBAL.SPACING.sm,
+  },
   scrollContainer: {
     flex: 1,
     paddingHorizontal: GLOBAL.SPACING.sm,

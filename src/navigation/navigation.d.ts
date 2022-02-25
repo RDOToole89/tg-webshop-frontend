@@ -21,6 +21,7 @@ export type BottomTabParams = {
     imageUrl: string;
     extraImages: string[];
   };
+  AccountDetails: undefined;
 };
 
 export type RootStackParams = {

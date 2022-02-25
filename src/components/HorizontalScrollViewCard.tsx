@@ -56,7 +56,7 @@ export const HorizontalScrollViewCard = ({
       <Text style={[GLOBAL.TEXT_INPUT.Style.Bold, styles.cardText]}>
         {cardHeader}
       </Text>
-      <ResponsiveImage source={source} srcWidth={130} srcHeight={130} />
+      <ResponsiveImage source={source} srcWidth={150} srcHeight={150} />
     </Pressable>
   );
 };
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
   cardDimensions: {
     backgroundColor: TYPOGRAPHY.COLOR.Tertiary,
     width: 150,
-    height: 300,
     marginBottom: 10,
     marginRight: 10,
   },
