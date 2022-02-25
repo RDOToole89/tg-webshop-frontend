@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: GLOBAL.SPACING.sm,
+    padding: GLOBAL.SPACING.xsm,
     paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
     marginVertical: GLOBAL.SPACING.sm,

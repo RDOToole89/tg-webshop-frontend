@@ -7,12 +7,6 @@ import { ProductCard } from '../components/ProductCard';
 import products from '../../assets/data/products.json';
 import uuid from 'react-native-uuid';
 
-type Article = {
-  id: number;
-  articleType: string;
-  articleQuantity: string;
-};
-
 export const ProductsScreen = () => {
   return (
     <ScrollView>

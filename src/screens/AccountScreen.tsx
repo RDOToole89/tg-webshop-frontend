@@ -1,22 +1,44 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
+import { Button } from 'react-native-paper';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
 
 export const AccountScreen = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [country, setCountry] = useState('');
-  const [adress, setAdress] = useState('');
-  const [postalcode, setPostalcode] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const [telephone, setTelephone] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const fetchUser = {
+    firstName: 'Roibin',
+    lastName: 'OToole',
+    country: 'The Netherlands',
+    adress: 'Jan Cupidohof 17hs',
+    postalcode: '1064gs',
+    dateOfBirth: '03-05-1989',
+    telephone: '0613422442',
+    email: 'test@test.com',
+    password: 'test',
+  };
+
+  const [firstName, setFirstName] = useState(fetchUser.firstName);
+  const [lastName, setLastName] = useState(fetchUser.lastName);
+  const [country, setCountry] = useState(fetchUser.country);
+  const [adress, setAdress] = useState(fetchUser.adress);
+  const [postalcode, setPostalcode] = useState(fetchUser.postalcode);
+  const [dateOfBirth, setDateOfBirth] = useState(fetchUser.dateOfBirth);
+  const [telephone, setTelephone] = useState(fetchUser.telephone);
+  const [email, setEmail] = useState(fetchUser.email);
+  const [password, setPassword] = useState(fetchUser.password);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <Text
+        style={[
+          TYPOGRAPHY.FONT.h2,
+          { fontFamily: TYPOGRAPHY.FONT.PrimaryBold },
+        ]}>
+        Account information
+      </Text>
+
       <TextInput
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
@@ -107,7 +129,25 @@ export const AccountScreen = () => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-    </View>
+      <HorizontalRule
+        style={{
+          marginVertical: GLOBAL.SPACING.md,
+          marginBottom: GLOBAL.SPACING.xl,
+          width: '100%',
+        }}
+      />
+      <Button
+        style={{
+          borderRadius: 0,
+          width: '100%',
+          marginBottom: GLOBAL.SPACING.xxxxl,
+        }}
+        color='#e7230d'
+        mode='contained'
+        onPress={() => console.log('press')}>
+        <Text>SUBMIT CHANGES</Text>
+      </Button>
+    </ScrollView>
   );
 };
 
@@ -115,11 +155,11 @@ const styles = StyleSheet.create({
   container: {
     color: '#fff',
     flex: 1,
-    paddingTop: GLOBAL.SPACING.md,
+    paddingVertical: GLOBAL.SPACING.md,
     paddingHorizontal: GLOBAL.SPACING.xxxl,
   },
   textInput: {
-    marginBottom: GLOBAL.SPACING.xl,
+    marginBottom: GLOBAL.SPACING.md,
     backgroundColor: '#ecf4fb',
   },
 });

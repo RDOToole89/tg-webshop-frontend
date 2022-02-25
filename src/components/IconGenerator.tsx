@@ -23,7 +23,7 @@ export const IconGenerator = ({
         GLOBAL.LAYOUT.rowCenter,
         {
           justifyContent: 'space-evenly',
-          paddingVertical: GLOBAL.SPACING.xxxl,
+          paddingVertical: GLOBAL.SPACING.xl,
         },
       ]}>
       {iconDescArray.map((icon: any) => {

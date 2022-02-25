@@ -3,8 +3,8 @@ import { GLOBAL } from './global';
 
 export const IMGSTYLES = StyleSheet.create({
   tinyLogo: {
-    width: 15,
-    height: 15,
+    width: 50,
+    height: 50,
     resizeMode: 'contain',
   },
   smallLogo: {
