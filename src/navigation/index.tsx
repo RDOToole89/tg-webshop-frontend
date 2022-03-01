@@ -107,7 +107,7 @@ export const BottomTabNavigator = () => {
 
   return (
     <BottomTab.Navigator
-      initialRouteName='Search'
+      initialRouteName='Home'
       screenOptions={({ navigation }) => ({
         headerStyle: { borderBottomWidth: 0 },
         headerRight: () => (

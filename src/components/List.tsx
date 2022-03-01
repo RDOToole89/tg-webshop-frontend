@@ -1,28 +1,38 @@
 //@ts-nocheck
 
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
-import { ImageCarousel } from './ImageCarousel';
+import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
+import { ProductCard } from './ProductCard';
 
 const Item = ({
-  title,
+  id,
   imageUrl,
+  brand,
   price,
-}: {
-  title: string;
-  imgUrl: string;
-  price: number;
-}) => {
+  rating,
+  desc,
+  ratingQuantity,
+  stock,
+  tags,
+  title,
+  platforms,
+  extraImages,
+}: any) => {
   return (
-    <View>
-      <Text>
-        {title} - {price}
-      </Text>
-      <View style={{ height: 50, width: 50 }}>
-        <ResponsiveImage source={imageUrl} srcHeight={100} srcWidth={100} />
-      </View>
-    </View>
+    <ProductCard
+      id={id}
+      imageUrl={imageUrl}
+      brand={brand}
+      price={price}
+      rating={rating}
+      desc={desc}
+      ratingQuantity={ratingQuantity}
+      stock={stock}
+      tags={tags}
+      title={title}
+      platforms={platforms}
+      extraImages={extraImages}
+    />
   );
 };
 
@@ -40,9 +50,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
 
     // when no input, show all
     if (searchPhrase === '') {
-      return (
-        <Item title={item.title} price={item.price} imageUrl={item.imageUrl} />
-      );
+      return <Item {...item} />;
     }
     // filter of the name
     if (
@@ -50,9 +58,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
         .toUpperCase()
         .includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ''))
     ) {
-      return (
-        <Item title={item.title} price={item.price} imageUrl={item.imageUrl} />
-      );
+      return <Item {...item} />;
     }
     // filter of the description
     if (
@@ -60,14 +66,12 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
         .toUpperCase()
         .includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ''))
     ) {
-      return (
-        <Item title={item.title} price={item.price} imageUrl={item.imageUrl} />
-      );
+      return <Item {...item} />;
     }
   };
 
   return (
-    <SafeAreaView style={styles.list__container}>
+    <ScrollView style={styles.list__container}>
       <View
         onStartShouldSetResponder={() => {
           setClicked(false);
@@ -78,7 +82,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
           keyExtractor={(item) => item.id}
         />
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
