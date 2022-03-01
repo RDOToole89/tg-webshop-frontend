@@ -15,39 +15,41 @@ import { useState } from 'react';
 interface SearchBar {
   style?: StyleProp<ViewStyle>;
   placeHolderText?: string;
+  clicked: any;
+  searchPhrase: any;
+  setSearchPhrase: any;
+  setClicked: any;
 }
 
 export const SearchBar = ({
+  clicked,
+  searchPhrase,
+  setSearchPhrase,
+  setClicked,
   style,
   placeHolderText = 'Lame games and more...',
 }: SearchBar) => {
   const [placeHolder, setPlaceholder] = useState(placeHolderText);
-  const [boxShadow, setBoxShadow] = useState({});
+
   const handleOnFocus = () => {
     setPlaceholder('');
-    setBoxShadow({
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
-      shadowOpacity: 0.3,
-      shadowRadius: 4.65,
-
-      elevation: 8,
-    });
+    setClicked(true);
   };
 
   const handleOnBlur = () => {
     setPlaceholder('Lame games and more...');
-    setBoxShadow({});
+    setClicked(false);
   };
   return (
     <View
-      style={[styles.inputContainer, shadowStyle(boxShadow).boxShadow, style]}>
+      style={
+        clicked
+          ? [styles.inputContainer, styles.searchInputClicked]
+          : [styles.inputContainer]
+      }>
       <TextInput
-        onChangeText={() => console.log('change')}
-        value={''}
+        onChangeText={setSearchPhrase}
+        value={searchPhrase}
         placeholder={placeHolder}
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}
@@ -84,9 +86,21 @@ const styles = StyleSheet.create({
     // outlineStyle:
     //   Platform.OS === 'web' ? 'none' : TYPOGRAPHY.COLOR.DefaultSelected,
   },
+
+  searchInputClicked: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+
+    elevation: 8,
+  },
 });
 
-const shadowStyle = (boxShadow: any) =>
-  StyleSheet.create({
-    boxShadow,
-  });
+// const shadowStyle = (boxShadow: any) =>
+//   StyleSheet.create({
+//     boxShadow,
+//   });

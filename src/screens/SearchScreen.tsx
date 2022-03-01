@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SearchBar } from '../components/SearchBar';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
 export const SearchScreen = () => {
+  const [searchPhrase, setSearchPhrase] = useState('');
+  const [clicked, setClicked] = useState(false);
+  const [fakeData, setFakeData] = useState();
+
+  console.log(searchPhrase);
+
   return (
     <View style={styles.container}>
-      <SearchBar />
+      <SearchBar
+        searchPhrase={searchPhrase}
+        setSearchPhrase={setSearchPhrase}
+        clicked={clicked}
+        setClicked={setClicked}
+      />
       <Text
         style={[
           TYPOGRAPHY.FONT.subtitle,
