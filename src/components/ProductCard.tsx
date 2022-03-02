@@ -12,7 +12,7 @@ import { StarRatings } from './StarRatings';
 import { TagMapper } from './TagMapper';
 
 type ProductCard = {
-  id: number;
+  id: number | string;
   title: string;
   brand: string;
   price: number;
@@ -39,7 +39,12 @@ export const ProductCard = ({
   stock,
   imageUrl,
   extraImages,
-}: ProductCard & { test?: boolean }) => {
+  test,
+  handleDelete,
+}: ProductCard & {
+  test?: boolean;
+  handleDelete?: (id: string | number) => void;
+}) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
@@ -97,11 +102,17 @@ export const ProductCard = ({
               Order before 23:59, next day delivery
             </Text>
           </View>
-          <Button
-            title='delete card'
-            onPress={() => console.log('delete')}
-            color={TYPOGRAPHY.COLOR.BrandRed}
-          />
+          {test && (
+            <Button
+              title='delete card'
+              onPress={
+                handleDelete
+                  ? () => handleDelete(id)
+                  : () => console.log('delete')
+              }
+              color={TYPOGRAPHY.COLOR.BrandRed}
+            />
+          )}
         </View>
       </View>
     </Pressable>

@@ -8,7 +8,7 @@ export type BottomTabParams = {
     categoryName: string;
   };
   ProductDetails: {
-    id: number;
+    id: number | string;
     brand: string;
     title: string;
     price: number;

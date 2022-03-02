@@ -11,7 +11,19 @@ import {
 
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+
+// addDoc => for adding documents
+// deleteDoc => for deleting documents
+// doc gives a reference to a specific DOCUMENT!
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+  onSnapshot,
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -35,12 +47,12 @@ const auth = getAuth(app);
 
 // Init services
 // Represents our db connection
-const db = getFirestore();
+export const db = getFirestore();
 
 // collection ref => takes in the db connection as a first argument
 // the second argument is the collection we want to access
 // basically creating a reference to the part of the DB
-const colRef = collection(db, 'products');
+export const colRef = collection(db, 'products');
 
 // get collection data
 
@@ -48,16 +60,45 @@ const colRef = collection(db, 'products');
 // to get a snapshot of the current collections
 getDocs(colRef)
   .then((snapshot) => {
-  // console.log(snapshot.docs);
+    // console.log(snapshot.docs);
+    let games = [];
+    // for each document (doc) we call the data() function and spread it into
+    // and object than we grab the id: doc.id. So for each document we push an
+    // object containing the data to the games array.
+    snapshot.docs.forEach((doc) => games.push({ ...doc.data(), id: doc.id }));
+
+    // console.log('GAMES FROM FIRESTORE', games);
+  })
+  .catch((error) => console.log(error));
+
+// get collection (snapshot) of data ONLY RUNS ones.
+getDocs(colRef)
+  .then((snapshot) => {
+    // console.log(snapshot.docs);
+    let games = [];
+    // for each document (doc) we call the data() function and spread it into
+    // and object than we grab the id: doc.id. So for each document we push an
+    // object containing the data to the games array.
+    snapshot.docs.forEach((doc) => games.push({ ...doc.data(), id: doc.id }));
+
+    // console.log('GAMES FROM FIRESTORE', games);
+    // setProducts(games);
+    // productsLength = products.length;
+  })
+  .catch((error) => console.log(error));
+
+// real time colllection data onSnapshot takes in two arguments
+// a colRef and as a second argument a function which fires everytimes their
+// is a change in the snapshot
+onSnapshot(colRef, (snapshot) => {
   let games = [];
   // for each document (doc) we call the data() function and spread it into
   // and object than we grab the id: doc.id. So for each document we push an
   // object containing the data to the games array.
   snapshot.docs.forEach((doc) => games.push({ ...doc.data(), id: doc.id }));
 
+  // console.log('GAMES FROM FIRESTORE', games);
+  // setProducts(games);
+});
 
-    console.log('GAMES FROM FIRESTORE', games)
-
-}).catch(error => console.log(error))
-
-export { auth };
+export { auth, addDoc };
