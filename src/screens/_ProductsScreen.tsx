@@ -16,6 +16,8 @@ import {
 import { colRef, db } from '../firebase/firebase';
 
 // THIS SCREEN IS FOR TESTING FIREBASE CRUD OPERATIONS!!!! => not production
+// Net Ninja
+// https://www.youtube.com/watch?v=rfQ2F8kQEUg&list=PL4cUxeGkcC9jERUGvbudErNCeSZHWUVlb&index=6
 
 export const ProductsScreen = () => {
   const [title, setTitle] = useState('');
