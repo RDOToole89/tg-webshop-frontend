@@ -20,7 +20,7 @@ import { SignupScreen } from '../screens/SignupScreen';
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
-import { ProductsScreen } from '../screens/ProductsScreen';
+import { ProductsScreen } from '../screens/_ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
 import { ReviewSrcreen } from '../screens/ReviewScreen';
 import { AccountScreen } from '../screens/AccountScreen';
@@ -93,7 +93,7 @@ export const LoginStack = () => {
       <AuthStack.Screen
         name='Login'
         component={LoginScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       />
       <AuthStack.Screen name='Signup' component={SignupScreen} />
     </AuthStack.Navigator>

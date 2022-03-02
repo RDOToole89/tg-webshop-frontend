@@ -15,7 +15,10 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
+import { auth } from '../firebase/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useActions } from '../hooks/useActions';
+import { MessageBanner } from '../components/MessageBanner';
 
 export const SignupScreen = () => {
   const { loginUser } = useActions();
@@ -27,7 +30,10 @@ export const SignupScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
+  // for later use! with a proper => proper DB
   const signUp = () => {
     if (!firstName || !lastName || !email || !password)
       alert('Please fill in all fields to create and account');
@@ -62,14 +68,56 @@ export const SignupScreen = () => {
     }
   };
 
+  // FIREBASE => temporary SIGNUP!
+  const signUpWithEmailAndPassword = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('USER', user);
+        console.log('user signup successful');
+        setSuccess('User signed up succesfully');
+        setEmail('');
+        setPassword('');
+
+        setTimeout(() => {
+          navigation.navigate('Home');
+        }, 2000);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        setError(errorCode ? errorCode : errorMessage);
+
+        setTimeout(() => {
+          setError('');
+        }, 2000);
+      });
+  };
+
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <TopBar
-          align='flex-start'
-          style={{ marginBottom: 20 }}
-          iconsActive={false}
+    <>
+      <TopBar
+        align='stretch'
+        style={{ marginBottom: 20 }}
+        iconsActive={false}
+      />
+      {error ? (
+        <MessageBanner
+          message={error ? `${error}` : `Signed up successfully`}
+          delay={2000}
+          backgroundColor={TYPOGRAPHY.COLOR.BrandRed}
         />
+      ) : null}
+      {success ? (
+        <MessageBanner
+          message={success ? `${success}` : `Signed up successfully`}
+          delay={2000}
+          backgroundColor={TYPOGRAPHY.COLOR.Success}
+        />
+      ) : null}
+      <View style={styles.container}>
         <View style={{ flexDirection: 'row', marginBottom: 4 }}>
           <Text style={{ fontFamily: 'impact', fontSize: 14 }}>
             Welcome to{' '}
@@ -99,28 +147,6 @@ export const SignupScreen = () => {
             colors: { primary: '#121212' },
           }}
           mode='outlined'
-          label='Firstname'
-          value={firstName}
-          onChangeText={(text) => setFirstName(text)}
-          autoComplete=''
-          style={[styles.textInput, { backgroundColor: '#FFF' }]}
-        />
-        <TextInput
-          theme={{
-            colors: { primary: '#121212' },
-          }}
-          mode='outlined'
-          label='Lastname'
-          value={lastName}
-          onChangeText={(text) => setLastName(text)}
-          autoComplete=''
-          style={[styles.textInput, { backgroundColor: '#FFF' }]}
-        />
-        <TextInput
-          theme={{
-            colors: { primary: '#121212' },
-          }}
-          mode='outlined'
           label='email'
           value={email}
           onChangeText={(text) => setEmail(text)}
@@ -137,6 +163,30 @@ export const SignupScreen = () => {
           onChangeText={(text) => setPassword(text)}
           autoComplete=''
           style={styles.textInput}
+        />
+        <TextInput
+          theme={{
+            colors: { primary: '#121212' },
+          }}
+          mode='outlined'
+          label='Firstname'
+          value={firstName}
+          onChangeText={(text) => setFirstName(text)}
+          autoComplete=''
+          disabled
+          style={[styles.textInput, { backgroundColor: '#FFF' }]}
+        />
+        <TextInput
+          theme={{
+            colors: { primary: '#121212' },
+          }}
+          mode='outlined'
+          label='Lastname'
+          value={lastName}
+          onChangeText={(text) => setLastName(text)}
+          autoComplete=''
+          disabled
+          style={[styles.textInput, { backgroundColor: '#FFF' }]}
         />
         <Text style={{ textDecorationLine: 'underline' }}>
           Forgot password?
@@ -160,8 +210,8 @@ export const SignupScreen = () => {
             style={{ borderRadius: 0, width: '100%' }}
             color='#e7230d'
             mode='contained'
-            onPress={signUp}>
-            <Text>SUBMIT</Text>
+            onPress={signUpWithEmailAndPassword}>
+            <Text>SIGNUP</Text>
           </Button>
           <HorizontalRule
             text='or'
@@ -175,7 +225,7 @@ export const SignupScreen = () => {
           />
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </>
   );
 };
 

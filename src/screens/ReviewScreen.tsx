@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
+  KeyboardAvoidingView,
 } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -31,7 +32,7 @@ export const ReviewSrcreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={GLOBAL.LAYOUT.container}>
+      <KeyboardAvoidingView behavior='padding' style={GLOBAL.LAYOUT.container}>
         <View
           style={[
             {
@@ -126,7 +127,7 @@ export const ReviewSrcreen = () => {
             <NotificationBox notificationText=' Review submitted - Thank you!' />
           </Modal>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 };

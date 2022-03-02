@@ -57,7 +57,13 @@ export const HomeScreen = () => {
         <PromotionBanner bannerText='SPECIAL OFFER: pay EXTRA on orders over 100$' />
       </View>
 
-      <SearchBar />
+      <SearchBar
+        clicked={undefined}
+        searchPhrase={undefined}
+        setSearchPhrase={undefined}
+        setClicked={undefined}
+        onClick={() => navigation.navigate('Search')}
+      />
       <View style={{ paddingVertical: GLOBAL.SPACING.lg }}>
         <DealBanner source={image} />
       </View>

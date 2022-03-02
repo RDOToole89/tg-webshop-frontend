@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Ninja Golf",
+    "category": "games",
     "brand": "Atari",
     "price": 62.99,
     "rating": 5,
@@ -21,6 +22,7 @@
   {
     "id": 2,
     "title": "Ninja Scooter Simulator",
+    "category": "games",
     "brand": "Comodore",
     "price": 69.99,
     "rating": 4,
@@ -40,6 +42,7 @@
   {
     "id": 3,
     "title": "Plumbers Don't Wear Ties",
+    "category": "games",
     "brand": "3DO",
     "price": 79.99,
     "rating": 5,
@@ -59,6 +62,7 @@
   {
     "id": 4,
     "title": "Street Cleaning Simulator",
+    "category": "games",
     "brand": "Epic",
     "price": 39.99,
     "rating": 5,
@@ -78,6 +82,7 @@
   {
     "id": 5,
     "title": "Wash Dogs",
+    "category": "games",
     "brand": "Playstation",
     "price": 39.99,
     "rating": 3,
@@ -97,6 +102,7 @@
   {
     "id": 6,
     "title": "Woodcutter Simulator 2011",
+    "category": "games",
     "brand": "Atari",
     "price": 59.99,
     "rating": 4,
@@ -116,6 +122,7 @@
   {
     "id": 7,
     "title": "Wrestlemania Japan Edition",
+    "category": "games",
     "brand": "PSX",
     "price": 39.99,
     "rating": 3,
@@ -135,6 +142,7 @@
   {
     "id": 8,
     "title": "Metro Cross Skating",
+    "category": "games",
     "brand": "Nintendo",
     "price": 349.99,
     "rating": 5,
@@ -154,6 +162,7 @@
   {
     "id": 9,
     "title": "Call of Jury Duty",
+    "category": "games",
     "brand": "Xbox",
     "price": 39.99,
     "rating": 5,
@@ -173,6 +182,7 @@
   {
     "id": 10,
     "title": "Justin Bieber The Game",
+    "category": "games",
     "brand": "PS4",
     "price": 89.99,
     "rating": 3,

@@ -73,7 +73,13 @@ export const CartScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       <TopBar iconsActive={true} />
-      <SearchBar placeHolderText='Search LameStop' />
+      <SearchBar
+        placeHolderText='Search LameStop'
+        clicked={undefined}
+        searchPhrase={undefined}
+        setSearchPhrase={undefined}
+        setClicked={undefined}
+      />
       {empty ? (
         <Button
           style={{
@@ -309,6 +315,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 175,
+    padding: GLOBAL.SPACING.md,
     marginBottom: GLOBAL.SPACING.sm,
   },
 });

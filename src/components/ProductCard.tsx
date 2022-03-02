@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Button } from 'react-native';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import uuid from 'react-native-uuid';
@@ -39,7 +39,7 @@ export const ProductCard = ({
   stock,
   imageUrl,
   extraImages,
-}: ProductCard) => {
+}: ProductCard & { test?: boolean }) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
@@ -97,6 +97,11 @@ export const ProductCard = ({
               Order before 23:59, next day delivery
             </Text>
           </View>
+          <Button
+            title='delete card'
+            onPress={() => console.log('delete')}
+            color={TYPOGRAPHY.COLOR.BrandRed}
+          />
         </View>
       </View>
     </Pressable>

@@ -11,6 +11,9 @@ import { SubmitButton } from './SubmitButton';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { GLOBAL } from '../global/styles/global';
 import { useState } from 'react';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParams } from '../navigation/navigation';
 
 interface SearchBar {
   style?: StyleProp<ViewStyle>;
@@ -19,6 +22,7 @@ interface SearchBar {
   searchPhrase: any;
   setSearchPhrase: any;
   setClicked: any;
+  onClick?: () => void;
 }
 
 export const SearchBar = ({
@@ -28,15 +32,28 @@ export const SearchBar = ({
   setClicked,
   style,
   placeHolderText = 'Lame games and more...',
+  onClick,
 }: SearchBar) => {
   const [placeHolder, setPlaceholder] = useState(placeHolderText);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   const handleOnFocus = () => {
+    if (onClick) {
+      navigation.navigate('Search');
+      return;
+    }
+
     setPlaceholder('');
     setClicked(true);
   };
 
   const handleOnBlur = () => {
+    if (onClick) {
+      navigation.navigate('Search');
+      return;
+    }
+
     setPlaceholder('Lame games and more...');
     setClicked(false);
   };

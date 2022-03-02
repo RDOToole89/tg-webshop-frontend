@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
+import { Product } from '../types/data.types';
 import { ProductCard } from './ProductCard';
 
 const Item = ({
@@ -17,7 +18,7 @@ const Item = ({
   title,
   platforms,
   extraImages,
-}: any) => {
+}: Product) => {
   return (
     <ProductCard
       id={id}
@@ -43,11 +44,7 @@ type List = {
 };
 
 export const List = ({ searchPhrase, setClicked, data }: List) => {
-  console.log(data);
-
   const renderItem = ({ item }: { item: any }) => {
-    console.log('ITEM IN RENDER', item);
-
     // when no input, show all
     if (searchPhrase === '') {
       return <Item {...item} />;

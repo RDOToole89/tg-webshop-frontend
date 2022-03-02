@@ -27,7 +27,7 @@ const initialState = {
     email: 'roibinotoole@gmail.com',
     remainLoggedIn: true,
   },
-  isLoggedIn: true,
+  isLoggedIn: false,
   message: 'Welcome',
 };
 
@@ -43,6 +43,20 @@ export const reducer = (
         isLoggedIn: false,
         message: 'Logging in user',
       };
+
+    case ActionType.SIGNUP_USER_SUCCESS:
+      console.log('ACTION PAYLOAD IN SIGNUP', action.payload);
+
+      return {
+        ...state,
+        loading: false,
+        user: action.payload,
+        isLoggedIn: true,
+        message: `${state?.user?.userName} logged in sucessfully!`,
+      };
+
+    case ActionType.SIGNUP_USER_ERROR:
+      return { ...state, loading: false, error: action.payload };
 
     case ActionType.LOGIN_USER_SUCCESS:
       return {

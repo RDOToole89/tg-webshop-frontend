@@ -7,6 +7,7 @@ import { Button } from 'react-native-paper';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 
 export const AccountScreen = () => {
+  // temporary code to repesent a user entity
   const fetchUser = {
     firstName: 'Roibin',
     lastName: 'OToole',

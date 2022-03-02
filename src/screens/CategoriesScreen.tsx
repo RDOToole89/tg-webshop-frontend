@@ -49,6 +49,11 @@ export const CategoriesScreen = () => {
             marginBottom: GLOBAL.SPACING.md,
             marginTop: GLOBAL.SPACING.sm,
           }}
+          clicked={undefined}
+          searchPhrase={undefined}
+          setSearchPhrase={undefined}
+          setClicked={undefined}
+          onClick={() => navigation.navigate('Search')}
         />
       </View>
       <ScrollView

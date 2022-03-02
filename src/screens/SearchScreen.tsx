@@ -11,11 +11,13 @@ export const SearchScreen = () => {
   const [clicked, setClicked] = useState(false);
   const [fakeData, setFakeData] = useState(productsData);
 
-  console.log(searchPhrase);
-
   return (
     <View style={styles.container}>
-      {!clicked && <Text style={styles.title}>Programming Languages</Text>}
+      {!clicked && (
+        <Text style={[TYPOGRAPHY.FONT.h2, { marginLeft: GLOBAL.SPACING.sm }]}>
+          Search
+        </Text>
+      )}
       <SearchBar
         searchPhrase={searchPhrase}
         setSearchPhrase={setSearchPhrase}
@@ -44,14 +46,6 @@ const styles = StyleSheet.create({
   container: {
     color: '#fff',
     flex: 1,
-    paddingTop: GLOBAL.SPACING.xxxl,
-    paddingHorizontal: GLOBAL.SPACING.md,
-  },
-  title: {
-    width: '100%',
-    marginTop: 20,
-    fontSize: 25,
-    fontWeight: 'bold',
-    marginLeft: '10%',
+    paddingHorizontal: GLOBAL.SPACING.sm,
   },
 });
