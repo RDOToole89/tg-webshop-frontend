@@ -1,8 +1,15 @@
-import { UserCredential, UserInfo } from '@firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  UserCredential,
+  User,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from '@firebase/auth';
 import { Action, Dispatch } from 'redux';
 import { axios } from '../../constants/axios';
+import { auth, googleProvider } from '../../firebase/firebase';
 import { ActionType } from '../action-types';
-import { User } from '../reducers/userReducer';
 
 export const fetchUser = (id: number) => {
   return async (dispatch: Dispatch<Action>) => {
@@ -47,12 +54,36 @@ export const loginUser = (
   };
 };
 
-export const signUpWithFirebase = (user: UserInfo) => {
-  console.log('USER CREDENTIAL INSIDE FIREBASESIGNUP', user);
+type SignUpWithEmail = {
+  email: string;
+  password: string;
+};
 
-  return async (dispatch: Dispatch<Action>) => {
+export const signUpWithFirebaseEmail =
+  ({ email, password }: SignUpWithEmail) =>
+  async (dispatch: Dispatch<Action>) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        dispatch({
+          type: ActionType.SIGNUP_USER_SUCCESS,
+          payload: user,
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        dispatch({
+          type: ActionType.SIGNUP_USER_ERROR,
+          payload: error.message,
+        });
+      });
+  };
+
+export const signUpWithFirebaseGoogle =
+  (user: User) => async (dispatch: Dispatch<Action>) => {
     try {
-      console.log('DISPATCHS');
       dispatch({
         type: ActionType.SIGNUP_USER_SUCCESS,
         payload: user,
@@ -63,6 +94,30 @@ export const signUpWithFirebase = (user: UserInfo) => {
         payload: error.message,
       });
     }
+  };
+
+export const signOutWithFirebase = (user: UserCredential) => {
+  console.log('USER CREDENTIAL INSIDE FIREBASESIGNOUT', user);
+
+  return async (dispatch: Dispatch<Action>) => {
+    signOut(auth)
+      .then(() => {
+        console.log('SIGNED OUT SUCCESFULLY');
+
+        // Sign-out successful.
+        dispatch({
+          type: ActionType.SIGNOUT_USER_SUCCESS,
+          payload: user,
+        });
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log('ERROR SIGNING USER OUT', error);
+        dispatch({
+          type: ActionType.SIGNOUT_USER_ERROR,
+          payload: user,
+        });
+      });
   };
 };
 

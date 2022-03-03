@@ -36,8 +36,10 @@ import { IconGenerator } from '../components/IconGenerator';
 
 export const HomeScreen = () => {
   const { fetchUser } = useActions();
-  const user = useSelector((state: RootState) => state.user);
-  const { isLoggedIn } = user;
+  const userState = useSelector((state: RootState) => state.user);
+  const { isLoggedIn, user } = userState;
+
+  console.log('HOMESCREEN USERSTATE', userState);
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
@@ -45,11 +47,7 @@ export const HomeScreen = () => {
   return (
     <ScrollView style={[GLOBAL.LAYOUT.defaultContainer, { zIndex: 9 }]}>
       <MessageBanner
-        message={
-          isLoggedIn
-            ? `Welcome back ${user.user?.firstName}`
-            : `Welcome to LameStop`
-        }
+        message={isLoggedIn ? `Welcome back ${`user`}` : `Welcome to LameStop`}
         delay={2000}
       />
       <TopBar style={{ backgroundColor: '#fff' }} iconsActive={false} />
@@ -57,13 +55,7 @@ export const HomeScreen = () => {
         <PromotionBanner bannerText='SPECIAL OFFER: pay EXTRA on orders over 100$' />
       </View>
 
-      <SearchBar
-        clicked={undefined}
-        searchPhrase={undefined}
-        setSearchPhrase={undefined}
-        setClicked={undefined}
-        onClick={() => navigation.navigate('Search')}
-      />
+      <SearchBar onClick={() => navigation.navigate('Search')} />
       <View style={{ paddingVertical: GLOBAL.SPACING.lg }}>
         <DealBanner source={image} />
       </View>

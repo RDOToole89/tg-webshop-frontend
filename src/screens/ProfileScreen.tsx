@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
@@ -11,9 +10,10 @@ import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Modal } from '../global/elements/Modal';
 import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useActions';
+import { RootState } from '../state';
 
 export const ProfileScreen = () => {
-  const { logoutUser } = useActions();
+  const { signOutWithFirebase } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const user = useSelector((state: RootState) => state.user);
@@ -23,7 +23,7 @@ export const ProfileScreen = () => {
     <ScrollView style={styles.container}>
       {isLoggedIn ? (
         <>
-          <Text style={TYPOGRAPHY.FONT.h1}>{user.user.firstName}</Text>
+          <Text style={TYPOGRAPHY.FONT.h1}>{user.user.displayName}</Text>
           <Text style={TYPOGRAPHY.FONT.subtitle}>{user.user.email}</Text>
         </>
       ) : (
@@ -161,8 +161,10 @@ export const ProfileScreen = () => {
           }}
           title='signout'
           onClick={() => {
-            logoutUser();
-            navigation.navigate('Home');
+            signOutWithFirebase(user);
+            setTimeout(() => {
+              navigation.navigate('Home');
+            });
           }}
           icon={
             <MaterialIcon

@@ -1,26 +1,10 @@
 import { TLoginUserAction } from './../actionsInterfaces/userInterfaces';
 import { ActionType } from '../action-types';
 
-export type User = {
-  userName: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  remainLoggedIn: boolean;
-};
-
-const TESTUSER = {
-  userName: 'RDOToole89',
-  firstName: 'Roibin',
-  lastName: 'OToole',
-  email: 'roibinotoole@gmail.com',
-  remainLoggedIn: true,
-};
-
 export interface UserState {
   loading: boolean;
   error: string | null;
-  user: User | null;
+  user: any;
   isLoggedIn: boolean;
   message: string | null;
 }
@@ -37,7 +21,8 @@ export const reducer = (
   state: UserState = initialState,
   action: TLoginUserAction
 ): UserState => {
-  console.log('LOG ACTIONTYPE', action.type);
+  console.log('LOG ACTIONTYPE =>', action.type);
+
   switch (action.type) {
     case ActionType.FETCH_USER:
       return {
@@ -48,18 +33,26 @@ export const reducer = (
       };
 
     case ActionType.SIGNUP_USER_SUCCESS:
-      console.log('ACTION PAYLOAD IN SIGNUP', action.payload);
-
       return {
         ...state,
         loading: false,
         user: action.payload,
         isLoggedIn: true,
-        message: `${state?.user?.userName} logged in sucessfully!`,
+        message: `${action.payload.displayName} logged in sucessfully!`,
       };
 
     case ActionType.SIGNUP_USER_ERROR:
       return { ...state, loading: false, error: action.payload };
+
+    case ActionType.SIGNOUT_USER_SUCCESS:
+      console.log('INSIDE SIGNOUT SUCCESS');
+      return {
+        ...state,
+        message: `${action.payload.displayName} logged out sucessfully!`,
+        loading: false,
+        user: null,
+        isLoggedIn: false,
+      };
 
     case ActionType.LOGIN_USER_SUCCESS:
       return {
@@ -67,7 +60,7 @@ export const reducer = (
         loading: false,
         user: action.payload,
         isLoggedIn: true,
-        message: `${state?.user?.userName} logged in sucessfully!`,
+        message: `${action.payload.displayName} logged in sucessfully!`,
       };
 
     case ActionType.LOGIN_USER_ERROR:

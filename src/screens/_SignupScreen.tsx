@@ -15,14 +15,20 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
+import { auth, googleProvider } from '../firebase/firebase';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
 import { useActions } from '../hooks/useActions';
 import { MessageBanner } from '../components/MessageBanner';
 
-import { GoogleAuthProvider, signInWithPopup } from '@firebase/auth';
-import { auth, googleProvider } from '../firebase/firebase';
+// TESTSCREEN COMPONENT!!!!
 
 export const SignupScreen = () => {
-  const { signUpWithFirebaseEmail, signUpWithFirebaseGoogle } = useActions();
+  const { loginUser, signUpWithFirebase } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -34,40 +40,96 @@ export const SignupScreen = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const signUpWithEmailAndPassword = () => {
-    signUpWithFirebaseEmail({ email, password });
+  // for later use! with a proper => proper DB
+  const signUp = () => {
+    if (!firstName || !lastName || !email || !password)
+      alert('Please fill in all fields to create and account');
 
-    setSuccess('User signed up succesfully');
-    setEmail('');
-    setPassword('');
-    setTimeout(() => {
+    // dispatch userDetails to the server
+    // if user does not exist
+    // create DB ENTRY server side for user
+    // if user successfully created login user and provide token
+
+    let accountCreationSuccess = false;
+
+    const newUser = {
+      firstName,
+      lastName,
+      email,
+      password,
+      checked,
+    };
+
+    if (firstName && lastName && email && password)
+      accountCreationSuccess = true;
+
+    if (accountCreationSuccess) {
+      loginUser({
+        userName: 'RDOToole89',
+        firstName: 'Roibin',
+        lastName: 'OToole',
+        email: 'roibinotoole@gmail.com',
+        remainLoggedIn: true,
+      });
       navigation.navigate('Home');
-    }, 2000);
+    }
+  };
+
+  // FIREBASE => temporary SIGNUP!
+  const signUpWithEmailAndPassword = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log('USER', user);
+        console.log('user signup successful');
+        setSuccess('User signed up succesfully');
+        signUpWithFirebase(user);
+        setEmail('');
+        setPassword('');
+
+        setTimeout(() => {
+          navigation.navigate('Home');
+        }, 2000);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        setError(errorCode ? errorCode : errorMessage);
+
+        setTimeout(() => {
+          setError('');
+        }, 2000);
+      });
   };
 
   const signupWithGooglePopup = () => {
+    const auth = getAuth();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        console.log(result);
+
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         // The signed-in user info.
         const user = result.user;
 
-        if (user) {
-          signUpWithFirebaseGoogle(user);
+        signUpWithFirebase(user);
 
-          setSuccess('User signed up succesfully');
-          setEmail('');
-          setPassword('');
-          setTimeout(() => {
-            navigation.navigate('Home');
-          }, 2000);
-        }
+        setSuccess('User signed up succesfully');
+
+        setTimeout(() => {
+          navigation.navigate('Home');
+        }, 2000);
       })
       .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
+
+        if (errorCode === 'auth/account-exists-with-different-credential')
+          console.log('exist');
 
         const errorMessage = error.message;
         // The email of the user's account used.
@@ -75,7 +137,12 @@ export const SignupScreen = () => {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
 
-        setError(errorMessage);
+        setError(errorCode ? errorCode : errorMessage);
+
+        setTimeout(() => {
+          setError('');
+        }, 2000);
+        // ...
       });
   };
 

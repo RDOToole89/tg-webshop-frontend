@@ -1,3 +1,4 @@
+import { Product } from './../types/data.types.d';
 export type BottomTabParams = {
   Home: undefined;
   Cart: undefined;
@@ -7,20 +8,7 @@ export type BottomTabParams = {
   Products: {
     categoryName: string;
   };
-  ProductDetails: {
-    id: number | string;
-    brand: string;
-    title: string;
-    price: number;
-    rating: number;
-    ratingQuantity: number;
-    tags: string[];
-    platforms: string[];
-    stock: number;
-    desc: string;
-    imageUrl: string;
-    extraImages: string[];
-  };
+  ProductDetails: Product;
   AccountDetails: undefined;
 };
 
@@ -34,4 +22,5 @@ export type RootStackParams = {
   Signup: undefined;
   LoginStack: undefined;
   Review: undefined;
+  AccountDetails: undefined;
 };

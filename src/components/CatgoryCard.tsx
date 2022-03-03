@@ -31,7 +31,11 @@ export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
         {categoryName}
       </Text>
 
-      <ResponsiveImage source={image} srcWidth={130} srcHeight={130} />
+      <ResponsiveImage
+        source={image ? image : imageProp}
+        srcWidth={130}
+        srcHeight={130}
+      />
     </Pressable>
   );
 };

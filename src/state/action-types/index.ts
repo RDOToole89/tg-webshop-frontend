@@ -21,6 +21,8 @@ export enum ActionType {
   FETCH_USER = 'fetch_user',
   SIGNUP_USER_SUCCESS = 'signup_user_success',
   SIGNUP_USER_ERROR = 'signup_user_error',
+  SIGNOUT_USER_SUCCESS = 'signout_user_success',
+  SIGNOUT_USER_ERROR = 'signout_user_error',
   LOGIN_USER_SUCCESS = 'login_user_success',
   LOGIN_USER_ERROR = 'login_user_error',
   LOGOUT_USER = 'logout_user',

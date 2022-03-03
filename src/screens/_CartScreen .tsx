@@ -20,7 +20,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { NotificationBox } from '../components/NotificationBox';
 import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
-import uuid from 'react-native-uuid';
+
+// TESTSCREEN COMPONENT!!!!
 
 export const CartScreen = () => {
   const navigation =

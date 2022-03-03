@@ -1,5 +1,5 @@
 export interface Product {
-  productId: number;
+  productId: number | string;
   name: string;
   desc: string;
   brand: string;
@@ -13,3 +13,19 @@ export interface Product {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type User = {
+  userName: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  remainLoggedIn: boolean;
+};
+
+export const TESTUSER = {
+  userName: 'RDOToole89',
+  firstName: 'Roibin',
+  lastName: 'OToole',
+  email: 'roibinotoole@gmail.com',
+  remainLoggedIn: true,
+};

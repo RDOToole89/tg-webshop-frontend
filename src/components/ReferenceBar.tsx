@@ -14,10 +14,10 @@ import { Ref } from 'react';
 
 type ReferenceBar = {
   iconName: string;
-  routeString: NavigationScreen<RootStackParams>;
+  routeString?: NavigationScreen<RootStackParams>;
   barText: string;
   onClick?: () => void;
-  modalBar: boolean;
+  modalBar?: boolean;
   color?: string;
 };
 

@@ -18,10 +18,10 @@ import { RootStackParams } from '../navigation/navigation';
 interface SearchBar {
   style?: StyleProp<ViewStyle>;
   placeHolderText?: string;
-  clicked: any;
-  searchPhrase: any;
-  setSearchPhrase: any;
-  setClicked: any;
+  clicked?: any;
+  searchPhrase?: any;
+  setSearchPhrase?: any;
+  setClicked?: any;
   onClick?: () => void;
 }
 

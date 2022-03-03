@@ -130,8 +130,12 @@ export const LoginScreen: React.FC = () => {
           color='#e7230d'
           mode='outlined'
           onPress={signIn}>
-          <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
-            SIGN IN
+          <Text
+            style={[
+              GLOBAL.TEXT.Bold,
+              { color: TYPOGRAPHY.COLOR.DefaultSelected },
+            ]}>
+            SIGN IN WITH GOOGLE
           </Text>
         </Button>
         <HorizontalRule
