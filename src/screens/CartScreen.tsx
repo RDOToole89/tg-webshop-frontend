@@ -34,17 +34,6 @@ export const CartScreen = () => {
   const cart = useSelector((state) => state.cart);
   const empty = cart.cartItems.length;
 
-  type CartItem = {
-    id: number;
-    title: string;
-    brand: string;
-    price: number;
-    rating: number;
-    ratingQuantity: number;
-    platform: string;
-    imageUrl: string;
-  };
-
   const cartItemsToRender = cart.cartItems.map(
     ({ productId, quantity, platform }) => {
       const product = products.find((product) => product.id === productId)!;
@@ -74,11 +63,8 @@ export const CartScreen = () => {
     <View style={{ flex: 1 }}>
       <TopBar iconsActive={true} />
       <SearchBar
-        placeHolderText='Search LameStop'
-        clicked={undefined}
-        searchPhrase={undefined}
-        setSearchPhrase={undefined}
-        setClicked={undefined}
+        placeHolderText='Search Lamestop...'
+        onClick={() => navigation.navigate('Search')}
       />
       {empty ? (
         <Button

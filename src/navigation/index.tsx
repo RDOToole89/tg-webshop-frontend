@@ -20,10 +20,12 @@ import { SignupScreen } from '../screens/SignupScreen';
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
-import { ProductsScreen } from '../screens/_ProductsScreen';
+import { ProductsScreen } from '../screens/TestScreens/_ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
 import { ReviewSrcreen } from '../screens/ReviewScreen';
 import { AccountScreen } from '../screens/AccountScreen';
+import { AddProductsScreen } from '../screens/AddProductScreen';
+import { UserInterfaceIdiom } from 'expo-constants';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -104,6 +106,7 @@ const BottomTab = createBottomTabNavigator<BottomTabParams>();
 
 export const BottomTabNavigator = () => {
   const cartItems = useSelector(selectCartItemsQuantity);
+  const currentUser = useSelector((state) => state.user);
 
   return (
     <BottomTab.Navigator
@@ -217,6 +220,7 @@ export const BottomTabNavigator = () => {
         component={ProfileScreen}
         options={({ navigation }) => ({
           headerShown: true,
+          tabBarButton: !currentUser.user ? () => null : undefined,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>
               <Ionicons
@@ -291,6 +295,29 @@ export const BottomTabNavigator = () => {
             },
             tabBarButton: () => null,
             // title: route.params?.title,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <Ionicons
+                  name='chevron-back'
+                  size={32}
+                  color={TYPOGRAPHY.COLOR.BrandRed}
+                />
+              </Pressable>
+            ),
+          };
+        }}
+      />
+      <BottomTab.Screen
+        name='AddProducts'
+        component={AddProductsScreen}
+        options={({ navigation }) => {
+          return {
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: '#fafafa',
+            },
+            tabBarButton: () => null,
+            title: 'Add Products You Awesome Admin!',
             headerLeft: () => (
               <Pressable onPress={() => navigation.goBack()}>
                 <Ionicons

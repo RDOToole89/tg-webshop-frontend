@@ -14,6 +14,17 @@ export interface Product {
   updatedAt: Date;
 }
 
+export type CartItem = {
+  id: number;
+  title: string;
+  brand: string;
+  price: number;
+  rating: number;
+  ratingQuantity: number;
+  platform: string;
+  imageUrl: string;
+};
+
 export type User = {
   userName: string;
   firstName: string;

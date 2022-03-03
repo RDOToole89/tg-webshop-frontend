@@ -16,15 +16,18 @@ export const ProfileScreen = () => {
   const { signOutWithFirebase } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
-  const user = useSelector((state: RootState) => state.user);
-  const { isLoggedIn } = user;
+  const currentUser = useSelector((state: RootState) => state.user);
+  const { isLoggedIn } = currentUser;
+
+  const admin =
+    currentUser.user.email === 'roibinotoole@gmail.com' ? true : false;
 
   return (
     <ScrollView style={styles.container}>
       {isLoggedIn ? (
         <>
-          <Text style={TYPOGRAPHY.FONT.h1}>{user.user.displayName}</Text>
-          <Text style={TYPOGRAPHY.FONT.subtitle}>{user.user.email}</Text>
+          <Text style={TYPOGRAPHY.FONT.h1}>{currentUser.user.displayName}</Text>
+          <Text style={TYPOGRAPHY.FONT.subtitle}>{currentUser.user.email}</Text>
         </>
       ) : (
         <Text style={TYPOGRAPHY.FONT.h1}>Hi There!</Text>
@@ -66,6 +69,11 @@ export const ProfileScreen = () => {
         iconName='person'
         barText='Account'
         routeString='AccountDetails'
+      />
+      <ReferenceBar
+        iconName='add-business'
+        barText='Add Item To Shop'
+        routeString='AddProducts'
       />
       <Modal
         activator={({ handleOpen }) => (
@@ -161,7 +169,7 @@ export const ProfileScreen = () => {
           }}
           title='signout'
           onClick={() => {
-            signOutWithFirebase(user);
+            signOutWithFirebase(currentUser);
             setTimeout(() => {
               navigation.navigate('Home');
             });

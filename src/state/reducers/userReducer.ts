@@ -21,7 +21,7 @@ export const reducer = (
   state: UserState = initialState,
   action: TLoginUserAction
 ): UserState => {
-  console.log('LOG ACTIONTYPE =>', action.type);
+  //  console.log('LOG ACTIONTYPE =>', action.type);
 
   switch (action.type) {
     case ActionType.FETCH_USER:

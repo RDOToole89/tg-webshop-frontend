@@ -5,25 +5,25 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
-import { GLOBAL } from '../global/styles/global';
+import { GLOBAL } from '../../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useState } from 'react';
-import { HorizontalRule } from '../global/elements/HorizontalRule';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { TopBar } from '../components/TopBar';
+import { HorizontalRule } from '../../global/elements/HorizontalRule';
+import { TYPOGRAPHY } from '../../global/styles/typography';
+import { TopBar } from '../../components/TopBar';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParams } from '../navigation/navigation';
-import { PressableText } from '../global/elements/PressableText';
-import { auth, googleProvider } from '../firebase/firebase';
+import { RootStackParams } from '../../navigation/navigation';
+import { PressableText } from '../../global/elements/PressableText';
+import { auth, googleProvider } from '../../firebase/firebase';
 import {
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { useActions } from '../hooks/useActions';
-import { MessageBanner } from '../components/MessageBanner';
+import { useActions } from '../../hooks/useActions';
+import { MessageBanner } from '../../components/MessageBanner';
 
 // TESTSCREEN COMPONENT!!!!
 
@@ -75,7 +75,7 @@ export const SignupScreen = () => {
     }
   };
 
-  // FIREBASE => temporary SIGNUP!
+  // FIREBASE => temporary SIGNUP!/..
   const signUpWithEmailAndPassword = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {

@@ -2,13 +2,11 @@ import {
   createUserWithEmailAndPassword,
   UserCredential,
   User,
-  signInWithPopup,
-  GoogleAuthProvider,
   signOut,
 } from '@firebase/auth';
 import { Action, Dispatch } from 'redux';
 import { axios } from '../../constants/axios';
-import { auth, googleProvider } from '../../firebase/firebase';
+import { auth } from '../../firebase/firebase';
 import { ActionType } from '../action-types';
 
 export const fetchUser = (id: number) => {

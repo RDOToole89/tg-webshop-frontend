@@ -29,7 +29,7 @@ export const ProductDetailScreen = ({ route }: any) => {
   const { addToCart } = useActions();
 
   const {
-    id = 1,
+    id,
     imageUrl,
     brand,
     price,

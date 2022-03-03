@@ -9,18 +9,24 @@ import {
   MEASUREMENT_ID,
 } from '@env';
 
-import productsJson from '../../assets/data/products.json';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  setPersistence,
+  browserLocalPersistence,
+} from 'firebase/auth';
 
 // addDoc => for adding documents
 // deleteDoc => for deleting documents
 // doc gives a reference to a specific DOCUMENT!
 import {
+  addDoc,
   getFirestore,
   collection,
   getDocs,
-  addDoc,
   deleteDoc,
   doc,
   onSnapshot,
@@ -29,15 +35,14 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyCG5p0qmJkUexfaUq6CKZEq9CIBwcysrYw',
-  authDomain: 'tg-lamestop-webshop.firebaseapp.com',
-  databaseURL:
-    'https://tg-lamestop-webshop-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'tg-lamestop-webshop',
-  storageBucket: 'tg-lamestop-webshop.appspot.com',
-  messagingSenderId: '288452728781',
-  appId: '1:288452728781:web:ab3b9bfbd70e6900e45684',
-  measurementId: 'G-WF6JMWP35R',
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGE_SENDER_ID,
+  appId: APP_ID,
+  measurementId: MEASUREMENT_ID,
 };
 
 // Initialize Firebase
@@ -45,6 +50,15 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Auth
 const auth = getAuth(app);
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    return signInWithEmailAndPassword(auth, email, password);
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 auth.languageCode = 'en';
 // console.log('AUTH', auth);
 // console.log(getAuth);
@@ -58,12 +72,12 @@ const googleProvider = new GoogleAuthProvider();
 
 // Init services
 // Represents our db connection
-export const db = getFirestore();
+const db = getFirestore();
 
 // collection ref => takes in the db connection as a first argument
 // the second argument is the collection we want to access
 // basically creating a reference to the part of the DB
-export const colRef = collection(db, 'products');
+const colRef = collection(db, 'products');
 
 // get collection data
 
@@ -112,7 +126,7 @@ onSnapshot(colRef, (snapshot) => {
   // setProducts(games);
 });
 
-export const seedFireStoreCollection = (collection, jsonFile) => {
+const seedFireStoreCollection = (collection, jsonFile) => {
   console.log(collection);
   console.log(jsonFile);
 
@@ -129,4 +143,17 @@ export const seedFireStoreCollection = (collection, jsonFile) => {
 // seeds the database
 // seedFireStoreCollection(colRef, productsJson);
 
-export { auth, addDoc, signInWithPopup, googleProvider };
+export {
+  auth,
+  addDoc,
+  signInWithPopup,
+  googleProvider,
+  getFirestore,
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  db,
+  colRef,
+};

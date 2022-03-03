@@ -8,8 +8,11 @@ export type BottomTabParams = {
   Products: {
     categoryName: string;
   };
-  ProductDetails: Product;
+  ProductDetails: Product & { title: string };
   AccountDetails: undefined;
+  AddProducts: {
+    title: string;
+  };
 };
 
 export type RootStackParams = {
@@ -23,4 +26,7 @@ export type RootStackParams = {
   LoginStack: undefined;
   Review: undefined;
   AccountDetails: undefined;
+  AddProducts: {
+    title: string;
+  };
 };

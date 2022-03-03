@@ -1,7 +1,8 @@
+//@ts-nocheck
 import { View, Text, StyleSheet } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { TopBar } from '../components/TopBar';
@@ -10,46 +11,50 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
 import { useActions } from '../hooks/useActions';
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-} from '@firebase/auth';
-import { auth, googleProvider } from '../firebase/firebase';
-import { MessageBanner } from '../components/MessageBanner';
+
+// TESTSCREEEEEEEN!
 
 export const LoginScreen = () => {
-  const { signUpWithFirebaseGoogle } = useActions();
+  const { loginUser } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
 
-  const signInWithCredentials = (email: string, password: string) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        signUpWithFirebaseGoogle(user);
+  const signIn = () => {
+    // dispatch email and password to server
+    // verify email and password match in the database
+    // if successful provide user with token and login
 
-        setSuccess('User signed in succesfully');
-        setEmail('');
-        setPassword('');
-        setTimeout(() => {
-          navigation.navigate('Home');
-        }, 2000);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+    let loginSuccess = false;
+    const dbEmail = 'roibinotoole@gmail.com';
+    const dbPassword = 'test';
+
+    if (dbEmail === email && dbPassword === password) {
+      loginSuccess = true;
+    }
+
+    if (loginSuccess) {
+      navigation.navigate('Home');
+      loginUser({
+        userName: 'RDOToole89',
+        firstName: 'Roibin',
+        lastName: 'OToole',
+        email: 'roibinotoole@gmail.com',
+        remainLoggedIn: true,
       });
+    }
+
+    if (!email || !password & !loginSuccess)
+      alert('Please enter your credentials');
+
+    if (email && password && !loginSuccess)
+      alert('Please provide correct email and password');
   };
 
-  const signinWithGooglePopup = () => {
+  const signupWithGooglePopup = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -85,25 +90,7 @@ export const LoginScreen = () => {
 
   return (
     <>
-      <TopBar
-        align='flex-start'
-        style={{ marginBottom: 20 }}
-        iconsActive={false}
-      />
-      {error ? (
-        <MessageBanner
-          message={error ? `${error}` : `Signed up successfully`}
-          delay={2000}
-          backgroundColor={TYPOGRAPHY.COLOR.BrandRed}
-        />
-      ) : null}
-      {success ? (
-        <MessageBanner
-          message={success ? `${success}` : `Signed up successfully`}
-          delay={2000}
-          backgroundColor={TYPOGRAPHY.COLOR.Success}
-        />
-      ) : null}
+      <TopBar align='flex-start' style={{ marginBottom: 20 }} />
       <View style={styles.container}>
         <View style={{ flexDirection: 'row', marginBottom: 4 }}>
           <Text style={{ fontFamily: 'impact', fontSize: 14 }}>Welcome to</Text>
@@ -123,7 +110,7 @@ export const LoginScreen = () => {
         </View>
         <TextInput
           theme={{
-            colors: { primary: '#121212' },
+            colors: { primary: '#121212', underlineColor: 'transparent' },
           }}
           mode='outlined'
           label='email'
@@ -134,7 +121,7 @@ export const LoginScreen = () => {
         />
         <TextInput
           theme={{
-            colors: { primary: '#121212' },
+            colors: { primary: '#121212', underlineColor: 'transparent' },
           }}
           mode='outlined'
           label='password'
@@ -165,7 +152,7 @@ export const LoginScreen = () => {
           style={{ borderRadius: 0 }}
           color='#e7230d'
           mode='contained'
-          onPress={() => signInWithCredentials(email, password)}>
+          onPress={signIn}>
           <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
             SIGN IN WITH EMAIL
           </Text>
@@ -178,7 +165,7 @@ export const LoginScreen = () => {
           style={{ borderRadius: 0 }}
           color='#e7230d'
           mode='outlined'
-          onPress={signinWithGooglePopup}>
+          onPress={signIn}>
           <Text
             style={[
               GLOBAL.TEXT.Bold,
