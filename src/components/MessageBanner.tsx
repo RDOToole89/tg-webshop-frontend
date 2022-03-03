@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { GLOBAL } from '../global/styles/global';
@@ -22,9 +22,13 @@ export const MessageBanner = ({
 }: Alert) => {
   const [messageActive, setMessageActive] = useState(true);
 
-  setTimeout(() => {
-    setMessageActive(false);
-  }, delay);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setMessageActive(false);
+    }, delay);
+
+    () => clearTimeout(timeoutId);
+  }, []);
 
   console.log(backgroundColor);
 

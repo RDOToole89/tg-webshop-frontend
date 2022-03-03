@@ -15,8 +15,13 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
-import { auth } from '../firebase/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, googleProvider } from '../firebase/firebase';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth';
 import { useActions } from '../hooks/useActions';
 import { MessageBanner } from '../components/MessageBanner';
 
@@ -93,6 +98,41 @@ export const SignupScreen = () => {
         setTimeout(() => {
           setError('');
         }, 2000);
+      });
+  };
+
+  const signupWithGoooglePopup = () => {
+    const auth = getAuth();
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+
+        setSuccess('User signed up succesfully');
+
+        setTimeout(() => {
+          navigation.navigate('Home');
+        }, 2000);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+
+        setError(errorCode ? errorCode : errorMessage);
+
+        setTimeout(() => {
+          setError('');
+        }, 2000);
+        // ...
       });
   };
 
@@ -212,6 +252,17 @@ export const SignupScreen = () => {
             mode='contained'
             onPress={signUpWithEmailAndPassword}>
             <Text>SIGNUP</Text>
+          </Button>
+          <HorizontalRule
+            text='or'
+            style={{ marginVertical: GLOBAL.SPACING.md, width: '100%' }}
+          />
+          <Button
+            style={{ borderRadius: 0, width: '100%' }}
+            color='#e7230d'
+            mode='contained'
+            onPress={signupWithGoooglePopup}>
+            <Text>SIGNUP WITH GOOGLE</Text>
           </Button>
           <HorizontalRule
             text='or'

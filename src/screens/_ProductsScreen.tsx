@@ -266,7 +266,7 @@ export const ProductsScreen = () => {
           <Button
             style={{
               borderRadius: 0,
-              width: '100%',
+              width: '30%',
               marginBottom: GLOBAL.SPACING.xxxxl,
             }}
             color='#e7230d'

@@ -10,7 +10,7 @@ import {
 } from '@env';
 
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 // addDoc => for adding documents
 // deleteDoc => for deleting documents
@@ -44,6 +44,16 @@ const app = initializeApp(firebaseConfig);
 
 // Initialize Auth
 const auth = getAuth(app);
+auth.languageCode = 'en';
+console.log('AUTH', auth);
+console.log(getAuth);
+
+const googleProvider = new GoogleAuthProvider();
+// googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+// googleProvider.setCustomParameters({
+//   login_hint: 'user@example.com',
+// });
+// console.log('GOOGLE PROVIDER', googleProvider);
 
 // Init services
 // Represents our db connection
@@ -101,4 +111,4 @@ onSnapshot(colRef, (snapshot) => {
   // setProducts(games);
 });
 
-export { auth, addDoc };
+export { auth, addDoc, signInWithPopup, googleProvider };
