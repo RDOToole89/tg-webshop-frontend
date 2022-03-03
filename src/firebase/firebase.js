@@ -9,6 +9,7 @@ import {
   MEASUREMENT_ID,
 } from '@env';
 
+import productsJson from '../../assets/data/products.json';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
@@ -110,5 +111,22 @@ onSnapshot(colRef, (snapshot) => {
   // console.log('GAMES FROM FIRESTORE', games);
   // setProducts(games);
 });
+
+export const seedFireStoreCollection = (collection, jsonFile) => {
+  console.log(collection);
+  console.log(jsonFile);
+
+  const promiseArray = [];
+
+  for (let i = 0; i < jsonFile.length; i++) {
+    console.log(jsonFile[i]);
+    promiseArray.push(addDoc(collection, { ...jsonFile[i] }));
+  }
+
+  console.log(promiseArray);
+};
+
+// seeds the database
+// seedFireStoreCollection(colRef, productsJson);
 
 export { auth, addDoc, signInWithPopup, googleProvider };
