@@ -30,8 +30,6 @@ export const MessageBanner = ({
     () => clearTimeout(timeoutId);
   }, []);
 
-  console.log(backgroundColor);
-
   return messageActive ? (
     <View style={styles(backgroundColor, textSize).banner}>
       <Text style={GLOBAL.TEXT.Secondary}>{message}</Text>

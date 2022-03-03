@@ -9,6 +9,14 @@ export type User = {
   remainLoggedIn: boolean;
 };
 
+const TESTUSER = {
+  userName: 'RDOToole89',
+  firstName: 'Roibin',
+  lastName: 'OToole',
+  email: 'roibinotoole@gmail.com',
+  remainLoggedIn: true,
+};
+
 export interface UserState {
   loading: boolean;
   error: string | null;
@@ -20,13 +28,7 @@ export interface UserState {
 const initialState = {
   loading: false,
   error: null,
-  user: {
-    userName: 'RDOToole89',
-    firstName: 'Roibin',
-    lastName: 'OToole',
-    email: 'roibinotoole@gmail.com',
-    remainLoggedIn: true,
-  },
+  user: null,
   isLoggedIn: false,
   message: 'Welcome',
 };
@@ -35,6 +37,7 @@ export const reducer = (
   state: UserState = initialState,
   action: TLoginUserAction
 ): UserState => {
+  console.log('LOG ACTIONTYPE', action.type);
   switch (action.type) {
     case ActionType.FETCH_USER:
       return {

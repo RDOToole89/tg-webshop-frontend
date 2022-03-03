@@ -118,6 +118,19 @@ export const LoginScreen: React.FC = () => {
           mode='contained'
           onPress={signIn}>
           <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
+            SIGN IN WITH EMAIL
+          </Text>
+        </Button>
+        <HorizontalRule
+          text='or'
+          style={{ marginVertical: GLOBAL.SPACING.md }}
+        />
+        <Button
+          style={{ borderRadius: 0 }}
+          color='#e7230d'
+          mode='outlined'
+          onPress={signIn}>
+          <Text style={[GLOBAL.TEXT.Bold, { color: TYPOGRAPHY.COLOR.Default }]}>
             SIGN IN
           </Text>
         </Button>

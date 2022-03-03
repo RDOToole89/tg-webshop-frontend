@@ -1,4 +1,4 @@
-import { UserCredential } from '@firebase/auth';
+import { UserCredential, UserInfo } from '@firebase/auth';
 import { Action, Dispatch } from 'redux';
 import { axios } from '../../constants/axios';
 import { ActionType } from '../action-types';
@@ -47,11 +47,12 @@ export const loginUser = (
   };
 };
 
-export const fireBaseSignUp = (user: UserCredential) => {
-  console.log('USER CREDENTIAL', user);
+export const signUpWithFirebase = (user: UserInfo) => {
+  console.log('USER CREDENTIAL INSIDE FIREBASESIGNUP', user);
 
   return async (dispatch: Dispatch<Action>) => {
     try {
+      console.log('DISPATCHS');
       dispatch({
         type: ActionType.SIGNUP_USER_SUCCESS,
         payload: user,

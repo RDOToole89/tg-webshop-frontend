@@ -26,7 +26,7 @@ import { useActions } from '../hooks/useActions';
 import { MessageBanner } from '../components/MessageBanner';
 
 export const SignupScreen = () => {
-  const { loginUser } = useActions();
+  const { loginUser, signUpWithFirebase } = useActions();
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -101,16 +101,19 @@ export const SignupScreen = () => {
       });
   };
 
-  const signupWithGoooglePopup = () => {
+  const signupWithGooglePopup = () => {
     const auth = getAuth();
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        console.log(result);
+
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         // The signed-in user info.
         const user = result.user;
-        // ...
+
+        if (user) signUpWithFirebase(user);
 
         setSuccess('User signed up succesfully');
 
@@ -121,6 +124,10 @@ export const SignupScreen = () => {
       .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
+
+        if (errorCode === 'auth/account-exists-with-different-credential')
+          console.log('exist');
+
         const errorMessage = error.message;
         // The email of the user's account used.
         const email = error.email;
@@ -251,7 +258,7 @@ export const SignupScreen = () => {
             color='#e7230d'
             mode='contained'
             onPress={signUpWithEmailAndPassword}>
-            <Text>SIGNUP</Text>
+            <Text>SIGNUP WITH EMAIL</Text>
           </Button>
           <HorizontalRule
             text='or'
@@ -261,7 +268,7 @@ export const SignupScreen = () => {
             style={{ borderRadius: 0, width: '100%' }}
             color='#e7230d'
             mode='contained'
-            onPress={signupWithGoooglePopup}>
+            onPress={signupWithGooglePopup}>
             <Text>SIGNUP WITH GOOGLE</Text>
           </Button>
           <HorizontalRule
