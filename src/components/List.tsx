@@ -1,8 +1,7 @@
 //@ts-nocheck
-
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
-import { Product } from '../types/data.types';
+import { StyleSheet, View, FlatList, ScrollView } from 'react-native';
+import { ProductDetails } from '../types/data.types';
 import { ProductCard } from './ProductCard';
 
 const Item = ({
@@ -18,7 +17,7 @@ const Item = ({
   title,
   platforms,
   extraImages,
-}: Product) => {
+}: ProductDetails) => {
   return (
     <ProductCard
       id={id}

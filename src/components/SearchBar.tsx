@@ -2,7 +2,6 @@ import {
   View,
   TextInput,
   StyleSheet,
-  Platform,
   StyleProp,
   ViewStyle,
 } from 'react-native';
@@ -30,7 +29,7 @@ export const SearchBar = ({
   searchPhrase,
   setSearchPhrase,
   setClicked,
-  style,
+
   placeHolderText = 'Lame games and more...',
   onClick,
 }: SearchBar) => {

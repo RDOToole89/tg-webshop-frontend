@@ -3,7 +3,6 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Platform,
   ImageBackground,
 } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -39,7 +38,7 @@ export const HomeScreen = () => {
   const userState = useSelector((state: RootState) => state.user);
   const { isLoggedIn, user } = userState;
 
-  console.log('HOMESCREEN USERSTATE', userState);
+  // console.log('HOMESCREEN USERSTATE', userState);
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();

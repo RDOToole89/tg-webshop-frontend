@@ -1,6 +1,5 @@
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
-import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
 import Icon from 'react-native-vector-icons/Ionicons';

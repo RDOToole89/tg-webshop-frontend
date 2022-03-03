@@ -1,6 +1,6 @@
-import { FlatList, StyleSheet } from 'react-native';
+// import { FlatList, StyleSheet } from 'react-native';
 
-import uuid from 'react-native-uuid';
+// import uuid from 'react-native-uuid';
 
 // ** KEEPING THIS COMPONENT FOR FUTURE REFERENCE!
 
@@ -22,24 +22,24 @@ import uuid from 'react-native-uuid';
 //   );
 // };
 
-export const GridList = ({ data, renderItem }: any) => {
-  return (
-    <>
-      <FlatList
-        scrollEnabled={true}
-        contentContainerStyle={styles.grid}
-        numColumns={3}
-        data={data}
-        keyExtractor={(item) => item.toString() + uuid.v4()}
-        renderItem={renderItem}
-      />
-    </>
-  );
-};
+// export const GridList = ({ data, renderItem }: any) => {
+//   return (
+//     <>
+//       <FlatList
+//         scrollEnabled={true}
+//         contentContainerStyle={styles.grid}
+//         numColumns={3}
+//         data={data}
+//         keyExtractor={(item) => item.toString() + uuid.v4()}
+//         renderItem={renderItem}
+//       />
+//     </>
+//   );
+// };
 
-const styles = StyleSheet.create({
-  grid: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   grid: {
+//     flex: 1,
+//     justifyContent: 'center',
+//   },
+// });

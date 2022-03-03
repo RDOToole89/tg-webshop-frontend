@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet, View, Pressable, Image } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import uuid from 'react-native-uuid';
@@ -20,8 +20,6 @@ export const ImageCarousel = ({
   width,
 }: ImageCarousel) => {
   const ref = useRef<PagerView>(null);
-
-  let color = 'red';
 
   return (
     <>

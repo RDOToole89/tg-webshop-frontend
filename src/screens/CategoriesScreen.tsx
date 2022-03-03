@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { BottomTabParams } from '../navigation/navigation';
 
 import uuid from 'react-native-uuid';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import { useSelector } from 'react-redux';
 import { GLOBAL } from '../global/styles/global';
@@ -49,10 +49,6 @@ export const CategoriesScreen = () => {
             marginBottom: GLOBAL.SPACING.md,
             marginTop: GLOBAL.SPACING.sm,
           }}
-          clicked={undefined}
-          searchPhrase={undefined}
-          setSearchPhrase={undefined}
-          setClicked={undefined}
           onClick={() => navigation.navigate('Search')}
         />
       </View>

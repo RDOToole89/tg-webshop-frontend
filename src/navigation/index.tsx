@@ -20,12 +20,11 @@ import { SignupScreen } from '../screens/SignupScreen';
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
-import { ProductsScreen } from '../screens/TestScreens/_ProductsScreen';
+import { ProductsScreen } from '../screens/ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
 import { ReviewSrcreen } from '../screens/ReviewScreen';
 import { AccountScreen } from '../screens/AccountScreen';
 import { AddProductsScreen } from '../screens/AddProductScreen';
-import { UserInterfaceIdiom } from 'expo-constants';
 
 const navTheme = DefaultTheme;
 navTheme.colors.background = '#FFF';
@@ -130,7 +129,7 @@ export const BottomTabNavigator = () => {
       <BottomTab.Screen
         name='Home'
         component={HomeScreen}
-        options={({ navigation, route }) => ({
+        options={({}) => ({
           tabBarIcon: () => (
             <Ionicons
               name='md-home-outline'
@@ -271,6 +270,7 @@ export const BottomTabNavigator = () => {
               backgroundColor: '#fafafa',
             },
             tabBarButton: () => null,
+            //@ts-ignore
             title: route.params?.title,
             headerLeft: () => (
               <Pressable onPress={() => navigation.goBack()}>

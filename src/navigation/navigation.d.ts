@@ -1,4 +1,4 @@
-import { Product } from './../types/data.types.d';
+import { Product, ProductDetails } from './../types/data.types.d';
 export type BottomTabParams = {
   Home: undefined;
   Cart: undefined;
@@ -8,7 +8,7 @@ export type BottomTabParams = {
   Products: {
     categoryName: string;
   };
-  ProductDetails: Product & { title: string };
+  ProductDetails: ProductDetails;
   AccountDetails: undefined;
   AddProducts: {
     title: string;

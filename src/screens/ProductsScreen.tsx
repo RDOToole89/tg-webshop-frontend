@@ -5,7 +5,6 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import articleTypes from '../../assets/data/articleTypes.json';
 import { ProductCard } from '../components/ProductCard';
 import products from '../../assets/data/products.json';
-import { useSelector } from '../hooks/useTypedSelector';
 
 export const ProductsScreen = () => {
   return (
