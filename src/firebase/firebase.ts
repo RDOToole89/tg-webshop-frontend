@@ -3,16 +3,6 @@ import {
   getReactNativePersistence,
 } from 'firebase/auth/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  API_KEY,
-  AUTH_DOMAIN,
-  DATABASE_URL,
-  PROJECT_ID,
-  STORAGE_BUCKET,
-  MESSAGE_SENDER_ID,
-  APP_ID,
-  MEASUREMENT_ID,
-} from '@env';
 
 import { initializeApp } from 'firebase/app';
 import {
@@ -44,14 +34,15 @@ import { Platform } from 'react-native';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: API_KEY,
-  authDomain: AUTH_DOMAIN,
-  databaseURL: DATABASE_URL,
-  projectId: PROJECT_ID,
-  storageBucket: STORAGE_BUCKET,
-  messagingSenderId: MESSAGE_SENDER_ID,
-  appId: APP_ID,
-  measurementId: MEASUREMENT_ID,
+  apiKey: 'AIzaSyCG5p0qmJkUexfaUq6CKZEq9CIBwcysrYw',
+  authDomain: 'tg-lamestop-webshop.firebaseapp.com',
+  databaseURL:
+    'https://tg-lamestop-webshop-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'tg-lamestop-webshop',
+  storageBucket: 'tg-lamestop-webshop.appspot.com',
+  messagingSenderId: '288452728781',
+  appId: ' 1:288452728781:web:ab3b9bfbd70e6900e45684',
+  measurementId: 'G-WF6JMWP35R',
 };
 
 // Initialize Firebase

@@ -34,7 +34,9 @@ export const ProfileScreen = () => {
     <KeyboardAwareScrollView style={styles.container}>
       {isLoggedIn ? (
         <>
-          <Text style={TYPOGRAPHY.FONT.h1}>{displayName}</Text>
+          <Text style={TYPOGRAPHY.FONT.h1}>
+            {displayName ? displayName : 'Test User'}
+          </Text>
           <Text style={TYPOGRAPHY.FONT.subtitle}>{email}</Text>
         </>
       ) : (
