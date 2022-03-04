@@ -24,110 +24,134 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { NotificationBox } from '../components/NotificationBox';
 
-export const ReviewSrcreen = () => {
+export const ReviewScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   const userNameTest = 'Roibin OToole';
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAvoidingView behavior='padding' style={GLOBAL.LAYOUT.container}>
-        <View
+    <KeyboardAvoidingView behavior='padding' style={GLOBAL.LAYOUT.container}>
+      {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
+      <View
+        style={[
+          {
+            padding: GLOBAL.SPACING.sm,
+            backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
+          },
+          GLOBAL.LAYOUT.rowCenter,
+        ]}>
+        <Ionicons name='ios-person-circle' size={30} color='black' />
+        <Text
           style={[
+            TYPOGRAPHY.FONT.default,
+
             {
-              padding: GLOBAL.SPACING.sm,
-              backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
+              marginHorizontal: GLOBAL.SPACING.sm,
+              color: TYPOGRAPHY.COLOR.Default,
             },
-            GLOBAL.LAYOUT.rowCenter,
           ]}>
-          <Ionicons name='ios-person-circle' size={30} color='black' />
+          {userNameTest}
+        </Text>
+        <Pressable>
           <Text
             style={[
               TYPOGRAPHY.FONT.default,
-
               {
-                marginHorizontal: GLOBAL.SPACING.sm,
                 color: TYPOGRAPHY.COLOR.Default,
+                fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
               },
             ]}>
-            {userNameTest}
+            Edit
           </Text>
-          <Pressable>
-            <Text
-              style={[
-                TYPOGRAPHY.FONT.default,
-                {
-                  color: TYPOGRAPHY.COLOR.Default,
-                  fontFamily: TYPOGRAPHY.FONT.PrimaryBold,
-                },
-              ]}>
-              Edit
-            </Text>
-            <View style={GLOBAL.LAYOUT.rowCenter}></View>
-          </Pressable>
+          <View style={GLOBAL.LAYOUT.rowCenter}></View>
+        </Pressable>
+      </View>
+      <View style={{ flexDirection: 'row', padding: GLOBAL.SPACING.xxl }}>
+        <View
+          style={{ width: 100, height: 100, marginRight: GLOBAL.SPACING.lg }}>
+          <ResponsiveImage source={image} srcHeight={200} srcWidth={200} />
         </View>
-        <View style={{ flexDirection: 'row', padding: GLOBAL.SPACING.xxl }}>
-          <View
-            style={{ width: 100, height: 100, marginRight: GLOBAL.SPACING.lg }}>
-            <ResponsiveImage source={image} srcHeight={200} srcWidth={200} />
-          </View>
-          <View style={{ justifyContent: 'center' }}>
-            <Text>Old School Nintendo Console</Text>
-            <StarRatings size='extraLarge' rating={5} />
-          </View>
+        <View style={{ justifyContent: 'center' }}>
+          <Text>Old School Nintendo Console</Text>
+          <StarRatings size='extraLarge' rating={5} />
         </View>
-        <HorizontalRule ruleWidth={3} />
-        <View style={{ padding: GLOBAL.SPACING.xxl }}>
-          <Text style={TYPOGRAPHY.FONT.h2}>Add a title</Text>
-          <Text style={TYPOGRAPHY.FONT.subtitle}>
-            Sum up your review in one line
-          </Text>
-          <TextInput
-            placeholder="What's most important to know?"
-            style={TYPOGRAPHY.FONT.input}
-          />
-        </View>
-        <HorizontalRule ruleWidth={3} />
-        <View style={{ padding: GLOBAL.SPACING.xxl }}>
-          <Text style={TYPOGRAPHY.FONT.h2}>Add a written review</Text>
-          <Text style={TYPOGRAPHY.FONT.subtitle}>How was your experience?</Text>
-          <TextInput
-            multiline
-            numberOfLines={8}
-            placeholder='What did you like or dislike about the product?'
-            style={[
-              TYPOGRAPHY.FONT.input,
-              { padding: GLOBAL.SPACING.md, height: 100 },
-            ]}
-          />
-        </View>
-        <HorizontalRule ruleWidth={3} />
-        <View style={{ padding: GLOBAL.SPACING.xxl }}>
-          <Modal
-            activator={({ handleOpen }) => (
-              <>
-                <Button
-                  style={{ marginBottom: GLOBAL.SPACING.md }}
-                  color='#e7230d'
-                  icon={() => (
-                    <MaterialIcons name='gamepad' size={16} color='black' />
-                  )}
-                  mode='contained'
-                  onPress={() => {
-                    handleOpen();
-                    setTimeout(() => {
-                      navigation.goBack();
-                    }, 2000);
-                  }}>
-                  submit
-                </Button>
-              </>
-            )}>
-            <NotificationBox notificationText=' Review submitted - Thank you!' />
-          </Modal>
-        </View>
-      </KeyboardAvoidingView>
-    </TouchableWithoutFeedback>
+      </View>
+      <HorizontalRule ruleWidth={3} />
+
+      <View style={[styles.inner, { padding: GLOBAL.SPACING.md }]}>
+        <Text style={TYPOGRAPHY.FONT.h2}>Add a title</Text>
+        <Text style={TYPOGRAPHY.FONT.subtitle}>
+          Sum up your review in one line
+        </Text>
+        <TextInput
+          placeholder="What's most important to know?"
+          style={[TYPOGRAPHY.FONT.input, styles.textInput]}
+        />
+      </View>
+      <HorizontalRule ruleWidth={3} />
+      <View style={[styles.inner, { padding: GLOBAL.SPACING.md }]}>
+        <Text style={TYPOGRAPHY.FONT.h2}>Add a written review</Text>
+        <Text style={TYPOGRAPHY.FONT.subtitle}>How was your experience?</Text>
+        <TextInput
+          multiline
+          numberOfLines={8}
+          placeholder='What did you like or dislike about the product?'
+          style={[TYPOGRAPHY.FONT.input, styles.textInput]}
+        />
+      </View>
+      <View />
+      <HorizontalRule ruleWidth={3} />
+      <View style={{ padding: GLOBAL.SPACING.xxl }}>
+        <Modal
+          activator={({ handleOpen }) => (
+            <>
+              <Button
+                style={{ marginBottom: GLOBAL.SPACING.md }}
+                color='#e7230d'
+                icon={() => (
+                  <MaterialIcons name='gamepad' size={16} color='black' />
+                )}
+                mode='contained'
+                onPress={() => {
+                  handleOpen();
+                  setTimeout(() => {
+                    navigation.goBack();
+                  }, 2000);
+                }}>
+                submit
+              </Button>
+            </>
+          )}>
+          <NotificationBox notificationText=' Review submitted - Thank you!' />
+        </Modal>
+      </View>
+      {/* </TouchableWithoutFeedback> */}
+    </KeyboardAvoidingView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  inner: {
+    padding: 24,
+    flex: 1,
+    justifyContent: 'space-around',
+  },
+  header: {
+    fontSize: 36,
+    marginBottom: 48,
+  },
+  textInput: {
+    height: 40,
+    borderColor: '#000000',
+    borderBottomWidth: 1,
+    marginBottom: 36,
+  },
+  btnContainer: {
+    backgroundColor: 'white',
+    marginTop: 12,
+  },
+});

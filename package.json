@@ -40,6 +40,7 @@
     "react-native-debugger": "^1.1.0",
     "react-native-dotenv": "^3.3.1",
     "react-native-gesture-handler": "^2.2.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-pager-view": "5.4.9",
     "react-native-paper": "^4.11.2",
     "react-native-reanimated": "^2.4.1",

@@ -10,6 +10,7 @@ import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Modal } from '../global/elements/Modal';
 import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useActions';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { RootState } from '../state';
 
 export const ProfileScreen = () => {
@@ -26,7 +27,7 @@ export const ProfileScreen = () => {
     currentUser.user.email === 'roibinotoole@gmail.com' ? true : false;
 
   return (
-    <ScrollView style={styles.container}>
+    <KeyboardAwareScrollView style={styles.container}>
       {isLoggedIn ? (
         <>
           <Text style={TYPOGRAPHY.FONT.h1}>
@@ -188,7 +189,7 @@ export const ProfileScreen = () => {
           }
         />
       )}
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 

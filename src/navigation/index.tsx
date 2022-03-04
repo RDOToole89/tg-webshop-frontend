@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import logo from '../../assets/lamestop-logo-transparent.png';
 
-import { Image, Pressable } from 'react-native';
+import { Image, Keyboard, Pressable } from 'react-native';
 import { HomeScreen } from '../screens/HomeScreen';
 import { CategoriesScreen } from '../screens/CategoriesScreen';
 import { SearchScreen } from '../screens/SearchScreen';
@@ -22,7 +22,8 @@ import { IMGSTYLES } from '../global/styles/imgStyles';
 import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 import { ProductsScreen } from '../screens/ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
-import { ReviewSrcreen } from '../screens/ReviewScreen';
+import { ReviewScreen } from '../screens/ReviewScreen';
+import KeyboardAvoidingComponent from '../screens/TestScreens/_KeyboardTest';
 import { AccountScreen } from '../screens/AccountScreen';
 import { AddProductsScreen } from '../screens/AddProductScreen';
 
@@ -67,7 +68,8 @@ export const RootNavigator = () => {
           headerShown: true,
         })}
         name='Review'
-        component={ReviewSrcreen}
+        component={ReviewScreen}
+        //component={KeyboardAvoidingComponent}
       />
     </Stack.Navigator>
   );
