@@ -1,4 +1,7 @@
-import { getReactNativePersistence } from 'firebase/auth/react-native';
+import {
+  AuthCredential,
+  getReactNativePersistence,
+} from 'firebase/auth/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   API_KEY,
@@ -33,7 +36,10 @@ import {
   deleteDoc,
   doc,
   onSnapshot,
+  DocumentData,
+  CollectionReference,
 } from 'firebase/firestore';
+import { Platform } from 'react-native';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -52,9 +58,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initialize Auth
-const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage),
-});
+
+let auth: any;
+
+Platform.OS === 'web'
+  ? (auth = getAuth(app))
+  : (auth = initializeAuth(app, {
+      persistence: getReactNativePersistence(AsyncStorage),
+    }));
+
 // setPersistence(auth, browserLocalPersistence)
 //   .then(() => {
 //     return signInWithEmailAndPassword(auth, email, password);
@@ -63,7 +75,7 @@ const auth = initializeAuth(app, {
 //     // Handle Errors here.
 //     const errorCode = error.code;
 //     const errorMessage = error.message;
-// //   });
+//   });
 // auth.languageCode = 'en';
 // console.log('AUTH', auth);
 // console.log(getAuth);
@@ -131,7 +143,10 @@ onSnapshot(colRef, (snapshot) => {
   // setProducts(games);
 });
 
-const seedFireStoreCollection = (collection, jsonFile) => {
+const seedFireStoreCollection = (
+  collection: CollectionReference,
+  jsonFile: any
+) => {
   console.log(collection);
   console.log(jsonFile);
 

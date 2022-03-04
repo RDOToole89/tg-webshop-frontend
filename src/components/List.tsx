@@ -67,7 +67,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
   };
 
   return (
-    <View style={styles.list__container}>
+    <View style={styles.listCcontainer}>
       <View
         onStartShouldSetResponder={() => {
           setClicked(false);
@@ -83,7 +83,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
 };
 
 const styles = StyleSheet.create({
-  list__container: {
+  listContainer: {
     margin: 10,
     height: '85%',
     width: '100%',

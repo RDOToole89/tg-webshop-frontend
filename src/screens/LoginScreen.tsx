@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import React, { useState } from 'react';
@@ -174,23 +174,28 @@ export const LoginScreen = () => {
           text='or'
           style={{ marginVertical: GLOBAL.SPACING.md }}
         />
-        <Button
-          style={{ borderRadius: 0 }}
-          color='#e7230d'
-          mode='outlined'
-          onPress={signinWithGooglePopup}>
-          <Text
-            style={[
-              GLOBAL.TEXT.Bold,
-              { color: TYPOGRAPHY.COLOR.DefaultSelected },
-            ]}>
-            SIGN IN WITH GOOGLE
-          </Text>
-        </Button>
-        <HorizontalRule
-          text='or'
-          style={{ marginVertical: GLOBAL.SPACING.md }}
-        />
+        {Platform.OS === 'web' && (
+          <>
+            <Button
+              style={{ borderRadius: 0 }}
+              color='#e7230d'
+              mode='outlined'
+              onPress={signinWithGooglePopup}>
+              <Text
+                style={[
+                  GLOBAL.TEXT.Bold,
+                  { color: TYPOGRAPHY.COLOR.DefaultSelected },
+                ]}>
+                SIGN IN WITH GOOGLE
+              </Text>
+            </Button>
+            <HorizontalRule
+              text='or'
+              style={{ marginVertical: GLOBAL.SPACING.md }}
+            />
+          </>
+        )}
+
         <Button
           style={{ borderRadius: 0, borderWidth: 1, borderColor: '#000' }}
           color='#fff'

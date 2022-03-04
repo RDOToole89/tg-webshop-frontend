@@ -9,6 +9,9 @@ import {
   Button,
   Keyboard,
 } from 'react-native';
+
+// ==== TESTSCREEN COMPONENT ==== //
+
 const KeyboardAvoidingComponent = () => {
   return (
     <KeyboardAvoidingView behavior='padding' style={styles.container}>

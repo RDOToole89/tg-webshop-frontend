@@ -18,6 +18,8 @@ const Item = ({ title }: any) => (
   </View>
 );
 
+// ==== TESTSCREEN COMPONENT ==== //
+
 export const Home = () => {
   const [term, setTerm] = useState('');
   const { searchRepositories } = useActions();

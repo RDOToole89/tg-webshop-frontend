@@ -51,7 +51,8 @@ export const HorizontalScrollView = ({
 const styles = StyleSheet.create({
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
-    // maxHeight: 220,
+    // height: 300,
+
     flex: 1,
     backgroundColor: TYPOGRAPHY.COLOR.Neutral,
   },

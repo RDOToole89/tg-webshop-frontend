@@ -4,6 +4,7 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
+  Platform,
 } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
@@ -200,17 +201,21 @@ export const SignupScreen = () => {
             text='or'
             style={{ marginVertical: GLOBAL.SPACING.md, width: '100%' }}
           />
-          <Button
-            style={{ borderRadius: 0, width: '100%' }}
-            color='#e7230d'
-            mode='contained'
-            onPress={signupWithGooglePopup}>
-            <Text>SIGNUP WITH GOOGLE</Text>
-          </Button>
-          <HorizontalRule
-            text='or'
-            style={{ marginVertical: GLOBAL.SPACING.md, width: '100%' }}
-          />
+          {Platform.OS === 'web' && (
+            <>
+              <Button
+                style={{ borderRadius: 0, width: '100%' }}
+                color='#e7230d'
+                mode='contained'
+                onPress={signupWithGooglePopup}>
+                <Text>SIGNUP WITH GOOGLE</Text>
+              </Button>
+              <HorizontalRule
+                text='or'
+                style={{ marginVertical: GLOBAL.SPACING.md, width: '100%' }}
+              />
+            </>
+          )}
 
           <PressableText
             onPress={() => navigation.goBack()}

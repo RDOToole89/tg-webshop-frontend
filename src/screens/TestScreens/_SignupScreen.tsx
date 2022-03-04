@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { GLOBAL } from '../../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
 import { useState } from 'react';
@@ -15,8 +9,9 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../../navigation/navigation';
 import { PressableText } from '../../global/elements/PressableText';
-import { auth, googleProvider } from '../../firebase/firebase';
+import { googleProvider } from '../../firebase/firebase';
 import {
+  Auth,
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
@@ -25,7 +20,7 @@ import {
 import { useActions } from '../../hooks/useActions';
 import { MessageBanner } from '../../components/MessageBanner';
 
-// TESTSCREEN COMPONENT!!!!
+// ==== TESTSCREEN COMPONENT ==== //
 
 export const SignupScreen = () => {
   const { loginUser, signUpWithFirebase } = useActions();
@@ -39,6 +34,8 @@ export const SignupScreen = () => {
   const [checked, setChecked] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  let auth: Auth;
 
   // for later use! with a proper => proper DB
   const signUp = () => {

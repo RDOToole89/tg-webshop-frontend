@@ -18,21 +18,23 @@ export const ProfileScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const currentUser = useSelector((state: RootState) => state.user);
-  const {
-    isLoggedIn,
-    user: { displayName, email },
-  } = currentUser;
+  let { isLoggedIn } = currentUser;
 
-  const admin =
-    currentUser.user.email === 'roibinotoole@gmail.com' ? true : false;
+  let displayName;
+  let email;
+  let admin;
+
+  if (currentUser.user) {
+    displayName = currentUser.user.displayName;
+    email = currentUser.user.email;
+    admin = currentUser.user.email === 'roibinotoole@gmail.com' ? true : false;
+  }
 
   return (
     <KeyboardAwareScrollView style={styles.container}>
       {isLoggedIn ? (
         <>
-          <Text style={TYPOGRAPHY.FONT.h1}>
-            {displayName ? displayName : 'Roibin OToole'}
-          </Text>
+          <Text style={TYPOGRAPHY.FONT.h1}>{displayName}</Text>
           <Text style={TYPOGRAPHY.FONT.subtitle}>{email}</Text>
         </>
       ) : (

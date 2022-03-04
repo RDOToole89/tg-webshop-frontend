@@ -12,7 +12,7 @@ import { RootStackParams } from '../navigation/navigation';
 import { PressableText } from '../global/elements/PressableText';
 import { useActions } from '../hooks/useActions';
 
-// TESTSCREEEEEEEN!
+// ==== TESTSCREEN COMPONENT ==== //
 
 export const LoginScreen = () => {
   const { loginUser } = useActions();

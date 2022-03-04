@@ -21,7 +21,7 @@ import { NotificationBox } from '../../components/NotificationBox';
 import { ProductCheckoutCard } from '../../components/ProductCheckoutCard';
 import { MaterialIcon } from '../../global/elements/MaterialIcon';
 
-// TESTSCREEN COMPONENT!!!!
+// ==== TESTSCREEN COMPONENT ==== //
 
 export const CartScreen = () => {
   const navigation =

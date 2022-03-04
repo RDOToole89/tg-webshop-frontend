@@ -56,19 +56,27 @@ export const HorizontalScrollViewCard = ({
       <Text style={[GLOBAL.TEXT_INPUT.Style.Bold, styles.cardText]}>
         {cardHeader}
       </Text>
-      <ResponsiveImage source={source} srcWidth={150} srcHeight={150} />
+      <ResponsiveImage
+        resizeMode='cover'
+        source={source}
+        srcWidth={150}
+        srcHeight={150}
+      />
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   cardDimensions: {
-    backgroundColor: TYPOGRAPHY.COLOR.Tertiary,
+    backgroundColor: TYPOGRAPHY.COLOR.BrandRed,
     width: 150,
+    height: 300,
     marginBottom: 10,
     marginRight: 10,
   },
   cardText: {
+    color: TYPOGRAPHY.COLOR.Default,
+    fontWeight: 'bold',
     textAlign: 'center',
     padding: 2,
     borderWidth: 0,

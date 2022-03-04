@@ -295,7 +295,7 @@ export const CartScreen = () => {
 const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    paddingHorizontal: GLOBAL.SPACING.sm,
+    paddingHorizontal: GLOBAL.SPACING.md,
   },
   cartEmptyWrapper: {
     flexDirection: 'row',
