@@ -67,7 +67,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
   };
 
   return (
-    <ScrollView style={styles.list__container}>
+    <View style={styles.list__container}>
       <View
         onStartShouldSetResponder={() => {
           setClicked(false);
@@ -78,7 +78,7 @@ export const List = ({ searchPhrase, setClicked, data }: List) => {
           keyExtractor={(item) => item.id}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

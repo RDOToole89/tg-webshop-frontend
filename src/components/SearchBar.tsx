@@ -29,7 +29,6 @@ export const SearchBar = ({
   searchPhrase,
   setSearchPhrase,
   setClicked,
-
   placeHolderText = 'Lame games and more...',
   onClick,
 }: SearchBar) => {
@@ -115,8 +114,3 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
 });
-
-// const shadowStyle = (boxShadow: any) =>
-//   StyleSheet.create({
-//     boxShadow,
-//   });

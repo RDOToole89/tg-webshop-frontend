@@ -27,6 +27,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
 import categories from '../../assets/data/categories.json';
+import products from '../../assets/data/products.json';
 
 import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { DealCountDown } from '../components/DealCountDown';
@@ -130,7 +131,7 @@ export const HomeScreen = () => {
       />
 
       <HorizontalScrollView
-        dataArray={categories}
+        dataArray={products}
         title='Recently viewed'
         routeString='Categories'
         style={{

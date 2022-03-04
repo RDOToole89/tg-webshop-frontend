@@ -17,7 +17,10 @@ export const ProfileScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const currentUser = useSelector((state: RootState) => state.user);
-  const { isLoggedIn } = currentUser;
+  const {
+    isLoggedIn,
+    user: { displayName, email },
+  } = currentUser;
 
   const admin =
     currentUser.user.email === 'roibinotoole@gmail.com' ? true : false;
@@ -26,8 +29,10 @@ export const ProfileScreen = () => {
     <ScrollView style={styles.container}>
       {isLoggedIn ? (
         <>
-          <Text style={TYPOGRAPHY.FONT.h1}>{currentUser.user.displayName}</Text>
-          <Text style={TYPOGRAPHY.FONT.subtitle}>{currentUser.user.email}</Text>
+          <Text style={TYPOGRAPHY.FONT.h1}>
+            {displayName ? displayName : 'Roibin OToole'}
+          </Text>
+          <Text style={TYPOGRAPHY.FONT.subtitle}>{email}</Text>
         </>
       ) : (
         <Text style={TYPOGRAPHY.FONT.h1}>Hi There!</Text>

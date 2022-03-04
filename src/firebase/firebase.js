@@ -1,3 +1,5 @@
+import { getReactNativePersistence } from 'firebase/auth/react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   API_KEY,
   AUTH_DOMAIN,
@@ -12,6 +14,7 @@ import {
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
+  initializeAuth,
   signInWithPopup,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
@@ -49,17 +52,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initialize Auth
-const auth = getAuth(app);
-setPersistence(auth, browserLocalPersistence)
-  .then(() => {
-    return signInWithEmailAndPassword(auth, email, password);
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-auth.languageCode = 'en';
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage),
+});
+// setPersistence(auth, browserLocalPersistence)
+//   .then(() => {
+//     return signInWithEmailAndPassword(auth, email, password);
+//   })
+//   .catch((error) => {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+// //   });
+// auth.languageCode = 'en';
 // console.log('AUTH', auth);
 // console.log(getAuth);
 

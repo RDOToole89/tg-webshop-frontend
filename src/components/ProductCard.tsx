@@ -9,7 +9,7 @@ import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
 import { TagMapper } from './TagMapper';
 
-type ProductCard = {
+export type ProductCard = {
   id: number | string;
   title: string;
   brand: string;
@@ -21,7 +21,10 @@ type ProductCard = {
   desc: string;
   stock: number;
   imageUrl: string;
+  key: string | number;
   extraImages: string[];
+  test?: boolean;
+  handleDelete?: (id: string | number) => void;
 };
 
 export const ProductCard = ({
@@ -39,10 +42,7 @@ export const ProductCard = ({
   extraImages,
   test,
   handleDelete,
-}: ProductCard & {
-  test?: boolean;
-  handleDelete?: (id: string | number) => void;
-}) => {
+}: ProductCard) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
