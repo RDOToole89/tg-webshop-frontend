@@ -27,7 +27,7 @@ export const HorizontalScrollView = ({
   return (
     <View style={[styles.scrollContainer, style]}>
       {title && (
-        <Text style={[TYPOGRAPHY.FONT.h3, { fontFamily: 'open-sans-bold' }]}>
+        <Text style={[TYPOGRAPHY.FONT.h2, { fontFamily: 'open-sans-bold' }]}>
           {title}
         </Text>
       )}
@@ -51,9 +51,6 @@ export const HorizontalScrollView = ({
 const styles = StyleSheet.create({
   scrollContainer: {
     padding: GLOBAL.SPACING.md,
-    // height: 300,
-
-    flex: 1,
     backgroundColor: TYPOGRAPHY.COLOR.Neutral,
   },
 });

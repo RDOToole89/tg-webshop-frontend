@@ -57,6 +57,7 @@ export const CategoriesScreen = () => {
           flexDirection: 'row',
           justifyContent: 'space-around',
           flexWrap: 'wrap',
+          paddingBottom: GLOBAL.SPACING.md,
         }}>
         {testData &&
           testData.map((item) => {

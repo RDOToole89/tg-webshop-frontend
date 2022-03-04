@@ -31,6 +31,7 @@ export const SearchBar = ({
   setClicked,
   placeHolderText = 'Lame games and more...',
   onClick,
+  style,
 }: SearchBar) => {
   const [placeHolder, setPlaceholder] = useState(placeHolderText);
   const navigation =
@@ -59,8 +60,8 @@ export const SearchBar = ({
     <View
       style={
         clicked
-          ? [styles.inputContainer, styles.searchInputClicked]
-          : [styles.inputContainer]
+          ? [styles.inputContainer, styles.searchInputClicked, style]
+          : [styles.inputContainer, style]
       }>
       <TextInput
         onChangeText={setSearchPhrase}
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     padding: GLOBAL.SPACING.xsm,
     paddingLeft: GLOBAL.SPACING.md,
     backgroundColor: TYPOGRAPHY.COLOR.PrimaryGrey,
-    marginVertical: GLOBAL.SPACING.sm,
+    // marginVertical: GLOBAL.SPACING.sm,
     marginHorizontal: GLOBAL.SPACING.sm,
   },
   searchInput: {

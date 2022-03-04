@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TextInput, Checkbox, Button } from 'react-native-paper';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { TopBar } from '../components/TopBar';
@@ -29,6 +29,8 @@ export const LoginScreen = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
+  let timeoutClear: NodeJS.Timeout;
+
   const signInWithCredentials = (email: string, password: string) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -39,13 +41,16 @@ export const LoginScreen = () => {
         setSuccess('User signed in succesfully');
         setEmail('');
         setPassword('');
-        setTimeout(() => {
+        timeoutClear = setTimeout(() => {
           navigation.navigate('Home');
-        }, 2000);
+        }, 1000);
+
+        console.log(timeoutClear);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage);
       });
   };
 
@@ -64,9 +69,9 @@ export const LoginScreen = () => {
           setSuccess('User signed up succesfully');
           setEmail('');
           setPassword('');
-          setTimeout(() => {
+          timeoutClear = setTimeout(() => {
             navigation.navigate('Home');
-          }, 2000);
+          }, 1000);
         }
       })
       .catch((error) => {
@@ -83,6 +88,12 @@ export const LoginScreen = () => {
       });
   };
 
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeoutClear);
+    };
+  }, [success]);
+
   return (
     <>
       <TopBar
@@ -93,14 +104,14 @@ export const LoginScreen = () => {
       {error ? (
         <MessageBanner
           message={error ? `${error}` : `Signed up successfully`}
-          delay={2000}
+          delay={999}
           backgroundColor={TYPOGRAPHY.COLOR.BrandRed}
         />
       ) : null}
       {success ? (
         <MessageBanner
           message={success ? `${success}` : `Signed up successfully`}
-          delay={2000}
+          delay={999}
           backgroundColor={TYPOGRAPHY.COLOR.Success}
         />
       ) : null}
@@ -129,7 +140,7 @@ export const LoginScreen = () => {
           label='email'
           value={email}
           onChangeText={(text) => setEmail(text)}
-          autoComplete=''
+          autoComplete='true'
           style={styles.textInput}
         />
         <TextInput
@@ -140,7 +151,7 @@ export const LoginScreen = () => {
           label='password'
           value={password}
           onChangeText={(text) => setPassword(text)}
-          autoComplete=''
+          autoComplete='true'
           style={styles.textInput}
         />
         <PressableText

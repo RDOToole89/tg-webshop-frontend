@@ -13,12 +13,8 @@ export const SearchScreen = () => {
 
   return (
     <View style={styles.container}>
-      {!clicked && (
-        <Text style={[TYPOGRAPHY.FONT.h2, { marginLeft: GLOBAL.SPACING.sm }]}>
-          Search
-        </Text>
-      )}
       <SearchBar
+        style={{ marginVertical: GLOBAL.SPACING.md }}
         searchPhrase={searchPhrase}
         setSearchPhrase={setSearchPhrase}
         clicked={clicked}

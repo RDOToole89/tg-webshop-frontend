@@ -61,7 +61,7 @@ export const CartScreen = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <TopBar iconsActive={true} />
+      {/* <TopBar iconsActive={true} /> */}
       <SearchBar
         placeHolderText='Search Lamestop...'
         onClick={() => navigation.navigate('Search')}
@@ -225,8 +225,8 @@ export const CartScreen = () => {
           <View
             style={{
               justifyContent: 'center',
-
-              marginVertical: GLOBAL.SPACING.xxl,
+              paddingBottom: GLOBAL.SPACING.md,
+              marginVertical: GLOBAL.SPACING.md,
             }}>
             <DefaultButton
               style={{

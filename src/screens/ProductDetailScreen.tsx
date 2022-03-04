@@ -19,15 +19,6 @@ import { useNavigation } from '@react-navigation/native';
 import { ImageCarousel } from '../components/ImageCarousel';
 
 export const ProductDetailScreen = ({ route }: any) => {
-  const [selectedPlatform, setSelectedPlatform] = useState('');
-
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
-
-  const [showAllReviews, setShowAllReviews] = useState(false);
-
-  const { addToCart } = useActions();
-
   const {
     id,
     imageUrl,
@@ -42,6 +33,15 @@ export const ProductDetailScreen = ({ route }: any) => {
     platforms,
     extraImages,
   } = route.params;
+
+  const [selectedPlatform, setSelectedPlatform] = useState('');
+
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
+  const [showAllReviews, setShowAllReviews] = useState(false);
+
+  const { addToCart } = useActions();
 
   const renderItem = (
     userNameTest: string,
@@ -127,7 +127,14 @@ export const ProductDetailScreen = ({ route }: any) => {
           color='#e7230d'
           icon='cart'
           mode='contained'
-          onPress={() => addToCart(id, selectedPlatform)}>
+          onPress={() => {
+            console.log(selectedPlatform);
+            if (!selectedPlatform) {
+              alert('please select a platform');
+              return;
+            }
+            addToCart(id, selectedPlatform);
+          }}>
           <Text>Add to cart</Text>
         </Button>
         <Text
