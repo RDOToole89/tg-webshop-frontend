@@ -10,26 +10,24 @@ import {
 import { GLOBAL } from '../styles/global';
 
 type Callback = () => any;
-interface Props {
+interface ICard {
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
   onClick?: Callback;
 }
 
-interface CarouselProps {
+interface ICarouselProps {
   data: any[];
   item: ListRenderItem<React.ReactElement>;
 }
 
-const Card: React.FC<Props> = (props: Props) => (
-  <Pressable
-    style={[GLOBAL.ELEMENTS.Card, props.style]}
-    onPress={props.onClick}>
-    {props.children}
+const Card = ({ children, style, onClick }: ICard) => (
+  <Pressable style={[GLOBAL.ELEMENTS.Card, style]} onPress={onClick}>
+    {children}
   </Pressable>
 );
 
-const Carousel: React.FC<CarouselProps> = ({ data, item }: CarouselProps) => (
+const Carousel = ({ data, item }: ICarouselProps) => (
   <FlatList
     keyExtractor={(_, index) =>
       `flatlist-${index}-${Math.floor(Math.random() * 100)}`

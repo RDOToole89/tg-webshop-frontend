@@ -30,7 +30,7 @@ const firebaseConfig = {
   measurementId: config.measurementId,
 };
 
-console.log(firebaseConfig);
+// console.log(firebaseConfig);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 

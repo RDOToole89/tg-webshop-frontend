@@ -23,7 +23,7 @@ import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
 import { ProductsScreen } from '../screens/ProductsScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
 import { ReviewScreen } from '../screens/ReviewScreen';
-import KeyboardAvoidingComponent from '../screens/TestScreens/_KeyboardTest';
+
 import { AccountScreen } from '../screens/AccountScreen';
 import { AddProductsScreen } from '../screens/AddProductScreen';
 
@@ -64,12 +64,11 @@ export const RootNavigator = () => {
       <Stack.Screen name='Root' component={BottomTabNavigator} />
       <Stack.Screen name='LoginStack' component={LoginStack} />
       <Stack.Screen
-        options={({ navigation }) => ({
+        options={({}) => ({
           headerShown: true,
         })}
         name='Review'
         component={ReviewScreen}
-        //component={KeyboardAvoidingComponent}
       />
     </Stack.Navigator>
   );
@@ -247,7 +246,6 @@ export const BottomTabNavigator = () => {
         options={({ navigation, route }) => {
           return {
             headerShown: true,
-
             tabBarButton: () => null,
             title: route.params?.categoryName,
             headerLeft: () => (
@@ -266,6 +264,8 @@ export const BottomTabNavigator = () => {
         name='ProductDetails'
         component={ProductDetailScreen}
         options={({ navigation, route }) => {
+          // console.log('ROUTE', route);
+
           return {
             headerShown: true,
             headerStyle: {
@@ -275,7 +275,7 @@ export const BottomTabNavigator = () => {
             //@ts-ignore
             title: route.params?.title,
             headerLeft: () => (
-              <Pressable onPress={() => navigation.goBack()}>
+              <Pressable onPress={() => navigation.navigate('Products')}>
                 <Ionicons
                   name='chevron-back'
                   size={32}
@@ -319,7 +319,7 @@ export const BottomTabNavigator = () => {
               backgroundColor: '#fafafa',
             },
             tabBarButton: () => null,
-            title: 'Add Products You Awesome Admin!',
+            title: 'Awesome Admin Screen',
             headerLeft: () => (
               <Pressable onPress={() => navigation.goBack()}>
                 <Ionicons

@@ -1,4 +1,4 @@
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { GLOBAL } from '../global/styles/global';
@@ -14,11 +14,14 @@ import uuid from 'react-native-uuid';
 import { ReferenceBar } from '../components/ReferenceBar';
 import { useState } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParams } from '../navigation/navigation';
-import { useNavigation } from '@react-navigation/native';
+import { BottomTabParams, RootStackParams } from '../navigation/navigation';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { ImageCarousel } from '../components/ImageCarousel';
+import { IMGSTYLES } from '../global/styles/imgStyles';
 
-export const ProductDetailScreen = ({ route }: any) => {
+export const ProductDetailScreen = () => {
+  const route = useRoute<RouteProp<BottomTabParams, 'ProductDetails'>>();
+
   const {
     id,
     imageUrl,
@@ -32,7 +35,11 @@ export const ProductDetailScreen = ({ route }: any) => {
     title,
     platforms,
     extraImages,
+    categoryName,
   } = route.params;
+
+  // console.log('CATEGORYNAME IN PRODUCTDETAILS', route.params.categoryName);
+  // console.log('ROUTE IN PRODUCTS DETAILSSCREEN', route);
 
   const [selectedPlatform, setSelectedPlatform] = useState('');
 
@@ -70,18 +77,17 @@ export const ProductDetailScreen = ({ route }: any) => {
           position: 'relative',
           width: '100%',
         }}>
-        {extraImages.length > 100 ? (
-          // <ImageCarousel height={100} width={100} images={extraImages} />
-          <Text>TEXT</Text>
+        {extraImages.length > 1 ? (
+          <ImageCarousel height={300} width={100} images={extraImages} />
         ) : (
-          <ResponsiveImage
-            source={{
-              uri: imageUrl,
-            }}
-            srcHeight={200}
-            srcWidth={200}
-            resizeMode='contain'
-          />
+          <View style={{ height: 300, width: '100%' }}>
+            <Image
+              source={{
+                uri: imageUrl,
+              }}
+              style={IMGSTYLES.responsive}
+            />
+          </View>
         )}
       </View>
       <View style={{ padding: GLOBAL.SPACING.md }}>
@@ -128,7 +134,7 @@ export const ProductDetailScreen = ({ route }: any) => {
           icon='cart'
           mode='contained'
           onPress={() => {
-            console.log(selectedPlatform);
+            // console.log(selectedPlatform);
             if (!selectedPlatform) {
               alert('please select a platform');
               return;
@@ -204,7 +210,9 @@ export const ProductDetailScreen = ({ route }: any) => {
                         color='#fff'
                         mode='contained'
                         //@ts-ignore
-                        onPress={() => navigation.navigate('Review', { id })}>
+                        onPress={() =>
+                          navigation.navigate('Review', { ...route.params })
+                        }>
                         <Text style={GLOBAL.TEXT.Default}>Write a review</Text>
                       </Button>
                       <ReferenceBar
@@ -249,7 +257,9 @@ export const ProductDetailScreen = ({ route }: any) => {
                         }}
                         color='#fff'
                         mode='contained'
-                        onPress={() => navigation.navigate('Review')}>
+                        onPress={() =>
+                          navigation.navigate('Review', { ...route.params })
+                        }>
                         <Text style={GLOBAL.TEXT.Default}>Write a review</Text>
                       </Button>
                       <ReferenceBar
@@ -271,9 +281,3 @@ export const ProductDetailScreen = ({ route }: any) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

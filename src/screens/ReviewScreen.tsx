@@ -19,15 +19,18 @@ import { StarRatings } from '../components/StarRatings';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { Modal } from '../global/elements/Modal';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
 import { NotificationBox } from '../components/NotificationBox';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-export const ReviewScreen = ({}) => {
+export const ReviewScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
+  const route = useRoute();
+  console.log('ROUTE IN REVIEWSCREEN', route);
 
   const userNameTest = 'Roibin OToole';
 

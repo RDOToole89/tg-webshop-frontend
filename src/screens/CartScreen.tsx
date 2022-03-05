@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SearchBar } from '../components/SearchBar';
-import { TopBar } from '../components/TopBar';
+
 import { Button } from 'react-native-paper';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { GLOBAL } from '../global/styles/global';
-import { useActions } from '../hooks/useActions';
+
 import { useSelector } from '../hooks/useTypedSelector';
 import image from '../../assets/shopping-cart-curved.png';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -26,13 +26,14 @@ import masterCardLogo from '../../assets/mastercard-logo.png';
 import visaLogo from '../../assets/visa-logo.png';
 import americanExpressLogo from '../../assets/american-express-logo.png';
 import { IMGSTYLES } from '../global/styles/imgStyles';
+import { TCartItem } from '../types/data.types';
 
 export const CartScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
   const cart = useSelector((state) => state.cart);
-  const empty = cart.cartItems.length;
+  const isEmpty = cart.cartItems.length;
 
   const cartItemsToRender = cart.cartItems.map(
     ({ productId, quantity, platform }) => {
@@ -40,7 +41,6 @@ export const CartScreen = () => {
 
       const cartItem = {
         id: productId,
-        key: `${productId} + ${platform}`,
         title: product.title,
         brand: product.brand,
         price: Number(product.price),
@@ -62,12 +62,12 @@ export const CartScreen = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      {/* <TopBar iconsActive={true} /> */}
       <SearchBar
         placeHolderText='Search Lamestop...'
         onClick={() => navigation.navigate('Search')}
+        style={{ marginHorizontal: GLOBAL.SPACING.md }}
       />
-      {empty ? (
+      {isEmpty ? (
         <Button
           style={{
             position: 'absolute',
@@ -82,7 +82,7 @@ export const CartScreen = () => {
           </Text>
         </Button>
       ) : null}
-      {!empty ? (
+      {!isEmpty ? (
         <>
           <View>
             <View style={styles.cartEmptyWrapper}>
@@ -194,36 +194,9 @@ export const CartScreen = () => {
             </Button>
           </View>
           <View>
-            {cartItemsToRender.map(
-              ({
-                id,
-                title,
-                brand,
-                price,
-                rating,
-                ratingQuantity,
-                imageUrl,
-                platform,
-                quantity,
-                key,
-              }) => {
-                console.log(id);
-                return (
-                  <ProductCheckoutCard
-                    key={key}
-                    id={id}
-                    title={title}
-                    brand={brand}
-                    price={price}
-                    rating={rating}
-                    ratingQuantity={ratingQuantity}
-                    imageUrl={imageUrl}
-                    platform={platform}
-                    quantity={quantity}
-                  />
-                );
-              }
-            )}
+            {cartItemsToRender.map((cartItem: TCartItem) => {
+              return <ProductCheckoutCard key={cartItem.id} {...cartItem} />;
+            })}
           </View>
           <View
             style={{

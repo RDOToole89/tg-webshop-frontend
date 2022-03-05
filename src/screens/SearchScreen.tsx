@@ -4,7 +4,7 @@ import { SearchBar } from '../components/SearchBar';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import productsData from '../../assets/data/products.json';
-import { List } from '../components/List';
+import { SearchList } from '../components/SearchList';
 
 export const SearchScreen = () => {
   const [searchPhrase, setSearchPhrase] = useState('');
@@ -23,12 +23,15 @@ export const SearchScreen = () => {
       <Text
         style={[
           TYPOGRAPHY.FONT.subtitle,
-          { paddingHorizontal: GLOBAL.SPACING.md },
+          {
+            paddingHorizontal: GLOBAL.SPACING.md,
+            backgroundColor: 'transparent',
+          },
         ]}>
         Hint: Think of the worst game you ever played, we've got it!
       </Text>
       {
-        <List
+        <SearchList
           searchPhrase={searchPhrase}
           data={fakeData}
           setClicked={setClicked}
@@ -42,6 +45,6 @@ const styles = StyleSheet.create({
   container: {
     color: '#fff',
     flex: 1,
-    paddingHorizontal: GLOBAL.SPACING.sm,
+    paddingHorizontal: GLOBAL.SPACING.xsm,
   },
 });

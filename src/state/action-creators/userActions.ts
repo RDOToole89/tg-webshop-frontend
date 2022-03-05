@@ -95,12 +95,12 @@ export const signUpWithFirebaseGoogle =
   };
 
 export const signOutWithFirebase = (user: UserCredential) => {
-  console.log('USER CREDENTIAL INSIDE FIREBASESIGNOUT', user);
+  // console.log('USER CREDENTIAL INSIDE FIREBASESIGNOUT', user);
 
   return async (dispatch: Dispatch<Action>) => {
     signOut(auth)
       .then(() => {
-        console.log('SIGNED OUT SUCCESFULLY');
+        // console.log('SIGNED OUT SUCCESFULLY');
 
         // Sign-out successful.
         dispatch({
@@ -110,7 +110,7 @@ export const signOutWithFirebase = (user: UserCredential) => {
       })
       .catch((error) => {
         // An error happened.
-        console.log('ERROR SIGNING USER OUT', error);
+        // console.log('ERROR SIGNING USER OUT', error);
         dispatch({
           type: ActionType.SIGNOUT_USER_ERROR,
           payload: user,

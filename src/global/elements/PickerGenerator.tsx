@@ -2,17 +2,19 @@ import { Picker } from '@react-native-picker/picker';
 import { GLOBAL } from '../styles/global';
 import uuid from 'react-native-uuid';
 
+interface IPickerGenerator {
+  data: string[];
+  defaultValue?: string;
+  selectedPlatform: any;
+  setSelectedPlatform: (platform: string) => void;
+}
+
 export const PickerGenerator = ({
   data,
   defaultValue,
   selectedPlatform,
   setSelectedPlatform,
-}: {
-  data: string[];
-  defaultValue?: string;
-  selectedPlatform: any;
-  setSelectedPlatform: (platform: string) => void;
-}) => {
+}: IPickerGenerator) => {
   return (
     <Picker
       style={{ marginBottom: GLOBAL.SPACING.md }}

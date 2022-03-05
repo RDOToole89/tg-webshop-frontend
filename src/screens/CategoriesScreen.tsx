@@ -31,23 +31,28 @@ export const CategoriesScreen = () => {
     description: string;
   };
 
-  const { loadCategories } = useActions();
-  const { data, error, loading } = useSelector(
-    (state: RootState) => state.categories
-  );
+  // TODO: Hookup to backend
+  // const { loadCategories } = useActions();
+  // const { data, error, loading } = useSelector(
+  //   (state: RootState) => state.categories
+  // );
 
-  useEffect(() => {
-    // loadCategories();
-  }, []);
+  // useEffect(() => {
+  //   // loadCategories();
+  // }, []);
 
   return (
     <ScrollView style={styles.container}>
-      <TopBar iconsActive={true} />
+      <TopBar
+        iconsActive={true}
+        style={{ marginHorizontal: GLOBAL.SPACING.sm }}
+      />
       <View>
         <SearchBar
           style={{
             marginBottom: GLOBAL.SPACING.md,
             marginTop: GLOBAL.SPACING.sm,
+            marginHorizontal: GLOBAL.SPACING.md,
           }}
           onClick={() => navigation.navigate('Search')}
         />

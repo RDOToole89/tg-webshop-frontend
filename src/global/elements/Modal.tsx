@@ -6,12 +6,12 @@ import { GLOBAL } from '../styles/global';
 import { PressableText } from './PressableText';
 import { useFocusEffect } from '@react-navigation/native';
 
-type ModalProps = {
+interface IModalProps {
   activator?: FunctionComponent<{ handleOpen: () => void }>;
   children: ReactNode;
-};
+}
 
-export const Modal = ({ activator: Activator, children }: ModalProps) => {
+export const Modal = ({ activator: Activator, children }: IModalProps) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
   // dismisses the modal when the screen changes

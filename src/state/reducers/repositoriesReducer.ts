@@ -1,6 +1,8 @@
 import { ActionType } from '../action-types';
 import { TSearchRepoAction } from '../actionsInterfaces/RepositoriesInterfaces';
 
+// TEST REDUCER FOR REFERENCE PURPOSES
+
 export interface RepositoriesState {
   loading: boolean;
   error: string | null;

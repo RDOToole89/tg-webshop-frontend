@@ -6,25 +6,28 @@ import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-type ImageCarousel = {
+interface IImageCarousel {
   images: string[];
   dotColor?: string;
-  height: number;
-  width: number;
-};
+  height?: number;
+  width?: number;
+}
 
 export const ImageCarousel = ({
   images,
   dotColor,
   height,
   width,
-}: ImageCarousel) => {
+}: IImageCarousel) => {
   const ref = useRef<PagerView>(null);
 
   return (
     <>
       <View style={{ marginBottom: GLOBAL.SPACING.sm }}>
-        <PagerView ref={ref} style={styles.viewPager} initialPage={0}>
+        <PagerView
+          ref={ref}
+          style={[styles.viewPager, { minHeight: height, minWidth: width }]}
+          initialPage={0}>
           {images.map((image: string, i: number) => {
             return (
               <Image
@@ -47,7 +50,7 @@ export const ImageCarousel = ({
                   style={dotStyle().outerDot}
                   onPress={() => {
                     ref.current?.setPage(i);
-                    console.log(dotColor);
+                    // console.log(dotColor);
                   }}>
                   <View style={dotStyle(dotColor).innerDot} />
                 </Pressable>

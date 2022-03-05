@@ -5,7 +5,7 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { StarRatings } from './StarRatings';
 
-export type ReviewCard = {
+export type TReviewCard = {
   userNameTest: string;
   reviewScore: number;
   title: string;
@@ -19,7 +19,7 @@ export const ReviewCard = ({
   content,
   title,
   likes,
-}: ReviewCard) => {
+}: TReviewCard) => {
   return (
     <View style={{ marginBottom: GLOBAL.SPACING.lg }}>
       <View

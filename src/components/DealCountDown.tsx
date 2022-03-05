@@ -4,11 +4,11 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { countDownTimer } from '../utils/computeTime';
 
-type DealCountDown = {
+interface iDealCountDown {
   title: string;
-};
+}
 
-export const DealCountDown = ({ title }: DealCountDown) => {
+export const DealCountDown = ({ title }: iDealCountDown) => {
   const [time, setTime] = useState(countDownTimer());
 
   useEffect(() => {

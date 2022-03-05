@@ -22,7 +22,7 @@ import { useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../navigation/navigation';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { useActions } from '../hooks/useActions';
+// import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
 
@@ -35,17 +35,15 @@ import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { IconGenerator } from '../components/IconGenerator';
 
 export const HomeScreen = () => {
-  const { fetchUser } = useActions();
+  // const { fetchUser } = useActions();
   const userState = useSelector((state: RootState) => state.user);
-  const { isLoggedIn, user } = userState;
-
-  // console.log('HOMESCREEN USERSTATE', userState);
+  const { isLoggedIn } = userState;
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   return (
-    <ScrollView style={[GLOBAL.LAYOUT.defaultContainer, { zIndex: 9 }]}>
+    <ScrollView style={GLOBAL.LAYOUT.defaultContainer}>
       <MessageBanner
         message={isLoggedIn ? `Welcome back ${`user`}` : `Welcome to LameStop`}
         delay={2000}
@@ -101,7 +99,7 @@ export const HomeScreen = () => {
           }
         />
       </View>
-      <HorizontalRule shadow={false} ruleWidth={1} color='rgba(0,0,0,0.1)' />
+      <HorizontalRule shadow={true} ruleWidth={1} color='rgba(0,0,0,0.1)' />
       <DealCountDown title='lamedeal' />
 
       <ImageBackground
@@ -133,7 +131,7 @@ export const HomeScreen = () => {
       <HorizontalScrollView
         dataArray={products}
         title='Recently viewed'
-        routeString='Categories'
+        routeString='Products'
         style={{
           marginVertical: GLOBAL.SPACING.xxxl,
           paddingVertical: GLOBAL.SPACING.xl,

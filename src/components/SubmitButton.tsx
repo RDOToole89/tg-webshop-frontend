@@ -4,7 +4,7 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export interface SubmitButton {
+export interface ISubmitButton {
   handlePress(): void;
   ionIconName?: string;
   iconSize?: number;
@@ -14,7 +14,7 @@ export const SubmitButton = ({
   handlePress,
   ionIconName,
   iconSize,
-}: SubmitButton) => {
+}: ISubmitButton) => {
   return (
     <TouchableOpacity onPress={handlePress}>
       <Icon

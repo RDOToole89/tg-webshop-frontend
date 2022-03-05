@@ -3,11 +3,11 @@ import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { Ionicons } from '@expo/vector-icons';
 
-type NotificationText = {
+interface INotificationText {
   notificationText: string;
-};
+}
 
-export const NotificationBox = ({ notificationText }: NotificationText) => {
+export const NotificationBox = ({ notificationText }: INotificationText) => {
   return (
     <View style={[styles.notificationBox, GLOBAL.SHADOWS.shadowLight]}>
       <View style={GLOBAL.LAYOUT.rowCenter}>
@@ -15,7 +15,7 @@ export const NotificationBox = ({ notificationText }: NotificationText) => {
         <Text
           style={[
             TYPOGRAPHY.FONT.subtitle,
-            { marginBottom: 0, color: TYPOGRAPHY.COLOR.Success },
+            { color: TYPOGRAPHY.COLOR.Success },
           ]}>
           {notificationText}
         </Text>

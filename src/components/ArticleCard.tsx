@@ -7,12 +7,12 @@ import { RootStackParams } from '../navigation/navigation';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-type ArticleCard = {
+interface IArticleCard {
   articleType: string;
   articleQuantity: number;
-};
+}
 
-export const ArticleCard = ({ articleType, articleQuantity }: ArticleCard) => {
+export const ArticleCard = ({ articleType, articleQuantity }: IArticleCard) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   boxSmall: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 30,
+    marginRight: GLOBAL.SPACING.xxl,
     padding: GLOBAL.SPACING.md,
     borderWidth: 1,
     borderRadius: 4,

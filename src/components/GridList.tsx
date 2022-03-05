@@ -4,11 +4,11 @@
 
 // ** KEEPING THIS COMPONENT FOR FUTURE REFERENCE!
 
-// type RenderItem = {
+// type TRenderItem = {
 //   item: Category;
 // };
 
-// const renderItem = ({ item }: RenderItem) => {
+// const renderItem = ({ item }: TRenderItem) => {
 //   return (
 //     <PressableCard
 //       background={background}

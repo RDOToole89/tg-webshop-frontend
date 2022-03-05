@@ -1,7 +1,7 @@
 import { Text, StyleSheet, ScrollView } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { ProductCard } from '../components/ProductCard';
+import { IProductCard, ProductCard } from '../components/ProductCard';
 import React, { useEffect, useState } from 'react';
 import { Button, TextInput } from 'react-native-paper';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
@@ -112,7 +112,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='title'
         value={title}
@@ -122,7 +122,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='category'
         value={category}
@@ -132,7 +132,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='brand'
         value={brand}
@@ -142,7 +142,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='price'
         onChangeText={(text) => setPrice(Number(text))}
@@ -151,7 +151,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='rating'
         onChangeText={(text) => setRating(Number(text))}
@@ -160,7 +160,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='rating quantity'
         onChangeText={(text) => setRatingQuantity(Number(text))}
@@ -169,7 +169,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='tags'
         value={tags.toString()}
@@ -183,7 +183,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='platforms'
         value={platforms.toString()}
@@ -197,7 +197,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='stock'
         value={stock.toString()}
@@ -208,7 +208,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='desc'
         value={desc}
@@ -218,7 +218,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='imageUrl'
         value={imageUrl}
@@ -228,7 +228,7 @@ export const AddProductsScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='extraImages'
         value={extraImages.toString()}
@@ -258,13 +258,13 @@ export const AddProductsScreen = () => {
       </Button>
 
       <>
-        {products.map((product: ProductCard) => {
+        {products.map((product: IProductCard) => {
           return (
             <ProductCard
               {...product}
               key={product.id}
               test={true}
-              handleDelete={() => deleteGame(id)}
+              handleDelete={() => deleteGame(product.id)}
             />
           );
         })}
@@ -291,6 +291,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#ecf4fb',
   },
 });
-function id(id: any): void {
-  throw new Error('Function not implemented.');
-}

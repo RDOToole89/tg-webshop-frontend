@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-type TagMapper = {
+interface ITagMapper {
   tags: string[];
-};
+}
 
-export const TagMapper = ({ tags }: TagMapper) => {
+export const TagMapper = ({ tags }: ITagMapper) => {
   return (
     <View style={{ flexDirection: 'row' }}>
       {tags.map((tag, i) => {

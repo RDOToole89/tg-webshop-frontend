@@ -5,19 +5,19 @@ import { CustomText } from './customText';
 import { GLOBAL } from '../styles/global';
 
 type Callback = () => any;
-export interface Props {
+export interface IDefaultButton {
   title: string;
   onClick: Callback;
   style?: ViewStyle;
   icon?: unknown;
 }
 
-export const DefaultButton: React.FC<Props> = ({
+export const DefaultButton = ({
   title,
   onClick,
   style,
   icon,
-}: Props) => (
+}: IDefaultButton) => (
   <TouchableOpacity
     activeOpacity={GLOBAL.CTA.TouchableOpacity.default}
     style={[GLOBAL.CTA.Style.primary, GLOBAL.LAYOUT.shadow, style]}

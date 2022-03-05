@@ -4,12 +4,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-type Alert = {
+interface IAlert {
   message: string;
   delay: number;
   textSize?: number;
   backgroundColor?: string;
-};
+}
 
 type textProp = number | null;
 type backgroundColorProp = string | null;
@@ -19,7 +19,7 @@ export const MessageBanner = ({
   delay,
   textSize,
   backgroundColor,
-}: Alert) => {
+}: IAlert) => {
   const [messageActive, setMessageActive] = useState(true);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import { Action, Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 
 export const addToCart = (productId: number, platform: string) => {
-  console.log('INSIDE ADD TO CART');
+  // console.log('INSIDE ADD TO CART');
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.ADD_TO_CART,
@@ -12,7 +12,7 @@ export const addToCart = (productId: number, platform: string) => {
 };
 
 export const removeFromCart = (productId: number, platform: string) => {
-  console.log('INSIDE REMOVE FROM CART');
+  // console.log('INSIDE REMOVE FROM CART');
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.REMOVE_FROM_CART,

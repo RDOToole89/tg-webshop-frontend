@@ -45,7 +45,7 @@ export const reducer = (
       return { ...state, loading: false, error: action.payload };
 
     case ActionType.SIGNOUT_USER_SUCCESS:
-      console.log('INSIDE SIGNOUT SUCCESS');
+      // console.log('INSIDE SIGNOUT SUCCESS');
       return {
         ...state,
         message: `${action.payload.displayName} logged out sucessfully!`,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import {
   NativeSyntheticEvent,
   StyleProp,
@@ -28,13 +28,11 @@ export interface TextInputProps {
   onSubmit?: onSubmitEvent;
 }
 
-export const CustomText: React.FC<TextProps> = (props: TextProps) => (
-  <Text style={[GLOBAL.TEXT.Default, props.style]}>{props.children}</Text>
+export const CustomText = ({ style, children }: TextProps) => (
+  <Text style={[GLOBAL.TEXT.Default, style]}>{children}</Text>
 );
 
-export const CustomTextInput: React.FC<TextInputProps> = (
-  props: TextInputProps
-) => {
+export const CustomTextInput = (props: TextInputProps) => {
   const {
     style,
     placeholderTextColor = TYPOGRAPHY.COLOR.Secondary,
@@ -42,7 +40,7 @@ export const CustomTextInput: React.FC<TextInputProps> = (
     disabled = false,
     onSubmit,
   } = props;
-  const [data, setData] = React.useState('');
+  const [data, setData] = useState('');
 
   return (
     <TextInput

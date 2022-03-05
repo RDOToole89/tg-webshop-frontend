@@ -4,13 +4,13 @@ import { MaterialIcon } from '../global/elements/MaterialIcon';
 import uuid from 'react-native-uuid';
 import { GLOBAL } from '../global/styles/global';
 
-type StarRatings = {
+interface IStarRatings {
   rating: number;
   icon?: ReactNode;
   ratingQuantity?: number;
   size?: 'small' | 'medium' | 'large' | 'extraLarge';
   style?: any;
-};
+}
 
 export const StarRatings = ({
   rating,
@@ -18,7 +18,7 @@ export const StarRatings = ({
   ratingQuantity,
   size,
   style,
-}: StarRatings) => {
+}: IStarRatings) => {
   const appliedStyle = style
     ? [GLOBAL.LAYOUT.rowCenter, style]
     : [GLOBAL.LAYOUT.rowCenter];

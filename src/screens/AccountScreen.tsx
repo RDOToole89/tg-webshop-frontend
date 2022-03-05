@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, Text, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -44,7 +44,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Firstname'
         value={firstName}
@@ -54,7 +54,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Lastname'
         value={lastName}
@@ -64,7 +64,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Country'
         value={country}
@@ -74,7 +74,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Adress'
         value={adress}
@@ -84,7 +84,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='postalcode'
         value={postalcode}
@@ -94,7 +94,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Date of birth'
         value={dateOfBirth}
@@ -104,7 +104,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Telephone'
         value={telephone}
@@ -114,7 +114,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='Email'
         value={email}
@@ -124,7 +124,7 @@ export const AccountScreen = () => {
         outlineColor={TYPOGRAPHY.COLOR.BrandBlack}
         activeOutlineColor={TYPOGRAPHY.COLOR.BrandRed}
         style={[styles.textInput, { borderColor: 'red' }]}
-        autoComplete={''}
+        autoComplete={true}
         mode='outlined'
         label='password'
         value={password}

@@ -10,9 +10,9 @@ import {
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-interface PressableCard {
+interface IPressableCard {
   background: ImageSourcePropType;
-  onClick(): void;
+  onClick: () => void;
   title: string;
   height?: number;
   width?: number;
@@ -24,14 +24,12 @@ export const PressableCard = ({
   title,
   height = 170,
   width = 100,
-}: PressableCard) => {
+}: IPressableCard) => {
   return (
     <Pressable
       onPress={onClick}
       style={[styles(height, width).card, GLOBAL.SHADOWS.shadowMedium]}>
-      <ImageBackground
-        style={styles().image}
-        source={background}></ImageBackground>
+      <ImageBackground style={styles().image} source={background} />
       <View style={{ zIndex: 1, padding: 15 }}>
         <Text
           style={{

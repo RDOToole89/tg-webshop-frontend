@@ -7,7 +7,7 @@ type IconSizeProps = {
   iconSizes: keyof typeof IconSizes;
 };
 
-export interface IconProps {
+export interface IIconProps {
   size: IconSizeProps['iconSizes'];
   name: string;
   color: string;
@@ -20,6 +20,6 @@ export const IconSizes = {
   extraLarge: 30,
 };
 
-export const MaterialIcon = ({ size, name, color }: IconProps) => (
+export const MaterialIcon = ({ size, name, color }: IIconProps) => (
   <MIcon name={name} size={IconSizes[size]} color={color} />
 );

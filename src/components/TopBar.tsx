@@ -10,13 +10,13 @@ import { useNavigation } from '@react-navigation/native';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 
-type TopBar = {
+interface ITopBar {
   align?: FlexAlignType;
   style?: ViewStyle;
   iconsActive: Boolean;
-};
+}
 
-export const TopBar = ({ align, style, iconsActive = false }: TopBar) => {
+export const TopBar = ({ align, style, iconsActive = false }: ITopBar) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (

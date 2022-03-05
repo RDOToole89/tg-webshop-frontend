@@ -1,4 +1,4 @@
-export interface Product {
+export interface IProduct {
   productId: number | string;
   name: string;
   desc: string;
@@ -13,8 +13,8 @@ export interface Product {
   createdAt: Date;
   updatedAt: Date;
 }
-export interface ProductDetails {
-  id: number | string;
+export interface IProductDetails {
+  id: string;
   desc: string;
   brand: string;
   rating: number;
@@ -28,7 +28,7 @@ export interface ProductDetails {
   price: number;
 }
 
-export type CartItem = {
+export type TCartItem = {
   id: number;
   title: string;
   brand: string;
@@ -37,14 +37,21 @@ export type CartItem = {
   ratingQuantity: number;
   platform: string;
   imageUrl: string;
+  quantity: number;
 };
 
-export type User = {
+export type TUser = {
   userName: string;
   firstName: string;
   lastName: string;
   email: string;
   remainLoggedIn: boolean;
+};
+
+export type TCategory = {
+  id: number;
+  categoryName: string;
+  description: string;
 };
 
 export const TESTUSER = {

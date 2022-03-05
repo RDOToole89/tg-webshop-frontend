@@ -8,14 +8,14 @@ import {
   View,
 } from 'react-native';
 
-interface ResponsiveImageProps {
+interface IResponsiveImageProps {
   source: ImageSourcePropType | { uri: string };
   srcWidth: number;
   srcHeight: number;
   resizeMode?: ImageResizeMode;
 }
 
-export const ResponsiveImage: React.FC<ResponsiveImageProps> = (props) => {
+export const ResponsiveImage = (props: IResponsiveImageProps) => {
   const [containerWidth, setContainerWidth] = useState(0);
   const _onViewLayoutChange = (event: LayoutChangeEvent) => {
     const { width } = event.nativeEvent.layout;

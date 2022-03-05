@@ -1,21 +1,34 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Text, StyleSheet, Pressable } from 'react-native';
-import image from '../../assets/oldschool-nes.png';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
+import {
+  Text,
+  StyleSheet,
+  Pressable,
+  View,
+  Image,
+  ImageSourcePropType,
+} from 'react-native';
 import { GLOBAL } from '../global/styles/global';
+import { IMGSTYLES } from '../global/styles/imgStyles';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
 import { BottomTabParams } from '../navigation/navigation';
 import { NavigationScreenBottom } from '../types/app.types';
 
-type CatgoryCard = {
+interface ICategoryCard {
   categoryName: string;
-  imageProp?: any;
+  imageProp: ImageSourcePropType;
   routeString?: NavigationScreenBottom<BottomTabParams>;
-};
+  height?: number;
+  width?: number;
+}
 
-export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
+export const CategoryCard = ({
+  categoryName,
+  imageProp,
+  height,
+  width,
+}: ICategoryCard) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
@@ -31,11 +44,10 @@ export const CategoryCard = ({ categoryName, imageProp }: CatgoryCard) => {
         {categoryName}
       </Text>
 
-      <ResponsiveImage
-        source={image ? image : imageProp}
-        srcWidth={130}
-        srcHeight={130}
-      />
+      <View
+        style={{ height: height ? height : 200, width: width ? width : 200 }}>
+        <Image style={IMGSTYLES.responsive} source={imageProp} />
+      </View>
     </Pressable>
   );
 };

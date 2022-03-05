@@ -216,6 +216,16 @@ const SHADOWS = StyleSheet.create({
 
     elevation: Platform.OS === 'ios' ? 0 : 8,
   },
+  shadowInput: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: Platform.OS === 'ios' ? 0 : 8,
+  },
 });
 
 const GLOBAL = {

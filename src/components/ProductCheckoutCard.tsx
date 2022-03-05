@@ -10,7 +10,7 @@ import { StarRatings } from './StarRatings';
 
 import { AddAndRemoveCartItems } from './AddAndRemoveCartItems';
 
-export type ProductCardCheckout = {
+export type TProductCardCheckout = {
   id: number;
   title: string;
   brand: string;
@@ -32,7 +32,7 @@ export const ProductCheckoutCard = ({
   platform,
   quantity,
   imageUrl,
-}: ProductCardCheckout) => {
+}: TProductCardCheckout) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 

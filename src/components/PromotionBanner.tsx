@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-type PromotionBanner = {
+type TPromotionBanner = {
   bannerText: string;
   textSize?: number;
   backgroundColor?: string;
@@ -11,7 +11,7 @@ type PromotionBanner = {
 
 type dynamicProp = string | null;
 
-export const PromotionBanner = ({ bannerText }: PromotionBanner) => {
+export const PromotionBanner = ({ bannerText }: TPromotionBanner) => {
   return (
     <View style={styles().banner}>
       <Text style={GLOBAL.TEXT.Secondary}>{bannerText}</Text>

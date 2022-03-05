@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Button } from 'react-native';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
+import { View, Text, StyleSheet, Pressable, Button, Image } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
@@ -7,9 +6,11 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
-import { TagMapper } from './TagMapper';
 
-export type ProductCard = {
+import { TagMapper } from './TagMapper';
+import { IMGSTYLES } from '../global/styles/imgStyles';
+
+export interface IProductCard {
   id: number | string;
   title: string;
   brand: string;
@@ -21,11 +22,12 @@ export type ProductCard = {
   desc: string;
   stock: number;
   imageUrl: string;
-  key: string | number;
+  key?: string | number;
+  categoryName?: string;
   extraImages: string[];
   test?: boolean;
   handleDelete?: (id: string | number) => void;
-};
+}
 
 export const ProductCard = ({
   id,
@@ -42,7 +44,10 @@ export const ProductCard = ({
   extraImages,
   test,
   handleDelete,
-}: ProductCard) => {
+  categoryName,
+}: IProductCard) => {
+  // console.log('CATEGORYNAME PRODUCTCARD', categoryName);
+
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
@@ -62,21 +67,17 @@ export const ProductCard = ({
           stock,
           imageUrl,
           extraImages,
+          categoryName,
         })
       }
-      style={{
-        borderBottomWidth: 1,
-        borderBottomColor: TYPOGRAPHY.COLOR.TertiaryGrey,
-        padding: GLOBAL.FONT_SIZES.md,
-      }}>
+      style={styles.cardContainer}>
       <View style={{ flexDirection: 'row' }}>
         <View style={styles.cardLeft}>
-          <ResponsiveImage
+          <Image
             source={{
               uri: imageUrl,
             }}
-            srcWidth={150}
-            srcHeight={200}
+            style={[IMGSTYLES.responsive]}
           />
         </View>
         <View style={{ justifyContent: 'space-evenly' }}>
@@ -118,6 +119,12 @@ export const ProductCard = ({
 };
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    borderBottomWidth: 1,
+    borderBottomColor: TYPOGRAPHY.COLOR.TertiaryGrey,
+    marginBottom: GLOBAL.SPACING.md,
+    paddingBottom: GLOBAL.SPACING.md,
+  },
   cardLeft: {
     width: 100,
     backgroundColor: TYPOGRAPHY.COLOR.Default,

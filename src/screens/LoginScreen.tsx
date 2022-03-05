@@ -50,7 +50,8 @@ export const LoginScreen = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        setError(errorMessage);
+
+        setError(`${errorMessage} errorCode: ${errorCode}`);
       });
   };
 
@@ -84,7 +85,9 @@ export const LoginScreen = () => {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
 
-        setError(errorMessage);
+        setError(
+          `${errorMessage} errorCode: ${errorCode} email: ${email} authType ${credential}`
+        );
       });
   };
 
@@ -128,7 +131,7 @@ export const LoginScreen = () => {
           </Text>
         </View>
         <View>
-          <Text style={[TYPOGRAPHY.FONT.subtitle]}>
+          <Text style={TYPOGRAPHY.FONT.subtitle}>
             Sign in to your LameStop account
           </Text>
         </View>

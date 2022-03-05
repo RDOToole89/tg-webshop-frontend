@@ -2,15 +2,17 @@ import { View, Text } from 'react-native';
 import { useActions } from '../hooks/useActions';
 import { SubmitButton } from './SubmitButton';
 
+interface IAddAndRemoveCartItems {
+  id: number;
+  platform: string;
+  quantity: number;
+}
+
 export const AddAndRemoveCartItems = ({
   id,
   platform,
   quantity,
-}: {
-  id: number;
-  platform: string;
-  quantity: number;
-}) => {
+}: IAddAndRemoveCartItems) => {
   const { removeFromCart, addToCart, deleteFromCart } = useActions();
 
   return (

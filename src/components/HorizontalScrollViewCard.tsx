@@ -4,9 +4,9 @@ import {
   Text,
   StyleSheet,
   Pressable,
-  Platform,
   View,
   Image,
+  ImageSourcePropType,
 } from 'react-native';
 import image from '../../assets/oldschool-nes.png';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
@@ -17,18 +17,20 @@ import { TYPOGRAPHY } from '../global/styles/typography';
 import { BottomTabParams, RootStackParams } from '../navigation/navigation';
 import { NavigationScreen, NavigationScreenBottom } from '../types/app.types';
 
-type HorizontalViewCard = {
-  title?: string;
-  categoryName?: string;
-  imageProp?: any;
+interface IHorizontalViewCard {
+  title: string;
+  categoryName: string;
+  imageProp?: ImageSourcePropType;
   imageUrl?: string;
+  height?: number;
+  width?: number;
 
   // How to type this ask Remco!
   routeString?:
     | NavigationScreenBottom<BottomTabParams>
     | NavigationScreen<RootStackParams>
     | any;
-};
+}
 
 export const HorizontalScrollViewCard = ({
   title,
@@ -36,7 +38,9 @@ export const HorizontalScrollViewCard = ({
   imageProp,
   imageUrl,
   routeString,
-}: HorizontalViewCard) => {
+  height,
+  width,
+}: IHorizontalViewCard) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<BottomTabParams>>();
 
@@ -59,12 +63,14 @@ export const HorizontalScrollViewCard = ({
 
   return (
     <View style={styles.cardDimensions}>
+      {/* Type 'undefined' is not assignable to type 'keyof BottomTabParams'.ts(2345)  => without any*/}
       <Pressable onPress={() => navigation.navigate(routeString, params)}>
         <View style={{ paddingVertical: GLOBAL.SPACING.sm }}>
           <Text style={[styles.cardText]}>{cardHeader}</Text>
         </View>
 
-        <View style={{ height: 200, width: 200 }}>
+        <View
+          style={{ height: height ? height : 200, width: width ? width : 200 }}>
           <Image style={IMGSTYLES.responsive} source={source} />
         </View>
       </Pressable>
@@ -79,8 +85,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
     marginRight: GLOBAL.SPACING.sm,
-    // borderColor: 'red',
-    // borderWidth: 2,
   },
   cardText: {
     color: TYPOGRAPHY.COLOR.BrandRed,
