@@ -203,7 +203,8 @@ export const ProductDetailScreen = ({ route }: any) => {
                         }}
                         color='#fff'
                         mode='contained'
-                        onPress={() => navigation.navigate('Review')}>
+                        //@ts-ignore
+                        onPress={() => navigation.navigate('Review', { id })}>
                         <Text style={GLOBAL.TEXT.Default}>Write a review</Text>
                       </Button>
                       <ReferenceBar

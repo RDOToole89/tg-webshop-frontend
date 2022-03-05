@@ -68,7 +68,7 @@ export const reducer = (
       if (itemAlreadyInCart && itemAlreadyInCart.platform !== platform) {
         return {
           ...state,
-          cartItems: [...state.cartItems, newCartItem],
+          cartItems: [...state.cartItems, { ...newCartItem }],
         };
       }
 

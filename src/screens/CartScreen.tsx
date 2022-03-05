@@ -40,6 +40,7 @@ export const CartScreen = () => {
 
       const cartItem = {
         id: productId,
+        key: `${productId} + ${platform}`,
         title: product.title,
         brand: product.brand,
         price: Number(product.price),
@@ -204,10 +205,12 @@ export const CartScreen = () => {
                 imageUrl,
                 platform,
                 quantity,
+                key,
               }) => {
+                console.log(id);
                 return (
                   <ProductCheckoutCard
-                    key={id}
+                    key={key}
                     id={id}
                     title={title}
                     brand={brand}
