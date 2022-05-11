@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import { StyleSheet, View, Pressable, Image } from 'react-native';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import uuid from 'react-native-uuid';
+
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { TYPOGRAPHY } from '../global/styles/typography';
@@ -31,7 +31,7 @@ export const ImageCarousel = ({
           {images.map((image: string, i: number) => {
             return (
               <Image
-                key={uuid.v4().toString()}
+                key={Math.random()}
                 source={{ uri: image }}
                 style={IMGSTYLES.responsive}
               />
@@ -46,7 +46,7 @@ export const ImageCarousel = ({
             {images.map((x, i) => {
               return (
                 <Pressable
-                  key={uuid.v4().toString()}
+                  key={Math.random()}
                   style={dotStyle().outerDot}
                   onPress={() => {
                     ref.current?.setPage(i);

@@ -1,12 +1,12 @@
-import {
-  findItemByIdGen,
-  findItemByIdandPlatformGen,
-  addQuantityToItemGen,
-  subtractQuantityFromItemGen,
-  removeItemByIdGen,
-} from './helperFunctions/cartHelpers';
 import { ActionType } from '../action-types';
 import { TCartActions } from '../actionsInterfaces/cartInterfaces';
+import {
+  addQuantityToItemGen,
+  findItemByIdandPlatformGen,
+  findItemByIdGen,
+  removeItemByIdGen,
+  subtractQuantityFromItemGen,
+} from './helperFunctions/cartHelpers';
 
 export interface cartItem {
   productId: number;

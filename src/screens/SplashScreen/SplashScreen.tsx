@@ -1,7 +1,7 @@
-import * as SplashScreen from 'expo-splash-screen';
-import { useCallback, useEffect, useMemo, useState } from 'react';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import Constants from 'expo-constants';
 import { Animated, StyleSheet, View } from 'react-native';

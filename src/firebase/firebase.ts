@@ -1,21 +1,20 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 // addDoc => for adding documents
 // deleteDoc => for deleting documents
 // doc gives a reference to a specific DOCUMENT!
 import {
   addDoc,
-  getFirestore,
   collection,
-  getDocs,
+  CollectionReference,
   deleteDoc,
   doc,
+  getDocs,
+  getFirestore,
   onSnapshot,
-  DocumentData,
-  CollectionReference,
 } from 'firebase/firestore';
-import { config } from '../../configApi';
+import { config } from './configApi';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional

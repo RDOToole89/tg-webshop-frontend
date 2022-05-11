@@ -1,30 +1,30 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SearchBar } from '../components/SearchBar';
 
 import { Button } from 'react-native-paper';
 import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import { GLOBAL } from '../global/styles/global';
 
-import { useSelector } from '../hooks/useTypedSelector';
-import image from '../../assets/shopping-cart-curved.png';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { PressableText } from '../global/elements/PressableText';
-import { HorizontalScrollView } from '../components/HorizontalScrollView';
-import products from '../../assets/data/products.json';
-import { DefaultButton } from '../global/elements/buttons';
-import { BottomTabParams } from '../navigation/navigation';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Modal } from '../global/elements/Modal';
-import { MaterialIcons } from '@expo/vector-icons';
+import products from '../../assets/data/products.json';
+import image from '../../assets/shopping-cart-curved.png';
+import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { NotificationBox } from '../components/NotificationBox';
 import { ProductCheckoutCard } from '../components/ProductCheckoutCard';
+import { DefaultButton } from '../global/elements/buttons';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
+import { Modal } from '../global/elements/Modal';
+import { PressableText } from '../global/elements/PressableText';
+import { TYPOGRAPHY } from '../global/styles/typography';
+import { useSelector } from '../hooks/useTypedSelector';
+import { BottomTabParams } from '../navigation/navigation';
 
+import americanExpressLogo from '../../assets/american-express-logo.png';
 import idealLogo from '../../assets/ideal-logo.png';
 import masterCardLogo from '../../assets/mastercard-logo.png';
 import visaLogo from '../../assets/visa-logo.png';
-import americanExpressLogo from '../../assets/american-express-logo.png';
 import { IMGSTYLES } from '../global/styles/imgStyles';
 import { TCartItem } from '../types/data.types';
 

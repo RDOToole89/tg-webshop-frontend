@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Button, Image } from 'react-native';
+import { Button, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
@@ -7,8 +7,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
 import { StarRatings } from './StarRatings';
 
-import { TagMapper } from './TagMapper';
 import { IMGSTYLES } from '../global/styles/imgStyles';
+import { TagMapper } from './TagMapper';
 
 export interface IProductCard {
   id: number | string;

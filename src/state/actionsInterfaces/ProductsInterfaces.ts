@@ -1,4 +1,4 @@
-import { Product } from '../../types/data.types';
+import { IProduct } from '../../types/data.types';
 
 export interface LoadProductsAction {
   type: 'load_products';
@@ -6,7 +6,7 @@ export interface LoadProductsAction {
 
 export interface LoadProductsSuccessAction {
   type: 'load_products_success';
-  payload: Product[];
+  payload: IProduct[];
 }
 
 export interface LoadProductsErrorAction {

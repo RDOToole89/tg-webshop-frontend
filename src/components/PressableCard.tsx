@@ -1,10 +1,10 @@
 import {
-  Text,
-  StyleSheet,
-  View,
   ImageBackground,
-  Pressable,
   ImageSourcePropType,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 
 import { GLOBAL } from '../global/styles/global';

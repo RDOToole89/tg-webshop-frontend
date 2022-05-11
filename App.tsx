@@ -1,15 +1,15 @@
 import { Provider } from 'react-redux';
-import { store } from './src/state/store';
 import { Navigation } from './src/navigation';
+import { store } from './src/state/store';
 
 import useCachedResources from './src/hooks/useCachedResources';
 import { StartupScreen } from './src/screens/StartupScreen';
 
 import { AnimatedAppLoader } from './src/screens/SplashScreen/SplashScreen';
 
-import image from './assets/gamepad.png';
 import { useEffect } from 'react';
 import { LogBox } from 'react-native';
+import image from './assets/gamepad.png';
 export const ViewPropTypes = { style: null };
 
 const images = [image];

@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { ScrollView, Text, StyleSheet } from 'react-native';
-import { TextInput } from 'react-native-paper';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { Button, TextInput } from 'react-native-paper';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { Button } from 'react-native-paper';
-import { HorizontalRule } from '../global/elements/HorizontalRule';
 
 export const AccountScreen = () => {
   // temporary code to repesent a user entity

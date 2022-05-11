@@ -1,15 +1,15 @@
 import {
   ActivityIndicator,
+  ImageBackground,
   StyleSheet,
   View,
-  ImageBackground,
 } from 'react-native';
 
 import image from '../../assets/gamepad.png';
 
+import { Image } from 'react-native';
 import logo from '../../assets/lamestop-logo-transparent.png';
 import { IMGSTYLES } from '../global/styles/imgStyles';
-import { Image } from 'react-native';
 
 export const StartupScreen = () => {
   return (

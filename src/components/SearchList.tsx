@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, FlatList, ListRenderItem } from 'react-native';
+import { FlatList, ListRenderItem, StyleSheet, View } from 'react-native';
 import { IProductDetails } from '../types/data.types';
 import { ProductCard } from './ProductCard';
 
@@ -7,7 +7,7 @@ interface ISearchList {
   searchPhrase: string;
   setClicked: (bool: boolean) => void;
   data: any[];
-  item: ListRenderItem<React.ReactElement>;
+  item?: ListRenderItem<React.ReactElement>;
 }
 
 type TProductRenderList = Omit<IProductDetails, 'id'>;

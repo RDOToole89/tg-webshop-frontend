@@ -1,8 +1,8 @@
 import {
   createUserWithEmailAndPassword,
-  UserCredential,
-  User,
   signOut,
+  User,
+  UserCredential,
 } from '@firebase/auth';
 import { Action, Dispatch } from 'redux';
 import { axios } from '../../constants/axios';

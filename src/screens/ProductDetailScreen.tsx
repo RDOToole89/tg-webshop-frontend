@@ -1,23 +1,21 @@
-import { View, ScrollView, Text, StyleSheet, Image } from 'react-native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useState } from 'react';
+import { Image, ScrollView, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
-import { GLOBAL } from '../global/styles/global';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { useActions } from '../hooks/useActions';
+import reviews from '../../assets/data/reviews.json';
+import { ImageCarousel } from '../components/ImageCarousel';
+import { ReferenceBar } from '../components/ReferenceBar';
+import { ReviewCard } from '../components/ReviewCard';
 import { StarRatings } from '../components/StarRatings';
 import { TagMapper } from '../components/TagMapper';
-import { PickerGenerator } from '../global/elements/PickerGenerator';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
-import reviews from '../../assets/data/reviews.json';
-import { ReviewCard } from '../components/ReviewCard';
-import uuid from 'react-native-uuid';
-import { ReferenceBar } from '../components/ReferenceBar';
-import { useState } from 'react';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { BottomTabParams, RootStackParams } from '../navigation/navigation';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { ImageCarousel } from '../components/ImageCarousel';
+import { PickerGenerator } from '../global/elements/PickerGenerator';
+import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
+import { TYPOGRAPHY } from '../global/styles/typography';
+import { useActions } from '../hooks/useActions';
+import { BottomTabParams, RootStackParams } from '../navigation/navigation';
 
 export const ProductDetailScreen = () => {
   const route = useRoute<RouteProp<BottomTabParams, 'ProductDetails'>>();
@@ -184,7 +182,7 @@ export const ProductDetailScreen = () => {
         {!showAllReviews
           ? reviews.map(
               ({ userNameTest, title, content, reviewScore, likes }, i) => {
-                let key = uuid.v4().toString();
+                let key = Math.random().toString();
 
                 if (i < 4) {
                   return renderItem(
@@ -233,7 +231,7 @@ export const ProductDetailScreen = () => {
             )
           : reviews.map(
               ({ userNameTest, title, content, reviewScore, likes }, i) => {
-                let key = uuid.v4().toString();
+                let key = Math.random().toString();
                 if (reviews.length && i < reviews.length - 1) {
                   return renderItem(
                     userNameTest,

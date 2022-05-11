@@ -1,16 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParams } from '../navigation/navigation';
-import { Text, StyleSheet, View } from 'react-native';
-import { DefaultButton } from '../global/elements/buttons';
-import { GLOBAL } from '../global/styles/global';
-import { TYPOGRAPHY } from '../global/styles/typography';
+import { StyleSheet, Text, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useSelector } from 'react-redux';
 import { ReferenceBar } from '../components/ReferenceBar';
+import { DefaultButton } from '../global/elements/buttons';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { Modal } from '../global/elements/Modal';
-import { useSelector } from 'react-redux';
+import { GLOBAL } from '../global/styles/global';
+import { TYPOGRAPHY } from '../global/styles/typography';
 import { useActions } from '../hooks/useActions';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { RootStackParams } from '../navigation/navigation';
 import { RootState } from '../state';
 
 export const ProfileScreen = () => {

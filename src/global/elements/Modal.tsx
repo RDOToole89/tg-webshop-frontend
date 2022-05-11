@@ -1,10 +1,10 @@
 import { FunctionComponent, ReactNode, useCallback, useState } from 'react';
-import { StyleSheet, Modal as DefaultModal, Pressable } from 'react-native';
+import { Modal as DefaultModal, Pressable, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { GLOBAL } from '../styles/global';
 
-import { PressableText } from './PressableText';
 import { useFocusEffect } from '@react-navigation/native';
+import { PressableText } from './PressableText';
 
 interface IModalProps {
   activator?: FunctionComponent<{ handleOpen: () => void }>;

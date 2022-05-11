@@ -1,27 +1,27 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  ImageBackground,
-} from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { TopBar } from '../components/TopBar';
-import { PromotionBanner } from '../components/PromotionBanner';
-import { GLOBAL } from '../global/styles/global';
-import { SearchBar } from '../components/SearchBar';
-import image from '../../assets/lame-banner.png';
+import {
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import imageDeal from '../../assets/fake-add.png';
-import weekDeal from '../../assets/week-deal-dark.png';
+import image from '../../assets/lame-banner.png';
 import trending from '../../assets/trending.png';
+import weekDeal from '../../assets/week-deal-dark.png';
+import { PromotionBanner } from '../components/PromotionBanner';
+import { SearchBar } from '../components/SearchBar';
+import { TopBar } from '../components/TopBar';
+import { GLOBAL } from '../global/styles/global';
 
-import { DefaultButton } from '../global/elements/buttons';
+import { useNavigation } from '@react-navigation/native';
 import { DealBanner } from '../components/DealBanner';
 import { MessageBanner } from '../components/MessageBanner';
-import { useNavigation } from '@react-navigation/native';
-import { RootStackParams } from '../navigation/navigation';
+import { DefaultButton } from '../global/elements/buttons';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { TYPOGRAPHY } from '../global/styles/typography';
+import { RootStackParams } from '../navigation/navigation';
 // import { useActions } from '../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { RootState } from '../state';
@@ -29,10 +29,10 @@ import { RootState } from '../state';
 import categories from '../../assets/data/categories.json';
 import products from '../../assets/data/products.json';
 
-import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { DealCountDown } from '../components/DealCountDown';
-import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { HorizontalScrollView } from '../components/HorizontalScrollView';
 import { IconGenerator } from '../components/IconGenerator';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
 
 export const HomeScreen = () => {
   // const { fetchUser } = useActions();

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native';
 
-import { CustomText } from './customText';
 import { GLOBAL } from '../styles/global';
+import { CustomText } from './customText';
 
 type Callback = () => any;
 export interface IDefaultButton {

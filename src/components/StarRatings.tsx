@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { MaterialIcon } from '../global/elements/MaterialIcon';
-import uuid from 'react-native-uuid';
 import { GLOBAL } from '../global/styles/global';
 
 interface IStarRatings {
@@ -32,7 +31,7 @@ export const StarRatings = ({
             icon
           ) : (
             <MaterialIcon
-              key={uuid.v4().toString()}
+              key={Math.random()}
               name='star'
               size={size ? size : 'small'}
               color={'gold'}

@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  View,
-  KeyboardAvoidingView,
-  TextInput,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
   Button,
   Keyboard,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 
 // ==== TESTSCREEN COMPONENT ==== //

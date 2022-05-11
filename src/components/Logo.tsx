@@ -1,6 +1,6 @@
 import { ImageSourcePropType } from 'react-native';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import logo from '../../assets/lamestop-logo-transparent.png';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 
 interface ILogo {
   width: number;

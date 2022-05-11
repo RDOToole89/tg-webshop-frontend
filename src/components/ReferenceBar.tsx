@@ -1,5 +1,5 @@
-import { View, Pressable, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParams } from '../navigation/navigation';
@@ -7,8 +7,8 @@ import { RootStackParams } from '../navigation/navigation';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 
-import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { CustomText } from '../global/elements/customText';
+import { MaterialIcon } from '../global/elements/MaterialIcon';
 import { NavigationScreen } from '../types/app.types';
 
 type TReferenceBar = {

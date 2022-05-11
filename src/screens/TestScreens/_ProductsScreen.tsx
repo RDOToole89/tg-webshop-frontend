@@ -1,20 +1,19 @@
-import { Text, StyleSheet, ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { ProductCard } from '../../components/ProductCard';
 import { GLOBAL } from '../../global/styles/global';
 import { TYPOGRAPHY } from '../../global/styles/typography';
-import { ProductCard } from '../../components/ProductCard';
 // import products from '../../assets/data/products.json';
+import { addDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Button, TextInput } from 'react-native-paper';
-import { HorizontalRule } from '../../global/elements/HorizontalRule';
 import {
-  deleteDoc,
-  doc,
-  getDocs,
-  onSnapshot,
   colRef,
   db,
+  deleteDoc,
+  doc,
+  onSnapshot,
 } from '../../firebase/firebase';
-import { addDoc } from 'firebase/firestore';
+import { HorizontalRule } from '../../global/elements/HorizontalRule';
 
 // THIS SCREEN IS FOR TESTING FIREBASE CRUD OPERATIONS!!!! => not production
 // Net Ninja
@@ -104,7 +103,7 @@ export const ProductsScreen = () => {
     <Text>Loading</Text>
   ) : (
     <ScrollView>
-      {products?.map((product) => {
+      {products?.map((product: any) => {
         // console.log(product);
 
         return (

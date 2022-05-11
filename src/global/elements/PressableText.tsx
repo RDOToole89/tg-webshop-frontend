@@ -1,4 +1,4 @@
-import { Text, Pressable, PressableProps } from 'react-native';
+import { Pressable, PressableProps, Text } from 'react-native';
 import { GLOBAL } from '../styles/global';
 
 // extending PressableProps with the & Operator

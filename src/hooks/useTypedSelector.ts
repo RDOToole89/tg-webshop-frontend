@@ -1,4 +1,4 @@
-import { useSelector as _useSelector, TypedUseSelectorHook } from 'react-redux';
+import { TypedUseSelectorHook, useSelector as _useSelector } from 'react-redux';
 import { RootState } from '../state';
 
 // this line is necessary to make TypeScript work with useSelector

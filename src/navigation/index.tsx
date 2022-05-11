@@ -1,28 +1,28 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import logo from '../../assets/lamestop-logo-transparent.png';
 
-import { Image, Keyboard, Pressable } from 'react-native';
-import { HomeScreen } from '../screens/HomeScreen';
-import { CategoriesScreen } from '../screens/CategoriesScreen';
-import { SearchScreen } from '../screens/SearchScreen';
-import { ProfileScreen } from '../screens/ProfileScreen';
+import { Image, Pressable } from 'react-native';
 import { CartScreen } from '../screens/CartScreen';
+import { CategoriesScreen } from '../screens/CategoriesScreen';
+import { HomeScreen } from '../screens/HomeScreen';
+import { ProfileScreen } from '../screens/ProfileScreen';
+import { SearchScreen } from '../screens/SearchScreen';
 
-import { useSelector } from '../hooks/useTypedSelector';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { BottomTabParams, RootStackParams } from './navigation';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { LoginScreen } from '../screens/LoginScreen';
-import { SignupScreen } from '../screens/SignupScreen';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { GLOBAL } from '../global/styles/global';
 import { IMGSTYLES } from '../global/styles/imgStyles';
-import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
-import { ProductsScreen } from '../screens/ProductsScreen';
+import { TYPOGRAPHY } from '../global/styles/typography';
+import { useSelector } from '../hooks/useTypedSelector';
+import { LoginScreen } from '../screens/LoginScreen';
 import { ProductDetailScreen } from '../screens/ProductDetailScreen';
+import { ProductsScreen } from '../screens/ProductsScreen';
 import { ReviewScreen } from '../screens/ReviewScreen';
+import { SignupScreen } from '../screens/SignupScreen';
+import { selectCartItemsQuantity } from '../state/selectors/CartSelector';
+import { BottomTabParams, RootStackParams } from './navigation';
 
 import { AccountScreen } from '../screens/AccountScreen';
 import { AddProductsScreen } from '../screens/AddProductScreen';

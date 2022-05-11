@@ -1,20 +1,14 @@
-import { useEffect } from 'react';
-
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { BottomTabParams } from '../navigation/navigation';
 
-import uuid from 'react-native-uuid';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import { useSelector } from 'react-redux';
 import { GLOBAL } from '../global/styles/global';
-import { useActions } from '../hooks/useActions';
-import { RootState } from '../state';
 
+import { ScrollView } from 'react-native-gesture-handler';
 import { SearchBar } from '../components/SearchBar';
 import { TopBar } from '../components/TopBar';
-import { ScrollView } from 'react-native-gesture-handler';
 
 import background from '../../assets/card-bg.png';
 import { PressableCard } from '../components/PressableCard';
@@ -68,7 +62,7 @@ export const CategoriesScreen = () => {
           testData.map((item) => {
             return (
               <PressableCard
-                key={uuid.v4().toString()}
+                key={Math.random()}
                 background={background}
                 title={item.categoryName}
                 onClick={() =>

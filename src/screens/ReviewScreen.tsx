@@ -1,29 +1,27 @@
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import {
-  Pressable,
-  Text,
-  View,
-  TextInput,
-  StyleSheet,
-  TouchableWithoutFeedback,
   Keyboard,
-  KeyboardAvoidingView,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
-import { GLOBAL } from '../global/styles/global';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { Ionicons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
 import { Button } from 'react-native-paper';
-import { ResponsiveImage } from '../global/elements/ResponsiveImage';
 import image from '../../assets/oldschool-nes.png';
 import { StarRatings } from '../components/StarRatings';
 import { HorizontalRule } from '../global/elements/HorizontalRule';
 import { Modal } from '../global/elements/Modal';
+import { ResponsiveImage } from '../global/elements/ResponsiveImage';
+import { GLOBAL } from '../global/styles/global';
+import { TYPOGRAPHY } from '../global/styles/typography';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParams } from '../navigation/navigation';
-import { NotificationBox } from '../components/NotificationBox';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { NotificationBox } from '../components/NotificationBox';
+import { RootStackParams } from '../navigation/navigation';
 
 export const ReviewScreen = () => {
   const navigation =

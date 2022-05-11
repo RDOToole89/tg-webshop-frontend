@@ -1,4 +1,4 @@
-import { View, Image, ImageSourcePropType } from 'react-native';
+import { Image, ImageSourcePropType, View } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 
 interface IDealBanner {

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import productsData from '../../assets/data/products.json';
 import { SearchBar } from '../components/SearchBar';
+import { SearchList } from '../components/SearchList';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import productsData from '../../assets/data/products.json';
-import { SearchList } from '../components/SearchList';
 
 export const SearchScreen = () => {
   const [searchPhrase, setSearchPhrase] = useState('');

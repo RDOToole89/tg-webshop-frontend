@@ -1,18 +1,18 @@
-import { Text, StyleSheet, ScrollView } from 'react-native';
-import { GLOBAL } from '../global/styles/global';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { IProductCard, ProductCard } from '../components/ProductCard';
 import React, { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, Text } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
-import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { IProductCard, ProductCard } from '../components/ProductCard';
 import {
-  deleteDoc,
-  doc,
   addDoc,
-  onSnapshot,
   colRef,
   db,
+  deleteDoc,
+  doc,
+  onSnapshot,
 } from '../firebase/firebase';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { GLOBAL } from '../global/styles/global';
+import { TYPOGRAPHY } from '../global/styles/typography';
 
 // THIS SCREEN IS FOR TESTING FIREBASE CRUD OPERATIONS!!!! => not production
 // Net Ninja

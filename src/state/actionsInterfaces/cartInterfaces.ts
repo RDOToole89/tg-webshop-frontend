@@ -1,4 +1,4 @@
-import { Product } from '../../types/data.types';
+import { IProduct } from '../../types/data.types';
 
 export interface AddToCartAction {
   type: 'add_to_cart';
@@ -39,7 +39,7 @@ export interface LoadCartAction {
 
 export interface LoadCartSuccessAction {
   type: 'load_cart_success';
-  payload: Product[];
+  payload: IProduct[];
 }
 
 export interface LoadCartErrorAction {

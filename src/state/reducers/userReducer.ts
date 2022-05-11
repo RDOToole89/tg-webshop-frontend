@@ -1,5 +1,5 @@
-import { TLoginUserAction } from './../actionsInterfaces/userInterfaces';
 import { ActionType } from '../action-types';
+import { TLoginUserAction } from './../actionsInterfaces/userInterfaces';
 
 export interface UserState {
   loading: boolean;

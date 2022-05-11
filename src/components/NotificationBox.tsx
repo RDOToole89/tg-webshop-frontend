@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Text, View } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import { Ionicons } from '@expo/vector-icons';
 
 interface INotificationText {
   notificationText: string;

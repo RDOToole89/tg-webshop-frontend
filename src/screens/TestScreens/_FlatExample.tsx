@@ -1,16 +1,16 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Button,
-  ActivityIndicator,
-  FlatList,
-} from 'react-native';
 import { useState } from 'react';
-import { useSelector } from '../../hooks/useTypedSelector';
-import { useActions } from '../../hooks/useActions';
+import {
+  ActivityIndicator,
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import { GLOBAL } from '../../global/styles/global';
+import { useActions } from '../../hooks/useActions';
+import { useSelector } from '../../hooks/useTypedSelector';
 
 const Item = ({ title }: any) => (
   <View style={styles.item}>

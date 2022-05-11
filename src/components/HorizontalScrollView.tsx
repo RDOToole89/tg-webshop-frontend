@@ -1,16 +1,14 @@
 import {
   ScrollView,
-  View,
-  Text,
-  StyleSheet,
-  ViewStyle,
   StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
 } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
 import { HorizontalScrollViewCard } from './HorizontalScrollViewCard';
-import uuid from 'react-native-uuid';
-import { IProduct } from '../types/data.types';
 
 interface IHorizontalScrollView {
   dataArray: Object[];
@@ -39,7 +37,7 @@ export const HorizontalScrollView = ({
 
           return (
             <HorizontalScrollViewCard
-              key={uuid.v4().toString()}
+              key={Math.random()}
               routeString={routeString}
               {...item}
             />

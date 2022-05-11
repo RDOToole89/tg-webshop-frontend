@@ -1,6 +1,5 @@
 import { Picker } from '@react-native-picker/picker';
 import { GLOBAL } from '../styles/global';
-import uuid from 'react-native-uuid';
 
 interface IPickerGenerator {
   data: string[];
@@ -25,13 +24,9 @@ export const PickerGenerator = ({
       }}>
       {data?.map((x: any, i) =>
         defaultValue && !i ? (
-          <Picker.Item
-            key={uuid.v4().toString()}
-            value={''}
-            label={defaultValue}
-          />
+          <Picker.Item key={Math.random()} value={''} label={defaultValue} />
         ) : (
-          <Picker.Item key={uuid.v4().toString()} label={x} value={x} />
+          <Picker.Item key={Math.random()} label={x} value={x} />
         )
       )}
     </Picker>

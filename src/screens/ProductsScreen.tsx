@@ -1,11 +1,11 @@
-import { Text, StyleSheet, ScrollView, View } from 'react-native';
+import { RouteProp, useRoute } from '@react-navigation/native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import articleTypes from '../../assets/data/articleTypes.json';
+import products from '../../assets/data/products.json';
 import { ArticleCard } from '../components/ArticleCard';
+import { ProductCard } from '../components/ProductCard';
 import { GLOBAL } from '../global/styles/global';
 import { TYPOGRAPHY } from '../global/styles/typography';
-import articleTypes from '../../assets/data/articleTypes.json';
-import { ProductCard } from '../components/ProductCard';
-import products from '../../assets/data/products.json';
-import { RouteProp, useRoute } from '@react-navigation/native';
 import { BottomTabParams } from '../navigation/navigation';
 
 export const ProductsScreen = () => {

@@ -1,7 +1,6 @@
-import { Pressable, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Pressable, View } from 'react-native';
 import { GLOBAL } from '../global/styles/global';
-import uuid from 'react-native-uuid';
 
 // How to type THIS?!
 interface IIcon {
@@ -28,7 +27,7 @@ export const IconGenerator = ({
       ]}>
       {iconDescArray.map((icon: any) => {
         return (
-          <Pressable key={uuid.v4().toString()} onPress={onClick}>
+          <Pressable key={Math.random()} onPress={onClick}>
             {/* Type 'string' is not assignable to type '"body" | "push" | "map" | "filter" | "at" | "search" | "repeat" | "link" | "code" | "menu" | "time" | "ellipse" | "image" | "stop" | "text" | "alert" | "checkbox" | "radio" | "timer" | ... 3662 more ... | undefined'.ts(2322) */}
             <Ionicons name={icon.name} size={icon.size} color={icon.color} />
           </Pressable>

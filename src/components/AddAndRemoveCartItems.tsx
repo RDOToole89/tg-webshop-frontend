@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { useActions } from '../hooks/useActions';
 import { SubmitButton } from './SubmitButton';
 

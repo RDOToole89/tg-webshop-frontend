@@ -1,5 +1,5 @@
-import { TLoadCategoryAction } from '../actionsInterfaces/CategoryInterfaces';
 import { ActionType } from '../action-types';
+import { TLoadCategoryAction } from '../actionsInterfaces/CategoryInterfaces';
 
 export interface CategoriesState {
   loading: boolean;

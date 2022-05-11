@@ -1,22 +1,22 @@
-import { View, Text, StyleSheet, Platform } from 'react-native';
-import { GLOBAL } from '../global/styles/global';
-import { TextInput, Checkbox, Button } from 'react-native-paper';
-import React, { useEffect, useRef, useState } from 'react';
-import { HorizontalRule } from '../global/elements/HorizontalRule';
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { TopBar } from '../components/TopBar';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParams } from '../navigation/navigation';
-import { PressableText } from '../global/elements/PressableText';
-import { useActions } from '../hooks/useActions';
 import {
-  signInWithPopup,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from '@firebase/auth';
-import { auth, googleProvider } from '../firebase/firebase';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import { Button, Checkbox, TextInput } from 'react-native-paper';
 import { MessageBanner } from '../components/MessageBanner';
+import { TopBar } from '../components/TopBar';
+import { auth, googleProvider } from '../firebase/firebase';
+import { HorizontalRule } from '../global/elements/HorizontalRule';
+import { PressableText } from '../global/elements/PressableText';
+import { GLOBAL } from '../global/styles/global';
+import { TYPOGRAPHY } from '../global/styles/typography';
+import { useActions } from '../hooks/useActions';
+import { RootStackParams } from '../navigation/navigation';
 
 export const LoginScreen = () => {
   const { signUpWithFirebaseGoogle } = useActions();

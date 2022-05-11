@@ -1,11 +1,11 @@
-import { Product } from '../../types/data.types';
+import { IProduct } from '../../types/data.types';
 import { ActionType } from '../action-types';
 import { TLoadProductsAction } from '../actionsInterfaces/ProductsInterfaces';
 
 export interface ProductsState {
   loading: boolean;
   error: string | null;
-  data: Product[];
+  data: IProduct[];
 }
 
 const initialState = {

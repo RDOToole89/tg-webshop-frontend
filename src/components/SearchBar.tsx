@@ -1,17 +1,17 @@
 import {
-  View,
-  TextInput,
-  StyleSheet,
   StyleProp,
+  StyleSheet,
+  TextInput,
+  View,
   ViewStyle,
 } from 'react-native';
 import { SubmitButton } from './SubmitButton';
 
-import { TYPOGRAPHY } from '../global/styles/typography';
-import { GLOBAL } from '../global/styles/global';
-import { useState } from 'react';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useState } from 'react';
+import { GLOBAL } from '../global/styles/global';
+import { TYPOGRAPHY } from '../global/styles/typography';
 import { RootStackParams } from '../navigation/navigation';
 
 interface ISearchBar {

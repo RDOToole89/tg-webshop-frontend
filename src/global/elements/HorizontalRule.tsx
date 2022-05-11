@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, Text, View, ViewStyle } from 'react-native';
 import { GLOBAL } from '../styles/global';
 import { TYPOGRAPHY } from '../styles/typography';
 
