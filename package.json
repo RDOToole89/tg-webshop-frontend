@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@firebase/app": "^0.7.17",
     "@firebase/auth": "^0.19.9",
     "@firebase/database": "^0.12.5",
@@ -25,6 +26,7 @@
     "expo-asset": "~8.4.6",
     "expo-constants": "~13.0.1",
     "expo-dev-client": "~0.8.5",
+    "expo-font": "^10.1.0",
     "expo-linear-gradient": "^11.0.3",
     "expo-splash-screen": "^0.14.2",
     "expo-status-bar": "~1.2.0",
@@ -50,7 +52,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@babel/plugin-proposal-export-namespace-from": "^7.16.7",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
     "@types/react-native-vector-icons": "^6.4.10",
